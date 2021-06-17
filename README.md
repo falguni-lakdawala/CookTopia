@@ -1,3 +1,31 @@
+# Navigating through the project code
+
+
+1. ##Routes
+-Pages are inside Pages directory
+-Routes are defined in App.js.
+
+
+2. ##Components Organization
+
+-Composable Components
+*Contains basic composable components such as buttons,image *
+
+-Sub-components
+*Contains Components composed from composable components
+
+-Semantic Components
+*Contains semantic elements header,body,footer
+
+
+##Creating Issues
+
+**Follows issue based git style.
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
