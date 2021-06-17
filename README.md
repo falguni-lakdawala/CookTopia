@@ -2,19 +2,19 @@
 
 
 ## Routes
--Pages are inside Pages directory
--Routes are defined in App.js.
+- Pages are inside Pages directory
+- Routes are defined in App.js.
 
 
 ## Components Organization
 
-### Composable Components
+1. ### Composable Components
 Contains basic composable components such as buttons,image.
 
-### Sub-components
+2. ### Sub-components
 Contains Components composed from composable components
 
-### Semantic Components
+3. ### Semantic Components
 Contains semantic elements header,body,footer
 
 
