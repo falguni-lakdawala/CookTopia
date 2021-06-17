@@ -2,8 +2,8 @@
 
 
 ## Routes
--Pages are inside Pages directory
--Routes are defined in App.js.
+- Pages are inside Pages directory
+- Routes are defined in App.js.
 
 
 ## Components Organization
