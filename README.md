@@ -1,24 +1,24 @@
 # Navigating through the project code
 
 
-##Routes
+## Routes
 -Pages are inside Pages directory
 -Routes are defined in App.js.
 
 
-##Components Organization
+## Components Organization
 
-###Composable Components
+### Composable Components
 Contains basic composable components such as buttons,image.
 
-###Sub-components
+### Sub-components
 Contains Components composed from composable components
 
-###Semantic Components
+### Semantic Components
 Contains semantic elements header,body,footer
 
 
-##Creating Issues
+## Creating Issues
 
 **Follows issue based git style.**
 
