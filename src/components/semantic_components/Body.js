@@ -1,9 +1,14 @@
+
+import React from "react";
+import Recipecard from "../sub-components/Recipecard";
+
+
 const Body=()=>{
 
     return(
         
     <>
-    <h1>Hello Body section</h1>
+    <Recipecard/>
     </>
     
     )

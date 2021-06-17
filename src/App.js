@@ -1,30 +1,33 @@
 
 import './App.scss';
-import Header from './components/Header'
-import Body from './components/Body'
-import Footer from './components/Footer'
-import React from 'react';
+import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
+import React from 'react'
+import HomePage from './pages/HomePage';
+import page_not_found from './pages/page_not_found';
 
-const values={"Maneesh":"smart","Reddy":"red"}
-const contextapp=React.createContext(values);
+
 
 function App() {
   return (
     <>
     <div className="App">
-      <contextapp.Provider value={values}>
-        {/* Whatever the value you pass here will be available in child components and also causes re-renders */}
-     <Header/>
-     <Body/>
-     <Footer/>
-     </contextapp.Provider>
+  
+<Router>
+<Switch>
+  <Route path='/' exact component={HomePage} />
+  <Route path="*" component={page_not_found}/>
+</Switch>
+
+
+</Router>
+
+
     </div>
     </>
   );
 }
 
 
-export {contextapp}
 export default App;
 
 
