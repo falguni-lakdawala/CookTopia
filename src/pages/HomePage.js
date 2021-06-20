@@ -4,7 +4,7 @@ import Header from '../components/semantic_components/Header'
 import Body from '../components/semantic_components/Body'
 import Footer from '../components/semantic_components/Footer'
 
-const values={}
+const values={a:2,b:3}
 const contextapp=React.createContext(values);
 
 const HomePage = () => {
@@ -19,5 +19,7 @@ const HomePage = () => {
         </div>
     )
 }
+
+export {contextapp}
 
 export default HomePage

@@ -2,19 +2,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Button = ({text,style}) => {
+const Button = ({type,text,style}) => {
     return (
-        <button type="button" style={style} >{text}</button>
+        <button type={type} style={style} >{text}</button>
     )
 }
 
-Button.PropTypes={
-    style:PropTypes.string,
+Button.propTypes={
+    style:PropTypes.object,
     text:PropTypes.string
 }
 
 Button.defaultProps={
-    style:"",
+    type:"button",
+    style:{},
     text:"text"
 }
 

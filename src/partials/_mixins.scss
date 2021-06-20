@@ -1,0 +1,8 @@
+
+@mixin round_image($radius:50%){
+border-radius:$radius
+}
+
+@mixin round_image_individual($topleft:0,$topright:0,$bottomright:0,$bottomleft:0){
+border-radius:$topleft $topright $bottomright $bottomleft;
+}

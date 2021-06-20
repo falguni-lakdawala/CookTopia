@@ -1,16 +1,13 @@
+ 
 
 import React from 'react'
+import FeatureCard from './FeatureCard'
 
-const Features = ({ feature_card_data }) => {
+const Features = ({features}) => {
     return (
-        <div className="features_page">
+        <div className="features">
 
-            {
-                feature_card_data.map((data, index) => {
-                    <FeatureCard src="" alt="" text="" p_text="" style="" />
-
-                }
-            })
+            <FeatureCard features={[[{src:"https://picsum.photos/100/100?random=1",text:"Search recipes",pdata:"lorem ipsum",}],[{src:"https://picsum.photos/100/100?random=2",text:"Nutritional data",pdata:"lorem ipsum",}],[{src:"https://picsum.photos/100/100?random=3",text:"Search ",pdata:"lorem ipsum",}]]} />
 
         </div>
     )
