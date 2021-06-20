@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Navbar from '../composable-components/Navbar'
+import { contextapp } from '../../pages/HomePage'
 
 
 const Header=()=>{
 
 const navElements=["Home","About","me"]
+
+const context=useContext(contextapp)
+
+
 
 // const parentcontext=useContext(contextapp);
 

@@ -1,17 +1,25 @@
 import React from "react";
+import ContactForm from "../sub-components/ContactForm";
 
-const Footer=()=>{
 
-    return(
+// Define styles for individual inputs rendered in ContactForm
+
+const Footer = () => {
+
+
+    return (
         
-    <>
-    <footer>
+        <>
+            <footer className="app_footer">
+               
 
-    </footer>
-    </>
-    
+               <p>Copyright© 2021 cooktopia all rights reserved. </p>
+
+            </footer>
+        </>
+
     )
-    
-    }
-    
-    export default Footer;
+
+}
+
+export default Footer;
