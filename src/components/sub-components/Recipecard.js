@@ -2,9 +2,9 @@
 import React from 'react'
 import Images from '../composable-components/Images'
 
-const Recipecard = ({recipes}) => {
+const Recipecard = ({recipes, recipeClassName}) => {
 return(
-    <div className="recipe_individual">
+    <div className={recipeClassName}>
     {
         recipes.map(data=>{
             return(
