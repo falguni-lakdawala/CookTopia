@@ -19,11 +19,15 @@ const props3={style:{outlineColor:"blue"},placeholder:"Email",title:"Email"}
         <>
                 <main className="app_body">
 
-                  {location.pathname=='/' && (<>
+                  { (location.pathname=='/') && (<>
                     <Blindbox />
                     <Recipes />
                     <Features features={[1,2,3]} />
                     <ContactForm input_number={[[1,props1],[2,props2],[3,props3]]}/>
+                    </>)}
+
+                    { (location.pathname == '/search/') && (<>
+                    <Recipes />
                     </>)}
 
                 </main>
