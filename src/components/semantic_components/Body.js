@@ -1,6 +1,8 @@
 
 import React from "react";
 import Recipes from '../sub-components/Recipes'
+import RecipeResult from '../sub-components/RecipeResult'
+import ShoppingListRecipe from '../sub-components/ShoppingListRecipe'
 import Blindbox from '../sub-components/Blindbox'
 import Features from "../sub-components/Features";
 import ContactForm from "../sub-components/ContactForm";
@@ -19,11 +21,21 @@ const props3={style:{outlineColor:"blue"},placeholder:"Email",title:"Email"}
         <>
                 <main className="app_body">
 
-                  {location.pathname=='/' && (<>
+                  { (location.pathname=='/') && (<>
                     <Blindbox />
                     <Recipes />
                     <Features features={[1,2,3]} />
                     <ContactForm input_number={[[1,props1],[2,props2],[3,props3]]}/>
+                    </>)}
+
+                    { (location.pathname == '/search/') && (<>
+                        <RecipeResult />
+                        
+                    </>)}
+
+                    { (location.pathname == '/shoppingList/') && (<>
+                        <ShoppingListRecipe />
+                        
                     </>)}
 
                 </main>

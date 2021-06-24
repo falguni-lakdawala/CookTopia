@@ -3,7 +3,7 @@ img{
     height: auto;
 }
 
-.home_page{
+.home_page, .search_page, .shoppinglist_page{
     // Homepage Styling only
 .app_body{
     display: flex;
@@ -167,11 +167,68 @@ grid-row: 3;
 
     }
 }
+
+.recipe_result{
+    grid-row: 3;
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    div{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        img{
+            grid-row: 1;
+            grid-column: 1/-1;
+            @include round_image_individual(10%,10%)
+        }
+        h4{
+grid-row: 2;
+        }
+        p:nth-of-type(1){
+grid-row: 3;
+        }
+        p:nth-of-type(2){
+            grid-row: 4;
+        }
+
+    }
+}
 }
 //end Featured recipes
 // end homepage styling
 }
 }
+
+.shopping_card{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin: .5rem;
+
+    .ingredientlist{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .more_ingredient{
+        display: flex;
+        margin-left: auto;
+        margin-right: 15%;
+        grid-column: 1/-1;
+    }
+
+}
+
+.groceryshop{
+    margin: .5rem;
+    .mapcontainer{
+        height: 100px;
+        width: 100%;
+        text-align: center;
+        border: 1px solid black;
+    }
+    
+}
+
 
 
 
