@@ -2,6 +2,7 @@
 import React from "react";
 import Recipes from '../sub-components/Recipes'
 import RecipeResult from '../sub-components/RecipeResult'
+import ShoppingListRecipe from '../sub-components/ShoppingListRecipe'
 import Blindbox from '../sub-components/Blindbox'
 import Features from "../sub-components/Features";
 import ContactForm from "../sub-components/ContactForm";
@@ -29,6 +30,11 @@ const props3={style:{outlineColor:"blue"},placeholder:"Email",title:"Email"}
 
                     { (location.pathname == '/search/') && (<>
                         <RecipeResult />
+                        
+                    </>)}
+
+                    { (location.pathname == '/shoppingList/') && (<>
+                        <ShoppingListRecipe />
                         
                     </>)}
 

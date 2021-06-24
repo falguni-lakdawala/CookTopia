@@ -3,7 +3,7 @@ img{
     height: auto;
 }
 
-.home_page, .search_page{
+.home_page, .search_page, .shoppinglist_page{
     // Homepage Styling only
 .app_body{
     display: flex;
@@ -198,6 +198,37 @@ grid-row: 3;
 // end homepage styling
 }
 }
+
+.shopping_card{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin: .5rem;
+
+    .ingredientlist{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .more_ingredient{
+        display: flex;
+        margin-left: auto;
+        margin-right: 15%;
+        grid-column: 1/-1;
+    }
+
+}
+
+.groceryshop{
+    margin: .5rem;
+    .mapcontainer{
+        height: 100px;
+        width: 100%;
+        text-align: center;
+        border: 1px solid black;
+    }
+    
+}
+
 
 
 

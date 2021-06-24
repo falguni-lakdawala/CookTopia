@@ -342,12 +342,12 @@ img {
   height: auto;
 }
 
-.home_page .app_body, .search_page .app_body {
+.home_page .app_body, .search_page .app_body, .shoppinglist_page .app_body {
   display: flex;
   flex-flow: column nowrap;
 }
 
-.home_page .app_body .blindbox, .search_page .app_body .blindbox {
+.home_page .app_body .blindbox, .search_page .app_body .blindbox, .shoppinglist_page .app_body .blindbox {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -355,7 +355,7 @@ img {
   position: relative;
 }
 
-.home_page .app_body .blindbox:after, .search_page .app_body .blindbox:after {
+.home_page .app_body .blindbox:after, .search_page .app_body .blindbox:after, .shoppinglist_page .app_body .blindbox:after {
   content: "";
   position: absolute;
   left: 5%;
@@ -366,18 +366,18 @@ img {
   right: 5%;
 }
 
-.home_page .app_body .contact_form, .search_page .app_body .contact_form {
+.home_page .app_body .contact_form, .search_page .app_body .contact_form, .shoppinglist_page .app_body .contact_form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.5rem;
 }
 
-.home_page .app_body .contact_form h3, .search_page .app_body .contact_form h3 {
+.home_page .app_body .contact_form h3, .search_page .app_body .contact_form h3, .shoppinglist_page .app_body .contact_form h3 {
   justify-self: center;
   grid-column: 1/-1;
 }
 
-.home_page .app_body .contact_form .contact_inputs, .search_page .app_body .contact_form .contact_inputs {
+.home_page .app_body .contact_form .contact_inputs, .search_page .app_body .contact_form .contact_inputs, .shoppinglist_page .app_body .contact_form .contact_inputs {
   grid-column: 1/-1;
   grid-row: 2;
   display: grid;
@@ -387,155 +387,184 @@ img {
   padding: 1rem;
 }
 
-.home_page .app_body .contact_form .contact_inputs input:nth-of-type(1), .search_page .app_body .contact_form .contact_inputs input:nth-of-type(1) {
+.home_page .app_body .contact_form .contact_inputs input:nth-of-type(1), .search_page .app_body .contact_form .contact_inputs input:nth-of-type(1), .shoppinglist_page .app_body .contact_form .contact_inputs input:nth-of-type(1) {
   grid-row: 1;
   grid-column: 1/-1;
 }
 
-.home_page .app_body .contact_form .contact_inputs input:nth-of-type(2), .search_page .app_body .contact_form .contact_inputs input:nth-of-type(2) {
+.home_page .app_body .contact_form .contact_inputs input:nth-of-type(2), .search_page .app_body .contact_form .contact_inputs input:nth-of-type(2), .shoppinglist_page .app_body .contact_form .contact_inputs input:nth-of-type(2) {
   grid-row: 2;
   grid-column: 1/2;
 }
 
-.home_page .app_body .contact_form .contact_inputs input:nth-of-type(3), .search_page .app_body .contact_form .contact_inputs input:nth-of-type(3) {
+.home_page .app_body .contact_form .contact_inputs input:nth-of-type(3), .search_page .app_body .contact_form .contact_inputs input:nth-of-type(3), .shoppinglist_page .app_body .contact_form .contact_inputs input:nth-of-type(3) {
   grid-row: 2;
   grid-column: 2/3;
 }
 
-.home_page .app_body .contact_form .contact_inputs textarea, .search_page .app_body .contact_form .contact_inputs textarea {
+.home_page .app_body .contact_form .contact_inputs textarea, .search_page .app_body .contact_form .contact_inputs textarea, .shoppinglist_page .app_body .contact_form .contact_inputs textarea {
   grid-row: 3;
   grid-column: 1/-1;
 }
 
-.home_page .app_body .contact_form .contact_inputs button, .search_page .app_body .contact_form .contact_inputs button {
+.home_page .app_body .contact_form .contact_inputs button, .search_page .app_body .contact_form .contact_inputs button, .shoppinglist_page .app_body .contact_form .contact_inputs button {
   grid-row: 4;
   grid-column: 1/-1;
   justify-self: center;
 }
 
-.home_page .app_body .feature_wrapper, .search_page .app_body .feature_wrapper {
+.home_page .app_body .feature_wrapper, .search_page .app_body .feature_wrapper, .shoppinglist_page .app_body .feature_wrapper {
   display: flex;
   flex-flow: column nowrap;
 }
 
-.home_page .app_body .feature_wrapper h2, .search_page .app_body .feature_wrapper h2 {
+.home_page .app_body .feature_wrapper h2, .search_page .app_body .feature_wrapper h2, .shoppinglist_page .app_body .feature_wrapper h2 {
   text-align: center;
 }
 
-.home_page .app_body .feature_wrapper img, .search_page .app_body .feature_wrapper img {
+.home_page .app_body .feature_wrapper img, .search_page .app_body .feature_wrapper img, .shoppinglist_page .app_body .feature_wrapper img {
   border-radius: 50%;
 }
 
-.home_page .app_body .feature_wrapper .inputs_wrapper, .search_page .app_body .feature_wrapper .inputs_wrapper {
+.home_page .app_body .feature_wrapper .inputs_wrapper, .search_page .app_body .feature_wrapper .inputs_wrapper, .shoppinglist_page .app_body .feature_wrapper .inputs_wrapper {
   align-self: center;
   justify-self: end;
 }
 
-.home_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(odd), .search_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(odd) {
+.home_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(odd), .search_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(odd), .shoppinglist_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(odd) {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.5rem;
 }
 
-.home_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(odd) img, .search_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(odd) img {
+.home_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(odd) img, .search_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(odd) img, .shoppinglist_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(odd) img {
   grid-column: 1/2;
 }
 
-.home_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(odd) .inputs_wrapper, .search_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(odd) .inputs_wrapper {
+.home_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(odd) .inputs_wrapper, .search_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(odd) .inputs_wrapper, .shoppinglist_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(odd) .inputs_wrapper {
   grid-column: 2/3;
 }
 
-.home_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(even), .search_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(even) {
+.home_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(even), .search_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(even), .shoppinglist_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(even) {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.5rem;
 }
 
-.home_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(even) .inputs_wrapper, .search_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(even) .inputs_wrapper {
+.home_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(even) .inputs_wrapper, .search_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(even) .inputs_wrapper, .shoppinglist_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(even) .inputs_wrapper {
   grid-column: 1/2;
   grid-row: 1;
   justify-self: start;
 }
 
-.home_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(even) img, .search_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(even) img {
+.home_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(even) img, .search_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(even) img, .shoppinglist_page .app_body .feature_wrapper .features_single .featuress:nth-of-type(even) img {
   grid-row: 1;
   grid-column: 2/3;
   justify-self: end;
 }
 
-.home_page .app_body .recipes, .search_page .app_body .recipes {
+.home_page .app_body .recipes, .search_page .app_body .recipes, .shoppinglist_page .app_body .recipes {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
 
-.home_page .app_body .recipes h3, .search_page .app_body .recipes h3 {
+.home_page .app_body .recipes h3, .search_page .app_body .recipes h3, .shoppinglist_page .app_body .recipes h3 {
   grid-row: 1;
   grid-column: 1/-1;
 }
 
-.home_page .app_body .recipes p, .search_page .app_body .recipes p {
+.home_page .app_body .recipes p, .search_page .app_body .recipes p, .shoppinglist_page .app_body .recipes p {
   grid-row: 2;
   grid-column: 1/-1;
 }
 
-.home_page .app_body .recipes .recipe_individual, .search_page .app_body .recipes .recipe_individual {
+.home_page .app_body .recipes .recipe_individual, .search_page .app_body .recipes .recipe_individual, .shoppinglist_page .app_body .recipes .recipe_individual {
   grid-row: 3;
   grid-column: 1/-1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
 
-.home_page .app_body .recipes .recipe_individual div, .search_page .app_body .recipes .recipe_individual div {
+.home_page .app_body .recipes .recipe_individual div, .search_page .app_body .recipes .recipe_individual div, .shoppinglist_page .app_body .recipes .recipe_individual div {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
 
-.home_page .app_body .recipes .recipe_individual div img, .search_page .app_body .recipes .recipe_individual div img {
+.home_page .app_body .recipes .recipe_individual div img, .search_page .app_body .recipes .recipe_individual div img, .shoppinglist_page .app_body .recipes .recipe_individual div img {
   grid-row: 1;
   grid-column: 1/-1;
   border-radius: 10% 10% 0 0;
 }
 
-.home_page .app_body .recipes .recipe_individual div h4, .search_page .app_body .recipes .recipe_individual div h4 {
+.home_page .app_body .recipes .recipe_individual div h4, .search_page .app_body .recipes .recipe_individual div h4, .shoppinglist_page .app_body .recipes .recipe_individual div h4 {
   grid-row: 2;
 }
 
-.home_page .app_body .recipes .recipe_individual div p:nth-of-type(1), .search_page .app_body .recipes .recipe_individual div p:nth-of-type(1) {
+.home_page .app_body .recipes .recipe_individual div p:nth-of-type(1), .search_page .app_body .recipes .recipe_individual div p:nth-of-type(1), .shoppinglist_page .app_body .recipes .recipe_individual div p:nth-of-type(1) {
   grid-row: 3;
 }
 
-.home_page .app_body .recipes .recipe_individual div p:nth-of-type(2), .search_page .app_body .recipes .recipe_individual div p:nth-of-type(2) {
+.home_page .app_body .recipes .recipe_individual div p:nth-of-type(2), .search_page .app_body .recipes .recipe_individual div p:nth-of-type(2), .shoppinglist_page .app_body .recipes .recipe_individual div p:nth-of-type(2) {
   grid-row: 4;
 }
 
-.home_page .app_body .recipes .recipe_result, .search_page .app_body .recipes .recipe_result {
+.home_page .app_body .recipes .recipe_result, .search_page .app_body .recipes .recipe_result, .shoppinglist_page .app_body .recipes .recipe_result {
   grid-row: 3;
   grid-column: 1/-1;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
 
-.home_page .app_body .recipes .recipe_result div, .search_page .app_body .recipes .recipe_result div {
+.home_page .app_body .recipes .recipe_result div, .search_page .app_body .recipes .recipe_result div, .shoppinglist_page .app_body .recipes .recipe_result div {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
 
-.home_page .app_body .recipes .recipe_result div img, .search_page .app_body .recipes .recipe_result div img {
+.home_page .app_body .recipes .recipe_result div img, .search_page .app_body .recipes .recipe_result div img, .shoppinglist_page .app_body .recipes .recipe_result div img {
   grid-row: 1;
   grid-column: 1/-1;
   border-radius: 10% 10% 0 0;
 }
 
-.home_page .app_body .recipes .recipe_result div h4, .search_page .app_body .recipes .recipe_result div h4 {
+.home_page .app_body .recipes .recipe_result div h4, .search_page .app_body .recipes .recipe_result div h4, .shoppinglist_page .app_body .recipes .recipe_result div h4 {
   grid-row: 2;
 }
 
-.home_page .app_body .recipes .recipe_result div p:nth-of-type(1), .search_page .app_body .recipes .recipe_result div p:nth-of-type(1) {
+.home_page .app_body .recipes .recipe_result div p:nth-of-type(1), .search_page .app_body .recipes .recipe_result div p:nth-of-type(1), .shoppinglist_page .app_body .recipes .recipe_result div p:nth-of-type(1) {
   grid-row: 3;
 }
 
-.home_page .app_body .recipes .recipe_result div p:nth-of-type(2), .search_page .app_body .recipes .recipe_result div p:nth-of-type(2) {
+.home_page .app_body .recipes .recipe_result div p:nth-of-type(2), .search_page .app_body .recipes .recipe_result div p:nth-of-type(2), .shoppinglist_page .app_body .recipes .recipe_result div p:nth-of-type(2) {
   grid-row: 4;
+}
+
+.shopping_card {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin: .5rem;
+}
+
+.shopping_card .ingredientlist {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.shopping_card .more_ingredient {
+  display: flex;
+  margin-left: auto;
+  margin-right: 15%;
+  grid-column: 1/-1;
+}
+
+.groceryshop {
+  margin: .5rem;
+}
+
+.groceryshop .mapcontainer {
+  height: 100px;
+  width: 100%;
+  text-align: center;
+  border: 1px solid black;
 }
 
 .app_header {
