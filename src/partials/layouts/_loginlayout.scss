@@ -1,19 +1,26 @@
 
 
 .login{
-    margin: 0 .5rem;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: $grid-gap;
-    max-width: 60%;
-    margin:0  auto;
-    border: 1px solid black;
-    padding: 5rem;
-   
-    h1{
-        text-align: center;
+
+display: grid;
+grid-template-columns: 1fr;
+max-width: 50%;
+margin: 0 auto;
+
+.logininputs{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    height: 10rem;
+    .logininputs1{
+        a{
+            
+        }
     }
-    a{
-        text-align: right;
+    .logininputs1,.logininputs2{
+        display: grid;
+        grid-template-columns: 1fr;
     }
+}
+
 }
