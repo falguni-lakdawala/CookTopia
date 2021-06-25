@@ -4,6 +4,9 @@
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
+    .search{
+        margin-top: 2.5px;
+    }
 
     .desktop_nav{
         display: none;

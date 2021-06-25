@@ -3,7 +3,9 @@ import Navbar from "../composable-components/Navbar";
 import { contextapp } from "../../pages/HomePage";
 
 const Header = () => {
-  const navElements = [{"text":"Recipes","link":"/"},{"text":"Shopping List","link":"/shoppinglist"},{"text":"Team","link":"/team"}];
+
+  document.title="Cooktopia"
+  const navElements = [{"text":"Recipes","link":"/recipecontent"},{"text":"Shopping List","link":"/shoppinglist"},{"text":"Team","link":"/team"}];
 
   const context = useContext(contextapp);
 
