@@ -6,6 +6,7 @@ import ShoppingListRecipe from '../sub-components/ShoppingListRecipe'
 import Blindbox from '../sub-components/Blindbox'
 import Features from "../sub-components/Features";
 import ContactForm from "../sub-components/ContactForm";
+import RecipeContent from "../sub-components/RecipeContent";
 import { useLocation } from "react-router-dom";
 import Login from "../sub-components/Login";
 
@@ -47,6 +48,11 @@ const props3={style:{outlineColor:"blue"},placeholder:"Email",title:"Email"}
                         <ShoppingListRecipe />
                         
                     </>)}
+
+										{ (location.pathname === '/RecipeContent') && (<>
+												<RecipeContent />
+												
+										</>)}
 
                 </main>
 
