@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/cooktopia/static/css/main.ea3d0cf8.chunk.css",
+    "main.js": "/cooktopia/static/js/main.e7ea72a8.chunk.js",
+    "main.js.map": "/cooktopia/static/js/main.e7ea72a8.chunk.js.map",
+    "runtime-main.js": "/cooktopia/static/js/runtime-main.a00d7e77.js",
+    "runtime-main.js.map": "/cooktopia/static/js/runtime-main.a00d7e77.js.map",
+    "static/js/2.84a09aaa.chunk.js": "/cooktopia/static/js/2.84a09aaa.chunk.js",
+    "static/js/2.84a09aaa.chunk.js.map": "/cooktopia/static/js/2.84a09aaa.chunk.js.map",
+    "static/js/3.b58d0173.chunk.js": "/cooktopia/static/js/3.b58d0173.chunk.js",
+    "static/js/3.b58d0173.chunk.js.map": "/cooktopia/static/js/3.b58d0173.chunk.js.map",
+    "index.html": "/cooktopia/index.html",
+    "static/css/main.ea3d0cf8.chunk.css.map": "/cooktopia/static/css/main.ea3d0cf8.chunk.css.map",
+    "static/js/2.84a09aaa.chunk.js.LICENSE.txt": "/cooktopia/static/js/2.84a09aaa.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a00d7e77.js",
+    "static/js/2.84a09aaa.chunk.js",
+    "static/css/main.ea3d0cf8.chunk.css",
+    "static/js/main.e7ea72a8.chunk.js"
+  ]
+}
