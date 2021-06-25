@@ -6,7 +6,7 @@ import Button from '../composable-components/Button'
 const Blindbox = ({style}) => {
     return (
         <div className="blindbox">
-            <h3>This is Blindbox</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error at amet eveniet magni neque delectus quas ut? Non minus corporis nemo, expedita necessitatibus ullam magnam a, facere unde itaque dolor.</p>
             <Button text="Blind box"/>
         </div>
     )

@@ -14,21 +14,31 @@ img {
 .search_page,
 .shoppinglist_page {
   // Homepage Styling only
+
+ 
   .app_body {
     display: flex;
     flex-flow: column nowrap;
 
+  
     button {
       @include roundbutton();
     }
 
     // Blindbox styling
     .blindbox {
+      margin: 0 .5rem;
       display: flex;
-      flex-flow: row nowrap;
+      flex-flow: column nowrap;
       justify-content: space-between;
       align-items: center;
       position: relative;
+      button{
+        margin: 1rem;
+        @media screen and (min-width:600px){
+          align-self: flex-end;
+        }
+      }
 
       &:after {
         content: "";
@@ -50,6 +60,7 @@ img {
       grid-template-columns: repeat(1, 1fr);
       justify-content: center;
       gap: $grid-gap;
+      padding:0 .5rem;
       @media screen and (min-width: 600px) {
         display: grid;
         grid-template-columns: repeat(2, 1fr);

@@ -8,7 +8,7 @@ return(
     {
         recipes.map(data=>{
             return(
-                <div key={data.src}>
+                <div key={(data.src)+(data.title)}>
 <Images src={data.src} alt={data.alt} />
 <h4>{data.title}</h4>
 {showCategory == true ? <p>{data.category}</p> : '' }  
