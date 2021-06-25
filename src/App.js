@@ -8,6 +8,7 @@ import ShoppingList from './pages/ShoppingList';
 import RecipeContent from './pages/RecipeContent';
 import LoginPage from './pages/LoginPage'
 import page_not_found from './pages/page_not_found';
+import TeamPage from './pages/TeamPage';
 
 
 
@@ -23,6 +24,7 @@ function App() {
   <Route path='/search' component={SearchResults} />
   <Route path='/shoppingList' component={ShoppingList} />
   <Route path='/RecipeContent' component={RecipeContent} />
+  <Route path='/team' component={TeamPage} />
   <Route path="*" component={page_not_found}/>
 </Switch>
 

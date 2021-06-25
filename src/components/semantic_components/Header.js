@@ -3,7 +3,7 @@ import Navbar from "../composable-components/Navbar";
 import { contextapp } from "../../pages/HomePage";
 
 const Header = () => {
-  const navElements = ["Home"];
+  const navElements = [{"text":"Recipes","link":"/"},{"text":"Shopping List","link":"/shoppinglist"},{"text":"Team","link":"/team"}];
 
   const context = useContext(contextapp);
 

@@ -12,3 +12,7 @@ body{
     flex-flow: column nowrap;
     justify-content: space-between;
 }
+
+ .app_header{
+        padding: 0 .5rem;
+    }
