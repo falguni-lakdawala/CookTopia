@@ -49,7 +49,7 @@ const props3={style:{outlineColor:"blue"},placeholder:"Email",title:"Email"}
                         <ShoppingListRecipe />
                         
                     </>)}
-										{ (location.pathname === '/RecipeContent') && (<>
+										{ (location.pathname === '/recipecontent') && (<>
 												<RecipeContent />
 												
 										</>)}

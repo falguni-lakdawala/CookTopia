@@ -22,8 +22,8 @@ function App() {
   <Route exact path='/' component={LoginPage}/>
   <Route path='/home' component={HomePage} />
   <Route path='/search' component={SearchResults} />
-  <Route path='/shoppingList' component={ShoppingList} />
-  <Route path='/RecipeContent' component={RecipeContent} />
+  <Route path='/shoppinglist' component={ShoppingList} />
+  <Route path='/recipecontent' component={RecipeContent} />
   <Route path='/team' component={TeamPage} />
   <Route path="*" component={page_not_found}/>
 </Switch>
