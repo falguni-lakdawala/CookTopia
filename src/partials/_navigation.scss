@@ -4,6 +4,23 @@
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
+
+    .desktop_nav{
+        display: none;
+        @media screen and (min-width:600px){
+            display: block;
+        }
+    }
+.mobile_nav{
+
+
+    .mobile{
+        display: none;
+    }
+    @media screen and (min-width:600px){
+        display: none;
+    }
+}
     .logo{
         display: grid;
         align-self: flex-end;

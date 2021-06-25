@@ -5,6 +5,7 @@ import React from 'react'
 import HomePage from './pages/HomePage';
 import SearchResults from './pages/SearchResults';
 import ShoppingList from './pages/ShoppingList';
+import LoginPage from './pages/LoginPage'
 import page_not_found from './pages/page_not_found';
 
 
@@ -16,7 +17,8 @@ function App() {
   
 <Router>
 <Switch>
-  <Route path='/' exact component={HomePage} />
+  <Route exact path='/' component={LoginPage}/>
+  <Route path='/home' component={HomePage} />
   <Route path='/search' component={SearchResults} />
   <Route path='/shoppingList' component={ShoppingList} />
   <Route path="*" component={page_not_found}/>

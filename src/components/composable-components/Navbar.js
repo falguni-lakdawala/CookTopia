@@ -1,9 +1,35 @@
 
 import propTypes from 'prop-types'
-import React from 'react'
+import React,{useRef} from 'react'
 import {Link} from 'react-router-dom'
 // Header Component takes in array property and renders them accordingly.
+
+
+// Use ref to get reference to navbar
+
+
+
+// Nav handler
+const mobileToggle=(target) =>{
+    
+
+    // Mobile Nav toggler
+    // Toggles mobile nav bar
+const x=target.current.style;
+
+// If display is block hide it else display them.
+
+if(x.display=='block'){
+    x.display="none"
+}else{
+    x.display="block"
+}
+
+
+  }
+
 const Navbar = ({ navElements }) => {
+    const ref= useRef();
     return (
         <>
         <div className="logo">
@@ -28,7 +54,11 @@ const Navbar = ({ navElements }) => {
 </svg>
 
         </div>
-            <nav>
+
+        <div className="desktop_nav">
+
+            <nav className="desktop">
+
                 <ul>
                     <li><Link to="">Cooktopia</Link></li>
                     {
@@ -36,6 +66,19 @@ const Navbar = ({ navElements }) => {
                     }
                 </ul>
             </nav>
+            </div>
+            <div className="mobile_nav">
+        <nav className="mobile" ref={ref}>
+            <ul>
+            <li><Link to="">Cooktopia</Link></li>
+            {
+                navElements.map((li) => <li key={li.toString()}>{li}</li>)
+            }
+            </ul>
+        </nav>
+        <a className="iconmobile" onClick={(e)=>mobileToggle(ref)}>Toggle
+  </a>
+  </div>
         </>
     )
 }

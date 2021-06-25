@@ -6,3 +6,10 @@ border-radius:$radius
 @mixin round_image_individual($topleft:0,$topright:0,$bottomright:0,$bottomleft:0){
 border-radius:$topleft $topright $bottomright $bottomleft;
 }
+
+
+@mixin roundbutton($border-radius:10px){
+    border-radius:$border-radius;
+    outline: none;
+    border: 1px solid black;
+}

@@ -7,7 +7,7 @@ import Blindbox from '../sub-components/Blindbox'
 import Features from "../sub-components/Features";
 import ContactForm from "../sub-components/ContactForm";
 import { useLocation } from "react-router-dom";
-
+import Login from "../sub-components/Login";
 
 const Body = () => {
 
@@ -18,22 +18,32 @@ const props3={style:{outlineColor:"blue"},placeholder:"Email",title:"Email"}
 
     return (
 
+
+        // Routes will be defined here
         <>
                 <main className="app_body">
 
-                  { (location.pathname=='/') && (<>
+                  { (location.pathname==='/home') && (<>
                     <Blindbox />
                     <Recipes />
                     <Features features={[1,2,3]} />
                     <ContactForm input_number={[[1,props1],[2,props2],[3,props3]]}/>
                     </>)}
 
-                    { (location.pathname == '/search/') && (<>
+                    {
+                        (location.pathname==='/')&&(
+                            <>
+                            <Login />
+                            </>
+                        )
+                    }
+
+                    { (location.pathname ==='/search/') && (<>
                         <RecipeResult />
                         
                     </>)}
 
-                    { (location.pathname == '/shoppingList/') && (<>
+                    { (location.pathname === '/shoppingList/') && (<>
                         <ShoppingListRecipe />
                         
                     </>)}
