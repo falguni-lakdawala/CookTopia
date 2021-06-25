@@ -5,7 +5,7 @@ import { contextapp } from '../../pages/HomePage'
 
 const Header=()=>{
 
-const navElements=["Home","About","me"]
+const navElements=["Home"]
 
 const context=useContext(contextapp)
 

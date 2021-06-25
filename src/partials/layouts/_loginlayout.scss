@@ -1,0 +1,18 @@
+
+
+.login{
+    margin: 0 .5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $grid-gap;
+    max-width: 60%;
+    margin:0  auto;
+    border: 1px solid black;
+    padding: 5rem;
+    h1{
+        text-align: center;
+    }
+    a{
+        text-align: right;
+    }
+}
