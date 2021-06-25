@@ -38,12 +38,12 @@ const props3={style:{outlineColor:"blue"},placeholder:"Email",title:"Email"}
                         )
                     }
 
-                    { (location.pathname ==='/search/') && (<>
+                    { (location.pathname ==='/search') && (<>
                         <RecipeResult />
                         
                     </>)}
 
-                    { (location.pathname === '/shoppingList/') && (<>
+                    { (location.pathname === '/shoppinglist') && (<>
                         <ShoppingListRecipe />
                         
                     </>)}
