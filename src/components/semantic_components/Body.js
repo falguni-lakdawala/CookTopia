@@ -8,6 +8,7 @@ import Features from "../sub-components/Features";
 import ContactForm from "../sub-components/ContactForm";
 import { useLocation } from "react-router-dom";
 import Login from "../sub-components/Login";
+import Team from "../sub-components/Team";
 
 const Body = () => {
 
@@ -47,6 +48,8 @@ const props3={style:{outlineColor:"blue"},placeholder:"Email",title:"Email"}
                         <ShoppingListRecipe />
                         
                     </>)}
+
+                    {(location.pathname==="/team")&&(<><Team /> </>)}
 
                 </main>
 
