@@ -56,9 +56,9 @@ const RecipeContentDetails = () => {
 				<div className="ingredients-listings-cont">
 				{
 					recipeContentDetailsData.ingredientsData.map(
-						(data) =>
-							<div key={data.key} className="ingredient-listing">
-								<input type="checkbox" className="ingredient-checkbox" checked />
+						(data, index) =>
+							<div key={index} className="ingredient-listing">
+								<input type="checkbox" className="ingredient-checkbox" defaultChecked />
 								<div className="ingredient-text">
 									{data.text}
 								</div>

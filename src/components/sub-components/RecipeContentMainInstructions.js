@@ -39,8 +39,8 @@ const RecipeContentMainInstructions = () => {
 				<ol>
 					{
 						recipeContentMainInstructionsData.instructionsTextData.map(
-							(data) =>
-								<li key={data.key}>
+							(data, index) =>
+								<li key={index}>
 									<div className="instructions-text-heading">{data.heading}</div>
 									<div className="instructions-text-text">{data.text}</div>
 								</li>
