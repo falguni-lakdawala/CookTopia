@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "/cooktopia/static/css/main.a2ab75e5.chunk.css",
-    "main.js": "/cooktopia/static/js/main.148a32f3.chunk.js",
-    "main.js.map": "/cooktopia/static/js/main.148a32f3.chunk.js.map",
-    "runtime-main.js": "/cooktopia/static/js/runtime-main.a00d7e77.js",
-    "runtime-main.js.map": "/cooktopia/static/js/runtime-main.a00d7e77.js.map",
-    "static/js/2.17dd62c0.chunk.js": "/cooktopia/static/js/2.17dd62c0.chunk.js",
-    "static/js/2.17dd62c0.chunk.js.map": "/cooktopia/static/js/2.17dd62c0.chunk.js.map",
-    "static/js/3.b58d0173.chunk.js": "/cooktopia/static/js/3.b58d0173.chunk.js",
-    "static/js/3.b58d0173.chunk.js.map": "/cooktopia/static/js/3.b58d0173.chunk.js.map",
+    "main.css": "/cooktopia/static/css/main.7ea9e5e3.chunk.css",
+    "main.js": "/cooktopia/static/js/main.99c71bac.chunk.js",
+    "main.js.map": "/cooktopia/static/js/main.99c71bac.chunk.js.map",
+    "runtime-main.js": "/cooktopia/static/js/runtime-main.f5df7d86.js",
+    "runtime-main.js.map": "/cooktopia/static/js/runtime-main.f5df7d86.js.map",
+    "static/js/2.927ab53a.chunk.js": "/cooktopia/static/js/2.927ab53a.chunk.js",
+    "static/js/2.927ab53a.chunk.js.map": "/cooktopia/static/js/2.927ab53a.chunk.js.map",
+    "static/js/3.d182a1be.chunk.js": "/cooktopia/static/js/3.d182a1be.chunk.js",
+    "static/js/3.d182a1be.chunk.js.map": "/cooktopia/static/js/3.d182a1be.chunk.js.map",
     "index.html": "/cooktopia/index.html",
-    "static/css/main.a2ab75e5.chunk.css.map": "/cooktopia/static/css/main.a2ab75e5.chunk.css.map",
-    "static/js/2.17dd62c0.chunk.js.LICENSE.txt": "/cooktopia/static/js/2.17dd62c0.chunk.js.LICENSE.txt"
+    "static/css/main.7ea9e5e3.chunk.css.map": "/cooktopia/static/css/main.7ea9e5e3.chunk.css.map",
+    "static/js/2.927ab53a.chunk.js.LICENSE.txt": "/cooktopia/static/js/2.927ab53a.chunk.js.LICENSE.txt",
+    "static/media/icon.a9b6b3b5.svg": "/cooktopia/static/media/icon.a9b6b3b5.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.a00d7e77.js",
-    "static/js/2.17dd62c0.chunk.js",
-    "static/css/main.a2ab75e5.chunk.css",
-    "static/js/main.148a32f3.chunk.js"
+    "static/js/runtime-main.f5df7d86.js",
+    "static/js/2.927ab53a.chunk.js",
+    "static/css/main.7ea9e5e3.chunk.css",
+    "static/js/main.99c71bac.chunk.js"
   ]
 }
