@@ -48,11 +48,11 @@ const RecipeContentMain = () => {
 			<RecipeContentMainInstructions />
 			<div className="recipe-like-dislike-cont">
 				<div className="like-cont">
-					<button type="button" className="recipe-like"><i class="fas fa-thumbs-up"></i></button>
+					<button type="button" className="recipe-like"><i className="fas fa-thumbs-up"></i></button>
 					<div className="like-text">{recipeContentMainData.likes}</div>
 				</div>
 				<div className="dislike-cont">
-					<button type="button" className="recipe-dislike"><i class="fas fa-thumbs-down"></i></button>
+					<button type="button" className="recipe-dislike"><i className="fas fa-thumbs-down"></i></button>
 					<div className="dislike-text">{recipeContentMainData.dislikes}</div>
 				</div>
 			</div>
