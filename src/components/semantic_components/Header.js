@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Navbar from "../composable-components/Navbar";
-import { contextapp } from "../../pages/HomePage";
+import { contextapp } from "../../pages/Page";
 
 const Header = () => {
 

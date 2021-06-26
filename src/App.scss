@@ -9,25 +9,25 @@
 // 5.Mixins
 
 // 1. Normalize css
-@import "partials/normalize";
+@import "SASS/partials/normalize";
 
 // 2.Variables
-@import "partials/variables/variables";
+@import "SASS/partials/variables/variables";
 
 // 5.Mixins
 
-@import "partials/mixins";
+@import "SASS/partials/mixins";
 
 // 3. Typography
 
-@import "partials/typography";
+@import "SASS/partials/typography";
 
 // 4.Layout
 
-@import "partials/layouts/layout";
+@import "SASS/partials/layouts/layout";
 
 
 
 // 6.Navigation
 
-@import "partials/navigation";
+@import "SASS/partials/navigation";

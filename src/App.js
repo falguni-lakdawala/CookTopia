@@ -2,13 +2,9 @@
 import './App.scss';
 import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
 import React from 'react'
-import HomePage from './pages/HomePage';
-import SearchResults from './pages/SearchResults';
-import ShoppingList from './pages/ShoppingList';
-import RecipeContent from './pages/RecipeContent';
-import LoginPage from './pages/LoginPage'
+import Page from './pages/Page'
 import page_not_found from './pages/page_not_found';
-import TeamPage from './pages/TeamPage';
+
 
 
 
@@ -19,12 +15,12 @@ function App() {
   
 <Router>
 <Switch>
-  <Route exact path='/' component={LoginPage}/>
-  <Route path='/home' component={HomePage} />
-  <Route path='/search' component={SearchResults} />
-  <Route path='/shoppinglist' component={ShoppingList} />
-  <Route path='/recipecontent' component={RecipeContent} />
-  <Route path='/team' component={TeamPage} />
+  <Route exact path='/' component={Page}/>
+  <Route path='/home' component={Page} />
+  <Route path='/search' component={Page} />
+  <Route path='/shoppinglist' component={Page} />
+  <Route path='/recipecontent' component={Page} />
+  <Route path='/team' component={Page} />
   <Route path="*" component={page_not_found}/>
 </Switch>
 
