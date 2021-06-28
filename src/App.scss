@@ -1,33 +1,14 @@
-// 1.Normalize CSS
-
-// 2. Variables
-
-// 3.Typography
-
-// 4.Layout
-
-// 5.Mixins
-
 // 1. Normalize css
-@import "SASS/partials/normalize";
+@import "sass/normalize";
 
 // 2.Variables
-@import "SASS/partials/variables/variables";
-
-// 5.Mixins
-
-@import "SASS/partials/mixins";
+@import "sass/variables/variables";
 
 // 3. Typography
-
-@import "SASS/partials/typography";
+@import "sass/typography";
 
 // 4.Layout
-
-@import "SASS/partials/layouts/layout";
-
-
+@import "sass/page-specific/page-specific";
 
 // 6.Navigation
-
-@import "SASS/partials/navigation";
+@import "sass/navigation";

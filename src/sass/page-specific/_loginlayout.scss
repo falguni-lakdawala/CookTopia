@@ -1,0 +1,18 @@
+.login{
+	display: grid;
+	grid-template-columns: 1fr;
+	max-width: 50%;
+	margin: 0 auto;
+
+	.logininputs{
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: space-between;
+		height: 10rem;
+
+		.logininputs1,.logininputs2{
+			display: grid;
+			grid-template-columns: 1fr;
+		}
+	}
+}
