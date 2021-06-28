@@ -12,22 +12,23 @@ img {
 .app_footer {
   text-align: center;
 }
+
+// homepage styling only
 .home_page,
 .search_page,
 .shoppinglist_page {
-  // Homepage Styling only
 
- 
   .app_body {
     display: flex;
     flex-flow: column nowrap;
 
-  
     button {
-      @include roundbutton();
+			border-radius: 10px;
+			outline: none;
+			border: 1px solid black;
     }
 
-    // Blindbox styling
+    // start blindbox styling
     .blindbox {
       margin: 0 .5rem;
       display: flex;
@@ -35,8 +36,10 @@ img {
       justify-content: space-between;
       align-items: center;
       position: relative;
+
       button{
         margin: 1rem;
+
         @media screen and (min-width:600px){
           align-self: flex-end;
         }
@@ -53,10 +56,9 @@ img {
         right: 5%;
       }
     }
-
     // end blindbox
 
-    // Contact Form styling
+    // contact form styling
     .contact_form {
       display: grid;
       grid-template-columns: repeat(1, 1fr);
@@ -111,11 +113,9 @@ img {
         }
       }
     }
-
     //  end Contact form
 
-    // features Styling
-
+    // features styling
     .feature_wrapper {
       display: flex;
       flex-flow: column nowrap;
@@ -123,7 +123,7 @@ img {
         text-align: center;
       }
       img {
-        @include round_image;
+				border-radius: 50%;
       }
       .inputs_wrapper {
         align-self: center;
@@ -172,7 +172,7 @@ img {
       }
     }
 
-    // Featured Recipes
+    // featured recipes
     .recipes {
       display: grid;
       grid-template-columns: repeat(1, 1fr);
@@ -205,7 +205,7 @@ img {
               img {
                 grid-row: 1;
                 grid-column: 1/-1;
-                @include round_image_individual(10%, 10%);
+								border-radius: 10% 10% 0 0;
               }
               h4 {
                 grid-row: 2;
@@ -231,7 +231,7 @@ img {
             img {
               grid-row: 1;
               grid-column: 1/-1;
-              @include round_image_individual(10%, 10%);
+							border-radius: 10% 10% 0 0;
             }
             h4 {
               grid-row: 2;
@@ -245,11 +245,11 @@ img {
           }
         }
       }
-      //end Featured recipes
-      // end homepage styling
+      //end featured recipes
     }
   }
 }
+// end homepage styling
 
 .shopping_card {
   display: grid;

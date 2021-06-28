@@ -3,11 +3,13 @@
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
+
   .search {
-      margin-right: .5rem;
+    margin-right: 0.5rem;
+
     input {
-      padding: .1rem;
-      background: url("../../assets/svg/search-icon.svg");
+      padding: 0.1rem;
+      background: url("../assets/svg/search-icon.svg");
       background-position: 2% 50%;
       background-size: contain;
       background-repeat: no-repeat;
@@ -18,22 +20,27 @@
 
   .desktop_nav {
     display: none;
+
     @media screen and (min-width: 600px) {
       display: block;
     }
+
     .desktop {
       display: flex;
       align-items: center;
-      ul{
-          padding-right: .5rem;
-          align-items: center;
-          border-right: 1px solid black;
-          img{
-              width: 1.3rem;
-              }
+
+      ul {
+        padding-right: 0.5rem;
+        align-items: center;
+        border-right: 1px solid black;
+
+        img {
+          width: 1.3rem;
+        }
       }
     }
   }
+
   .mobile_nav {
     display: flex;
     align-items: center;
@@ -41,24 +48,29 @@
     .mobile {
       display: none !important;
     }
+
     @media screen and (min-width: 600px) {
       display: none;
     }
   }
+
   .logo {
     display: grid;
     align-self: flex-end;
   }
+
   svg {
     height: auto;
     min-width: 100%;
     align-self: center;
   }
+
   nav ul {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-evenly;
     gap: $grid-gap;
+
     li {
       list-style-type: none;
     }
