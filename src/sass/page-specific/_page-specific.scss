@@ -13,9 +13,10 @@ img {
 .app_footer {
   text-align: center;
 	background: #FFF8EF;
+	padding: 2rem;
 
 	p {
-		font-family: "Avenir", sans-serif;
+		font-family: "Roboto", sans-serif;
 		font-weight: 800;
 		font-size: 1rem;
 		color: #000000;
@@ -38,224 +39,302 @@ img {
     }
 
     // start blindbox styling
-    .blindbox {
-      margin: 0 .5rem;
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
+    .blindbox-hero-cont {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			align-items: center;
+			padding: 2rem 6rem;
+			gap: 2rem;
+			background: #FFF8EF;
 
-      button{
-        margin: 1rem;
+			.blindbox-hero-text {
+				font-family: "Avenir", sans-serif;
+				font-size: 1.25rem;
+				color: #000000;
+				line-height: 1.4;
+			}
 
-        @media screen and (min-width:600px){
-          align-self: flex-end;
-        }
-      }
+			.blindbox-hero-image-btn {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-end;
+				text-align: center;
+				gap: 0.5rem;
 
-      &:after {
-        content: "";
-        position: absolute;
-        left: 5%;
-        bottom: 0;
-        border-bottom: 0;
-        width: 90%;
-        border-bottom: 1px solid #000;
-        right: 5%;
-      }
+				.blindbox-hero-image-cont {
+					img {
+						width: 10rem;
+					}
+				}
+
+				.blindbox-hero-btn-cont {
+					button.blindbox-hero-btn {
+						font-family: "Avenir", sans-serif;
+						font-size: 1.25rem;
+						padding: 0.5rem 1rem;
+						background: #FFF8EF;
+						border: 4px solid #FB9400;
+						box-sizing: border-box;
+						border-radius: 50px;
+					}
+				}
+			}
     }
     // end blindbox
 
+
+		// featured recipes
+		.recipes-otd {
+			padding: 3rem;
+			display: grid;
+			gap: 1rem;
+
+			.heading {
+				h3 {
+					font-family: "Fontastique", cursive;
+					font-size: 2rem;
+					letter-spacing: 0.03em;
+					color: #000000;
+					text-align: center;
+				}
+			}
+
+			.subheading {
+				padding-bottom: 2rem;
+
+				p {
+					font-family: "Avenir", sans-serif;
+					font-weight: 400;
+					font-size: 1.25rem;
+					color: #000000;
+					text-align: center;
+				}
+			}
+
+			.recipes-otd-listing {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1.5rem;
+
+				> div {
+					display: flex;
+					flex-direction: column;
+					justify-content: space-between;
+					border: 2px solid #A9A9A9;
+					border-radius: 30px 30px 0px 0px;
+
+					.recipes-otd-img-cont {
+						display: flex;
+						flex: 1 1 100%;
+
+						img {
+							width: 100%;
+							border-radius: 30px 30px 0px 0px;
+						}
+					}
+
+					.recipes-otd-name-cont {
+						min-height: 70px;
+						padding: 0.5rem;
+
+						h4 {
+							font-family: "Fontastique", cursive;
+							font-size: 1.25rem;
+							color: #000000;
+						}
+					}
+
+					.recipes-otd-details-cont {
+						display: flex;
+						justify-content: space-between;
+						align-items: flex-end;
+						padding: 0.5rem;
+
+						.recipes-otd-category-cooking-time-cont {
+							p {
+								font-family: "Avenir", sans-serif;
+								font-weight: 500;
+								font-size: 1rem;
+								color: #000000;
+							}
+						}
+
+						.recipes-otd-likes-dislikes-cont {
+							display: flex;
+							gap: 0.75rem;
+
+							> * {
+								display: flex;
+							}
+						}
+					}
+				}
+			}
+
+			.recipes-otd-load-more-btn-cont {
+				text-align: right;
+
+				button.recipes-otd-load-more-btn {
+					font-family: "Avenir", sans-serif;
+					font-size: 1.25rem;
+					padding: 0.5rem 1rem;
+					background: #FFF8EF;
+					border: 4px solid #FB9400;
+					box-sizing: border-box;
+					border-radius: 50px;
+				}
+			}
+		}
+		//end featured recipes
+
     // contact form styling
-    .contact_form {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      justify-content: center;
-      gap: .5rem;
-      padding:0 .5rem;
-      @media screen and (min-width: 600px) {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: .5rem;
-      }
-      h3 {
-        justify-self: center;
-        grid-column: 1/-1;
-      }
-      .contact_inputs {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        gap: .5rem;
-        border: 1px solid black;
-        padding: 1rem;
+    .homepage-contact-form {
+			display: grid;
+			gap: 2rem;
+			padding: 2rem;
+			padding: 6rem 4rem;
 
-        @media screen and (min-width: 600px) {
-          grid-column: 1/-1;
-          grid-row: 2;
-          display: grid;
-          gap: .5rem;
-          grid-template-columns: repeat(2, 1fr);
+			.heading {
+				h3 {
+					font-family: "Fontastique", cursive;
+					font-size: 2rem;
+					letter-spacing: 0.03em;
+					color: #000000;
+					text-align: center;
+				}
+			}
 
-          padding: 1rem;
-          input:nth-of-type(1) {
-            grid-row: 1;
-            grid-column: 1/-1;
-          }
-          input:nth-of-type(2) {
-            grid-row: 2;
-            grid-column: 1/2;
-          }
-          input:nth-of-type(3) {
-            grid-row: 2;
-            grid-column: 2/3;
-          }
-          textarea {
-            grid-row: 3;
-            grid-column: 1/-1;
-          }
-          button {
-            grid-row: 4;
-            grid-column: 1/-1;
-            justify-self: center;
-          }
-        }
-      }
+			.subheading {
+				p {
+					font-family: "Avenir", sans-serif;
+					font-weight: 500;
+					font-size: 1.25rem;
+					color: #000000;
+					text-align: center;
+				}
+			}
+
+			.form {
+				background: #FFF8EF;
+				border-radius: 30px;
+				padding: 3rem 3rem 1rem 3rem;
+				text-align: center;
+
+				.input-group {
+					display: grid;
+					grid-template-columns: repeat(2, 1fr);
+					gap: 1rem;
+					max-width: 60%;
+					margin: 0 auto;
+
+					> * {
+						outline: none;
+					}
+
+					input {
+						padding: 0.5rem;
+						border-radius: 0;
+						border: 1px solid #000;
+					}
+
+					input:nth-of-type(1) {
+						grid-column: 1 / -1;
+					}
+
+					textarea {
+						padding: 0.5rem;
+						border-radius: 0;
+						border: 1px solid #000;
+						grid-column: 1 / -1;
+						resize: vertical;
+					}
+
+					input::placeholder, textarea::placeholder {
+						color: #000;
+					}
+				}
+
+				button[type=submit] {
+					font-family: "Avenir", sans-serif;
+					font-size: 1.25rem;
+					padding: 0.5rem 1rem;
+					background: #FFF8EF;
+					border: 4px solid #FB9400;
+					box-sizing: border-box;
+					border-radius: 50px;
+					margin-top: 2rem;
+				}
+			}
     }
     //  end Contact form
 
     // features styling
-    .feature_wrapper {
-      display: flex;
-      flex-flow: column nowrap;
-      h2 {
-        text-align: center;
-      }
-      img {
-				border-radius: 50%;
-      }
-      .inputs_wrapper {
-        align-self: center;
-        justify-self: end;
-      }
+		.features-cont {
+			display: grid;
+			gap: 2rem;
 
-      // single feature alignment and styling
-      .features_single {
-        .featuress {
-          display: flex;
-          flex-flow: column nowrap;
-          align-items: center;
-          padding-bottom: 0.5rem;
-          img {
-            width: 30%;
-          }
-        }
-        @media screen and (min-width: 600px) {
-          .featuress:nth-of-type(odd) {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: .5rem;
-            img {
-              grid-column: 1/2;
-            }
-            .inputs_wrapper {
-              grid-column: 2/3;
-            }
-          }
-          .featuress:nth-of-type(even) {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: .5rem;
-            .inputs_wrapper {
-              grid-column: 1/2;
-              grid-row: 1;
-              justify-self: start;
-            }
-            img {
-              grid-row: 1;
-              grid-column: 2/3;
-              justify-self: end;
-            }
-          }
-        }
-      }
-    }
+			.heading {
+				h3 {
+					font-family: "Fontastique", cursive;
+					font-size: 2rem;
+					letter-spacing: 0.03em;
+					color: #000000;
+					text-align: center;
+				}
+			}
 
-    // featured recipes
-    .recipes {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      justify-items: center;
-      @media screen and (min-width: 600px) {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        h3 {
-          grid-row: 1;
-          grid-column: 1/-1;
-        }
-        p {
-          grid-row: 2;
-          grid-column: 1/-1;
-        }
-        .recipe_individual {
-          display: grid;
-          grid-template-columns: repeat(1, 1fr);
+			.features-listing {
+				display: grid;
 
-          // Desktop layout
-          @media screen and (min-width: 600px) {
-            grid-row: 3;
-            grid-column: 1/-1;
-            display: grid;
-            justify-items: center;
-            grid-template-columns: repeat(3, 1fr);
-            div {
-              display: grid;
-              grid-template-columns: repeat(2, 1fr);
-              img {
-                grid-row: 1;
-                grid-column: 1/-1;
-								border-radius: 10% 10% 0 0;
-              }
-              h4 {
-                grid-row: 2;
-              }
-              p:nth-of-type(1) {
-                grid-row: 3;
-              }
-              p:nth-of-type(2) {
-                grid-row: 4;
-              }
-            }
-          }
-        }
+				> div > div {
+					display: grid;
+					grid-template-columns: repeat(2, 1fr);
+					gap: 2rem;
+					padding: 2rem;
 
-        .recipe_result {
-          grid-row: 3;
-          grid-column: 1/-1;
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          div {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            img {
-              grid-row: 1;
-              grid-column: 1/-1;
-							border-radius: 10% 10% 0 0;
-            }
-            h4 {
-              grid-row: 2;
-            }
-            p:nth-of-type(1) {
-              grid-row: 3;
-            }
-            p:nth-of-type(2) {
-              grid-row: 4;
-            }
-          }
-        }
-      }
-      //end featured recipes
-    }
+					.features-listing-image {
+						text-align: right;
+					}
+
+					.features-listing-text-cont {
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						gap: 1rem;
+
+						.title {
+							font-family: "Avenir", sans-serif;
+							font-weight: 500;
+							font-size: 1.25rem;
+							color: #000000;
+						}
+
+						.btn-cont {
+							button {
+								font-family: "Avenir", sans-serif;
+								font-size: 1.25rem;
+								padding: 0.5rem 1rem;
+								background: #FFF8EF;
+								border: 4px solid #FB9400;
+								box-sizing: border-box;
+								border-radius: 50px;
+							}
+						}
+					}
+				}
+
+				> div:nth-of-type(2) > div {
+					.features-listing-image {
+						text-align: left;
+					}
+
+					.features-listing-text-cont {
+						align-items: flex-end;
+					}
+				}
+			}
+		}
+    // end features styling
   }
 }
 // end homepage styling
