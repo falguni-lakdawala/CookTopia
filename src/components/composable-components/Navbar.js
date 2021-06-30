@@ -3,8 +3,8 @@ import propTypes from 'prop-types'
 import React, { useRef } from 'react'
 import { Link } from 'react-router-dom';
 import Search from './Search';
-import account from '../../assets/svg/account.svg'
-import icon from '../../assets/svg/icon.svg'
+import account from '../../assets/icons/account.svg'
+import icon from '../../assets/logo/logo-large.svg'
 import Images from '../composable-components/Images'
 // Header Component takes in array property and renders them accordingly.
 
