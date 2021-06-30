@@ -1,31 +1,40 @@
-import React from 'react'
-import Images from '../composable-components/Images'
-import Button from '../composable-components/Button'
+import React from "react";
 
-const FeatureCard = ({features}) => {
-    return (
-        <div className="feature_wrapper">
-            <h2>Features </h2>
-            <div className="features_single">
-            {
-                features.map((data,i)=>{
-                    return(
-                    <div className="featuress" key={i.toString()}>
-                    <Images src={data[0].src} alt={data[0].alt} />
-                    <div className="inputs_wrapper">
-                    <p>{data[0].pdata}</p>
-                    <Button text={data[0].text} />
-                  
-                    </div>
-                    </div>
-                    )
-                })
-            }
-            </div>
-        </div>
-    )
-}
+const FeatureCard = ({ featuresData }) => {
+	return (
+		<div>
+			{
+				featuresData.type == 1 ?
+				<div>
+					<div className="features-listing-text-cont">
+						<div className="title">{featuresData.title}</div>
+						{/* <div className="desciption">{featuresData.description}</div> */}
+						<div className="btn-cont">
+							<button type="button">{featuresData.buttonText}</button>
+						</div>
+					</div>
+					<div className="features-listing-image">
+						<img src={featuresData.src} alt={featuresData.title} />
+					</div>
+				</div>
+				:
+				(
+					<div>
+						<div className="features-listing-image">
+							<img src={featuresData.src} alt={featuresData.title} />
+						</div>
+						<div className="features-listing-text-cont">
+							<div className="title">{featuresData.title}</div>
+							{/* <div className="desciption">{featuresData.description}</div> */}
+							<div className="btn-cont">
+								<button type="button">{featuresData.buttonText}</button>
+							</div>
+						</div>
+					</div>
+				)
+			}
+		</div>
+	);
+};
 
-export default FeatureCard
-
-
+export default FeatureCard;
