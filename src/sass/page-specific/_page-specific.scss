@@ -1,9 +1,8 @@
 // Dont write any SCSS here please migrate your styling to individual pages
 
-@import "loginlayout" ;
+@import "login-signup" ;
 @import "recipe_content";
 @import "pagenotfound";
-@import "signup";
 
 img {
   max-width: 100%;
@@ -34,7 +33,6 @@ img {
 
     button {
 			border-radius: 10px;
-			outline: none;
 			border: 1px solid black;
     }
 
@@ -226,10 +224,6 @@ img {
 					gap: 1rem;
 					max-width: 60%;
 					margin: 0 auto;
-
-					> * {
-						outline: none;
-					}
 
 					input {
 						padding: 0.5rem;
