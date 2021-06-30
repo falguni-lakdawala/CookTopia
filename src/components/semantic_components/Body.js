@@ -9,6 +9,7 @@ import RecipeContent from "../sub-components/RecipeContent";
 import { useLocation } from "react-router-dom";
 import Login from "../sub-components/Login";
 import Team from "../sub-components/Team";
+import Signup from "../sub-components/Signup";
 
 const Body = () => {
   const location = useLocation();
@@ -73,7 +74,7 @@ const Body = () => {
         )}
 
 
-{location.pathname==='/signup' && <SignUp/>}
+{location.pathname==='/signup' && <Signup/>}
       </main>
     </>
   );
