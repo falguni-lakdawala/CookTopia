@@ -1,23 +1,25 @@
 {
   "files": {
-    "main.css": "/cooktopia/static/css/main.7ea9e5e3.chunk.css",
-    "main.js": "/cooktopia/static/js/main.99c71bac.chunk.js",
-    "main.js.map": "/cooktopia/static/js/main.99c71bac.chunk.js.map",
-    "runtime-main.js": "/cooktopia/static/js/runtime-main.f5df7d86.js",
-    "runtime-main.js.map": "/cooktopia/static/js/runtime-main.f5df7d86.js.map",
-    "static/js/2.927ab53a.chunk.js": "/cooktopia/static/js/2.927ab53a.chunk.js",
-    "static/js/2.927ab53a.chunk.js.map": "/cooktopia/static/js/2.927ab53a.chunk.js.map",
-    "static/js/3.d182a1be.chunk.js": "/cooktopia/static/js/3.d182a1be.chunk.js",
-    "static/js/3.d182a1be.chunk.js.map": "/cooktopia/static/js/3.d182a1be.chunk.js.map",
+    "main.css": "/cooktopia/static/css/main.e33fcf63.chunk.css",
+    "main.js": "/cooktopia/static/js/main.3203c261.chunk.js",
+    "main.js.map": "/cooktopia/static/js/main.3203c261.chunk.js.map",
+    "runtime-main.js": "/cooktopia/static/js/runtime-main.a00d7e77.js",
+    "runtime-main.js.map": "/cooktopia/static/js/runtime-main.a00d7e77.js.map",
+    "static/js/2.4b34f3da.chunk.js": "/cooktopia/static/js/2.4b34f3da.chunk.js",
+    "static/js/2.4b34f3da.chunk.js.map": "/cooktopia/static/js/2.4b34f3da.chunk.js.map",
+    "static/js/3.b58d0173.chunk.js": "/cooktopia/static/js/3.b58d0173.chunk.js",
+    "static/js/3.b58d0173.chunk.js.map": "/cooktopia/static/js/3.b58d0173.chunk.js.map",
     "index.html": "/cooktopia/index.html",
-    "static/css/main.7ea9e5e3.chunk.css.map": "/cooktopia/static/css/main.7ea9e5e3.chunk.css.map",
-    "static/js/2.927ab53a.chunk.js.LICENSE.txt": "/cooktopia/static/js/2.927ab53a.chunk.js.LICENSE.txt",
-    "static/media/icon.a9b6b3b5.svg": "/cooktopia/static/media/icon.a9b6b3b5.svg"
+    "static/css/main.e33fcf63.chunk.css.map": "/cooktopia/static/css/main.e33fcf63.chunk.css.map",
+    "static/js/2.4b34f3da.chunk.js.LICENSE.txt": "/cooktopia/static/js/2.4b34f3da.chunk.js.LICENSE.txt",
+    "static/media/account.5dfb844d.svg": "/cooktopia/static/media/account.5dfb844d.svg",
+    "static/media/icon.a9b6b3b5.svg": "/cooktopia/static/media/icon.a9b6b3b5.svg",
+    "static/media/search-icon.9887d180.svg": "/cooktopia/static/media/search-icon.9887d180.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.f5df7d86.js",
-    "static/js/2.927ab53a.chunk.js",
-    "static/css/main.7ea9e5e3.chunk.css",
-    "static/js/main.99c71bac.chunk.js"
+    "static/js/runtime-main.a00d7e77.js",
+    "static/js/2.4b34f3da.chunk.js",
+    "static/css/main.e33fcf63.chunk.css",
+    "static/js/main.3203c261.chunk.js"
   ]
 }
