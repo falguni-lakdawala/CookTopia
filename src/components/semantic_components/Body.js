@@ -10,6 +10,7 @@ import { useLocation } from "react-router-dom";
 import Login from "../sub-components/Login";
 import Team from "../sub-components/Team";
 import Signup from "../sub-components/Signup";
+import Profile from "../sub-components/Profile/Profile";
 
 const Body = () => {
   const location = useLocation();
@@ -73,8 +74,9 @@ const Body = () => {
           </>
         )}
 
+        {location.pathname === "/signup" && <Signup />}
 
-{location.pathname==='/signup' && <Signup/>}
+        {location.pathname === "/profile" && <Profile />}
       </main>
     </>
   );

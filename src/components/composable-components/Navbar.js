@@ -6,6 +6,7 @@ import Search from './Search';
 import account from '../../assets/icons/account.svg'
 import icon from '../../assets/logo/logo-large.svg'
 import Images from '../composable-components/Images'
+import {useHistory} from 'react-router-dom'
 // Header Component takes in array property and renders them accordingly.
 
 // Use ref to get reference to navbar
@@ -26,6 +27,7 @@ const mobileToggle = (target) => {
 
 const Navbar = ({ navElements }) => {
 	const ref = useRef();
+	const history=useHistory();
 	return (
 		<>
 			<div className="logo">
@@ -41,7 +43,9 @@ const Navbar = ({ navElements }) => {
 								<Link to={li.link}>{li.text}</Link>
 							</li>
 						))}
-						<li><Images src={account} alt={"userimage"} /></li>
+						<li onClick={()=>{
+							history.push('/profile')
+						}}><Images src={account} alt={"userimage"} /></li>
 					</ul>
 					<Search />
 				</nav>

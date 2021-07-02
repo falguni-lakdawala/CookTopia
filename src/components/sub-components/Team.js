@@ -6,6 +6,13 @@ import miaProfilePicture from "../../assets/team-members/mia.png";
 import falguniProfilePicture from "../../assets/team-members/falguni.png";
 import linkedInIconBlack from "../../assets/icons/linkedin-icon-black.png";
 
+
+
+function shuffle(array) {
+  array.sort(() => Math.random() - 0.5);
+}
+
+
 const Team = ({ team }) => {
 	const teamData = [
 		{
@@ -51,6 +58,7 @@ const Team = ({ team }) => {
 			linkedInURL: 'https://www.linkedin.com/in/falguni-lakdawala/'
 		}
 	];
+	shuffle(teamData)
 	return (
 		<div className="team-page-cont">
 			<div className="heading">
