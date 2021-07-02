@@ -1,0 +1,68 @@
+.team-page-cont {
+	padding: 4rem;
+	text-align: center;
+	display: grid;
+	gap: 2rem;
+
+	.heading {
+		h1 {
+			font-family: "Roboto", sans-serif;
+			font-size: 1.5rem;
+			letter-spacing: 0.03em;
+			color: #000000;
+		}
+	}
+
+	.subheading {
+		font-family: "Avenir", sans-serif;
+    color: #000000;
+    text-align: left;
+		font-size: 1.25rem;
+		font-weight: 300;
+		line-height: 38px;
+	}
+
+	.team-members-cont {
+		display: grid;
+    gap: 4rem;
+    grid-template-columns: repeat(3, 1fr);
+
+		.member-cont {
+			display: grid;
+    	gap: 1rem;
+
+			.image-cont {
+				display: flex;
+    		justify-content: center;
+			}
+
+			.text-details-cont {
+				display: grid;
+				gap: 0.5rem;
+
+				.name {
+					font-family: "Fontastique", cursive;
+					color: #000000;
+					font-size: 2rem;
+				}
+
+				.role {
+					font-family: "Avenir", sans-serif;
+					color: #000000;
+					font-size: 1.25rem;
+					font-weight: 500;
+				}
+
+				.description {
+					font-family: "Avenir", sans-serif;
+					font-size: 1rem;
+					font-weight: 300;
+				}
+
+				.linkedin-link {
+					margin-top: 0.5rem;
+				}
+			}
+		}
+	}
+}
