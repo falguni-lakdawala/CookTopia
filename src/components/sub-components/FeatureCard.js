@@ -8,7 +8,7 @@ const FeatureCard = ({ featuresData }) => {
 				<div>
 					<div className="features-listing-text-cont">
 						<div className="title">{featuresData.title}</div>
-						{/* <div className="desciption">{featuresData.description}</div> */}
+						<div className="desciption">{featuresData.description}</div>
 						<div className="btn-cont">
 							<button type="button">{featuresData.buttonText}</button>
 						</div>
@@ -25,7 +25,7 @@ const FeatureCard = ({ featuresData }) => {
 						</div>
 						<div className="features-listing-text-cont">
 							<div className="title">{featuresData.title}</div>
-							{/* <div className="desciption">{featuresData.description}</div> */}
+							<div className="desciption">{featuresData.description}</div>
 							<div className="btn-cont">
 								<button type="button">{featuresData.buttonText}</button>
 							</div>

@@ -53,36 +53,38 @@ const Team = ({ team }) => {
 	];
 	return (
 		<div className="team-page-cont">
-			<div className="heading">
-				<h1>Meet the Team</h1>
-			</div>
-			<div className="subheading">
-				CookTopia is a recipe platforms that helps young cooking novices by providing a variety of recipes, nutrition data, and nearby grocery shops, so home cooks could enjoy well-being life based on well-balanced diet. This service is created by 3 developers and 3 designers.
-			</div>
-			<div className="team-members-cont">
-				{
-					teamData.map((data, index) => {
-						return (
-							<div className="member-cont" key={index + data.name}>
-								<div className="image-cont">
-									<img src={ data.src } alt={ `${data.name} picture` } />
-								</div>
-								<div className="text-details-cont">
-									<div className="name">{ data.name }</div>
-									<div className="role">{ data.role }</div>
-									<div className="description">
-										{ data.description }
+			<div className="max-width-cont">
+				<div className="heading">
+					<h1>Meet the Team</h1>
+				</div>
+				<div className="subheading">
+					CookTopia is a recipe platforms that helps young cooking novices by providing a variety of recipes, nutrition data, and nearby grocery shops, so home cooks could enjoy well-being life based on well-balanced diet. This service is created by 3 developers and 3 designers.
+				</div>
+				<div className="team-members-cont">
+					{
+						teamData.map((data, index) => {
+							return (
+								<div className="member-cont" key={index + data.name}>
+									<div className="image-cont">
+										<img src={ data.src } alt={ `${data.name} picture` } />
 									</div>
-									<div className="linkedin-link">
-										<a href={ data.linkedInURL }>
-											<img src={ linkedInIconBlack } alt="linkedin for the profile" />
-										</a>
+									<div className="text-details-cont">
+										<div className="name">{ data.name }</div>
+										<div className="role">{ data.role }</div>
+										<div className="description">
+											{ data.description }
+										</div>
+										<div className="linkedin-link">
+											<a href={ data.linkedInURL }>
+												<img src={ linkedInIconBlack } alt="linkedin for the profile" />
+											</a>
+										</div>
 									</div>
 								</div>
-							</div>
-						)
-					})
-				}
+							)
+						})
+					}
+				</div>
 			</div>
 		</div>
 	)
