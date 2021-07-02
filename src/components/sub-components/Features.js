@@ -9,41 +9,43 @@ const Features = ({ features }) => {
 		{
 			src: searchRecipesImage,
 			title: "Find your favorite recipes",
-			description: "",
+			description: "Dive into CookTopia’s overflowing recipes by selecting multiple keywords. Be ready to choose your favorite-to-be dishes. Bon Appétit!",
 			buttonText: "Search Recipes",
 			type: 1
 		},
 		{
 			src: nutritionInformationImage,
 			title: "Nutrition discovery",
-			description: "",
+			description: "User can get the detailed analysis of the nutrition value they are consuming after selecting the recipe from Cooktopia.",
 			buttonText: "Nutrition Information",
 			type: 2
 		},
 		{
 			src: featuresShoppingListImage,
 			title: "Create your shopping list",
-			description: "",
+			description: "Once you picked the recipe you like, you can check the ingredients as well. After checking what ingredients you need, you can use our shopping list function to record your personal list in your profile. ",
 			buttonText: "Shopping List",
 			type: 1
 		},
 	];
   return (
     <div className="features-cont">
-			<div className="heading">
-				<h3>Features</h3>
-			</div>
-			<div className="features-listing">
-				{
-					featuresData.map((data, index) => {
-						return (
-							<FeatureCard
-								key={ index }
-								featuresData={ data }
-							/>
-						)
-					})
-				}
+			<div className="max-width-cont">
+				<div className="heading">
+					<h3>Features</h3>
+				</div>
+				<div className="features-listing">
+					{
+						featuresData.map((data, index) => {
+							return (
+								<FeatureCard
+									key={ index }
+									featuresData={ data }
+								/>
+							)
+						})
+					}
+				</div>
 			</div>
     </div>
   );

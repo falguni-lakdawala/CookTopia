@@ -16,8 +16,12 @@ img {
 	background: #FFF8EF;
 	padding: 2rem;
 
+	@media screen and (max-width: 700px) {
+		padding: 1rem;
+	}
+
 	p {
-		font-family: "Roboto", sans-serif;
+		font-family: "Avenir", sans-serif;
 		font-weight: 800;
 		font-size: 1rem;
 		color: #000000;
@@ -40,18 +44,37 @@ img {
 
     // start blindbox styling
     .blindbox-hero-cont {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			align-items: center;
 			padding: 2rem 6rem;
-			gap: 2rem;
 			background: #FFF8EF;
+
+			@media screen and (max-width: 700px) {
+				padding: 1rem;
+			}
+
+			> * {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				align-items: center;
+				gap: 2rem;
+
+				@media screen and (max-width: 700px) {
+					grid-template-columns: 1fr;
+				}
+			}
 
 			.blindbox-hero-text {
 				font-family: "Avenir", sans-serif;
 				font-size: 1.25rem;
 				color: #000000;
 				line-height: 1.4;
+
+				@media screen and (max-width: 700px) {
+					text-align: center;
+
+					br {
+						display: none;
+					}
+				}
 			}
 
 			.blindbox-hero-image-btn {
@@ -60,6 +83,12 @@ img {
 				align-items: flex-end;
 				text-align: center;
 				gap: 0.5rem;
+
+				@media screen and (max-width: 700px) {
+					align-items: center;
+					flex-direction: row;
+					justify-content: center;
+				}
 
 				.blindbox-hero-image-cont {
 					img {
@@ -85,9 +114,16 @@ img {
 
 		// featured recipes
 		.recipes-otd {
-			padding: 3rem;
-			display: grid;
-			gap: 1rem;
+			padding: 1rem;
+
+			@media screen and (max-width: 700px) {
+				padding: 1rem;
+			}
+
+			> * {
+				display: grid;
+				gap: 1rem;
+			}
 
 			.heading {
 				h3 {
@@ -102,6 +138,10 @@ img {
 			.subheading {
 				padding-bottom: 2rem;
 
+				@media screen and (max-width: 700px) {
+					padding-bottom: 1rem;
+				}
+
 				p {
 					font-family: "Avenir", sans-serif;
 					font-weight: 400;
@@ -115,6 +155,10 @@ img {
 				display: grid;
 				grid-template-columns: repeat(3, 1fr);
 				gap: 1.5rem;
+
+				@media screen and (max-width: 700px) {
+					grid-template-columns: repeat(1, 1fr);
+				}
 
 				> div {
 					display: flex;
@@ -165,6 +209,7 @@ img {
 
 							> * {
 								display: flex;
+								gap: 0.125rem;
 							}
 						}
 					}
@@ -173,6 +218,10 @@ img {
 
 			.recipes-otd-load-more-btn-cont {
 				text-align: right;
+
+				@media screen and (max-width: 700px) {
+					text-align: center;
+				}
 
 				button.recipes-otd-load-more-btn {
 					font-family: "Avenir", sans-serif;
@@ -187,12 +236,150 @@ img {
 		}
 		//end featured recipes
 
+    // features styling
+		.features-cont {
+			padding: 3rem;
+
+			@media screen and (max-width: 700px) {
+				padding: 1rem;
+			}
+
+			> * {
+				display: grid;
+				gap: 2rem;
+			}
+
+			.heading {
+				h3 {
+					font-family: "Fontastique", cursive;
+					font-size: 2rem;
+					letter-spacing: 0.03em;
+					color: #000000;
+					text-align: center;
+				}
+			}
+
+			.features-listing {
+				display: grid;
+				gap: 4rem;
+
+				> div > div {
+					display: grid;
+					grid-template-columns: repeat(2, 1fr);
+					gap: 2rem;
+
+					@media screen and (max-width: 700px) {
+						grid-template-columns: repeat(1, 1fr);
+					}
+
+					.features-listing-image {
+						text-align: right;
+
+						@media screen and (max-width: 700px) {
+							text-align: center;
+						}
+					}
+
+					.features-listing-text-cont {
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						gap: 1rem;
+
+						@media screen and (max-width: 700px) {
+							text-align: center;
+							align-items: center;
+						}
+
+						.title {
+							font-family: "Fontastique", cursive;
+							font-size: 1.5rem;
+							color: #000000;
+
+							@media screen and (max-width: 700px) {
+								text-align: center;
+							}
+						}
+
+						.desciption {
+							font-family: "Avenir", sans-serif;
+							font-size: 1.25rem;
+							line-height: 1.5;
+							color: #000000;
+
+							@media screen and (max-width: 700px) {
+								text-align: center;
+							}
+						}
+
+						.btn-cont {
+							button {
+								font-family: "Avenir", sans-serif;
+								font-size: 1.25rem;
+								padding: 0.5rem 1rem;
+								background: #FFF8EF;
+								border: 4px solid #FB9400;
+								box-sizing: border-box;
+								border-radius: 50px;
+							}
+						}
+					}
+				}
+
+				> div:nth-of-type(2) > div {
+					.features-listing-image {
+						text-align: left;
+
+						@media screen and (max-width: 700px) {
+							text-align: center;
+						}
+					}
+
+					.features-listing-text-cont {
+						align-items: flex-end;
+
+						@media screen and (max-width: 700px) {
+							align-items: center;
+						}
+
+						.desciption {
+							text-align: right;
+
+							@media screen and (max-width: 700px) {
+								text-align: center;
+							}
+						}
+					}
+				}
+
+				@media screen and (max-width: 700px) {
+					> div:not(:nth-of-type(2)) > div {
+						.features-listing-image {
+							order: -1;
+						}
+					}
+				}
+			}
+		}
+    // end features styling
+
     // contact form styling
     .homepage-contact-form {
-			display: grid;
-			gap: 2rem;
-			padding: 2rem;
 			padding: 6rem 4rem;
+
+			@media screen and (max-width: 700px) {
+				padding: 1rem;
+			}
+
+			> * {
+				display: grid;
+				gap: 2rem;
+				// justify-content: center;
+
+				@media screen and (max-width: 700px) {
+					gap: 1rem;
+				}
+			}
 
 			.heading {
 				h3 {
@@ -216,16 +403,26 @@ img {
 
 			.form {
 				background: #FFF8EF;
-				border-radius: 30px;
+				border-radius: 24px;
 				padding: 3rem 3rem 1rem 3rem;
 				text-align: center;
+				max-width: 600px;
+				margin: 0 auto;
+
+				@media screen and (max-width: 700px) {
+					padding: 2rem 2rem 1rem 2rem;
+					max-width: 100%;
+					margin: 0;
+				}
 
 				.input-group {
 					display: grid;
 					grid-template-columns: repeat(2, 1fr);
 					gap: 1rem;
-					max-width: 60%;
-					margin: 0 auto;
+
+					@media screen and (max-width: 700px) {
+						grid-template-columns: repeat(1, 1fr);
+					}
 
 					input {
 						padding: 0.5rem;
@@ -263,74 +460,6 @@ img {
 			}
     }
     //  end Contact form
-
-    // features styling
-		.features-cont {
-			display: grid;
-			gap: 2rem;
-
-			.heading {
-				h3 {
-					font-family: "Fontastique", cursive;
-					font-size: 2rem;
-					letter-spacing: 0.03em;
-					color: #000000;
-					text-align: center;
-				}
-			}
-
-			.features-listing {
-				display: grid;
-
-				> div > div {
-					display: grid;
-					grid-template-columns: repeat(2, 1fr);
-					gap: 2rem;
-					padding: 2rem;
-
-					.features-listing-image {
-						text-align: right;
-					}
-
-					.features-listing-text-cont {
-						display: flex;
-						flex-direction: column;
-						justify-content: center;
-						gap: 1rem;
-
-						.title {
-							font-family: "Avenir", sans-serif;
-							font-weight: 500;
-							font-size: 1.25rem;
-							color: #000000;
-						}
-
-						.btn-cont {
-							button {
-								font-family: "Avenir", sans-serif;
-								font-size: 1.25rem;
-								padding: 0.5rem 1rem;
-								background: #FFF8EF;
-								border: 4px solid #FB9400;
-								box-sizing: border-box;
-								border-radius: 50px;
-							}
-						}
-					}
-				}
-
-				> div:nth-of-type(2) > div {
-					.features-listing-image {
-						text-align: left;
-					}
-
-					.features-listing-text-cont {
-						align-items: flex-end;
-					}
-				}
-			}
-		}
-    // end features styling
   }
 }
 // end homepage styling
@@ -361,4 +490,10 @@ img {
     text-align: center;
     border: 1px solid black;
   }
+}
+
+/* width limiter */
+.max-width-cont {
+	max-width: 1000px;
+	margin: 0 auto;
 }
