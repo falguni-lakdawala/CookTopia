@@ -1,4 +1,7 @@
+
+
 const RecipeCard = ({ recipeData, showCategory = true, showTime = true }) => {
+
 	return (
 		<div key={(recipeData.category) + (recipeData.title)}>
 			<div className="recipes-otd-img-cont">
