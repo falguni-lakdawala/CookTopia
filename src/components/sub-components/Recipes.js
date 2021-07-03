@@ -1,30 +1,46 @@
 import RecipeCard from "./RecipeCard";
+import useFetch from '../../custom_hooks/useFetch'
+
 
 const Recipes = ({ recipeClassName }) => {
-	const recipesData = [
-		{
-			src: "https://picsum.photos/400/300?random=5",
-			title: "Italian Pasta",
-			cooking_time: "45 minutes",
-			category: "vegetables",
-			alt: "image",
-		},
-		{
-			src: "https://picsum.photos/400/300?random=6",
-			title: "Chicken Pizza",
-			cooking_time: "120 minutes",
-			category: "non-veg",
-			alt: "image",
-		},
-		{
-			src: "https://picsum.photos/400/300?random=8",
-			title: "Chicken Biryani",
-			cooking_time: "100 minutes",
-			category: "veg",
-			alt: "image",
-		},
-	];
+
+	const url="http://localhost:5000/recipes/random"
+    
+	let recipesData=useFetch(url,{})
+	console.log(recipesData)
+
+
+	
+
+	// const recipesData = [
+	// 	{
+	// 		src: "https://picsum.photos/400/300?random=5",
+	// 		title: "Italian Pasta",
+	// 		cooking_time: "45 minutes",
+	// 		category: "vegetables",
+	// 		alt: "image",
+	// 	},
+	// 	{
+	// 		src: "https://picsum.photos/400/300?random=6",
+	// 		title: "Chicken Pizza",
+	// 		cooking_time: "120 minutes",
+	// 		category: "non-veg",
+	// 		alt: "image",
+	// 	},
+	// 	{
+	// 		src: "https://picsum.photos/400/300?random=8",
+	// 		title: "Chicken Biryani",
+	// 		cooking_time: "100 minutes",
+	// 		category: "veg",
+	// 		alt: "image",
+	// 	},
+	// ];
+
   return (
+<>
+{!recipesData.loading &&
+
+<>
     <div className="recipes-otd">
 			<div className="max-width-cont">
 				<div className="heading">
@@ -37,7 +53,7 @@ const Recipes = ({ recipeClassName }) => {
 				</div>
 				<div className="recipes-otd-listing">
 					{
-						recipesData.map((data, index) => {
+						(recipesData.response.recipes).map((data, index) => {
 							return (
 								<RecipeCard
 									key={ index }
@@ -54,7 +70,12 @@ const Recipes = ({ recipeClassName }) => {
 				</div>
 			</div>
     </div>
+	</>
+  
+				}
+				</>
+ 
   );
-};
+				}
 
 export default Recipes;
