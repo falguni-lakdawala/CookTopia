@@ -1,20 +1,17 @@
-
-
 const RecipeCard = ({ recipeData }) => {
-
-	return (
+  return (
     <div key={recipeData.title}>
       {console.log(recipeData)}
       <div className="recipes-otd-img-cont">
-        <img src={recipeData.image} alt={recipeData.alt} />
+        <img onClick ={()=>{console.log(recipeData.id)} } src={recipeData.image} alt={recipeData.alt} />
       </div>
       <div className="recipes-otd-name-cont">
         <h4>{recipeData.title}</h4>
       </div>
       <div className="recipes-otd-details-cont">
         <div className="recipes-otd-category-cooking-time-cont">
-          {/* {showCategory == true ? <p>{}</p> : ''} */}
-          {/* {showTime == true ? <p>{recipeData.cooking_time}</p> : ''} */}
+          { <p>{recipeData.vegetarian?"Vegetarian":"Non-Vegetarian"}</p>}
+          {<p>{recipeData.readyInMinutes} mins</p>}
         </div>
         <div className="recipes-otd-likes-dislikes-cont">
           <div className="recipes-otd-likes-cont">
@@ -31,11 +28,11 @@ const RecipeCard = ({ recipeData }) => {
       </div>
     </div>
   );
-}
+};
 
 RecipeCard.defaultProps = {
-	showCategory: true,
-	showTime: true,
-}
+  showCategory: true,
+  showTime: true,
+};
 
 export default RecipeCard;

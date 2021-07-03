@@ -7,7 +7,6 @@ const Recipes = ({ recipeClassName }) => {
 	const url="http://localhost:5000/recipes/random"
     
 	let recipesData=useFetch(url,{})
-	console.log(recipesData)
 
 
 	
