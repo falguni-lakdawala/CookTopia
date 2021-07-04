@@ -1,9 +1,22 @@
+import { useHistory } from "react-router";
+
 const RecipeCard = ({ recipeData }) => {
+
+  console.log(recipeData)
+const history=useHistory();
   return (
     <div key={recipeData.title}>
       {console.log(recipeData)}
       <div className="recipes-otd-img-cont">
-        <img onClick ={()=>{console.log(recipeData.id)} } src={recipeData.image} alt={recipeData.alt} />
+        <img onClick ={()=>{
+          
+          history.push({
+            pathname:'/recipecontent',
+            state:{id:recipeData.id}
+          })
+
+
+          } } src={recipeData.image} alt={recipeData.alt} />
       </div>
       <div className="recipes-otd-name-cont">
         <h4>{recipeData.title}</h4>

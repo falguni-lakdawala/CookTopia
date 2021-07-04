@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import Button from '../composable-components/Button';
-import Input from '../composable-components/Input';
+import Input from '../../composable-components/Input';
 import { useHistory}  from 'react-router-dom';
 
 const Login = () => {

@@ -1,5 +1,5 @@
-import RecipeCard from "./RecipeCard";
-import useFetch from '../../custom_hooks/useFetch'
+import RecipeCard from "../RecipeCard";
+import useFetch from '../../../custom_hooks/useFetch'
 
 
 const Recipes = ({ recipeClassName }) => {
@@ -47,7 +47,7 @@ const Recipes = ({ recipeClassName }) => {
 				</div>
 				<div className="subheading">
 					<p>
-						<b>Try CookTopia's</b> daily <b>recommending dishes.</b>
+						<b>Try CookTopia's</b> daily <b>recommended dishes.</b>
 					</p>
 				</div>
 				<div className="recipes-otd-listing">

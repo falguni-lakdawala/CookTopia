@@ -1,6 +1,8 @@
 import React from 'react'
 
-const RecipeContentMainInstructions = () => {
+const RecipeContentMainInstructions = ({recipeData}) => {
+	console.log(recipeData)
+	const nutritionData=recipeData.nutrition.nutrients
 	const recipeContentMainInstructionsData = {
 		totalCalories: '2200 Kcal',
 		instructionsTextData: [
@@ -32,7 +34,7 @@ const RecipeContentMainInstructions = () => {
 			<div className="instructions-total-calories-cont">
 				<div className="instructions-total-calories-box">
 					<div className="label">Total Calories</div>
-					<div className="instructions-total-calories-text">{recipeContentMainInstructionsData.totalCalories}</div>
+					<div className="instructions-total-calories-text">{nutritionData[0].amount+" "+nutritionData[0].unit}</div>
 				</div>
 			</div>
 			<div className="recipe-instructions-text-cont">
