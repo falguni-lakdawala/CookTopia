@@ -45,7 +45,7 @@ const Navbar = ({ navElements }) => {
       <div className="mobile-nav-cont">
         <nav className="mobile-nav">
 					<div className="mobile-nav-close-btn-cont">
-						<button type="button" className="mobile-nav-close-btn" onClick={(e) => (document.querySelector('.mobile-nav').classList.remove('active'))}>
+						<button title="toggle" type="button" className="mobile-nav-close-btn" onClick={(e) => (document.querySelector('.mobile-nav').classList.remove('active'))}>
 							<i className="fas fa-times"></i>
 						</button>
 					</div>
@@ -65,8 +65,8 @@ const Navbar = ({ navElements }) => {
           </ul>
         </nav>
 				<div className="mobile-nav-toggle-btn-cont">
-					<button type="button" className="mobile-nav-toggle-btn" onClick={(e) => (document.querySelector('.mobile-nav').classList.toggle('active'))}>
-						<img src={ mobileMenuToggleIcon } alt="mobile menu toggle" />
+					<button role="button" aria-label="toggle mobile nav" title="toggle" type="button" className="mobile-nav-toggle-btn" onClick={(e) => (document.querySelector('.mobile-nav').classList.toggle('active'))}>
+						<img role="img" aria-label="mobile toggle icon" src={ mobileMenuToggleIcon } alt="mobile menu toggle" />
 					</button>
 				</div>
         <Search screenType={ 2 } />

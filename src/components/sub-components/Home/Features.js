@@ -32,7 +32,7 @@ const Features = ({ features }) => {
     <div className="features-cont">
 			<div className="max-width-cont">
 				<div className="heading">
-					<h3>Features</h3>
+					<h3 role="heading" aria-label="Features">Features</h3>
 				</div>
 				<div className="features-listing">
 					{

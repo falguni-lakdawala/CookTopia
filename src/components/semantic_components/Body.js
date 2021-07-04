@@ -33,7 +33,7 @@ const Body = () => {
   return (
     // Routes will be defined here
     <>
-      <main className="app_body">
+      <main role="main" className="app_body">
         {location.pathname === "/home" && (
           <>
             <Blindbox />

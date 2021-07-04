@@ -4,7 +4,7 @@ import searchIcon from '../../assets/icons/search-icon.svg';
 const Search = ( { screenType } ) => {
 	return (
 		<div className="search">
-			<button
+			<button role="button" aria-label="search" title="search"
 				type="button"
 				className="search-btn"
 				onClick={() => {
@@ -23,7 +23,7 @@ const Search = ( { screenType } ) => {
 					<path d="M33.7492 33.7492L26.1367 26.1367" stroke="#111111" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
 				</svg>
 			</button>
-			<input type="search" />
+			<input aria-label="input search text" type="search" />
 		</div>
 	)
 }

@@ -5,7 +5,7 @@ import Input from "../../composable-components/Input";
 const Signup = () => {
   return (
     <div className="signup">
-      <h1>Sign up</h1>
+      <h1 role="heading" aria-label="Sign up heading">Sign up</h1>
       {/* <div className="image_wrapper">
         <Images src={"https://picsum.photos/200"} alt={"profile_image"} />
         <div className="imagecover">
@@ -13,8 +13,8 @@ const Signup = () => {
         </div>
       </div> */}
 			<div className="profile-image-cont">
-				<img src={"https://picsum.photos/200"} alt={"profile_image"} />
-				<button type="button" className="add-profile-image-btn">
+				<img role="img" aria-label="Profile" src={"https://picsum.photos/200"} alt={"profile_image"} />
+				<button role="button" aria-label="profile image" title="add image" type="button" className="add-profile-image-btn">
 					Add Image
 				</button>
 			</div>
@@ -25,7 +25,7 @@ const Signup = () => {
 					<Input type={"password"} placeholder={"Enter your password "} />
 				</div>
 				<div className="signup-inputs-2">
-					<button className="signup-inputs-signup-btn" type="button">Signup</button>
+					<button role="button" aria-label="sign up" title="sign up" className="signup-inputs-signup-btn" type="button">Signup</button>
 				</div>
 			</div>
     </div>

@@ -5,7 +5,7 @@ const ContactForm = ({ input_number }) => {
     <div className="homepage-contact-form">
 			<div className="max-width-cont">
 				<div className="heading">
-					<h3>Contact Us</h3>
+					<h3 role="heading">Contact Us</h3>
 				</div>
 				<div className="subheading">
 					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
@@ -20,9 +20,9 @@ const ContactForm = ({ input_number }) => {
 								placeholder={input[1].placeholder}
 							/>
 						))}
-						<textarea placeholder="Share your feedback"></textarea>
+						<textarea role="textbox" aria-label="Enter your feedback" placeholder="Share your feedback"></textarea>
 					</div>
-					<button type="submit">Submit</button>
+					<button role="button" aria-label="submit contact form" title="submit" type="submit">Submit</button>
 				</div>
 			</div>
     </div>

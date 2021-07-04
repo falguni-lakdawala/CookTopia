@@ -7,14 +7,14 @@ const FeatureCard = ({ featuresData }) => {
 				featuresData.type == 1 ?
 				<div>
 					<div className="features-listing-text-cont">
-						<div className="title">{featuresData.title}</div>
-						<div className="desciption">{featuresData.description}</div>
+						<div className="title" aria-label="Feature title">{featuresData.title}</div>
+						<div className="desciption" aria-label="Feature description">{featuresData.description}</div>
 						<div className="btn-cont">
-							<button type="button">{featuresData.buttonText}</button>
+							<button title="feature" type="button" role="button" aria-label="Feature button">{featuresData.buttonText}</button>
 						</div>
 					</div>
 					<div className="features-listing-image">
-						<img src={featuresData.src} alt={featuresData.title} />
+						<img src={featuresData.src} alt={featuresData.title} aria-label ="Feature image" role="img"/>
 					</div>
 				</div>
 				:
@@ -24,10 +24,10 @@ const FeatureCard = ({ featuresData }) => {
 							<img src={featuresData.src} alt={featuresData.title} />
 						</div>
 						<div className="features-listing-text-cont">
-							<div className="title">{featuresData.title}</div>
-							<div className="desciption">{featuresData.description}</div>
+							<div className="title" aria-label="Feature Title">{featuresData.title}</div>
+							<div className="desciption" aria-label="feature description">{featuresData.description}</div>
 							<div className="btn-cont">
-								<button type="button">{featuresData.buttonText}</button>
+								<button title="features" type="button" role="button" aria-label="features button">{featuresData.buttonText}</button>
 							</div>
 						</div>
 					</div>

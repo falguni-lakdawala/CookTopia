@@ -43,11 +43,11 @@ const Recipes = ({ recipeClassName }) => {
     <div className="recipes-otd">
 			<div className="max-width-cont">
 				<div className="heading">
-					<h3>Recipes of Today</h3>
+					<h3 role="heading" aria-label="Today's recipes">Recipes of Today</h3>
 				</div>
 				<div className="subheading">
 					<p>
-						<b>Try CookTopia's</b> daily <b>recommended dishes.</b>
+						<b aria-label="Cooktopia recommended ">Try CookTopia's</b> daily <b>recommended dishes.</b>
 					</p>
 				</div>
 				<div className="recipes-otd-listing">
@@ -63,7 +63,7 @@ const Recipes = ({ recipeClassName }) => {
 					}
 				</div>
 				<div className="recipes-otd-load-more-btn-cont">
-					<button className="recipes-otd-load-more-btn" type="button">
+					<button role="button" aria-label="load more" title="load more" className="recipes-otd-load-more-btn" type="button">
 						load more
 					</button>
 				</div>

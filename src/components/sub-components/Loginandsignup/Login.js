@@ -7,7 +7,7 @@ const Login = () => {
     const history=useHistory();
     return (
       <div className="login">
-        <h1>Log in</h1>
+        <h1 role="heading" aria-label="Log in heading">Log in</h1>
         <div className="login-inputs-cont">
           <div className="login-inputs-1">
             <Input type={"email"} placeholder={"Email"} />
@@ -15,7 +15,7 @@ const Login = () => {
             <Link to={{ pathname: "/forgot" }}>Forgot your password?</Link>
           </div>
           <div className="login-inputs-2">
-            <button
+            <button title="login" role="button" aria-label="login"
 							className="login-inputs-login-btn"
               type="button"
               onClick={() => {
@@ -25,6 +25,9 @@ const Login = () => {
               Log in
             </button>
             <button
+            role="button"
+            aria-label="Register"
+            title="register"
 							className="login-inputs-register-btn"
             >
               Register

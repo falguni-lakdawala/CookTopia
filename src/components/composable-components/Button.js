@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 const Button = ({type,text,style}) => {
     return (
-        <button type={type} style={style} >{text}</button>
+        <button role="button" aria-label="button" type={type} style={style} title="button">{text}</button>
     )
 }
 

@@ -60,6 +60,8 @@ const RecipeContentDetails = ({recipeData}) => {
               {recipeData.extendedIngredients.map((data, index) => (
                 <div key={index} className="ingredient-listing">
                   <input
+                  role="checkbox"
+                  aria-label="Checkbox"
                     type="checkbox"
                     className="ingredient-checkbox"
                     defaultChecked
@@ -69,7 +71,7 @@ const RecipeContentDetails = ({recipeData}) => {
               ))}
             </div>
             <div className="add-to-shopping-list-btn-cont">
-              <button type="button" className="add-to-shopping-list-btn">
+              <button role="button" aria-label="shopping list" title="add" type="button" className="add-to-shopping-list-btn">
                 Add to Shopping List
               </button>
             </div>

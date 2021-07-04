@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const Input = ({title,type,style,size,autocomplete,placeholder,required}) => {
     return (
 
-            <input title={title} type={type} style={style} size={size} autoComplete={autocomplete} placeholder={placeholder} required={required}></input>
+            <input  title={title} type={type} style={style} size={size} autoComplete={autocomplete} placeholder={placeholder} required={required}></input>
             
     )
 }
