@@ -1,6 +1,6 @@
 import React from "react";
-import Images from "../composable-components/Images";
-import Input from "../composable-components/Input";
+import Images from "../../composable-components/Images";
+import Input from "../../composable-components/Input";
 
 const Signup = () => {
   return (

@@ -1,15 +1,15 @@
 import React from "react";
-import Recipes from "../sub-components/Recipes";
+import Recipes from "../sub-components/Home/Recipes";
 import RecipeResult from "../sub-components/RecipeResult";
 import ShoppingListRecipe from "../sub-components/ShoppingListRecipe";
-import Blindbox from "../sub-components/Blindbox";
-import Features from "../sub-components/Features";
+import Blindbox from "../sub-components/Home/Blindbox";
+import Features from "../sub-components/Home/Features";
 import ContactForm from "../sub-components/ContactForm";
-import RecipeContent from "../sub-components/RecipeContent";
+import RecipeContent from "../sub-components/Recipes/RecipeContent";
 import { useLocation } from "react-router-dom";
-import Login from "../sub-components/Login";
-import Team from "../sub-components/Team";
-import Signup from "../sub-components/Signup";
+import Login from "../sub-components/Loginandsignup/Login";
+import Team from "../sub-components/Team/Team";
+import Signup from "../sub-components/Loginandsignup/Signup";
 import Profile from "../sub-components/Profile/Profile";
 
 const Body = () => {

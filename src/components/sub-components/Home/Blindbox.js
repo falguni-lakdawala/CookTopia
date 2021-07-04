@@ -1,5 +1,5 @@
-import Button from '../composable-components/Button';
-import blindboxHeroImage from '../../assets/blindbox/blindbox-hero-image.svg';
+
+import blindboxHeroImage from '../../../assets/blindbox/blindbox-hero-image.svg';
 
 const Blindbox = ({ style }) => {
 	return (

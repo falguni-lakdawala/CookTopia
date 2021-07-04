@@ -1,8 +1,8 @@
 import React from "react";
 import FeatureCard from "./FeatureCard";
-import searchRecipesImage from "../../assets/illustrations/features-search-recipe.svg";
-import nutritionInformationImage from "../../assets/illustrations/features-nutrition-information.svg";
-import featuresShoppingListImage from "../../assets/illustrations/features-shopping-list.svg";
+import searchRecipesImage from "../../../assets/illustrations/features-search-recipe.svg";
+import nutritionInformationImage from "../../../assets/illustrations/features-nutrition-information.svg";
+import featuresShoppingListImage from "../../../assets/illustrations/features-shopping-list.svg";
 
 const Features = ({ features }) => {
 	const featuresData = [

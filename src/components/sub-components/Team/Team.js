@@ -1,10 +1,10 @@
-import sinaeProfilePicture from "../../assets/team-members/sinae.png";
-import maneeshProfilePicture from "../../assets/team-members/maneesh.png";
-import rohitProfilePicture from "../../assets/team-members/rohit.png";
-import abhijeetProfilePicture from "../../assets/team-members/abhijeet.png";
-import miaProfilePicture from "../../assets/team-members/mia.png";
-import falguniProfilePicture from "../../assets/team-members/falguni.png";
-import linkedInIconBlack from "../../assets/icons/linkedin-icon-black.png";
+import sinaeProfilePicture from "../../../assets/team-members/sinae.png";
+import maneeshProfilePicture from "../../../assets/team-members/maneesh.png";
+import rohitProfilePicture from "../../../assets/team-members/rohit.png";
+import abhijeetProfilePicture from "../../../assets/team-members/abhijeet.png";
+import miaProfilePicture from "../../../assets/team-members/mia.png";
+import falguniProfilePicture from "../../../assets/team-members/falguni.png";
+import linkedInIconBlack from "../../../assets/icons/linkedin-icon-black.png";
 
 
 
