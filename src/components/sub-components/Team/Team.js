@@ -63,7 +63,7 @@ const Team = ({ team }) => {
 		<div className="team-page-cont">
 			<div className="max-width-cont">
 				<div className="heading">
-					<h1>Meet the Team</h1>
+					<h1 role="heading" >Meet the Team</h1>
 				</div>
 				<div className="subheading">
 					CookTopia is a recipe platforms that helps young cooking novices by providing a variety of recipes, nutrition data, and nearby grocery shops, so home cooks could enjoy well-being life based on well-balanced diet. This service is created by 3 developers and 3 designers.
@@ -74,7 +74,7 @@ const Team = ({ team }) => {
 							return (
 								<div className="member-cont" key={index + data.name}>
 									<div className="image-cont">
-										<img src={ data.src } alt={ `${data.name} picture` } />
+										<img role="img" src={ data.src } alt={ `${data.name} picture` } />
 									</div>
 									<div className="text-details-cont">
 										<div className="name">{ data.name }</div>
@@ -83,8 +83,8 @@ const Team = ({ team }) => {
 											{ data.description }
 										</div>
 										<div className="linkedin-link">
-											<a href={ data.linkedInURL }>
-												<img src={ linkedInIconBlack } alt="linkedin for the profile" />
+											<a role="link" href={ data.linkedInURL }>
+												<img role="img" src={ linkedInIconBlack } alt="linkedin for the profile" />
 											</a>
 										</div>
 									</div>

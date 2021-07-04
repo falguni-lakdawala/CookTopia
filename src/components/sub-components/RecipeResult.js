@@ -8,7 +8,7 @@ const RecipeResult = () => {
     return(
 
     <div className="recipes">
-        <h3>Recipe's Related to Pasta</h3>
+        <h3 role="heading">Recipe's Related to Pasta</h3>
     <RecipeCard recipeClassName="recipe_result" recipes={[{src:"https://picsum.photos/100/100?random=4",title:"pasta",cooking_time:"45 minutes",category:"vegetables",alt:"image"},
 {src:"https://picsum.photos/100/100?random=6",title:"chicken Pizza",cooking_time:"120 minutes",category:"Non-veg",alt:"image"},
 {src:"https://picsum.photos/100/100?random=8",title:"chicken Biryani",cooking_time:"100 minutes",category:"veg",alt:"image"},

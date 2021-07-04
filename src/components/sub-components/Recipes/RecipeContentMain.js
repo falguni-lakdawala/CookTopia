@@ -29,14 +29,14 @@ const RecipeContentMain = ({recipeData}) => {
 						</div>
 					</div>
 					<div className="recipe-fav-btn-cont">
-						<button type="button" className="recipe-fav-btn">
+						<button role="button" aria-label="Favourite button" title="fav" type="button" className="recipe-fav-btn">
 							Fav
 						</button>
 					</div>
 				</div>
 				<div className="recipe-main-cont">
 					<div className="recipe-image-main-cont">
-						<img src={recipeData.image} alt="recipe main image" className="recipe-image-main" />
+						<img role="img" aria-label="Recipe image" src={recipeData.image} alt="recipe main image" className="recipe-image-main" />
 					</div>
 					<div className="recipe-about-cont">
 						<div className="recipe-about-heading">
@@ -52,11 +52,11 @@ const RecipeContentMain = ({recipeData}) => {
 			<RecipeContentMainInstructions recipeData={recipeData}/>
 			<div className="recipe-like-dislike-cont">
 				<div className="like-cont">
-					<button type="button" className="recipe-like"><i className="fas fa-thumbs-up"></i></button>
+					<button role="button" aria-label="like" title="like" type="button" className="recipe-like"><i className="fas fa-thumbs-up"></i></button>
 					<div className="like-text">{recipeData.aggregateLikes}</div>
 				</div>
 				<div className="dislike-cont">
-					<button type="button" className="recipe-dislike"><i className="fas fa-thumbs-down"></i></button>
+					<button role="button" aria-label="dislike" title="dislike" type="button" className="recipe-dislike"><i className="fas fa-thumbs-down"></i></button>
 					{/* <div className="dislike-text">{recipeContentMainData.dislikes}</div> */}
 				</div>
 			</div>

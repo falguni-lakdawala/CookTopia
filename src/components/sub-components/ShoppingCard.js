@@ -11,33 +11,33 @@ return(
                 <div className="shopping_card" key={data.src}>
                     <div>
                         <Images src={data.src} alt={data.alt} />
-                        <h4>{data.title}</h4>
+                        <h4 role="heading">{data.title}</h4>
                         <label>Reset List</label>
                     </div>
                     
 
                     <div className="ingredientlist">
                         <div>
-                            <input type="checkbox" id="apple" name="apple" value="Apple" />
+                            <input aria-labelledby="apple" type="checkbox" id="apple" name="apple" value="Apple" />
                             <label htmlFor="apple"> Apple</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>5 Pcs</label><br />
                         </div>
                         <div>
-                            <input type="checkbox" id="sugar" name="sugar" value="Sugar" />
+                            <input aria-labelledby="sugar" type="checkbox" id="sugar" name="sugar" value="Sugar" />
                             <label htmlFor="sugar"> Sugar</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>11 g</label><br />
                         </div>
                         
                         <div>
-                            <input type="checkbox" id="raddish" name="raddish" value="Raddish" />
+                            <input aria-labelledby="raddish" type="checkbox" id="raddish" name="raddish" value="Raddish" />
                             <label htmlFor="raddish"> Raddish</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>2 Pcs</label><br />
                         </div>
                         
                         <div>
-                            <input type="checkbox" id="tomato" name="tomato" value="Tomato" />
+                            <input aria-labelledby="tomato" type="checkbox" id="tomato" name="tomato" value="Tomato" />
                             <label htmlFor="tomato"> Tomato</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>3 Pcs</label>
                         </div>
 
                         <div>
-                            <input type="checkbox" id="apple" name="apple" value="Apple" />
+                            <input type="checkbox" aria-labelledby="apple" id="apple" name="apple" value="Apple" />
                             <label htmlFor="apple"> Apple</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>5 Pcs</label><br />
                         </div>
                         <div>

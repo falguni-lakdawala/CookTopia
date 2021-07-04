@@ -11,7 +11,7 @@ const ShoppingListRecipe = () => {
 
         <div>
             <div className="recipes">
-                <h3>Recipes you selected</h3>
+                <h3 role="heading">Recipes you selected</h3>
 
             <RecipeCard  recipeData={[{image:"https://picsum.photos/100/100?random=4",title:"pasta",cooking_time:"45 minutes",category:"vegetables",alt:"image"},
             {image:"https://picsum.photos/100/100?random=6",title:"chicken Pizza",cooking_time:"120 minutes",category:"Non-veg",alt:"image"},
@@ -22,7 +22,7 @@ const ShoppingListRecipe = () => {
         </div>
 
         <div className="shoppingList">
-            <h3>Your Shopping List</h3>
+            <h3 role="heading">Your Shopping List</h3>
             <Button text="Clear All Lists"/>
 
             <ShoppingCard recipeClassName="shopping_cardlist" recipes={[
@@ -39,7 +39,7 @@ const ShoppingListRecipe = () => {
         </div>
 
         <div className="groceryshop">
-            <h3>Find the nearby grocery shop</h3>
+            <h3 role="heading">Find the nearby grocery shop</h3>
 
             <input type="text" placeholder="Enter postal code here"/>
             <Button text="Search nearby Shop"/>

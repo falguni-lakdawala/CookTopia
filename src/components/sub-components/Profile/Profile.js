@@ -13,7 +13,7 @@ const ProfileCard = () => {
 
 <Images src={abhijeet} alt={"Profile Image"}/>
 <div className="profiledata">
-    <p>Abhijeet</p>
+    <p >Abhijeet</p>
     <span className="email">
 
         <p>Email :</p>

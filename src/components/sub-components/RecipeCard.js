@@ -19,7 +19,7 @@ const history=useHistory();
           } } src={recipeData.image} alt={recipeData.alt} />
       </div>
       <div className="recipes-otd-name-cont">
-        <h4>{recipeData.title}</h4>
+        <h4 role="heading">{recipeData.title}</h4>
       </div>
       <div className="recipes-otd-details-cont">
         <div className="recipes-otd-category-cooking-time-cont">
