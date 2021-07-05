@@ -6,7 +6,6 @@ const RecipeCard = ({ recipeData }) => {
 const history=useHistory();
   return (
     <div key={recipeData.title}>
-      {console.log(recipeData)}
       <div className="recipes-otd-img-cont">
         <img onClick ={()=>{
           
