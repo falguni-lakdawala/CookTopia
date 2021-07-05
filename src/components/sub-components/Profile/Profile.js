@@ -4,6 +4,9 @@ import React from 'react'
 import Images from '../../composable-components/Images'
 import abhijeet from '../../../assets/team-members/abhijeet.png'
 import editicon from '../../../assets/icons/editicon.svg'
+import favrecipe from '../../../assets/illustrations/favouriterecipe-not-found.svg'
+import favlist from '../../../assets/illustrations/shoppinglist-not-found.svg'
+
 
 const ProfileCard = () => {
     return (
@@ -29,13 +32,13 @@ const ProfileCard = () => {
 
             <div className="favouriterecipe">
 <h2>Favourite Recipe</h2>
-
+<Images src={favrecipe} alt={"Favourite recipe illustration"}/>
             </div>
         
 
         <div className="shoppinglist">
 
-            
+            <Images src={favlist} alt={"Favourite shopping list"}/>
         </div>
         
         </div>

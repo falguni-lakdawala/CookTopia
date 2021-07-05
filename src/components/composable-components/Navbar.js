@@ -34,7 +34,7 @@ console.log(navElements)
               </li>
             ))}
             <li>
-              <img src={account} alt={"userimage"} />
+              <Link to='/profile'><img src={account} alt={"userimage"} /></Link>
             </li>
           </ul>
           <Search screenType={1} />
@@ -60,7 +60,7 @@ console.log(navElements)
                 document.querySelector(".mobile-nav").classList.remove("active")
               }
             >
-              <img src={account} alt={"userimage"} />
+              <Link to="/profile"><img src={account} alt={"userimage"} /></Link>
             </li>
             {navElements.map((li) => (
               <li
