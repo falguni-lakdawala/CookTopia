@@ -1,102 +1,331 @@
-.recipe_content .recipe_content_component {
-	display: grid;
-	grid-template-columns: 1fr 2fr;
-	padding: 1rem;
+.recipe_content {
+  background: #fff8ef;
+  > * {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
 
-	.recipe-details {
-		display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-
-		.cook-time-cont {
-			display: flex;
-			gap: 1rem;
+		@media screen and (max-width: 700px) {
+			grid-template-columns: 1fr;
 		}
 
-		.portion-cont {
-			display: flex;
-    	gap: 1rem;
-		}
+    > * {
+      padding: 3rem 2rem;
+    }
 
-		.ingredients-cont {
-			display: flex;
-			flex-direction: column;
-			gap: 1rem;
+    .recipe-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background: #fff8ef;
+      grid-row: 1 / 4;
 
-			.ingredients-listings-cont {
-
-				.ingredient-listing {
-					display: flex;
-					gap: 1rem;
-				}
-			}
-		}
-	}
-
-	.recipe-main {
-		display: grid;
-    gap: 1rem;
-    padding: 1rem;
-
-		.recipe-data-cont {
-			display: grid;
-    	gap: 1rem;
-
-			.recipe-subheading-cont {
-				display: flex;
-				justify-content: space-between;
-
-				.recipe-author {
-					display: flex;
-					gap: 0.5rem;
-
-					img {
-						width: 2rem;
-						border-radius: 50%;
-					}
-				}
+			@media screen and (max-width: 700px) {
+				grid-row: auto;
+				padding: 1rem;
 			}
 
-			.recipe-main-cont {
-				display: grid;
-				gap: 1rem;
+      .cook-time-cont {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-end;
 
-				.recipe-about-cont {
-					display: grid;
-					gap: 1rem;
-				}
+        .label {
+          font-family: "Avenir", sans-serif;
+          font-weight: 500;
+          font-size: 1.25rem;
+          color: #000000;
+        }
+
+        .text {
+          font-family: "Avenir", sans-serif;
+          font-size: 1rem;
+          line-height: 1.2;
+          color: #000000;
+        }
+      }
+
+      .portion-cont {
+        display: flex;
+        gap: 1rem;
+
+        .label {
+          font-family: "Avenir", sans-serif;
+          font-weight: 500;
+          font-size: 1.25rem;
+          color: #000000;
+        }
+
+        .text {
+          font-family: "Avenir", sans-serif;
+          font-size: 1rem;
+          line-height: 1.2;
+          color: #000000;
+        }
+      }
+
+      .ingredients-cont {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .label {
+          font-family: "Avenir", sans-serif;
+          font-weight: 500;
+          font-size: 1.25rem;
+          color: #000000;
+        }
+
+        .ingredients-listings-cont {
+          display: grid;
+          gap: 1rem;
+
+          .ingredient-listing {
+            display: flex;
+            gap: 1rem;
+
+            .ingredient-text {
+              font-family: "Avenir", sans-serif;
+              font-weight: 500;
+              font-size: 1rem;
+              line-height: 1.2;
+              color: #000000;
+            }
+          }
+        }
+
+        .add-to-shopping-list-btn-cont {
+          margin-top: 2rem;
+
+          button {
+            font-family: "Avenir", sans-serif;
+            font-size: 1.25rem;
+            padding: 0.5rem 1rem;
+            background: #fff8ef;
+            border: 4px solid #fb9400;
+            box-sizing: border-box;
+            border-radius: 50px;
+          }
+        }
+      }
+    }
+
+    .recipe-main {
+      display: grid;
+      gap: 1rem;
+      background-color: #fff;
+
+			@media screen and (max-width: 700px) {
+				order: -1;
+				padding: 1rem;
 			}
-		}
 
-		.recipe-instructions-cont {
-			display: grid;
-			gap: 1rem;
+      .recipe-data-cont {
+        display: grid;
+        gap: 1rem;
 
-			.instructions-total-calories-box {
-				display: flex;
-				gap: 1rem;
-				width: fit-content;
-				float: right;
+        .recipe-heading {
+          font-family: "Fontastique", cursive;
+          font-size: 2.5rem;
+          color: #000000;
+        }
+
+        .recipe-subheading-cont {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .recipe-author {
+            display: flex;
+            gap: 0.5rem;
+
+            img {
+              width: 2rem;
+              border-radius: 50%;
+            }
+
+            .recipe-author-name {
+              font-family: "Avenir", sans-serif;
+              font-weight: 500;
+              font-size: 1.5rem;
+              color: #000000;
+            }
+          }
+
+          .recipe-fav-btn-cont {
+            button {
+              background: transparent;
+              border: none;
+              padding: 0;
+
+              svg {
+                width: 2rem;
+
+                path:nth-of-type(1) {
+                  fill: #fff;
+                }
+
+                path:nth-of-type(2) {
+                  fill: #000;
+                }
+              }
+
+              svg.active {
+                path:nth-of-type(1) {
+                  fill: #ffd600;
+                }
+
+                path:nth-of-type(2) {
+                  fill: #ffd600;
+                }
+              }
+            }
+          }
+        }
+
+        .recipe-main-cont {
+          display: grid;
+          gap: 1rem;
+
+          .recipe-image-main-cont {
+            img {
+              background: #eeeeee;
+              border: 2px solid #cfcdcd;
+              width: 100%;
+            }
+          }
+
+          .recipe-about-cont {
+            display: grid;
+            gap: 1rem;
+
+            .recipe-about-heading {
+              font-family: "Fontastique", cursive;
+              font-size: 1.75rem;
+              color: #000000;
+            }
+
+            .recipe-about-text {
+              font-family: "Avenir", sans-serif;
+              font-weight: 500;
+              font-size: 1rem;
+              line-height: 1.4;
+              color: #000000;
+
+              a {
+                color: #000;
+                text-decoration: underline;
+                text-decoration-color: #fb9400;
+                transition: color 0.1s ease;
+              }
+
+              a:hover,
+              a:active {
+                color: #fb9400;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .recipe-instructions-cont {
+      display: grid;
+      gap: 1rem;
+			padding: 0;
+
+			@media screen and (max-width: 700px) {
+				padding: 1rem;
 			}
 
-			.dummy {
-				width: 100%;
-				height: 300px;
-				background-color: steelblue;
-			}
-		}
+      .instructions-graph-cont {
+        .instructions-cont-graph {
+          .dummy {
+            width: 100%;
+            height: 300px;
+            background-color: steelblue;
+          }
+        }
+      }
 
-		.recipe-like-dislike-cont {
-			display: flex;
-			gap: 1rem;
-			justify-content: center;
+      .instructions-total-calories-cont {
+        .instructions-total-calories-box {
+          display: flex;
+          gap: 1rem;
+          width: fit-content;
+          float: right;
+          background: #fff8ef;
+          border: 3px solid #fb9400;
+          padding: 0.5rem 1rem;
+          font-family: "Avenir", sans-serif;
+          font-weight: 500;
+          font-size: 1.15rem;
+          color: #000000;
+        }
+      }
 
-			.like-cont, .dislike-cont {
-				display: grid;
-				gap: 0.25rem;
-				text-align: center;
+      .recipe-instructions-text-cont {
+        ol {
+					padding: 0 0 0 1rem;
+
+          li {
+            margin: 1rem 0;
+						font-family: "Avenir", sans-serif;
+						font-weight: 500;
+						font-size: 1.2rem;
+						line-height: 24px;
+						color: #000000;
+
+            .instructions-text-heading {
+              margin: 0.5rem 0;
+              font-family: "Avenir", sans-serif;
+              font-weight: 500;
+              font-size: 1.2rem;
+              line-height: 24px;
+              color: #000000;
+            }
+
+            .instructions-text-text {
+              font-family: "Avenir", sans-serif;
+              font-size: 1rem;
+              line-height: 1.2;
+              color: #000000;
+            }
+          }
+        }
+      }
+    }
+
+    .recipe-like-dislike-cont {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+
+			@media screen and (max-width: 700px) {
+				padding: 1rem;
 			}
-		}
-	}
+
+      .like-cont,
+      .dislike-cont {
+        display: grid;
+        gap: 0.25rem;
+        text-align: center;
+
+        button {
+          background: transparent;
+          border: none;
+
+          img {
+            width: 4rem;
+          }
+        }
+
+        > div {
+          font-family: "Avenir", sans-serif;
+          font-weight: 500;
+          font-size: 1rem;
+          color: #000000;
+        }
+      }
+    }
+  }
 }
