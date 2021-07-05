@@ -19,57 +19,85 @@ console.log(navElements)
     <>
       <div className="logo">
         <Link to="/home">
-					<img className="desktop-header-logo" src={ logoLarge } alt="logo" />
-					<img className="mobile-header-logo" src={ logoSmall } alt="logo" />
+          <img className="desktop-header-logo" src={logoLarge} alt="logo" />
+          <img className="mobile-header-logo" src={logoSmall} alt="logo" />
         </Link>
       </div>
       <div className="desktop-nav-cont">
         <nav className="desktop-nav">
           <ul>
-            {
-							navElements.map(
-								(li) => (
-									<li key={li.text.toString()}>
-										<Link to={{pathname:li.link,state:li.state}}>{li.text}</Link>
-									</li>
-								)
-							)
-						}
+            {navElements.map((li) => (
+              <li key={li.text.toString()}>
+                <Link to={{ pathname: li.link, state: li.state }}>
+                  {li.text}
+                </Link>
+              </li>
+            ))}
             <li>
-							<img src={ account } alt={ "userimage" } />
+              <img src={account} alt={"userimage"} />
             </li>
           </ul>
-          <Search screenType={ 1 } />
+          <Search screenType={1} />
         </nav>
       </div>
       <div className="mobile-nav-cont">
         <nav className="mobile-nav">
-					<div className="mobile-nav-close-btn-cont">
-						<button title="toggle" type="button" className="mobile-nav-close-btn" onClick={(e) => (document.querySelector('.mobile-nav').classList.remove('active'))}>
-							<i className="fas fa-times"></i>
-						</button>
-					</div>
+          <div className="mobile-nav-close-btn-cont">
+            <button
+              title="toggle"
+              type="button"
+              className="mobile-nav-close-btn"
+              onClick={(e) =>
+                document.querySelector(".mobile-nav").classList.remove("active")
+              }
+            >
+              <i className="fas fa-times"></i>
+            </button>
+          </div>
           <ul>
-            <li onClick={(e) => (document.querySelector('.mobile-nav').classList.remove('active'))}>
-							<img src={ account } alt={ "userimage" } />
+            <li
+              onClick={(e) =>
+                document.querySelector(".mobile-nav").classList.remove("active")
+              }
+            >
+              <img src={account} alt={"userimage"} />
             </li>
-            {
-							navElements.map(
-								(li) => (
-									<li onClick={(e) => (document.querySelector('.mobile-nav').classList.remove('active'))} key={li.text.toString()}>
-										<Link to={li.link}>{li.text}</Link>
-									</li>
-								)
-							)
-						}
+            {navElements.map((li) => (
+              <li
+                onClick={(e) =>
+                  document
+                    .querySelector(".mobile-nav")
+                    .classList.remove("active")
+                }
+                key={li.text.toString()}
+              >
+                <Link to={{ pathname: li.link, state: li.state }}>
+                  {li.text}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
-				<div className="mobile-nav-toggle-btn-cont">
-					<button role="button" aria-label="toggle mobile nav" title="toggle" type="button" className="mobile-nav-toggle-btn" onClick={(e) => (document.querySelector('.mobile-nav').classList.toggle('active'))}>
-						<img role="img" aria-label="mobile toggle icon" src={ mobileMenuToggleIcon } alt="mobile menu toggle" />
-					</button>
-				</div>
-        <Search screenType={ 2 } />
+        <div className="mobile-nav-toggle-btn-cont">
+          <button
+            role="button"
+            aria-label="toggle mobile nav"
+            title="toggle"
+            type="button"
+            className="mobile-nav-toggle-btn"
+            onClick={(e) =>
+              document.querySelector(".mobile-nav").classList.toggle("active")
+            }
+          >
+            <img
+              role="img"
+              aria-label="mobile toggle icon"
+              src={mobileMenuToggleIcon}
+              alt="mobile menu toggle"
+            />
+          </button>
+        </div>
+        <Search screenType={2} />
       </div>
     </>
   );
