@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/cooktopia/static/css/main.0faf3119.chunk.css",
-    "main.js": "/cooktopia/static/js/main.0e4db240.chunk.js",
-    "main.js.map": "/cooktopia/static/js/main.0e4db240.chunk.js.map",
+    "main.css": "/cooktopia/static/css/main.0a07bda2.chunk.css",
+    "main.js": "/cooktopia/static/js/main.42bf904f.chunk.js",
+    "main.js.map": "/cooktopia/static/js/main.42bf904f.chunk.js.map",
     "runtime-main.js": "/cooktopia/static/js/runtime-main.a82642d0.js",
     "runtime-main.js.map": "/cooktopia/static/js/runtime-main.a82642d0.js.map",
-    "static/js/2.60e1493f.chunk.js": "/cooktopia/static/js/2.60e1493f.chunk.js",
-    "static/js/2.60e1493f.chunk.js.map": "/cooktopia/static/js/2.60e1493f.chunk.js.map",
+    "static/js/2.880e65ca.chunk.js": "/cooktopia/static/js/2.880e65ca.chunk.js",
+    "static/js/2.880e65ca.chunk.js.map": "/cooktopia/static/js/2.880e65ca.chunk.js.map",
     "static/js/3.040d31fe.chunk.js": "/cooktopia/static/js/3.040d31fe.chunk.js",
     "static/js/3.040d31fe.chunk.js.map": "/cooktopia/static/js/3.040d31fe.chunk.js.map",
     "index.html": "/cooktopia/index.html",
-    "static/css/main.0faf3119.chunk.css.map": "/cooktopia/static/css/main.0faf3119.chunk.css.map",
-    "static/js/2.60e1493f.chunk.js.LICENSE.txt": "/cooktopia/static/js/2.60e1493f.chunk.js.LICENSE.txt",
+    "static/css/main.0a07bda2.chunk.css.map": "/cooktopia/static/css/main.0a07bda2.chunk.css.map",
+    "static/js/2.880e65ca.chunk.js.LICENSE.txt": "/cooktopia/static/js/2.880e65ca.chunk.js.LICENSE.txt",
     "static/media/App.scss": "/cooktopia/static/media/Fontastique.232d6947.ttf",
     "static/media/abhijeet.0f420756.png": "/cooktopia/static/media/abhijeet.0f420756.png",
     "static/media/account.5dfb844d.svg": "/cooktopia/static/media/account.5dfb844d.svg",
@@ -19,6 +19,7 @@
     "static/media/editicon.2f482a26.svg": "/cooktopia/static/media/editicon.2f482a26.svg",
     "static/media/falguni.d5901581.png": "/cooktopia/static/media/falguni.d5901581.png",
     "static/media/favicon.0e91f327.svg": "/cooktopia/static/media/favicon.0e91f327.svg",
+    "static/media/favorite.d80a6271.svg": "/cooktopia/static/media/favorite.d80a6271.svg",
     "static/media/features-nutrition-information.8a2bdb90.svg": "/cooktopia/static/media/features-nutrition-information.8a2bdb90.svg",
     "static/media/features-search-recipe.fab2b5f4.svg": "/cooktopia/static/media/features-search-recipe.fab2b5f4.svg",
     "static/media/features-shopping-list.679eaeaf.svg": "/cooktopia/static/media/features-shopping-list.679eaeaf.svg",
@@ -26,14 +27,16 @@
     "static/media/maneesh.1f32ead8.png": "/cooktopia/static/media/maneesh.1f32ead8.png",
     "static/media/mia.b4e775e4.png": "/cooktopia/static/media/mia.b4e775e4.png",
     "static/media/mobile-toggle.7c31986a.svg": "/cooktopia/static/media/mobile-toggle.7c31986a.svg",
+    "static/media/recipe-dislike.7279ff7b.svg": "/cooktopia/static/media/recipe-dislike.7279ff7b.svg",
+    "static/media/recipe-like.1f937785.svg": "/cooktopia/static/media/recipe-like.1f937785.svg",
     "static/media/rohit.f9e3916a.png": "/cooktopia/static/media/rohit.f9e3916a.png",
     "static/media/search-icon.9887d180.svg": "/cooktopia/static/media/search-icon.9887d180.svg",
     "static/media/sinae.2575a5f8.png": "/cooktopia/static/media/sinae.2575a5f8.png"
   },
   "entrypoints": [
     "static/js/runtime-main.a82642d0.js",
-    "static/js/2.60e1493f.chunk.js",
-    "static/css/main.0faf3119.chunk.css",
-    "static/js/main.0e4db240.chunk.js"
+    "static/js/2.880e65ca.chunk.js",
+    "static/css/main.0a07bda2.chunk.css",
+    "static/js/main.42bf904f.chunk.js"
   ]
 }
