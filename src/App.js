@@ -4,7 +4,12 @@ import React from "react";
 import Page from "./pages/Page";
 import page_not_found from "./pages/page_not_found";
 
+
 function App() {
+
+
+
+
   return (
     <>
       <div className="App">

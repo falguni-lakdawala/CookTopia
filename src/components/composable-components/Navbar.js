@@ -13,7 +13,7 @@ import Images from "../composable-components/Images";
 // Header Component takes in array property and renders them accordingly.
 
 const Navbar = ({ navElements }) => {
-
+console.log(navElements)
   const ref = useRef();
   return (
     <>
@@ -30,7 +30,7 @@ const Navbar = ({ navElements }) => {
 							navElements.map(
 								(li) => (
 									<li key={li.text.toString()}>
-										<Link to={li.link}>{li.text}</Link>
+										<Link to={{pathname:li.link,state:li.state}}>{li.text}</Link>
 									</li>
 								)
 							)

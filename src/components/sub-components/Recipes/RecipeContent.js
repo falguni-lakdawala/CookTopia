@@ -1,18 +1,25 @@
-import React from 'react';
+import React,{useMemo} from 'react';
 import RecipeContentDetails from './RecipeContentDetails';
 import RecipeContentMain from './RecipeContentMain';
 import RecipeContentMainInstructions from './RecipeContentMainInstructions';
-import { useLocation } from 'react-router';
+import { useLocation} from 'react-router';
 import useFetch from '../../../custom_hooks/useFetch';
 
+
+
+
+
+
+
 const RecipeContent = () => {
-	const location = useLocation()
-	const url = `http://localhost:5000/recipe/${location.state.id}`;
+	const location = useLocation();
+	console.log(location)
+	const url=`http://localhost:5000/recipe/${location.state.id}`
 	const res = useFetch(url, {});
 
 	return (
 		<>
-			{!(res.loading) &&
+			{!(res.loading||location.state===undefined) &&
 				<div className="recipe_content">
 					<div className="max-width-cont">
 						<RecipeContentDetails recipeData={res.response} />
