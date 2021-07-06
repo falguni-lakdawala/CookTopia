@@ -6,6 +6,7 @@ import Blindbox from "../sub-components/Home/Blindbox";
 import Features from "../sub-components/Home/Features";
 import ContactForm from "../sub-components/ContactForm";
 import RecipeContent from "../sub-components/Recipes/RecipeContent";
+import RecipesFilterSearch from "../sub-components/RecipesFilterSearch/RecipesFilterSearch";
 import { useLocation } from "react-router-dom";
 import Login from "../sub-components/Loginandsignup/Login";
 import Team from "../sub-components/Team/Team";
@@ -63,9 +64,9 @@ const Body = () => {
             <ShoppingListRecipe />
           </>
         )}
-        {location.pathname === "/recipecontent" && (
+        {location.pathname === "/recipes" && (
           <>
-            <RecipeContent />
+            <RecipesFilterSearch />
           </>
         )}
         {location.pathname === "/team" && (

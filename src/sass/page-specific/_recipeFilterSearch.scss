@@ -1,0 +1,259 @@
+.rfs-filters-cont {
+  > * {
+    padding: 3rem 1rem;
+    display: grid;
+    gap: 1.25rem;
+
+    .heading {
+      font-family: "Fontastique", cursive;
+      font-size: 2rem;
+      color: #000000;
+    }
+
+    .categories-cont {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+
+			@media screen and (max-width: 700px) {
+				grid-template-columns: repeat(1, 1fr);
+			}
+
+      button.category-listing {
+        background: #ffffff;
+        border: 10px solid #cfcdcd;
+        box-sizing: border-box;
+        border-radius: 10px;
+        margin: 0;
+        padding: 1rem 1rem 0.5rem 1rem;
+        transition: all 0.3s ease;
+
+        .text-cont {
+          font-family: "Avenir", sans-serif;
+          letter-spacing: -0.019em;
+          color: #333333;
+          font-weight: 500;
+          font-size: 1.5rem;
+        }
+      }
+
+      .button.category-listing.active {
+        background: #fff8ef;
+        border: 10px solid #fb9400;
+      }
+    }
+
+    .subcategories-cont {
+      display: flex;
+      gap: 1rem;
+
+      button.subcategory-listing {
+        background: transparent;
+        border: none;
+        display: flex;
+        align-items: center;
+        gap: 0;
+
+        .img-cont {
+          display: flex;
+          align-items: center;
+
+          img {
+            height: 39px;
+            transform: translateX(1.3px);
+          }
+        }
+
+        .text-cont {
+          background-color: #fb9400;
+          padding: 0.5rem;
+          color: #ffffff;
+          font-family: "Avenir", sans-serif;
+          font-weight: 500;
+          font-size: 1.15rem;
+          line-height: 24px;
+        }
+      }
+    }
+
+    .subcategories-cont {
+      display: flex;
+      gap: 1rem;
+
+      button.subcategory-listing {
+        background: transparent;
+        border: none;
+        display: flex;
+        align-items: center;
+        gap: 0;
+
+        .img-cont {
+          display: flex;
+          align-items: center;
+
+          img {
+            height: 39px;
+            transform: translateX(1.3px);
+          }
+        }
+
+        .text-cont {
+          background-color: #fb9400;
+          padding: 0.5rem;
+          color: #ffffff;
+          font-family: "Avenir", sans-serif;
+          font-weight: 500;
+          font-size: 1.15rem;
+          line-height: 24px;
+        }
+      }
+    }
+
+    .categories-selected-cont {
+			display: flex;
+	    gap: 2rem;
+	    justify-content: space-between;
+
+      .categories-selected-listing-cont {
+				display: flex;
+				grid-gap: 1rem;
+				gap: 1rem;
+
+        .subcategory-listing {
+          background: transparent;
+          border: none;
+          display: flex;
+          align-items: center;
+          gap: 0;
+
+          .img-cont {
+            display: flex;
+            align-items: center;
+
+            img {
+							height: 39.8px;
+              transform: translateX(1.3px);
+            }
+          }
+
+          .text-cont {
+            background-color: #fb9400;
+            padding: 0.5rem;
+            color: #ffffff;
+            font-family: "Avenir", sans-serif;
+            font-weight: 500;
+            font-size: 1.15rem;
+            line-height: 24px;
+          }
+
+					.remove-selected-subcategory-cont {
+						background-color: #fb9400;
+						padding: 0.5rem;
+						color: #ffffff;
+						font-family: "Avenir", sans-serif;
+						font-weight: 500;
+						font-size: 1.15rem;
+
+						.remove-selected-subcategory-btn {
+							padding: 0.08rem;
+							background: none;
+							border: none;
+							color: #fff;
+						}
+					}
+        }
+      }
+
+			.categories-clear-selected-cont {
+				button.categories-clear-selected-btn {
+					font-family: "Avenir", sans-serif;
+					font-size: 1.25rem;
+					padding: 0.5rem 1rem;
+					background: #FFF8EF;
+					border: 4px solid #FB9400;
+					box-sizing: border-box;
+					border-radius: 50px;
+				}
+			}
+    }
+  }
+}
+
+.rfs-recipes-list-cont {
+  > * {
+    padding: 3rem 1rem;
+    display: grid;
+    gap: 1.25rem;
+
+    .heading {
+      font-family: "Fontastique", cursive;
+      font-size: 2rem;
+      color: #000000;
+		}
+
+		.listing-cont {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 1.5rem;
+
+			@media screen and (max-width: 700px) {
+				grid-template-columns: repeat(1, 1fr);
+			}
+
+			> div {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				border: 2px solid #A9A9A9;
+				border-radius: 30px 30px 0px 0px;
+
+				.recipes-otd-img-cont {
+					display: flex;
+					flex: 1 1 100%;
+
+					img {
+						width: 100%;
+						border-radius: 30px 30px 0px 0px;
+					}
+				}
+
+				.recipes-otd-name-cont {
+					min-height: 70px;
+					padding: 0.5rem;
+
+					h4 {
+						font-family: "Fontastique", cursive;
+						font-size: 1.25rem;
+						color: #000000;
+					}
+				}
+
+				.recipes-otd-details-cont {
+					display: flex;
+					justify-content: space-between;
+					align-items: flex-end;
+					padding: 0.5rem;
+
+					.recipes-otd-category-cooking-time-cont {
+						p {
+							font-family: "Avenir", sans-serif;
+							font-weight: 500;
+							font-size: 1rem;
+							color: #000000;
+						}
+					}
+
+					.recipes-otd-likes-dislikes-cont {
+						display: flex;
+						gap: 0.75rem;
+
+						> * {
+							display: flex;
+							gap: 0.125rem;
+						}
+					}
+				}
+			}
+		}
+	}
+}
