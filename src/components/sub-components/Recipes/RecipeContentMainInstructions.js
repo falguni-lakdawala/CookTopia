@@ -1,6 +1,6 @@
 import recipeLikeIcon from '../../../assets/icons/recipe-like.svg';
 import recipeDislikeIcon from '../../../assets/icons/recipe-dislike.svg';
-import MyResponsivePie from '../Visuaization/MyResponsiveChart';
+import MyResponsivePie from '../Visualization/MyResponsiveChart';
 
 
 const RecipeContentMainInstructions = ({ recipeData }) => {
@@ -8,38 +8,43 @@ const RecipeContentMainInstructions = ({ recipeData }) => {
 	const nutritionData = recipeData.nutrition.nutrients
 	console.log(nutritionData)
 
-
+	const filterednutritionData=nutritionData.filter(data=>data.name==='Carbohydrates'||data.name==='Sugar'||data.name==='Calcium'||data.name==='Folate'||data.name==='Vitamin C')
 	const data = {
     data: [
       {
         id: "Carbohydrates",
         label: "Carbohydrates",
-        value: nutritionData[4].amount,
+        value: nutritionData[0].amount,
         color: "hsl(129, 70%, 50%)",
+        unit: nutritionData[0].unit,
       },
       {
         id: "Sugar",
         label: "Sugar",
-        value: nutritionData[5].amount,
+        value: nutritionData[1].amount,
         color: "hsl(221, 70%, 50%)",
+        unit: nutritionData[1].unit,
       },
       {
         id: "Calcium",
         label: "Calcium",
-        value: nutritionData[21].amount,
+        value: nutritionData[2].amount,
         color: "hsl(1, 70%, 50%)",
+        unit: nutritionData[2].unit,
       },
       {
         id: "Folate",
         label: "Folate",
-        value: nutritionData[13].amount,
+        value: nutritionData[3].amount,
         color: "hsl(251, 70%, 50%)",
+        unit: nutritionData[3].unit,
       },
       {
         id: "Vitamin C",
         label: "Vitamin C",
-        value: nutritionData[9].amount,
+        value: nutritionData[4].amount,
         color: "hsl(299, 70%, 50%)",
+        unit: nutritionData[4].unit,
       },
     ],
   };
