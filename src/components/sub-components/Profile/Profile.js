@@ -4,7 +4,7 @@ import React from 'react'
 import Images from '../../composable-components/Images'
 import abhijeet from '../../../assets/team-members/abhijeet.png'
 import editicon from '../../../assets/icons/editicon.svg'
-import favrecipe from '../../../assets/illustrations/favouriterecipe-not-found.svg'
+import favrecipe from '../../../assets/illustrations/homepage-features/favouriterecipe-not-found.svg'
 import favlist from '../../../assets/illustrations/shoppinglist-not-found.svg'
 
 
