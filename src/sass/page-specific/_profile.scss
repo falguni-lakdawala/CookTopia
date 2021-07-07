@@ -256,6 +256,63 @@
 				}
 			}
 
+			.shopping-list-listing-cont {
+				.shopping-list-listing {
+					display: flex;
+					gap: 2rem;
+
+					.img-and-remove-list-cont {
+						display: grid;
+
+						.img-cont {
+							display: flex;
+							border: 2px solid #8C8C8C;
+						}
+
+						.remove-list-cont {
+							padding: 1rem;
+							text-align: center;
+
+							button {
+								background-color: transparent;
+								border: none;
+								font-family: "Avenir", sans-serif;
+								font-weight: 500;
+								font-size: 1.25rem;
+								line-height: 40px;
+								letter-spacing: -0.011em;
+								text-decoration-line: underline;
+								color: #000000;
+							}
+						}
+					}
+
+					.ingredients-cont {
+						font-family: "Avenir", sans-serif;
+						font-size: 1.25rem;
+						line-height: 40px;
+						color: #000000;
+						flex: 1;
+						padding: 2rem;
+
+						.ingredient-cont {
+							display: flex;
+							gap: 1rem;
+							justify-content: flex-start;
+							padding: 0.25rem 0;
+						}
+					}
+				}
+
+				.shopping-list-listing:nth-of-type(odd) {
+					background: #FEEACC;
+				}
+
+				.shopping-list-listing:nth-of-type(even) {
+					background: #FFF8EF;
+				}
+			}
+
 			.no-shopping-list-cont {
 				display: flex;
 				flex-direction: column;
