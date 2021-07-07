@@ -74,7 +74,7 @@ const Body = () => {
             <Team />
           </>
         )}
-
+        {location.pathname==='/recipecontent'&&<RecipeContent/>}
         {location.pathname === "/signup" && <Signup />}
 
         {location.pathname === "/profile" && <Profile />}
