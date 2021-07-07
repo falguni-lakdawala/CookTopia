@@ -7,7 +7,7 @@ const rand = () => {
 };
 const Header = () => {
 	document.title = "Cooktopia"
-	const navElements = [{ "text": "Recipes", "link": "/recipecontent","state":{id:rand()} }, { "text": "Shopping List", "link": "/shoppinglist","state":"" }, { "text": "Team", "link": "/team","state":"" }];
+	const navElements = [{ "text": "Recipes", "link": "/recipes","state":{id:rand()} }, { "text": "Shopping List", "link": "/shoppinglist","state":"" }, { "text": "Team", "link": "/team","state":"" }];
 
 	const context = useContext(contextapp);
 	// const parentcontext=useContext(contextapp);
