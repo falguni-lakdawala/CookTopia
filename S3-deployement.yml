@@ -3,7 +3,7 @@ name: s3-deploy
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
