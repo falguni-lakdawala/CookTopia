@@ -2,7 +2,6 @@ import { useHistory } from "react-router";
 
 const RecipeCard = ({ recipeData }) => {
 
-  console.log(recipeData)
 const history=useHistory();
   return (
     <div key={recipeData.title}>

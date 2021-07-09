@@ -1,15 +1,23 @@
 import RecipeCard from "../RecipeCard";
 import useFetch from '../../../custom_hooks/useFetch';
+import {useState} from  'react'
 
 
 const Recipes = ({ recipeClassName }) => {
 
+const[more,setmore]=useState(true)
 	const url = "http://localhost:5000/recipes/random";
 	let recipesData = useFetch(url, {})
+	let recipearray;
 
+if(!recipesData.loading){
+	recipearray=recipesData.response.recipes
+}
 	return (
 		<>
 			{!recipesData.loading &&
+
+			
 
 				<>
 					<div className="recipes-otd">
@@ -24,7 +32,7 @@ const Recipes = ({ recipeClassName }) => {
 							</div>
 							<div className="recipes-otd-listing">
 								{
-									(recipesData.response.recipes).map((data, index) => {
+									(more?recipearray.slice(0,3):recipearray).map((data, index) => {
 										return (
 											<RecipeCard
 												key={index}
@@ -35,8 +43,8 @@ const Recipes = ({ recipeClassName }) => {
 								}
 							</div>
 							<div className="recipes-otd-load-more-btn-cont">
-								<button role="button" aria-label="load more" title="load more" className="recipes-otd-load-more-btn" type="button">
-									load more
+								<button role="button" aria-label="load more" title="load more" onClick={()=>{setmore(!more)}} className="recipes-otd-load-more-btn" type="button">
+									{more?"load more":"show few"}
 								</button>
 							</div>
 						</div>
