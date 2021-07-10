@@ -1,7 +1,8 @@
 import { useHistory } from "react-router";
+import dotenv from 'dotenv'
 
 const RecipeCard = ({ recipeData }) => {
-
+console.log(process.env.REACT_APP_M)
 const history=useHistory();
   return (
     <div key={recipeData.title}>
@@ -21,8 +22,8 @@ const history=useHistory();
       </div>
       <div className="recipes-otd-details-cont">
         <div className="recipes-otd-category-cooking-time-cont">
-          { <p>{recipeData.vegetarian?"Vegetarian":"Non-Vegetarian"}</p>}
-          {<p>{recipeData.readyInMinutes} mins</p>}
+          { <p>{(recipeData.vegetarian?"Vegetarian":"Non-vegetarian")}</p>}
+          {<p>{recipeData.readyInMinutes?recipeData.readyInMinutes:0} mins</p>}
         </div>
         <div className="recipes-otd-likes-dislikes-cont">
           <div className="recipes-otd-likes-cont">
@@ -42,8 +43,7 @@ const history=useHistory();
 };
 
 RecipeCard.defaultProps = {
-  showCategory: true,
-  showTime: true,
+RecipeData:{'readyInMinutes':0,'vegetarian':'unknown'}
 };
 
 export default RecipeCard;
