@@ -12,7 +12,7 @@ const ProfileCard = () => {
     profilePictureURL: maneesh,
   };
 
-  const favRecipesURL = "http://localhost:5000/recipes/random";
+  const favRecipesURL = "http://44.238.74.165:5000/recipes/random";
   let favRecipesData = useFetch(favRecipesURL, {});
 
   let shoppingListData = [

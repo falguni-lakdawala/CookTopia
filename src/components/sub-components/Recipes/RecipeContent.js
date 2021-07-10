@@ -14,7 +14,7 @@ import useFetch from '../../../custom_hooks/useFetch';
 const RecipeContent = () => {
 	const location = useLocation();
 	console.log(location)
-	const url=`http://localhost:5000/recipe/${location.state.id}`
+	const url = `http://44.238.74.165:5000/recipe/${location.state.id}`;
 	const res = useFetch(url, {});
 
 	return (
