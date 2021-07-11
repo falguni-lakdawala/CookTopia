@@ -24,6 +24,7 @@ function App() {
             <Route path="/signup" component={Page} />
             <Route path="/profile" component={Page} />
             <Route path='/recipecontent' component={Page}/>
+            <Route path='/searchresults' component={Page}/>
             <Route path="*" component={page_not_found} />
           </Switch>
         </Router>

@@ -13,7 +13,6 @@ import Images from "../composable-components/Images";
 // Header Component takes in array property and renders them accordingly.
 
 const Navbar = ({ navElements }) => {
-console.log(navElements)
   const ref = useRef();
   return (
     <>
