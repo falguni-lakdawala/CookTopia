@@ -3,16 +3,13 @@
 	background: #FFF8EF;
 	border-bottom: 4px solid #FB9400;
 	box-shadow: 0px 2px 2px #FB9400;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: space-between;
 
 	@media screen and (max-width: 700px) {
 		padding: 0.25rem 0.5rem 0.25rem 0.5rem;
-	}
-
-	> * {
-		display: flex;
-		flex-flow: row nowrap;
-		align-items: center;
-		justify-content: space-between;
 	}
 
   nav ul {
@@ -132,7 +129,7 @@
 		}
 
 		input {
-			width: 10rem;
+			width: 15rem;
     	padding: 0.5rem;
 		}
 	}
