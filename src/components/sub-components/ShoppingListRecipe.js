@@ -2772,7 +2772,6 @@ export default ShoppingListRecipe;
       </div>
     </div>
   );
-};
 
 export default ShoppingListRecipe;
 
