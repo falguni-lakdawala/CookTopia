@@ -24,7 +24,7 @@ const Navbar = ({ navElements }) => {
       </div>
       <div className="desktop-nav-cont">
         <nav className="desktop-nav">
-          <ul>
+          <ul className="active">
             {navElements.map((li) => (
               <li key={li.text.toString()}>
                 <Link to={{ pathname: li.link, state: li.state }}>
