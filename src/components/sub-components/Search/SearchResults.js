@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import {useLocation} from 'react-router-dom'
 import useFetch from '../../../custom_hooks/useFetch'
 import RecipeCard from '../RecipeCard'
+import Images from '../../composable-components/Images'
+import nosearchresults from '../../../assets/illustrations/nosearchresult.svg'
 
 const SearchResults = () => {
     const location = useLocation();
@@ -13,11 +15,11 @@ const SearchResults = () => {
     }
     return (
         <>
-        {(!(res.loading))?
+        {(!(res.loading)&&(results.length>0))?
         <div className="searchresults">
             {results.map((res,i)=><RecipeCard key={(res.title).toString()+i} recipeData={res}/>)}
             
-        </div>: "No search Results found"
+        </div>: <div className="nosearchresults"><Images src={nosearchresults} alt="No search results found illustration"/></div>
 }
         </>
     )
