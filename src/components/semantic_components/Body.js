@@ -1,6 +1,5 @@
 import React from "react";
 import Recipes from "../sub-components/Home/Recipes";
-import RecipeResult from "../sub-components/RecipeResult";
 import ShoppingListRecipe from "../sub-components/ShoppingListRecipe";
 import Blindbox from "../sub-components/Home/Blindbox";
 import Features from "../sub-components/Home/Features";
@@ -12,23 +11,24 @@ import Login from "../sub-components/Loginandsignup/Login";
 import Team from "../sub-components/Team/Team";
 import Signup from "../sub-components/Loginandsignup/Signup";
 import Profile from "../sub-components/Profile/Profile";
+import SearchResults from "../sub-components/Search/SearchResults";
 
 const Body = () => {
   const location = useLocation();
   const props1 = {
-    style: { outlineColor: "blue" },
     placeholder: "Subject",
     title: "Subject",
+    name:'subject'
   };
   const props2 = {
-    style: { outlineColor: "blue" },
     placeholder: "Name",
     title: "Name",
+    name:'name'
   };
   const props3 = {
-    style: { outlineColor: "blue" },
     placeholder: "Email",
     title: "Email",
+    name:'email'
   };
 
   return (
@@ -54,11 +54,6 @@ const Body = () => {
             <Login />
           </>
         )}
-        {location.pathname === "/search" && (
-          <>
-            <RecipeResult />
-          </>
-        )}
         {location.pathname === "/shoppinglist" && (
           <>
             <ShoppingListRecipe />
@@ -78,6 +73,8 @@ const Body = () => {
         {location.pathname === "/signup" && <Signup />}
 
         {location.pathname === "/profile" && <Profile />}
+
+        {location.pathname==='/searchresults' && <SearchResults/>}
       </main>
     </>
   );

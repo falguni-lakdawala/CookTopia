@@ -6,7 +6,7 @@ import categoryIngredientsImage from "../../../assets/illustrations/recipe-filte
 import categoryAllergyImage from "../../../assets/illustrations/recipe-filter-search/allergy.svg";
 import categoryMealTypeImage from "../../../assets/illustrations/recipe-filter-search/meal-type.svg";
 import subcategoryFilterTipImage from "../../../assets/illustrations/recipe-filter-search/subcategory-filter-tip.svg";
-import { useRef, useCallback, useState } from "react";
+import { useRef,  useState } from "react";
 import Subcategory from "./Subcategory";
 
 const RecipesFilterSearch = () => {
@@ -10635,12 +10635,12 @@ const RecipesFilterSearch = () => {
   ]);
 
   const filterCuisine = (recipes) => {
+
     const filteredCuisineRecipes = recipes.filter(
-      (res) => res.cuisines.length > 0
+      (res) => (res.cuisines).length > 0
     );
 
     refrecipes.current = filteredCuisineRecipes;
-
     filteredCuisineRecipes.forEach((r) => {
       if (r.cuisines.length == 0) filteredCuisine.push(r.cuisines);
       if (r.cuisines.length > 1) {
@@ -10649,8 +10649,6 @@ const RecipesFilterSearch = () => {
     });
     cuisines = [...new Set(filteredCuisine)];
     ref.current = cuisines;
-
-    return cuisines;
   };
 
   const filterDietTypes = (recipes) => {
@@ -10693,49 +10691,50 @@ const RecipesFilterSearch = () => {
 
   if (!recipesData.loading) {
     const recipes = recipesData.response.recipes;
+    categoriesData = [
+      {
+        name: "Cuisine",
+        imgURL: categoryCuisineImage,
+        action: () => {
+          filterCuisine(recipes);
+          setSubcategory(ref.current);
+          setRecipes(refrecipes.current);
+        },
+      },
+      {
+        name: "Diet Types",
+        imgURL: categoryDietTypesImage,
+        action: () => {
+          filterDietTypes(recipes);
+          setSubcategory(ref.current);
+          setRecipes(refrecipes.current);
+        },
+      },
+      {
+        name: "Ingredients",
+        imgURL: categoryIngredientsImage,
+        action: () => {
+          filterIngredients(recipes);
+          setSubcategory(ref.current);
+          setRecipes(refrecipes.current);
+        },
+      },
+      {
+        name: "Allergy",
+        imgURL: categoryAllergyImage,
+      },
+      {
+        name: "Meal Type",
+        imgURL: categoryMealTypeImage,
+        action: () => {
+          filterMeal(recipes);
+          setSubcategory(ref.current);
+          setRecipes(refrecipes.current);
+        },
+      },
+    ];
   }
- categoriesData = [
-   {
-     name: "Cuisine",
-     imgURL: categoryCuisineImage,
-     action: () => {
-       filterCuisine(recipes);
-       setSubcategory(ref.current);
-       setRecipes(refrecipes.current);
-     },
-   },
-   {
-     name: "Diet Types",
-     imgURL: categoryDietTypesImage,
-     action: () => {
-       filterDietTypes(recipes);
-       setSubcategory(ref.current);
-       setRecipes(refrecipes.current);
-     },
-   },
-   {
-     name: "Ingredients",
-     imgURL: categoryIngredientsImage,
-     action: () => {
-       filterIngredients(recipes);
-       setSubcategory(ref.current);
-       setRecipes(refrecipes.current);
-     },
-   },
-   {
-     name: "Allergy",
-     imgURL: categoryAllergyImage,
-   },
-   {
-     name: "Meal Type",
-     imgURL: categoryMealTypeImage,
-     action: () => {
-       filterMeal(recipes);
-       setSubcategory(ref.current);
-       setRecipes(refrecipes.current);
-     },
-   },
- ];
+ 
   // update this and update the DOM when main selected category is changed
 
   const selectedSubcategoriesData = [
