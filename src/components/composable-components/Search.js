@@ -8,10 +8,11 @@ const Search = ( { screenType } ) => {
 				type="button"
 				className="search-btn"
 				onClick={() => {
+					document.querySelector('.desktop-nav ul').classList.toggle('active');
 					if (screenType === 1) {
-						document.querySelectorAll('.search')[0].classList.toggle('active')
+						document.querySelectorAll('.search')[0].classList.toggle('active');
 					} else if (screenType === 2) {
-						document.querySelectorAll('.search')[1].classList.toggle('active')
+						document.querySelectorAll('.search')[1].classList.toggle('active');
 					}
 				}}
 			>
