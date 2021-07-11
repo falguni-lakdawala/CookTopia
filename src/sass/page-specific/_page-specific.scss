@@ -410,7 +410,7 @@ img {
 				border-radius: 24px;
 				padding: 4rem 4rem 1.5rem 4rem;
 				text-align: center;
-				max-width: 600px;
+				max-width: 650px;
 				margin: 0 auto;
 
 				@media screen and (max-width: 700px) {
@@ -435,6 +435,7 @@ img {
 						font-family: "Roboto", sans-serif;
 						font-size: 1.25rem;
 						color: #000000;
+						width: 100%;
 					}
 
 					input:nth-of-type(1) {
@@ -450,6 +451,7 @@ img {
 						color: #000000;
 						grid-column: 1 / -1;
 						resize: vertical;
+						width: 100%;
 					}
 
 					input::placeholder, textarea::placeholder {
