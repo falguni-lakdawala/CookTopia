@@ -1,10 +1,10 @@
 // Dont write any SCSS here please migrate your styling to individual pages
 
 @import "login-signup" ;
-@import "recipe_content";
-@import "pagenotfound";
+@import "recipe-content";
+@import "page-not-found";
 @import "team";
-@import "recipeFilterSearch";
+@import "recipe-filter-search";
 @import "profile";
 
 
@@ -38,6 +38,7 @@ img {
   .app_body {
     display: flex;
     flex-flow: column nowrap;
+		gap: 2rem;
 
     button {
 			border-radius: 10px;
@@ -166,8 +167,9 @@ img {
 					display: flex;
 					flex-direction: column;
 					justify-content: space-between;
-					border: 2px solid #A9A9A9;
 					border-radius: 30px 30px 0px 0px;
+					border: 2px solid #A9A9A9;
+					overflow: hidden;
 
 					.recipes-otd-img-cont {
 						display: flex;
@@ -175,7 +177,7 @@ img {
 
 						img {
 							width: 100%;
-							border-radius: 30px 30px 0px 0px;
+							// border-radius: 30px 30px 0px 0px;
 						}
 					}
 
@@ -248,7 +250,7 @@ img {
 
 			> * {
 				display: grid;
-				gap: 2rem;
+				gap: 4rem;
 			}
 
 			.heading {
@@ -263,7 +265,7 @@ img {
 
 			.features-listing {
 				display: grid;
-				gap: 4rem;
+				gap: 8rem;
 
 				> div > div {
 					display: grid;
@@ -406,7 +408,7 @@ img {
 			.form {
 				background: #FFF8EF;
 				border-radius: 24px;
-				padding: 3rem 3rem 1rem 3rem;
+				padding: 4rem 4rem 1.5rem 4rem;
 				text-align: center;
 				max-width: 600px;
 				margin: 0 auto;
@@ -420,7 +422,7 @@ img {
 				.input-group {
 					display: grid;
 					grid-template-columns: repeat(2, 1fr);
-					gap: 1rem;
+					gap: 1.5rem;
 
 					@media screen and (max-width: 700px) {
 						grid-template-columns: repeat(1, 1fr);
@@ -429,7 +431,10 @@ img {
 					input {
 						padding: 0.5rem;
 						border-radius: 0;
-						border: 1px solid #000;
+						border: 2px solid #A9A9A9;
+						font-family: "Roboto", sans-serif;
+						font-size: 1.25rem;
+						color: #000000;
 					}
 
 					input:nth-of-type(1) {
@@ -439,7 +444,10 @@ img {
 					textarea {
 						padding: 0.5rem;
 						border-radius: 0;
-						border: 1px solid #000;
+						border: 2px solid #A9A9A9;
+						font-family: "Roboto", sans-serif;
+						font-size: 1.25rem;
+						color: #000000;
 						grid-column: 1 / -1;
 						resize: vertical;
 					}

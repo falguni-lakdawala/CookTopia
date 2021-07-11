@@ -15,9 +15,7 @@ const Header = () => {
 	return (
 		<>
 			<header className="app_header">
-				<div className="max-width-cont">
-					<Navbar navElements={navElements} />
-				</div>
+				<Navbar navElements={navElements} />
 			</header>
 		</>
 	);
