@@ -2720,7 +2720,7 @@ export default ShoppingListRecipe;
               cooking_time: "45 minutes",
               category: "vegetables",
               alt: "image",
-            },
+            }
           ]}
         />
       </div>
