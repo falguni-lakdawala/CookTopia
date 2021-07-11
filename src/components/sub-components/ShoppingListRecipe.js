@@ -10619,7 +10619,7 @@ const ShoppingListRecipe = () => {
         <div className="recipes">
           <h3 role="heading">Recipes you selected</h3>
 
-          {reciperesults.map((data, index) => {
+          {(reciperesults.slice(0,3)).map((data, index) => {
             return <RecipeCard key={index} recipeData={data} />;
           })}
         </div>
