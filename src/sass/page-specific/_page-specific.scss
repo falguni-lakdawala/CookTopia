@@ -6,6 +6,7 @@
 @import "team";
 @import "recipe-filter-search";
 @import "profile";
+@import "shopping-list";
 
 
 img {
@@ -132,7 +133,7 @@ img {
 				h3 {
 					font-family: "Fontastique", cursive;
 					font-size: 2rem;
-					letter-spacing: 0.03em;
+					letter-spacing: 0.1em;
 					color: #000000;
 					text-align: center;
 				}
@@ -257,7 +258,7 @@ img {
 				h3 {
 					font-family: "Fontastique", cursive;
 					font-size: 2rem;
-					letter-spacing: 0.03em;
+					letter-spacing: 0.1em;
 					color: #000000;
 					text-align: center;
 				}
@@ -389,7 +390,7 @@ img {
 				h3 {
 					font-family: "Fontastique", cursive;
 					font-size: 2rem;
-					letter-spacing: 0.03em;
+					letter-spacing: 0.1em;
 					color: #000000;
 					text-align: center;
 				}
@@ -475,34 +476,6 @@ img {
   }
 }
 // end homepage styling
-
-.shopping_card {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  margin: 0.5rem;
-
-  .ingredientlist {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .more_ingredient {
-    display: flex;
-    margin-left: auto;
-    margin-right: 15%;
-    grid-column: 1/-1;
-  }
-}
-
-.groceryshop {
-  margin: 0.5rem;
-  .mapcontainer {
-    height: 100px;
-    width: 100%;
-    text-align: center;
-    border: 1px solid black;
-  }
-}
 
 /* width limiter */
 .max-width-cont {
