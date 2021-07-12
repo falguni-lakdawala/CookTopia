@@ -183,7 +183,7 @@
 			gap: 1.5rem;
 
 			@media screen and (max-width: 700px) {
-				grid-template-columns: repeat(1, 1fr);
+				grid-template-columns: repeat(2, 1fr);
 			}
 
 			> div {
@@ -211,6 +211,10 @@
 						font-family: "Fontastique", cursive;
 						font-size: 1.25rem;
 						color: #000000;
+
+						@media screen and (max-width: 500px) {
+							font-size: 0.875rem;
+						}
 					}
 				}
 
@@ -226,6 +230,10 @@
 							font-weight: 500;
 							font-size: 1rem;
 							color: #000000;
+
+							@media screen and (max-width: 500px) {
+								font-size: 0.75rem;
+							}
 						}
 					}
 
