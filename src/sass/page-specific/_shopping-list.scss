@@ -1,0 +1,197 @@
+.shopping-list-page-cont {
+	> * {
+		padding: 4rem 3rem;
+
+		@media screen and (max-width: 700px) {
+			padding: 2rem 1rem;
+		}
+
+		.selected-recipes-cont {
+			.heading {
+				font-family: "Fontastique", cursive;
+				font-size: 1.75rem;
+				color: #000000;
+				padding: 0 0 2rem 0;
+			}
+
+			.selected-recipes-listing-cont {
+				display: flex;
+				gap: 2rem;
+				overflow: auto;
+				padding: 0 0 1rem 0;
+
+				> div {
+					min-width: 250px;
+
+					.recipes-otd-img-cont {
+						border: 5px solid #CFCDCD;
+						cursor: pointer;
+
+						img {
+							width: 100%;
+							display: block;
+						}
+					}
+
+					.recipes-otd-name-cont, .recipes-otd-details-cont {
+						display: none;
+					}
+				}
+			}
+		}
+
+		.shopping-list-cont {
+			padding: 6rem 0;
+
+			.heading-cont {
+				display: flex;
+				gap: 2rem;
+				justify-content: space-between;
+				padding: 0 0 2rem 0;
+
+				.heading {
+					font-family: "Fontastique", cursive;
+					font-size: 1.75rem;
+					color: #000000;
+				}
+
+				button {
+					font-family: "Avenir", sans-serif;
+					font-size: 1.25rem;
+					padding: 0.5rem 1rem;
+					background: #FFF8EF;
+					border: 4px solid #FB9400;
+					box-sizing: border-box;
+					border-radius: 50px;
+				}
+			}
+
+			.shopping-list-listing-cont {
+				.shopping-list-listing {
+					display: flex;
+					gap: 2rem;
+
+					@media screen and (max-width: 700px) {
+						gap: 0.5rem;
+						flex-direction: column;
+					}
+
+					.img-and-remove-list-cont {
+						display: flex;
+						flex-direction: column;
+
+						.img-title-cont {
+							display: flex;
+							border: 2px solid #8C8C8C;
+							position: relative;
+
+							img {
+								width: 100%;
+							}
+
+							.title {
+								position: absolute;
+								bottom: -1px;
+								left: 0;
+								right: 0;
+								background-color: rgba(0, 0, 0, 0.7);
+								padding: 0.75rem 0.75rem 2rem 0.75rem;
+								color: #ffffff;
+								font-family: "Fontastique", sans-serif;
+								font-size: 1.25rem;
+								line-height: 24px;
+							}
+						}
+
+						.remove-list-cont {
+							padding: 1rem;
+							text-align: center;
+
+							button {
+								background-color: transparent;
+								border: none;
+								font-family: "Avenir", sans-serif;
+								font-weight: 500;
+								font-size: 1.25rem;
+								line-height: 40px;
+								letter-spacing: -0.011em;
+								text-decoration-line: underline;
+								color: #000000;
+							}
+						}
+					}
+
+					.ingredients-cont {
+						font-family: "Avenir", sans-serif;
+						font-size: 1.25rem;
+						line-height: 40px;
+						color: #000000;
+						flex: 1;
+						padding: 1rem 2rem;
+
+						@media screen and (max-width: 700px) {
+							padding: 0.5rem 1rem;
+						}
+
+						.ingredient-cont {
+							display: flex;
+							gap: 1rem;
+							justify-content: flex-start;
+							padding: 0.125rem 0;
+						}
+					}
+				}
+
+				.shopping-list-listing:nth-of-type(odd) {
+					background: #FEEACC;
+				}
+
+				.shopping-list-listing:nth-of-type(even) {
+					background: #FFF8EF;
+				}
+			}
+		}
+
+		.grocery-shop-cont {
+			padding: 4rem 2rem;
+			display: grid;
+			gap: 2rem;
+
+			.heading {
+				font-family: "Fontastique", cursive;
+				font-size: 1.75rem;
+				color: #000000;
+			}
+
+			.search-container {
+				display: flex;
+				justify-content: space-between;
+
+				input {
+					padding: 0.5rem;
+					border-radius: 0;
+					border: 2px solid #A9A9A9;
+					font-family: "Roboto", sans-serif;
+					font-size: 1.25rem;
+					color: #000000;
+				}
+
+				button {
+					font-family: "Avenir", sans-serif;
+					font-size: 1.25rem;
+					padding: 0.5rem 1rem;
+					background: #FFF8EF;
+					border: 4px solid #FB9400;
+					box-sizing: border-box;
+					border-radius: 50px;
+				}
+			}
+
+			.map-cont {
+				background-color: #A9A9A9;
+				width: 100%;
+				height: 300px;
+			}
+		}
+	}
+}
