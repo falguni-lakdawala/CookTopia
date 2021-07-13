@@ -12,14 +12,13 @@ const SearchResults = () => {
   if (!res.loading) {
     results = res.response.results;
   }
-	let searchKeyword = "Pasta";
   return (
     <div className="search-results-page">
 			<div className="max-width-cont">
 				<div className="heading">
 					<h1>
 						Recipes related to
-						<div className="search-keyword">{searchKeyword}</div>
+						<div className="search-keyword">{location.state}</div>
 					</h1>
 				</div>
 				{!res.loading && results.length > 0 ? (

@@ -6,7 +6,7 @@ import {useState} from  'react'
 const Recipes = ({ recipeClassName }) => {
 
 const[more,setmore]=useState(true)
-	const url = "http://44.238.74.165:5000/recipes/random";
+	const url = "http://44.238.74.165:5000/recipes/random?number=20";
 	let recipesData = useFetch(url, {})
 	let recipearray;
 

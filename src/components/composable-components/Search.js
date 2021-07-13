@@ -39,7 +39,12 @@ const Search = ({ screenType }) => {
 					<path d="M33.7492 33.7492L26.1367 26.1367" stroke="#111111" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
 				</svg>
 			</button>
-			<input aria-label="input search text" ref={ref} type="search" />
+			<input aria-label="input search text" ref={ref} onKeyPress={(e)=>{
+				if(e.code==='Enter'){
+					toggleView()
+					searchRecipe(e)
+				}
+			}} type="search" />
 		</div>
 	)
 }
