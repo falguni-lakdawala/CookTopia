@@ -1,8 +1,10 @@
 .recipe_content {
-  background: #fff8ef;
+  // background: #fff8ef;
+
   > * {
     display: grid;
     grid-template-columns: 1fr 2fr;
+		background-color: #fff;
 
 		@media screen and (max-width: 700px) {
 			grid-template-columns: 1fr;
@@ -112,7 +114,6 @@
     .recipe-main {
       display: grid;
       gap: 1rem;
-      background-color: #fff;
 
 			@media screen and (max-width: 700px) {
 				order: -1;
@@ -221,6 +222,7 @@
               a:hover,
               a:active {
                 color: #fb9400;
+                text-decoration: none;
               }
             }
           }
@@ -231,7 +233,6 @@
     .recipe-instructions-cont {
       display: grid;
       gap: 1rem;
-			padding: 0;
 
 			@media screen and (max-width: 700px) {
 				padding: 1rem;
@@ -328,4 +329,24 @@
       }
     }
   }
+
+	.dual-color-bg-cont {
+		position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+		display: flex;
+
+		.color-1 {
+			flex: 1;
+			background-color: #fff8ef;
+		}
+
+		.color-2 {
+			flex: 1;
+			background-color: #ffffff;
+		}
+	}
 }

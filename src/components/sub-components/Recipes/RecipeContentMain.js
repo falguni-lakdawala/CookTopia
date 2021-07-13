@@ -6,6 +6,7 @@ const RecipeContentMain = ({recipeData}) => {
 	const favRecipe = () => {
 		document.querySelector('.recipe-fav-btn > svg').classList.toggle('active');
 	}
+	console.log("recipeData", recipeData)
 
 	return (
 		<div className="recipe-main">
