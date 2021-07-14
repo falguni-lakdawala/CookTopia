@@ -1,9 +1,11 @@
 import React, { useState,useEffect } from "react";
 import RecipeCard from "../RecipeCard";
+import SelectedSub from "./SelectedSub";
 
 const Subcategory = ({ subcategory, categorytype }) => {
 
-
+// selected array contains all data selected
+// for updating selected data create a sub component with all styling and just pass selected array to it and map
 
 
 
@@ -1853,7 +1855,7 @@ const Subcategory = ({ subcategory, categorytype }) => {
   let formattedcategory = "";
 
   const selected = [];
-
+const [uselected,setUselected]=useState([])
 
 
   return (
@@ -1867,7 +1869,7 @@ const Subcategory = ({ subcategory, categorytype }) => {
               type="button"
               onClick={() => {
                 selected.push(data);
-                console.log(selected);
+                setUselected([...uselected, selected.join("")]);
                 switch (categorytype) {
                   case "Cuisine":
                     formattedcategory = "cuisine";
@@ -1886,10 +1888,10 @@ const Subcategory = ({ subcategory, categorytype }) => {
                     break;
                 }
                 const url = `http://44.238.74.165:5000/recipeclassification?${formattedcategory}=${selected.join()}&number=20`;
-                
-const res=fetch(url).then(res=>res.json()).then(data=>setfilteredRecipes(data.results))
 
-
+                const res = fetch(url)
+                  .then((res) => res.json())
+                  .then((data) => setfilteredRecipes(data.results));
               }}
             >
               <svg
@@ -1909,13 +1911,14 @@ const res=fetch(url).then(res=>res.json()).then(data=>setfilteredRecipes(data.re
           );
         })}
       </div>
-      <div className="max-width-cont">
-        <div className="heading">Popular Recipes</div>
-        <div className="listing-cont">
-          {filteredrecipes.map((data, index) => {
-            return <RecipeCard key={index} recipeData={data} />;
-          })}
-        </div>
+      <div className="selected">
+        <SelectedSub selected={uselected} />
+      </div>
+      <div className="heading">Popular Recipes</div>
+      <div className="listing-cont">
+        {filteredrecipes.map((data, index) => {
+          return <RecipeCard key={index} recipeData={data} />;
+        })}
       </div>
     </>
   );
