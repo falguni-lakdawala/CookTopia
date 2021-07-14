@@ -1,8 +1,9 @@
-import React, { useState} from "react";
+import React, { useState,useRef} from "react";
 
 import RecipeCard from "../RecipeCard";
+import SelectedSub from "./SelectedSub";
 
-const Subcategory = ({ subcategory, categorytype }) => {
+const Subcategory = ({ subcategory, categorytype}) => {
 
 
   const [filteredrecipes, setfilteredRecipes] = useState([
@@ -1846,11 +1847,23 @@ const Subcategory = ({ subcategory, categorytype }) => {
       name: "Noodles",
     },
   ];
-const [selectedS,setSelectedS]=useState([])
+const [selectedS,setSelectedS]=useState([''])
   let formattedcategory = "";
 
-  const selected = [];
+  const selected =useRef([]);
 
+const selectedcategory=useRef([])
+if (selectedcategory) {
+  (selectedcategory.current).push(categorytype)
+ selectedcategory.current=[...new Set(selectedcategory.current)]
+if((selectedcategory.current).length>1){
+
+  var last = (selectedcategory.current)[(selectedcategory.current).length - 1];
+  (selectedcategory.current)=[last]
+  selected.current=[];
+  setSelectedS([''])
+}
+}
 
 
   return (
@@ -1863,7 +1876,8 @@ const [selectedS,setSelectedS]=useState([])
               className="subcategory-listing"
               type="button"
               onClick={() => {
-                selected.push(data);
+                (selected.current).push(data);
+                setSelectedS((selected.current))
                 switch (categorytype) {
                   case "Cuisine":
                     formattedcategory = "cuisine";
@@ -1881,9 +1895,10 @@ const [selectedS,setSelectedS]=useState([])
                     formattedcategory = "ingredient";
                     break;
                 }
-                const url = `http://44.238.74.165:5000/recipeclassification?${formattedcategory}=${selected.join()}&number=20`;
+                const url = `http://44.238.74.165:5000/recipeclassification?${formattedcategory}=${(selected.current).join()}&number=20`;
                 console.log(url)
-const res=fetch(url).then(res=>res.json()).then(data=>setfilteredRecipes)
+const res=fetch(url).then(res=>res.json()).then(data=>setfilteredRecipes(data.results))
+
 
 
               }}
@@ -1909,6 +1924,9 @@ const res=fetch(url).then(res=>res.json()).then(data=>setfilteredRecipes)
         })}
       </div>
       <div className="max-width-cont">
+        <div className="selected">
+          <SelectedSub selected={selectedS}/>
+        </div>
         <div className="heading">Popular Recipes</div>
         <div className="listing-cont">
           {filteredrecipes.map((data, index) => {

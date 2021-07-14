@@ -148,7 +148,7 @@ const RecipesFilterSearch = () => {
                       onClick={()=>{
                         data.action()
                         Setselectedcategory(data.name)
-                      }}
+                                              }}
                       key={index + data.name}
                       className="category-listing"
                       type="button"
