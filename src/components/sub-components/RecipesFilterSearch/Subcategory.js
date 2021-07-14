@@ -1,13 +1,8 @@
-import React, { useState,useEffect } from "react";
+import React, { useState} from "react";
+
 import RecipeCard from "../RecipeCard";
-import SelectedSub from "./SelectedSub";
 
 const Subcategory = ({ subcategory, categorytype }) => {
-
-// selected array contains all data selected
-// for updating selected data create a sub component with all styling and just pass selected array to it and map
-
-
 
 
   const [filteredrecipes, setfilteredRecipes] = useState([
@@ -1851,11 +1846,11 @@ const Subcategory = ({ subcategory, categorytype }) => {
       name: "Noodles",
     },
   ];
-
+const [selectedS,setSelectedS]=useState([])
   let formattedcategory = "";
 
   const selected = [];
-const [uselected,setUselected]=useState([])
+
 
 
   return (
@@ -1869,7 +1864,6 @@ const [uselected,setUselected]=useState([])
               type="button"
               onClick={() => {
                 selected.push(data);
-                setUselected([...uselected, selected.join("")]);
                 switch (categorytype) {
                   case "Cuisine":
                     formattedcategory = "cuisine";
@@ -1888,10 +1882,10 @@ const [uselected,setUselected]=useState([])
                     break;
                 }
                 const url = `http://44.238.74.165:5000/recipeclassification?${formattedcategory}=${selected.join()}&number=20`;
+                console.log(url)
+const res=fetch(url).then(res=>res.json()).then(data=>setfilteredRecipes)
 
-                const res = fetch(url)
-                  .then((res) => res.json())
-                  .then((data) => setfilteredRecipes(data.results));
+
               }}
             >
               <svg
@@ -1908,17 +1902,19 @@ const [uselected,setUselected]=useState([])
               </svg>
               <div className="text-cont">{data}</div>
             </button>
+
           );
+
+
         })}
       </div>
-      <div className="selected">
-        <SelectedSub selected={uselected} />
-      </div>
-      <div className="heading">Popular Recipes</div>
-      <div className="listing-cont">
-        {filteredrecipes.map((data, index) => {
-          return <RecipeCard key={index} recipeData={data} />;
-        })}
+      <div className="max-width-cont">
+        <div className="heading">Popular Recipes</div>
+        <div className="listing-cont">
+          {filteredrecipes.map((data, index) => {
+            return <RecipeCard key={index} recipeData={data} />;
+          })}
+        </div>
       </div>
     </>
   );

@@ -2,7 +2,7 @@
 import React from 'react'
 
 const SelectedSub = ({selected}) => {
-    console.log(selected)
+    // console.log(selected)
     return (
         <>
             {
