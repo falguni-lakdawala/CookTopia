@@ -28,10 +28,26 @@
         margin: 0;
         padding: 1rem 1rem 0.5rem 1rem;
         transition: all 0.3s ease;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: center;
+				gap: 0.5rem;
 
 				@media screen and (max-width: 700px) {
 					flex: 1;
 					min-width: calc(100vw - 3rem);
+				}
+
+				.img-cont {
+					flex: 1;
+					display: flex;
+
+					img {
+						align-self: center;
+						transform: rotate(0deg);
+						transition: transform 0.3s ease;
+					}
 				}
 
         .text-cont {
@@ -43,9 +59,34 @@
         }
       }
 
-      .button.category-listing.active {
+			button.category-listing:hover {
+				.img-cont {
+					img {
+						transform: rotate(25deg);
+					}
+				}
+			}
+
+			button.category-listing:active {
         background: #fff8ef;
         border: 10px solid #fb9400;
+
+				.img-cont {
+					img {
+						transform: rotate(25deg);
+					}
+				}
+			}
+
+      button.category-listing.active {
+        background: #fff8ef;
+        border: 10px solid #fb9400;
+
+				.img-cont {
+					img {
+						transform: rotate(25deg);
+					}
+				}
       }
     }
 
@@ -190,8 +231,9 @@
 				display: flex;
 				flex-direction: column;
 				justify-content: space-between;
-				border: 2px solid #A9A9A9;
 				border-radius: 30px 30px 0px 0px;
+				background: #A9A9A9;
+				padding: 2px;
 				cursor: pointer;
 
 				.recipes-otd-img-cont {
@@ -207,6 +249,8 @@
 				.recipes-otd-name-cont {
 					min-height: 70px;
 					padding: 0.5rem;
+					background: #fff;
+					transition: background 0.1s ease;
 
 					h4 {
 						font-family: "Fontastique", cursive;
@@ -224,6 +268,8 @@
 					justify-content: space-between;
 					align-items: flex-end;
 					padding: 0.5rem;
+					background: #fff;
+					transition: background 0.1s ease;
 
 					.recipes-otd-category-cooking-time-cont {
 						p {
@@ -247,6 +293,15 @@
 							gap: 0.125rem;
 						}
 					}
+				}
+			}
+
+			> div:hover {
+				.recipes-otd-name-cont {
+					background: #FFF8EF;
+				}
+				.recipes-otd-details-cont {
+					background: #FFF8EF;
 				}
 			}
 		}

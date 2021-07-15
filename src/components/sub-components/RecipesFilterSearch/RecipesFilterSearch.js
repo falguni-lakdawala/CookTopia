@@ -10699,6 +10699,7 @@ const RecipesFilterSearch = () => {
           filterCuisine(recipes);
           setSubcategory(ref.current);
           setRecipes(refrecipes.current);
+					styleSelectedCategory('category-listing-1');
         },
       },
       {
@@ -10708,6 +10709,7 @@ const RecipesFilterSearch = () => {
           filterDietTypes(recipes);
           setSubcategory(ref.current);
           setRecipes(refrecipes.current);
+					styleSelectedCategory('category-listing-2');
         },
       },
       {
@@ -10717,11 +10719,15 @@ const RecipesFilterSearch = () => {
           filterIngredients(recipes);
           setSubcategory(ref.current);
           setRecipes(refrecipes.current);
+					styleSelectedCategory('category-listing-3');
         },
       },
       {
         name: "Allergy",
         imgURL: categoryAllergyImage,
+        action: () => {
+					styleSelectedCategory('category-listing-4');
+        },
       },
       {
         name: "Meal Type",
@@ -10730,12 +10736,22 @@ const RecipesFilterSearch = () => {
           filterMeal(recipes);
           setSubcategory(ref.current);
           setRecipes(refrecipes.current);
+					styleSelectedCategory('category-listing-5');
         },
       },
     ];
   }
- 
   // update this and update the DOM when main selected category is changed
+
+	const styleSelectedCategory = (id) => {
+		document.querySelectorAll('.rfs-filters-cont .category-listing').forEach(e => {
+			if (e.id === id) {
+				document.querySelector(`#${e.id}`).classList.toggle('active');
+			} else {
+				document.querySelector(`#${e.id}`).classList.remove('active');
+			}
+		});
+	}
 
   const selectedSubcategoriesData = [
     {
@@ -10757,6 +10773,7 @@ const RecipesFilterSearch = () => {
                 {categoriesData.map((data, index) => {
                   return (
                     <button
+											id={'category-listing-' + (index + 1)}
                       onClick={data.action}
                       key={index + data.name}
                       className="category-listing"
