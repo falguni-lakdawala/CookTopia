@@ -2,9 +2,39 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import Input from '../../composable-components/Input';
 import { useHistory}  from 'react-router-dom';
+import getFirebase from "./firebase";
+import firebase from 'firebase';
 
 const Login = () => {
+  const firebaseInstance = getFirebase();
     const history=useHistory();
+
+    const googleLogin = async () => {
+
+      const provider = new firebase.auth.GoogleAuthProvider();
+      //2 - create the popup signIn
+       await firebaseInstance.auth().signInWithPopup(provider).then(
+         (result) => {
+          //3 - pick the result and store the token
+          const token =  result.credential.accessToken;
+          //4 - check if have token in the current user
+          console.log(token);
+          console.log(result.user);
+          if (token) {
+            //5 - put the token at localStorage (We'll use this to make requests)
+            localStorage.setItem("@token", token);
+  
+            let currentUser = firebaseInstance.auth().currentUser;
+            history.push("/home");
+          }
+        },
+        function (error) {
+          console.log(error);
+        }
+      );
+  
+  }
+
     return (
       <div className="login">
         <h1 role="heading" aria-label="Log in heading">Log in</h1>
@@ -19,7 +49,7 @@ const Login = () => {
 							className="login-inputs-login-btn"
               type="button"
               onClick={() => {
-                history.push("/home");
+                googleLogin();
               }}
             >
               Log in
@@ -28,6 +58,10 @@ const Login = () => {
             role="button"
             aria-label="Register"
             title="register"
+            type="button"
+            onClick={() => {
+              history.push("/signup");
+            }}
 							className="login-inputs-register-btn"
             >
               Register
