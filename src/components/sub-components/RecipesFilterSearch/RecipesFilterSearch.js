@@ -6,133 +6,174 @@ import categoryIngredientsImage from "../../../assets/illustrations/recipe-filte
 import categoryAllergyImage from "../../../assets/illustrations/recipe-filter-search/allergy.svg";
 import categoryMealTypeImage from "../../../assets/illustrations/recipe-filter-search/meal-type.svg";
 import Subcategory from "./Subcategory";
-import {useRef,useState} from 'react'
-
+import { useRef, useState } from "react";
 
 const RecipesFilterSearch = () => {
   const url = "http://44.238.74.165:5000/recipes/random?number=20";
   let recipesData = useFetch(url, {});
 
-  const recipes=useRef([])
+  const recipes = useRef([]);
 
-  const [selectedcategory,Setselectedcategory]=useState("Cuisine");
+  const [selectedcategory, Setselectedcategory] = useState("Cuisine");
 
- const [subcategory, setSubcategory] = useState([
-       "Chinese",
-       "French",
-       "Indian",
-       "Italian",
-       "Japanese",
-       "Korean",
-       "Mexican",
-       "Persian",
-       "Thai",
-       "Vietnamese",
-     ]);
-
-
-
+  const [subcategory, setSubcategory] = useState([
+    "Chinese",
+    "French",
+    "Indian",
+    "Italian",
+    "Japanese",
+    "Korean",
+    "Mexican",
+    "Persian",
+    "Thai",
+    "Vietnamese",
+  ]);
 
   if (!recipesData.loading) {
-    recipes.current=recipesData.response.recipes
+    recipes.current = recipesData.response.recipes;
   }
-
-
- const categoriesData = [
-   {
-     name: "Cuisine",
-     imgURL: categoryCuisineImage,
-     action: () => {setSubcategory((subcategories.current)[0].cuisine)
+  const categoriesData = [
+    {
+      name: "Cuisine",
+      imgURL: categoryCuisineImage,
+      actionClick: () => {
+        setSubcategory(subcategories.current[0].cuisine);
+				setSubcategoryStyle(0);
+      },
+			actionMouseEnter: () => {
+        setSubcategory(subcategories.current[0].cuisine);
+			},
+			actionMouseLeave: () => {
+				setSubcategory([]);
+			},
     },
-   },
-   {
-     name: "Diet Types",
-     imgURL: categoryDietTypesImage,
-     action: () => {setSubcategory((subcategories.current)[1].diet);},
-   },
-   {
-     name: "Ingredients",
-     imgURL: categoryIngredientsImage,
-     action: () => {setSubcategory(subcategories.current[2].ingredient);},
-   },
-   {
-     name: "Allergy",
-     imgURL: categoryAllergyImage,
-     action:()=>{setSubcategory(subcategories.current[3].intolerances)}
-   },
-   {
-     name: "Meal Type",
-     imgURL: categoryMealTypeImage,
-     action: () => {setSubcategory(subcategories.current[4].mealtype);},
-   },
- ];
+    {
+      name: "Diet Types",
+      imgURL: categoryDietTypesImage,
+      actionClick: () => {
+        setSubcategory(subcategories.current[1].diet);
+				setSubcategoryStyle(1);
+      },
+			actionMouseEnter: () => {
+        setSubcategory(subcategories.current[1].diet);
+			},
+			actionMouseLeave: () => {
+				setSubcategory([]);
+			},
+    },
+    {
+      name: "Ingredients",
+      imgURL: categoryIngredientsImage,
+      actionClick: () => {
+        setSubcategory(subcategories.current[2].ingredient);
+				setSubcategoryStyle(2);
+      },
+			actionMouseEnter: () => {
+        setSubcategory(subcategories.current[2].ingredient);
+			},
+			actionMouseLeave: () => {
+				setSubcategory([]);
+			},
+    },
+    {
+      name: "Allergy",
+      imgURL: categoryAllergyImage,
+      actionClick: () => {
+        setSubcategory(subcategories.current[3].intolerances);
+				setSubcategoryStyle(3);
+      },
+			actionMouseEnter: () => {
+        setSubcategory(subcategories.current[3].intolerances);
+			},
+			actionMouseLeave: () => {
+				setSubcategory([]);
+			},
+    },
+    {
+      name: "Meal Type",
+      imgURL: categoryMealTypeImage,
+      actionClick: () => {
+        setSubcategory(subcategories.current[4].mealtype);
+				setSubcategoryStyle(4);
+      },
+			actionMouseEnter: () => {
+        setSubcategory(subcategories.current[4].mealtype);
+			},
+			actionMouseLeave: () => {
+				setSubcategory([]);
+			},
+    },
+  ];
 
- const subcategories = useRef([
-   {
-     cuisine: [
-       "Chinese",
-       "French",
-       "Indian",
-       "Italian",
-       "Japanese",
-       "Korean",
-       "Mexican",
-       "Persian",
-       "Thai",
-       "Vietnamese",
-     ],
-   },
-   {
-     diet: [
-       "Gluten free",
-       "Ketogenic",
-       "Paleo",
-       "Pescetarian",
-       "Primal",
-       "Vegan",
-       "Vegetarian",
-       "Lacto-Vegetarian",
-       "Ovo-Vegetarian",
-       "Whole30",
-     ],
-   },
-   {
-     ingredient: [
-       "Beef",
-       "Chicken",
-       "Dairy",
-       "Grains",
-       "Lamb",
-       "Noodles",
-       "Plant based protein",
-       "Pork",
-       "Seafood",
-       "Vegetables",
-     ],
-   },
-   {
-     intolerances: [
-       "Egg",
-       "Grain",
-       "Peanut",
-       "Seafood",
-       "Sesame",
-       "Shellfish",
-       "Soy",
-       "Sulfite",
-       "Tree Nut",
-       "Wheat",
-     ],
-   },
-   { mealtype: ["Appetizers", "Breakfast", "Lunch", "Dinner", "Soup"] },
- ])
+  const subcategories = useRef([
+    {
+      cuisine: [
+        "Chinese",
+        "French",
+        "Indian",
+        "Italian",
+        "Japanese",
+        "Korean",
+        "Mexican",
+        "Persian",
+        "Thai",
+        "Vietnamese",
+      ],
+    },
+    {
+      diet: [
+        "Gluten free",
+        "Ketogenic",
+        "Paleo",
+        "Pescetarian",
+        "Primal",
+        "Vegan",
+        "Vegetarian",
+        "Lacto-Vegetarian",
+        "Ovo-Vegetarian",
+        "Whole30",
+      ],
+    },
+    {
+      ingredient: [
+        "Beef",
+        "Chicken",
+        "Dairy",
+        "Grains",
+        "Lamb",
+        "Noodles",
+        "Plant based protein",
+        "Pork",
+        "Seafood",
+        "Vegetables",
+      ],
+    },
+    {
+      intolerances: [
+        "Egg",
+        "Grain",
+        "Peanut",
+        "Seafood",
+        "Sesame",
+        "Shellfish",
+        "Soy",
+        "Sulfite",
+        "Tree Nut",
+        "Wheat",
+      ],
+    },
+    { mealtype: ["Appetizers", "Breakfast", "Lunch", "Dinner", "Soup"] },
+  ]);
 
- 
-
-
-
- 
-
+	const setSubcategoryStyle = (id) => {
+		document.querySelectorAll('.rfs-filters-cont .categories-cont .category-listing').forEach((el, index) => {
+			if (id === index) {
+				el.classList.toggle('active');
+			} else {
+				el.classList.remove('active');
+			}
+		});
+	}
 
   return (
     <>
@@ -145,10 +186,16 @@ const RecipesFilterSearch = () => {
                 {categoriesData.map((data, index) => {
                   return (
                     <button
-                      onClick={()=>{
-                        data.action()
-                        Setselectedcategory(data.name)
-                                              }}
+                      onClick={() => {
+                        data.actionClick();
+                        Setselectedcategory(data.name);
+                      }}
+											// onMouseEnter={() => {
+                      //   data.actionMouseEnter();
+											// }}
+											// onMouseLeave={() => {
+                      //   data.actionMouseLeave();
+											// }}
                       key={index + data.name}
                       className="category-listing"
                       type="button"
@@ -161,22 +208,11 @@ const RecipesFilterSearch = () => {
                   );
                 })}
               </div>
-              <Subcategory subcategory={subcategory} categorytype={selectedcategory}/>
-              <div className="categories-selected-cont">
-
-                <div className="categories-clear-selected-cont">
-                  <button
-                    className="categories-clear-selected-btn"
-                    type="button"
-                  >
-                    Clear All
-                  </button>
-                </div>
-              </div>
+              <Subcategory
+                subcategory={subcategory}
+                categorytype={selectedcategory}
+              />
             </div>
-          </div>
-          <div className="rfs-recipes-list-cont">
-            
           </div>
         </>
       )}
