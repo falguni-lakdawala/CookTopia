@@ -6,13 +6,9 @@ import favlist from "../../../assets/illustrations/shoppinglist-not-found.svg";
 import useFetch from "../../../custom_hooks/useFetch";
 
 const ProfileCard = () => {
-  let profileData = {
-    name: "Maneesh Thoutireddy",
-    email: "maneesh@mylangara.ca",
-    profilePictureURL: maneesh,
-  };
+  const user = JSON.parse(window.sessionStorage.getItem("user"));
 
-  const favRecipesURL = "http://44.238.74.165:5000/recipes/random";
+  const favRecipesURL = "http://44.238.74.165:3000/recipes/random";
   let favRecipesData = useFetch(favRecipesURL, {});
 
   let shoppingListData = [
@@ -91,7 +87,7 @@ const ProfileCard = () => {
       <div className="max-width-cont">
         <div className="profile-card">
           <div className="profile-image-cont">
-            <img src={profileData.profilePictureURL} alt="profile image" />
+            <img src={user.photoURL} alt="profile image" />
             <button
               role="button"
               aria-label="profile image"
@@ -104,10 +100,10 @@ const ProfileCard = () => {
           </div>
           <div className="profile-data-cont">
             <div className="profile-data">
-              <div className="name">{profileData.name}</div>
+              <div className="name">{user.displayName}</div>
               <div className="email-cont">
                 <div className="label">Email: </div>
-                <div className="text">{profileData.email}</div>
+                <div className="text">{user.email}</div>
               </div>
             </div>
             <div className="profile-edit-btn-cont">
@@ -212,8 +208,7 @@ const ProfileCard = () => {
                   <img src={favlist} alt="Favorite shopping list" />
                   <button type="button">Search your shopping list</button>
                 </div>
-              ))
-						}
+              ))}
           </div>
         </div>
       </div>

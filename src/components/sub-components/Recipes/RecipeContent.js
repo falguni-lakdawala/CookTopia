@@ -7,7 +7,7 @@ import useFetch from "../../../custom_hooks/useFetch";
 
 const RecipeContent = () => {
   const location = useLocation();
-  const url = `http://44.238.74.165:5000/recipe/${location.state.id}`;
+  const url = `http://44.238.74.165:3000/recipe/${location.state.id}`;
   const res = useFetch(url, {});
 
   return (
@@ -19,10 +19,10 @@ const RecipeContent = () => {
             <RecipeContentMain recipeData={res.response} />
             <RecipeContentMainInstructions recipeData={res.response} />
           </div>
-					<div className="dual-color-bg-cont">
-						<div className="color-1"></div>
-						<div className="color-2"></div>
-					</div>
+          <div className="dual-color-bg-cont">
+            <div className="color-1"></div>
+            <div className="color-2"></div>
+          </div>
         </div>
       )}
     </>

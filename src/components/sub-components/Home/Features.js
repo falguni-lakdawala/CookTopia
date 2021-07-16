@@ -3,7 +3,6 @@ import FeatureCard from "./FeatureCard";
 import searchRecipesImage from "../../../assets/illustrations/homepage-features/features-search-recipe.svg";
 import nutritionInformationImage from "../../../assets/illustrations/homepage-features/features-nutrition-information.svg";
 import featuresShoppingListImage from "../../../assets/illustrations/homepage-features/features-shopping-list.svg";
-
 const Features = ({ features }) => {
 	const featuresData = [
 		{

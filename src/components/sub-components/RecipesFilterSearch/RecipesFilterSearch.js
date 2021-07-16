@@ -9,7 +9,7 @@ import Subcategory from "./Subcategory";
 import { useRef, useState } from "react";
 
 const RecipesFilterSearch = () => {
-  const url = "http://44.238.74.165:5000/recipes/random?number=20";
+  const url = "http://44.238.74.165:3000/recipes/random?number=20";
   let recipesData = useFetch(url, {});
 
   const recipes = useRef([]);
@@ -38,70 +38,70 @@ const RecipesFilterSearch = () => {
       imgURL: categoryCuisineImage,
       actionClick: () => {
         setSubcategory(subcategories.current[0].cuisine);
-				setSubcategoryStyle(0);
+        setSubcategoryStyle(0);
       },
-			actionMouseEnter: () => {
+      actionMouseEnter: () => {
         setSubcategory(subcategories.current[0].cuisine);
-			},
-			actionMouseLeave: () => {
-				setSubcategory([]);
-			},
+      },
+      actionMouseLeave: () => {
+        setSubcategory([]);
+      },
     },
     {
       name: "Diet Types",
       imgURL: categoryDietTypesImage,
       actionClick: () => {
         setSubcategory(subcategories.current[1].diet);
-				setSubcategoryStyle(1);
+        setSubcategoryStyle(1);
       },
-			actionMouseEnter: () => {
+      actionMouseEnter: () => {
         setSubcategory(subcategories.current[1].diet);
-			},
-			actionMouseLeave: () => {
-				setSubcategory([]);
-			},
+      },
+      actionMouseLeave: () => {
+        setSubcategory([]);
+      },
     },
     {
       name: "Ingredients",
       imgURL: categoryIngredientsImage,
       actionClick: () => {
         setSubcategory(subcategories.current[2].ingredient);
-				setSubcategoryStyle(2);
+        setSubcategoryStyle(2);
       },
-			actionMouseEnter: () => {
+      actionMouseEnter: () => {
         setSubcategory(subcategories.current[2].ingredient);
-			},
-			actionMouseLeave: () => {
-				setSubcategory([]);
-			},
+      },
+      actionMouseLeave: () => {
+        setSubcategory([]);
+      },
     },
     {
       name: "Allergy",
       imgURL: categoryAllergyImage,
       actionClick: () => {
         setSubcategory(subcategories.current[3].intolerances);
-				setSubcategoryStyle(3);
+        setSubcategoryStyle(3);
       },
-			actionMouseEnter: () => {
+      actionMouseEnter: () => {
         setSubcategory(subcategories.current[3].intolerances);
-			},
-			actionMouseLeave: () => {
-				setSubcategory([]);
-			},
+      },
+      actionMouseLeave: () => {
+        setSubcategory([]);
+      },
     },
     {
       name: "Meal Type",
       imgURL: categoryMealTypeImage,
       actionClick: () => {
         setSubcategory(subcategories.current[4].mealtype);
-				setSubcategoryStyle(4);
+        setSubcategoryStyle(4);
       },
-			actionMouseEnter: () => {
+      actionMouseEnter: () => {
         setSubcategory(subcategories.current[4].mealtype);
-			},
-			actionMouseLeave: () => {
-				setSubcategory([]);
-			},
+      },
+      actionMouseLeave: () => {
+        setSubcategory([]);
+      },
     },
   ];
 
@@ -165,15 +165,17 @@ const RecipesFilterSearch = () => {
     { mealtype: ["Appetizers", "Breakfast", "Lunch", "Dinner", "Soup"] },
   ]);
 
-	const setSubcategoryStyle = (id) => {
-		document.querySelectorAll('.rfs-filters-cont .categories-cont .category-listing').forEach((el, index) => {
-			if (id === index) {
-				el.classList.toggle('active');
-			} else {
-				el.classList.remove('active');
-			}
-		});
-	}
+  const setSubcategoryStyle = (id) => {
+    document
+      .querySelectorAll(".rfs-filters-cont .categories-cont .category-listing")
+      .forEach((el, index) => {
+        if (id === index) {
+          el.classList.toggle("active");
+        } else {
+          el.classList.remove("active");
+        }
+      });
+  };
 
   return (
     <>
@@ -190,12 +192,12 @@ const RecipesFilterSearch = () => {
                         data.actionClick();
                         Setselectedcategory(data.name);
                       }}
-											// onMouseEnter={() => {
+                      // onMouseEnter={() => {
                       //   data.actionMouseEnter();
-											// }}
-											// onMouseLeave={() => {
+                      // }}
+                      // onMouseLeave={() => {
                       //   data.actionMouseLeave();
-											// }}
+                      // }}
                       key={index + data.name}
                       className="category-listing"
                       type="button"

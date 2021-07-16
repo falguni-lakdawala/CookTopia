@@ -1,10 +1,9 @@
-
-import propTypes from 'prop-types'
-import React, { useRef } from 'react'
-import { Link } from 'react-router-dom';
-import Search from './Search';
-import icon from '../../assets/logo/logo-large.svg'
-import {useHistory} from 'react-router-dom'
+import propTypes from "prop-types";
+import React, { useRef } from "react";
+import { Link } from "react-router-dom";
+import Search from "./Search";
+import icon from "../../assets/logo/logo-large.svg";
+import { useLocation } from "react-router-dom";
 import account from "../../assets/icons/account.svg";
 import logoLarge from "../../assets/logo/logo-large.svg";
 import logoSmall from "../../assets/logo/favicon.svg";
@@ -14,6 +13,7 @@ import Images from "../composable-components/Images";
 
 const Navbar = ({ navElements }) => {
   const ref = useRef();
+  const location = useLocation();
   return (
     <>
       <div className="logo">
@@ -27,13 +27,15 @@ const Navbar = ({ navElements }) => {
           <ul className="active">
             {navElements.map((li) => (
               <li key={li.text.toString()}>
-                <Link to={{ pathname: li.link, state: li.state }}>
+                <Link to={{ pathname: li.link, state: location }}>
                   {li.text}
                 </Link>
               </li>
             ))}
             <li>
-              <Link to='/profile'><img src={account} alt={"userimage"} /></Link>
+              <Link to={{pathname:'/profile'}}>
+                <img src={account} alt={"userimage"} />
+              </Link>
             </li>
           </ul>
           <Search screenType={1} />
@@ -59,7 +61,9 @@ const Navbar = ({ navElements }) => {
                 document.querySelector(".mobile-nav").classList.remove("active")
               }
             >
-              <Link to="/profile"><img src={account} alt={"userimage"} /></Link>
+              <Link to="/profile">
+                <img src={account} alt={"userimage"} />
+              </Link>
             </li>
             {navElements.map((li) => (
               <li
@@ -101,7 +105,6 @@ const Navbar = ({ navElements }) => {
     </>
   );
 };
-
 
 Navbar.propTypes = {
   navElements: propTypes.array,
