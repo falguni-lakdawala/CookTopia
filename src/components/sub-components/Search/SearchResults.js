@@ -21,19 +21,20 @@ const SearchResults = () => {
             <div className="search-keyword">{location.state}</div>
           </h1>
         </div>
-        {!res.loading && results.length > 0 ? (
+        {!res.loading && (
           <div className="search-results-cont">
             {results.map((res, i) => (
               <RecipeCard key={res.title.toString() + i} recipeData={res} />
             ))}
           </div>
-        ) : (
-          <div className="no-search-results-cont">
-            <img
-              src={noSearchResults}
-              alt="No search results found illustration"
-            />
-          </div>
+        )}
+        { !res.loading && results.length<=0 && (
+        <div className="no-search-results-cont">
+          <img
+            src={noSearchResults}
+            alt="No search results found illustration"
+          />
+        </div>
         )}
       </div>
     </div>
