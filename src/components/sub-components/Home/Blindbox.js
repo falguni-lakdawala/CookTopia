@@ -17,7 +17,7 @@ const Blindbox = ({ style }) => {
 					</div>
 					<div className="blindbox-hero-btn-cont">
 						<button title="challengebox" type="button" className="blindbox-hero-btn" role="button" aria-label="Challenge button">
-							Challenge Box
+							Browse Recipes
 						</button>
 					</div>
 				</div>

@@ -26,9 +26,7 @@ if(!recipesData.loading){
 								<h3 role="heading" aria-label="Today's recipes">Recipes of Today</h3>
 							</div>
 							<div className="subheading">
-								<p>
-									<b aria-label="Cooktopia recommended ">Try CookTopia's</b> daily <b>recommended dishes.</b>
-								</p>
+								<p>Try CookTopia's recommended dishes.</p>
 							</div>
 							<div className="recipes-otd-listing">
 								{
