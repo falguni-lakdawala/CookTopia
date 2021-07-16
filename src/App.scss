@@ -12,3 +12,47 @@
 
 // 6.Navigation
 @import "sass/navigation";
+
+.blindbox-hero-btn,
+.recipes-otd-load-more-btn,
+.features-listing-text-cont .btn-cont button,
+.homepage-contact-form .form form button[type="submit"],
+.add-to-shopping-list-btn,
+.shopping-list-page-cont > * .shopping-list-cont .heading-cont button,
+.shopping-list-page-cont > * .grocery-shop-cont .search-container button,
+.favorite-recipes-edit-btn,
+.profile-cont > * .shopping-list-cont .no-shopping-list-cont button,
+.no-favorite-recipes-cont button {
+	transition: all 0.1s ease;
+}
+
+.home_page .app_body {
+	.blindbox-hero-btn:hover,
+	.recipes-otd-load-more-btn:hover,
+	.features-listing-text-cont .btn-cont button:hover,
+	.homepage-contact-form .form form button[type="submit"]:hover,
+	.add-to-shopping-list-btn:hover,
+	.shopping-list-page-cont > * .shopping-list-cont .heading-cont button:hover,
+	.shopping-list-page-cont > * .grocery-shop-cont .search-container button:hover,
+	.favorite-recipes-edit-btn:hover,
+	.profile-cont > * .shopping-list-cont .no-shopping-list-cont button:hover,
+	.no-favorite-recipes-cont button:hover {
+		background: rgba(251, 148, 0, 0.7) !important;
+		border-color: rgba(251, 148, 0, 0) !important;
+		color: #fff;
+	}
+	
+	.blindbox-hero-btn:active,
+	.recipes-otd-load-more-btn:active,
+	.features-listing-text-cont .btn-cont button:active,
+	.homepage-contact-form .form form button[type="submit"]:active,
+	.add-to-shopping-list-btn:active,
+	.shopping-list-page-cont > * .shopping-list-cont .heading-cont button:active,
+	.shopping-list-page-cont > * .grocery-shop-cont .search-container button:active,
+	.favorite-recipes-edit-btn:active,
+	.profile-cont > * .shopping-list-cont .no-shopping-list-cont button:active,
+	.no-favorite-recipes-cont button:active {
+		background: #FB9400 !important;
+		color: #fff;
+	}
+}

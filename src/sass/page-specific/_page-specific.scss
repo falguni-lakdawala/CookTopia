@@ -25,7 +25,7 @@ img {
 
   p {
     font-family: "Avenir", sans-serif;
-    font-weight: 800;
+    font-weight: 400;
     font-size: 1rem;
     color: #000000;
   }
@@ -55,13 +55,13 @@ img {
       }
 
       > * {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+				display: flex;
         align-items: center;
+				justify-content: space-between;
         gap: 2rem;
 
         @media screen and (max-width: 700px) {
-          grid-template-columns: 1fr;
+					flex-direction: column;
         }
       }
 
@@ -72,30 +72,25 @@ img {
         line-height: 1.4;
 
         @media screen and (max-width: 700px) {
-          text-align: center;
-
-          br {
-            display: none;
-          }
+          text-align: left;
         }
       }
 
       .blindbox-hero-image-btn {
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
+        align-items: center;
         text-align: center;
         gap: 0.5rem;
 
         @media screen and (max-width: 700px) {
           align-items: center;
-          flex-direction: row;
           justify-content: center;
         }
 
         .blindbox-hero-image-cont {
           img {
-            width: 10rem;
+            width: 20rem;
           }
         }
 
@@ -383,7 +378,7 @@ img {
 
     // contact form styling
     .homepage-contact-form {
-      padding: 6rem 4rem;
+      padding: 6rem 4rem 8rem 4rem;
 
       @media screen and (max-width: 700px) {
         padding: 1rem;

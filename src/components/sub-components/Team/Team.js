@@ -19,22 +19,22 @@ const Team = ({ team }) => {
 			name: 'Sinae',
 			src: sinaeProfilePicture,
 			role: 'Designer',
-			description: 'She has an excellent UX research ability, which helps her to visually communicate with users and coworkers.*',
+			description: 'She has an excellent UX research ability, which helps her to visually communicate with users and coworkers.',
 			linkedInURL: 'https://www.linkedin.com/in/sinae-bak/'
 		},
 		{
 			name: 'Maneesh',
 			src: maneeshProfilePicture,
 			role: 'Developer',
-			description: 'She has an excellent UX research ability, which helps her to visually communicate with users and coworkers.*',
-			linkedInURL: 'https://www.linkedin.com/in/maneesh-reddy-thoutireddy-05829015a'
+			description: 'He is a software developer who loves to work on Android and Kotlin But these days also into weaving web.',
+			linkedInURL: 'https://www.linkedin.com/in/maneesh43/'
 		},
 		{
 			name: 'Rohit',
 			src: rohitProfilePicture,
 			role: 'Designer',
-			description: 'She has an excellent UX research ability, which helps her to visually communicate with users and coworkers.*',
-			linkedInURL: 'https://www.linkedin.com/in/rohit-lathwal-9791a8175/'
+			description: 'He has ability of thinking out of the box. And can work excellent in both UI and UX.',
+			linkedInURL: 'https://www.linkedin.com/in/rohit-lathwal/'
 		},
 		{
 			name: 'Abhijeet',
@@ -47,14 +47,14 @@ const Team = ({ team }) => {
 			name: 'Mia',
 			src: miaProfilePicture,
 			role: 'Designer',
-			description: 'She has an excellent UX research ability, which helps her to visually communicate with users and coworkers.*',
+			description: 'She has empathy ability to understand what users\' frustrations and pain points are and create solutions to improve users\' lives.',
 			linkedInURL: 'https://www.linkedin.com/in/chun-mei-lin/'
 		},
 		{
 			name: 'Falguni',
 			src: falguniProfilePicture,
 			role: 'Developer',
-			description: 'She has an excellent UX research ability, which helps her to visually communicate with users and coworkers.*',
+			description: 'She is passionate about creating truly beautiful, efficient digital product to make memorable experience with technology.',
 			linkedInURL: 'https://www.linkedin.com/in/falguni-lakdawala/'
 		}
 	];
