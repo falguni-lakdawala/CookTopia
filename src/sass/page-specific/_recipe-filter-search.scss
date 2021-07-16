@@ -15,10 +15,11 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
 
-			@media screen and (max-width: 700px) {
-				display: flex;
-    		overflow: auto;
-			}
+      @media screen and (max-width: 700px) {
+        display: flex;
+        overflow: auto;
+				gap: .5rem;
+      }
 
       button.category-listing {
         background: #ffffff;
@@ -28,77 +29,72 @@
         margin: 0;
         padding: 1rem 1rem 0.5rem 1rem;
         transition: all 0.3s ease;
-				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
-				align-items: center;
-				gap: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
 
-				@media screen and (max-width: 700px) {
-					flex: 1;
-					min-width: calc(100vw - 3rem);
-				}
+        @media screen and (max-width: 700px) {
+          flex: 1;
+          min-width: calc(46vw - 3rem);
+					border: 5px solid #cfcdcd;
+        }
 
-				.img-cont {
-					flex: 1;
-					display: flex;
+        .img-cont {
+          flex: 1;
+          display: flex;
 
-					img {
-						align-self: center;
-						transform: rotate(0deg);
-						transition: transform 0.3s ease;
-					}
-				}
+          img {
+            align-self: center;
+            transform: rotate(0deg);
+            transition: transform 0.3s ease;
+          }
+        }
 
         .text-cont {
+          white-space: nowrap;
           font-family: "Avenir", sans-serif;
           letter-spacing: -0.019em;
           color: #333333;
           font-weight: 500;
           font-size: 1.5rem;
+
+					@media screen and (max-width: 700px) {
+						font-size: 1rem;
+					}
         }
       }
 
-			button.category-listing:hover {
-				.img-cont {
-					img {
-						transform: rotate(25deg);
-					}
-				}
-			}
+      button.category-listing:hover {
+        .img-cont {
+          img {
+            transform: rotate(25deg);
+          }
+        }
+      }
 
-			button.category-listing:active {
+      button.category-listing:active, button.category-listing.active {
         background: #fff8ef;
         border: 10px solid #fb9400;
 
-				.img-cont {
-					img {
-						transform: rotate(25deg);
-					}
-				}
-			}
-
-      button.category-listing.active {
-        background: #fff8ef;
-        border: 10px solid #fb9400;
-
-				.img-cont {
-					img {
-						transform: rotate(25deg);
-					}
-				}
+        .img-cont {
+          img {
+            transform: rotate(25deg);
+          }
+        }
       }
     }
 
     .subcategories-cont {
       display: flex;
       gap: 1rem;
-			overflow: auto;
+      flex-wrap: wrap;
 
-			@media screen and (max-width: 700px) {
-				gap: 0.25rem;
-				grid-auto-flow: column;
-			}
+      @media screen and (max-width: 700px) {
+        gap: 0.25rem;
+        grid-auto-flow: column;
+      }
 
       button.subcategory-listing {
         background: transparent;
@@ -106,13 +102,15 @@
         display: flex;
         align-items: center;
         gap: 0;
-				position: relative;
+        position: relative;
+        padding: 0;
 
-				svg {
-					transform: scale(0.85) translateX(5px);
-				}
+        svg {
+          transform: scale(0.85) translateX(5px);
+        }
 
         .text-cont {
+          white-space: nowrap;
           background-color: #fb9400;
           padding: 0.5rem;
           color: #ffffff;
@@ -123,187 +121,216 @@
       }
     }
 
-    .categories-selected-cont {
-			display: flex;
-	    gap: 2rem;
-	    justify-content: space-between;
-			align-items: center;
+    .rfs-recipes-list-cont {
+      padding: 3rem 0;
+      display: grid;
+      gap: 1.25rem;
 
-			@media screen and (max-width: 700px) {
-				gap: 1rem;
-			}
+      .heading {
+        font-family: "Fontastique", cursive;
+        font-size: 2rem;
+        color: #000000;
+      }
 
-      .categories-selected-listing-cont {
-				display: flex;
-				grid-gap: 1rem;
-				gap: 1rem;
-				overflow: auto;
+      .categories-selected-cont {
+        display: flex;
+        gap: 2rem;
+        justify-content: space-between;
+        align-items: center;
 
-				@media screen and (max-width: 700px) {
-					gap: 0.25rem;
-					grid-auto-flow: column;
-				}
+        @media screen and (max-width: 700px) {
+          gap: 1rem;
+					flex-direction: column;
+        }
 
-        .subcategory-listing {
-          background: transparent;
-          border: none;
+        .categories-selected-listing-cont {
           display: flex;
-          align-items: center;
-          gap: 0;
+          grid-gap: 1rem;
+          gap: 1rem;
+					flex-wrap: wrap;
+					align-self: flex-start;
 
-					svg {
-						transform: scale(0.85) translateX(5px);
-					}
-
-          .text-cont {
-            background-color: #fb9400;
-            padding: 0.5rem;
-            color: #ffffff;
-            font-family: "Avenir", sans-serif;
-            font-weight: 500;
-            font-size: 1.15rem;
+          @media screen and (max-width: 700px) {
+            gap: 0.25rem;
+            grid-auto-flow: column;
           }
 
-					.remove-selected-subcategory-cont {
-						background-color: #fb9400;
-						padding: 0.5rem;
-						color: #ffffff;
-						font-family: "Avenir", sans-serif;
-						font-weight: 500;
-						font-size: 1.15rem;
+          .subcategory-listing {
+            background: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 0;
 
-						button.remove-selected-subcategory-btn {
-							background: none;
-							border: none;
-							color: #fff;
-							vertical-align: middle;
+            svg {
+              transform: scale(0.85) translateX(5px);
+            }
 
-							i {
-								padding: 0;
-							}
-						}
-					}
+            .text-cont {
+              white-space: nowrap;
+              background-color: #fb9400;
+              padding: 0.5rem;
+              color: #ffffff;
+              font-family: "Avenir", sans-serif;
+              font-weight: 500;
+              font-size: 1.15rem;
+            }
+
+            .remove-selected-subcategory-cont {
+              background-color: #fb9400;
+              padding: 0.5rem;
+              color: #ffffff;
+              font-family: "Avenir", sans-serif;
+              font-weight: 500;
+              font-size: 1.15rem;
+
+              button.remove-selected-subcategory-btn {
+                background: none;
+                border: none;
+                color: #fff;
+                vertical-align: middle;
+
+                i {
+                  padding: 0;
+                }
+              }
+            }
+          }
+
+          .subcategory-selected-listing {
+            background: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 0;
+            position: relative;
+            padding: 0;
+
+            svg {
+              transform: scale(0.85) translateX(5px);
+            }
+
+            .text-cont {
+              white-space: nowrap;
+              background-color: #fb9400;
+              padding: 0.5rem;
+              color: #ffffff;
+              font-family: "Avenir", sans-serif;
+              font-weight: 500;
+              font-size: 1.15rem;
+            }
+          }
+        }
+
+        .categories-clear-selected-cont {
+					align-self: flex-end;
+
+          button.categories-clear-selected-btn {
+            font-family: "Avenir", sans-serif;
+            font-size: 1.25rem;
+            padding: 0.5rem 1rem;
+            background: #fff8ef;
+            border: 4px solid #fb9400;
+            box-sizing: border-box;
+            border-radius: 50px;
+
+            @media screen and (max-width: 700px) {
+              font-size: 1rem;
+              padding: 0.5rem 1rem;
+            }
+          }
         }
       }
 
-			.categories-clear-selected-cont {
-				button.categories-clear-selected-btn {
-					font-family: "Avenir", sans-serif;
-					font-size: 1.25rem;
-					padding: 0.5rem 1rem;
-					background: #FFF8EF;
-					border: 4px solid #FB9400;
-					box-sizing: border-box;
-					border-radius: 50px;
+      .listing-cont {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
 
-					@media screen and (max-width: 700px) {
-						font-size: 1rem;
-						padding: 0.5rem 1rem;
-					}
-				}
-			}
+        @media screen and (max-width: 700px) {
+          grid-template-columns: repeat(2, 1fr);
+					gap: .5rem;
+        }
+
+        > div {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          border-radius: 30px 30px 0px 0px;
+          background: #a9a9a9;
+          padding: 2px;
+          cursor: pointer;
+
+          .recipes-otd-img-cont {
+            display: flex;
+            flex: 1 1 100%;
+
+            img {
+              width: 100%;
+              border-radius: 30px 30px 0px 0px;
+              object-fit: cover;
+            }
+          }
+
+          .recipes-otd-name-cont {
+            min-height: 70px;
+            padding: 0.5rem;
+            background: #fff;
+            transition: background 0.1s ease;
+
+            h4 {
+              font-family: "Fontastique", cursive;
+              font-size: 1.25rem;
+              color: #000000;
+
+              @media screen and (max-width: 500px) {
+                font-size: 0.875rem;
+              }
+            }
+          }
+
+          .recipes-otd-details-cont {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 0.5rem;
+            background: #fff;
+            transition: background 0.1s ease;
+
+            .recipes-otd-category-cooking-time-cont {
+              p {
+                font-family: "Avenir", sans-serif;
+                font-weight: 500;
+                font-size: 1rem;
+                color: #000000;
+
+                @media screen and (max-width: 500px) {
+                  font-size: 0.75rem;
+                }
+              }
+            }
+
+            .recipes-otd-likes-dislikes-cont {
+              display: flex;
+              gap: 0.75rem;
+
+              > * {
+                display: flex;
+                gap: 0.125rem;
+              }
+            }
+          }
+        }
+
+        > div:hover {
+          .recipes-otd-name-cont {
+            background: #fff8ef;
+          }
+          .recipes-otd-details-cont {
+            background: #fff8ef;
+          }
+        }
+      }
     }
   }
-}
-
-.rfs-recipes-list-cont {
-  > * {
-    padding: 3rem 1rem;
-    display: grid;
-    gap: 1.25rem;
-
-    .heading {
-      font-family: "Fontastique", cursive;
-      font-size: 2rem;
-      color: #000000;
-		}
-
-		.listing-cont {
-			display: grid;
-			grid-template-columns: repeat(4, 1fr);
-			gap: 1.5rem;
-
-			@media screen and (max-width: 700px) {
-				grid-template-columns: repeat(2, 1fr);
-			}
-
-			> div {
-				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
-				border-radius: 30px 30px 0px 0px;
-				background: #A9A9A9;
-				padding: 2px;
-				cursor: pointer;
-
-				.recipes-otd-img-cont {
-					display: flex;
-					flex: 1 1 100%;
-
-					img {
-						width: 100%;
-						border-radius: 30px 30px 0px 0px;
-					}
-				}
-
-				.recipes-otd-name-cont {
-					min-height: 70px;
-					padding: 0.5rem;
-					background: #fff;
-					transition: background 0.1s ease;
-
-					h4 {
-						font-family: "Fontastique", cursive;
-						font-size: 1.25rem;
-						color: #000000;
-
-						@media screen and (max-width: 500px) {
-							font-size: 0.875rem;
-						}
-					}
-				}
-
-				.recipes-otd-details-cont {
-					display: flex;
-					justify-content: space-between;
-					align-items: flex-end;
-					padding: 0.5rem;
-					background: #fff;
-					transition: background 0.1s ease;
-
-					.recipes-otd-category-cooking-time-cont {
-						p {
-							font-family: "Avenir", sans-serif;
-							font-weight: 500;
-							font-size: 1rem;
-							color: #000000;
-
-							@media screen and (max-width: 500px) {
-								font-size: 0.75rem;
-							}
-						}
-					}
-
-					.recipes-otd-likes-dislikes-cont {
-						display: flex;
-						gap: 0.75rem;
-
-						> * {
-							display: flex;
-							gap: 0.125rem;
-						}
-					}
-				}
-			}
-
-			> div:hover {
-				.recipes-otd-name-cont {
-					background: #FFF8EF;
-				}
-				.recipes-otd-details-cont {
-					background: #FFF8EF;
-				}
-			}
-		}
-	}
 }
