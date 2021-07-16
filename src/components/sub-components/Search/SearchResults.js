@@ -21,7 +21,7 @@ const SearchResults = () => {
             <div className="search-keyword">{location.state}</div>
           </h1>
         </div>
-        {!res.loading && (
+        {!res.loading && results.length >=1 && (
           <div className="search-results-cont">
             {results.map((res, i) => (
               <RecipeCard key={res.title.toString() + i} recipeData={res} />

@@ -16,18 +16,7 @@ const RecipesFilterSearch = () => {
 
   const [selectedcategory, Setselectedcategory] = useState("Cuisine");
 
-  const [subcategory, setSubcategory] = useState([
-    "Chinese",
-    "French",
-    "Indian",
-    "Italian",
-    "Japanese",
-    "Korean",
-    "Mexican",
-    "Persian",
-    "Thai",
-    "Vietnamese",
-  ]);
+  const [subcategory, setSubcategory] = useState([]);
 
   if (!recipesData.loading) {
     recipes.current = recipesData.response.recipes;
