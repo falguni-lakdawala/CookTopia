@@ -36,7 +36,11 @@ const ContactForm = ({ input_number }) => {
           <h3 role="heading">Contact Us</h3>
         </div>
         <div className="subheading">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+          <p>
+						Feel free to contact us any time.
+						<br />
+						We will get back to you as soon as we can!
+					</p>
         </div>
         <div className="form">
           <form ref={ref} onSubmit={(e) => handleSubmit(e)}>
