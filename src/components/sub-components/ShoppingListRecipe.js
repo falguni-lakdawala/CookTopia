@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import RecipeCard from "./RecipeCard";
 import Button from "../composable-components/Button";
 import ShoppingCard from "./ShoppingCard";
+import findStoreImage from "../../assets/illustrations/shopping-list/find-store.svg";
 
 const ShoppingListRecipe = () => {
   const [reciperesults, setRecipes] = useState([
@@ -10784,7 +10785,9 @@ const ShoppingListRecipe = () => {
           	<input type="text" placeholder="Enter postal code here" />
           	<Button text="Search nearby shop" />
 					</div>
-          <div className="map-cont"></div>
+          <div className="map-cont">
+							<img src={findStoreImage} alt="find store image" />
+					</div>
         </div>
       </div>
     </div>
