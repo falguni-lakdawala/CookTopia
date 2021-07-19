@@ -2,6 +2,44 @@ import Checkbox from "../../composable-components/Checkbox";
 
 const RecipeContentDetails = ({ recipeData }) => {
 
+const addtoCart=(data)=>{
+		
+const user=JSON.parse(window.sessionStorage.getItem('user'))
+if(user){
+
+	const ingredients=[]
+	data.extendedIngredients.forEach(i=>ingredients.push({
+		id:i.id,
+		ingredientName:i.name,
+		quantity:i.amount,
+		unitofMeasure:i.unit
+	}))
+  	const addrecipedata = {
+      userID: user.uid,
+      recipeID: data.id,
+      recipeName: data.title,
+      imageURL: data.image,
+      'ingredients':ingredients
+    };
+	
+	console.log(data)
+
+const res = fetch("http://44.238.74.165:3000/recipecart/addrecipecart",{
+	method:'POST',
+	headers:{
+		'Content-type':'application/json'
+	},
+	body:JSON.stringify(addrecipedata)
+}).then(r=>r.json()).then(d=>alert("Added to your shopping list")).catch(e=>alert("Failed to add to shopping list"))
+}
+else{
+	console.log('Usser does not')
+}		
+
+
+
+	}
+
 	return (
 		<>
 			<div className="recipe-details">
@@ -30,7 +68,7 @@ const RecipeContentDetails = ({ recipeData }) => {
 						))}
 					</div>
 					<div className="add-to-shopping-list-btn-cont">
-						<button role="button" aria-label="shopping list" title="add" type="button" className="add-to-shopping-list-btn">
+						<button role="button" aria-label="shopping list" title="add" type="button" className="add-to-shopping-list-btn" onClick={()=>addtoCart(recipeData)}>
 							Add to Shopping List
 						</button>
 					</div>

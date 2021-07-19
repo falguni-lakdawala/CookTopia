@@ -1,15 +1,15 @@
 import Checkbox from "../composable-components/Checkbox";
 
-const ShoppingCard = ({ recipes, recipeClassName, ingredientList }) => {
+const ShoppingCard = ({ recipes }) => {
   return (
-    <div className={recipeClassName}>
+    <div className="recipeClassName">
       {recipes.map((data, index) => {
         return (
-          <div key={index + data.title} className="shopping-list-listing">
+          <div key={index + data.recipeName} className="shopping-list-listing">
             <div className="img-and-remove-list-cont">
               <div className="img-title-cont">
-                <img src={data.src} alt={data.alt} />
-                <div className="title">{data.title}</div>
+                <img src={data.imageURL} alt="RecipeImage" loading="lazy" />
+                <div className="title">{data.recipeName}</div>
               </div>
               <div className="remove-list-cont">
                 <button type="button" className="remove-list-btn">
@@ -20,17 +20,20 @@ const ShoppingCard = ({ recipes, recipeClassName, ingredientList }) => {
             <div className="ingredients-cont">
               {data.ingredients.map((dataInner, index) => {
                 return (
-                  <div key={index + dataInner.text} className="ingredient-cont">
+                  <div
+                    key={index + dataInner.ingredientName}
+                    className="ingredient-cont"
+                  >
                     <div className="checkbox">
-											<Checkbox
-												role="checkbox"
-												ariaLabel="Checkbox"
-												type="checkbox"
-												className={"ingredient-checkbox"}
-												defaultChecked={dataInner.selected}
-											/>
+                      <Checkbox
+                        role="checkbox"
+                        ariaLabel="Checkbox"
+                        type="checkbox"
+                        className={"ingredient-checkbox"}
+                        defaultChecked={dataInner.selected}
+                      />
                     </div>
-                    <div className="text">{dataInner.text}</div>
+                    <div className="text">{dataInner.ingredientName}</div>
                   </div>
                 );
               })}

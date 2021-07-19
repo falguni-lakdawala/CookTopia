@@ -4,75 +4,14 @@ import favrecipe from "../../../assets/illustrations/homepage-features/favourite
 import favlist from "../../../assets/illustrations/profile-page/shoppinglist-not-found.svg";
 import useFetch from "../../../custom_hooks/useFetch";
 import Checkbox from "../../composable-components/Checkbox";
+import { Link } from "react-router-dom";
 
 const ProfileCard = () => {
   const user = JSON.parse(window.sessionStorage.getItem("user"));
-
-  const favRecipesURL = "http://44.238.74.165:3000/recipes/random";
-  let favRecipesData = useFetch(favRecipesURL, {});
-
-  let shoppingListData = [
-    {
-      name: "Portobello Chickpea Salad",
-      imageURL: "https://picsum.photos/300?random=1",
-      ingredients: [
-        {
-          text: "4 medium portobello mushrooms, stems removed",
-          selected: true,
-        },
-        {
-          text: "4 medium portobello mushrooms, stems removed",
-          selected: false,
-        },
-        {
-          text: "4 medium portobello mushrooms, stems removed",
-          selected: true,
-        },
-        {
-          text: "4 medium portobello mushrooms, stems removed",
-          selected: false,
-        },
-        {
-          text: "4 medium portobello mushrooms, stems removed",
-          selected: false,
-        },
-        {
-          text: "4 medium portobello mushrooms, stems removed",
-          selected: false,
-        },
-        {
-          text: "4 medium portobello mushrooms, stems removed",
-          selected: true,
-        },
-      ],
-    },
-    {
-      name: "Gigantes Simmered in a Garlicky Tomato Sauce",
-      imageURL: "https://picsum.photos/300?random=2",
-      ingredients: [
-        {
-          text: "2 cups dried gigantes or large lime beans",
-          selected: false,
-        },
-        {
-          text: "2 cups dried gigantes or large lime beans",
-          selected: false,
-        },
-        {
-          text: "2 cups dried gigantes or large lime beans",
-          selected: true,
-        },
-        {
-          text: "2 cups dried gigantes or large lime beans",
-          selected: false,
-        },
-        {
-          text: "2 cups dried gigantes or large lime beans",
-          selected: true,
-        },
-      ],
-    },
-  ];
+  let results;
+  let shoppingListData;
+  let favRecipesData;
+  let shopping;
 
   const addRecipeDeleteOverlay = (id) => {
     document.querySelector(`#${id}`).classList.add("active");
@@ -82,7 +21,7 @@ const ProfileCard = () => {
     document.querySelector(`#${id}`).classList.remove("active");
   };
 
-  const setActiveNavLink = () => {
+	const setActiveNavLink = () => {
     let pageURL = window.location.pathname.substring(1);
     let links = document.querySelectorAll(".app_header nav ul li a");
     links.forEach((el) => {
@@ -95,59 +34,67 @@ const ProfileCard = () => {
   };
   setActiveNavLink();
 
-  return (
-    <div className="profile-cont">
-      <div className="max-width-cont">
-        <div className="profile-card">
-          <div className="profile-image-cont">
-            <img src={user.photoURL} alt="profile image" />
-            <button
-              role="button"
-              aria-label="profile image"
-              title="edit image"
-              type="button"
-              className="edit-profile-image-btn"
-            >
-              Edit Image
-            </button>
-          </div>
-          <div className="profile-data-cont">
-            <div className="profile-data">
-              <div className="name">{user.displayName}</div>
-              <div className="email-cont">
-                <div className="label">Email: </div>
-                <div className="text">{user.email}</div>
-              </div>
-            </div>
-            <div className="profile-edit-btn-cont">
-              <button className="profile-edit-btn">
-                <img src={editicon} alt="edit icon" />
+  if (user) {
+    results = useFetch(
+      `http://44.238.74.165:3000/recipe/getfavoriterecipes/${user.uid}`
+    );
+
+    shopping = useFetch(`http://44.238.74.165:3000/recipecartlist/${user.uid}`);
+    if (!shopping.loading) {
+      shoppingListData = shopping.response;
+    }
+    if (!results.loading) {
+      favRecipesData = results.response;
+    }
+  }
+
+  if (user && !results.loading && !shopping.loading) {
+    return (
+      <div className="profile-cont">
+        <div className="max-width-cont">
+          <div className="profile-card">
+            <div className="profile-image-cont">
+              <img src={user.photoURL} alt="profile image" />
+              <button
+                role="button"
+                aria-label="profile image"
+                title="edit image"
+                type="button"
+                className="edit-profile-image-btn"
+              >
+                Edit Image
               </button>
             </div>
-          </div>
-        </div>
-        <div className="favorite-recipes-cont">
-          <div className="heading">
-            <h2>Favorite Recipes</h2>
-            <div className="favorite-recipes-edit-cont">
-              {!favRecipesData.loading &&
-                (typeof favRecipesData.response !== "undefined" ? (
-                  <button className="favorite-recipes-edit-btn" type="button">
-                    Edit
-                  </button>
-                ) : (
-                  ""
-                ))}
+            <div className="profile-data-cont">
+              <div className="profile-data">
+                <div className="name">{user.displayName}</div>
+                <div className="email-cont">
+                  <div className="label">Email: </div>
+                  <div className="text">{user.email}</div>
+                </div>
+              </div>
+              <div className="profile-edit-btn-cont">
+                <button className="profile-edit-btn">
+                  <img src={editicon} alt="edit icon" />
+                </button>
+              </div>
             </div>
           </div>
-          {!favRecipesData.loading &&
-            (typeof favRecipesData.response !== "undefined" ? (
+          <div className="favorite-recipes-cont">
+            <div className="heading">
+              <h2>Favorite Recipes</h2>
+              <div className="favorite-recipes-edit-cont">
+                <button className="favorite-recipes-edit-btn" type="button">
+                  Edit
+                </button>
+              </div>
+            </div>
+            {favRecipesData ? (
               <div className="favorite-recipes-listing-cont">
-                {favRecipesData.response.recipes.map((data, index) => {
-                  return (
+                {favRecipesData.map((data, index) => (
+                  <div key={data.id}>
                     <div
                       className="recipe-card-cont"
-                      key={index + "-recipe-cont"}
                       onMouseEnter={() =>
                         addRecipeDeleteOverlay(
                           `remove-favorite-recipe-${index}`
@@ -159,7 +106,7 @@ const ProfileCard = () => {
                         )
                       }
                     >
-                      <RecipeCard key={index} recipeData={data} />
+                      <RecipeCard recipeData={data} />
                       <div
                         id={`remove-favorite-recipe-${index}`}
                         className="recipe-card-overlay"
@@ -167,29 +114,25 @@ const ProfileCard = () => {
                         <div className="text">Remove</div>
                       </div>
                     </div>
-                  );
-                })}
+                  </div>
+                ))}
               </div>
             ) : (
               <div className="no-favorite-recipes-cont">
                 <img src={favrecipe} alt="Favorite recipe illustration" />
                 <button type="button">Search more recipes</button>
               </div>
-            ))}
-        </div>
-        <div className="shopping-list-cont">
-          <div className="heading">
-            <h2>Your Shopping List</h2>
+            )}
           </div>
-          <div className="shopping-list-listing-cont">
-            {!shoppingListData.loading &&
-              (typeof shoppingListData.response !== "undefined" ? (
+          <div className="shopping-list-cont">
+            <div className="heading">
+              <h2>Your Shopping List</h2>
+            </div>
+            <div className="shopping-list-listing-cont">
+              {!shopping.loading ? (
                 shoppingListData.map((data, index) => {
                   return (
-                    <div
-                      key={index + data.name}
-                      className="shopping-list-listing"
-                    >
+                    <div key={index} className="shopping-list-listing">
                       <div className="img-and-remove-list-cont">
                         <div className="img-cont">
                           <img src={data.imageURL} alt={data.name} />
@@ -203,10 +146,7 @@ const ProfileCard = () => {
                       <div className="ingredients-cont">
                         {data.ingredients.map((dataInner, index) => {
                           return (
-                            <div
-                              key={index + dataInner.text}
-                              className="ingredient-cont"
-                            >
+                            <div key={index} className="ingredient-cont">
                               <div className="checkbox">
 																<Checkbox
 																	role="checkbox"
@@ -216,7 +156,9 @@ const ProfileCard = () => {
 																	defaultChecked={dataInner.selected}
 																/>
                               </div>
-                              <div className="text">{dataInner.text}</div>
+                              <div className="text">
+                                {dataInner.ingredientName}
+                              </div>
                             </div>
                           );
                         })}
@@ -229,12 +171,24 @@ const ProfileCard = () => {
                   <img src={favlist} alt="Favorite shopping list" />
                   <button type="button">Search your shopping list</button>
                 </div>
-              ))}
+              )}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <>
+        <div className="notloggedin">
+          <h1>You are not logged in.</h1>
+          <p>
+            Please login to Continue <Link to="/">Log in</Link>
+          </p>
+        </div>
+      </>
+    );
+  }
 };
 
 export default ProfileCard;

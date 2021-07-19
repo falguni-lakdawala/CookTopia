@@ -14,6 +14,7 @@ const RecipeCard = ({ recipeData }) => {
           }}
           src={recipeData.image}
           alt={recipeData.alt}
+          loading='lazy'
         />
       </div>
       <div className="recipes-otd-name-cont">
