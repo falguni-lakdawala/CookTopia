@@ -25,6 +25,7 @@ userID:user.uid
     }).then(r=>r.json()).then(d=>alert("Added to your favorites")).catch(e=>console.log(e))
   }else{
     console.log("Not logged in")
+    alert("Not logged in")
   }
 }
 

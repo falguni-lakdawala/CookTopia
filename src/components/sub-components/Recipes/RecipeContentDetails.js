@@ -33,6 +33,8 @@ const RecipeContentDetails = ({ recipeData }) => {
         .then((r) => r.json())
         .then((d) => alert("Added to your shopping list"))
         .catch((e) => alert("Failed to add to shopping list"));
+    }else{
+      alert("Please login to continue")
     }
   };
 
@@ -53,13 +55,14 @@ const RecipeContentDetails = ({ recipeData }) => {
             <div className="ingredients-listings-cont">
               {recipeData.extendedIngredients.map((data, index) => (
                 <div key={index} className="ingredient-listing">
-                  <input
+                  {/* <input
                     role="checkbox"
                     aria-label="Checkbox"
                     type="checkbox"
                     className="ingredient-checkbox"
                     defaultChecked
-                  />
+                  /> */}
+                  <Checkbox className={`ingredient-checkbox-${index}`} />
                   <div className="ingredient-text">{data.originalString}</div>
                 </div>
               ))}
