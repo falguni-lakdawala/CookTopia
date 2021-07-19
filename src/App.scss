@@ -60,6 +60,11 @@
 
 .custom-checkbox {
 	position: relative;
+	cursor: pointer;
+
+	* {
+		cursor: pointer;
+	}
 
 	.checkbox-cont {
 		position: absolute;
@@ -75,12 +80,12 @@
 
 	.custom-design-cont {
 		.outer-circle {
-			padding: 4px;
+			padding: 3px;
 			box-shadow: 0px 0px 0px 2px orange;
 			border-radius: 50%;
 
 			.inner-circle {
-				padding: 6px;
+				padding: 4px;
 				border-radius: 50%;
 				background-color: #FB9400;
 				opacity: 0;
