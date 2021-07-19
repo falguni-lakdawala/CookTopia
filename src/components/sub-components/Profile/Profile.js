@@ -1,9 +1,9 @@
 import RecipeCard from "../RecipeCard";
-import maneesh from "../../../assets/team-members/maneesh.png";
 import editicon from "../../../assets/icons/editicon.svg";
 import favrecipe from "../../../assets/illustrations/homepage-features/favouriterecipe-not-found.svg";
-import favlist from "../../../assets/illustrations/shoppinglist-not-found.svg";
+import favlist from "../../../assets/illustrations/profile-page/shoppinglist-not-found.svg";
 import useFetch from "../../../custom_hooks/useFetch";
+import Checkbox from "../../composable-components/Checkbox";
 import { Link } from "react-router-dom";
 
 const ProfileCard = () => {
@@ -20,6 +20,19 @@ const ProfileCard = () => {
   const removeRecipeDeleteOverlay = (id) => {
     document.querySelector(`#${id}`).classList.remove("active");
   };
+
+	const setActiveNavLink = () => {
+    let pageURL = window.location.pathname.substring(1);
+    let links = document.querySelectorAll(".app_header nav ul li a");
+    links.forEach((el) => {
+      if (pageURL === el.getAttribute("href").substring(1)) {
+        el.classList.add("active");
+      } else {
+        el.classList.remove("active");
+      }
+    });
+  };
+  setActiveNavLink();
 
   if (user) {
     results = useFetch(
@@ -135,10 +148,13 @@ const ProfileCard = () => {
                           return (
                             <div key={index} className="ingredient-cont">
                               <div className="checkbox">
-                                <input
-                                  type="checkbox"
-                                  defaultChecked={dataInner.selected}
-                                />
+																<Checkbox
+																	role="checkbox"
+																	ariaLabel="Checkbox"
+																	type="checkbox"
+																	className={"ingredient-checkbox"}
+																	defaultChecked={dataInner.selected}
+																/>
                               </div>
                               <div className="text">
                                 {dataInner.ingredientName}
