@@ -56,3 +56,39 @@
 		color: #fff;
 	}
 }
+
+.custom-checkbox {
+	position: relative;
+
+	.checkbox-cont {
+		position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+		z-index: 1;
+	}
+
+	.custom-design-cont {
+		.outer-circle {
+			padding: 4px;
+			box-shadow: 0px 0px 0px 2px orange;
+			border-radius: 50%;
+
+			.inner-circle {
+				padding: 6px;
+				border-radius: 50%;
+				background-color: #FB9400;
+				opacity: 0;
+				transition: opacity 0.1s ease;
+			}
+
+			.inner-circle.active {
+				opacity: 1;
+			}
+		}
+	}
+}

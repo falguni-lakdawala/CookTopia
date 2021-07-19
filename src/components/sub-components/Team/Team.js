@@ -58,7 +58,21 @@ const Team = ({ team }) => {
 			linkedInURL: 'https://www.linkedin.com/in/falguni-lakdawala/'
 		}
 	];
-	shuffle(teamData)
+	shuffle(teamData);
+
+	const setActiveNavLink = () => {
+    let pageURL = window.location.pathname.substring(1);
+		let links = document.querySelectorAll('.app_header nav ul li a');
+		links.forEach(el => {
+			if (pageURL === el.getAttribute('href').substring(1)) {
+				el.classList.add('active');
+			} else {
+				el.classList.remove('active');
+			}
+		});
+  };
+	setActiveNavLink();
+
 	return (
 		<div className="team-page-cont">
 			<div className="max-width-cont">

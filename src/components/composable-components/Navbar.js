@@ -14,6 +14,20 @@ import Images from "../composable-components/Images";
 const Navbar = ({ navElements }) => {
   const ref = useRef();
   const location = useLocation();
+
+	const setActiveNavLink = () => {
+    let pageURL = window.location.pathname.substring(1);
+		let links = document.querySelectorAll('.app_header nav ul li a');
+		links.forEach(el => {
+			if (pageURL === el.getAttribute('href').substring(1)) {
+				el.classList.add('active');
+			} else {
+				el.classList.remove('active');
+			}
+		});
+  };
+	setActiveNavLink();
+
   return (
     <>
       <div className="logo">

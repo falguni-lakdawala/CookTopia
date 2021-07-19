@@ -1,6 +1,4 @@
-import React from "react";
-
-import useFetch from "../../../custom_hooks/useFetch";
+import Checkbox from "../../composable-components/Checkbox";
 
 const RecipeContentDetails = ({ recipeData }) => {
 
@@ -58,12 +56,12 @@ else{
 					<div className="ingredients-listings-cont">
 						{recipeData.extendedIngredients.map((data, index) => (
 							<div key={index} className="ingredient-listing">
-								<input
+								<Checkbox
 									role="checkbox"
-									aria-label="Checkbox"
+									ariaLabel="Checkbox"
 									type="checkbox"
-									className="ingredient-checkbox"
-									defaultChecked
+									className={"ingredient-checkbox"}
+									defaultChecked={true}
 								/>
 								<div className="ingredient-text">{data.originalString}</div>
 							</div>

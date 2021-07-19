@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import useFetch from "../../../custom_hooks/useFetch";
 import RecipeCard from "../RecipeCard";
-import noSearchResults from "../../../assets/illustrations/nosearchresult.svg";
+import noSearchResults from "../../../assets/illustrations/search-page/no-search-result.svg";
 
 const SearchResults = () => {
   const location = useLocation();
