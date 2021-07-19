@@ -84,6 +84,7 @@
           .ingredient-listing {
             display: flex;
             gap: 1rem;
+    				align-items: center;
 
             .ingredient-text {
               font-family: "Avenir", sans-serif;

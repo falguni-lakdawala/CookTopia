@@ -1,10 +1,9 @@
 import Checkbox from "../../composable-components/Checkbox";
+import Modal from "../../composable-components/Modal";
 
 const RecipeContentDetails = ({ recipeData }) => {
-
-   const user = JSON.parse(window.sessionStorage.getItem("user"));
+	const user = JSON.parse(window.sessionStorage.getItem("user"));
   const addtoCart = (data) => {
-   
     if (user) {
       const ingredients = [];
       data.extendedIngredients.forEach((i) =>
@@ -31,7 +30,7 @@ const RecipeContentDetails = ({ recipeData }) => {
         body: JSON.stringify(addrecipedata),
       })
         .then((r) => r.json())
-        .then((d) => alert("Added to your shopping list"))
+        .then((d) => document.querySelector('#add-to-shopping-list-success-modal').classList.add('active'))
         .catch((e) => alert("Failed to add to shopping list"));
     }else{
       alert("Please login to continue")
@@ -80,6 +79,10 @@ const RecipeContentDetails = ({ recipeData }) => {
               </button>
             </div>
           </div>
+					<Modal
+						id={"add-to-shopping-list-success-modal"}
+						message={"Your Ingredients have been saved successfully."}
+					/>
         </div>
       )}
     </>
