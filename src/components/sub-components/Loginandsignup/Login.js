@@ -24,12 +24,12 @@ const Login = () => {
           //4 - check if have token in the current user
           if (token) {
             const user = firebaseInstance.auth().currentUser;
-            window.sessionStorage.setItem('user',JSON.stringify(user))
+            window.sessionStorage.setItem("user", JSON.stringify(user));
             const userData = {
               userID: user.uid,
               displayName: user.displayName,
-              firstName: '',
-              lastName: '',
+              firstName: "",
+              lastName: "",
               email: user.email,
               image: user.photoURL,
             };
@@ -40,19 +40,18 @@ const Login = () => {
                 "Content-type": "application/json",
               },
               body: JSON.stringify(userData),
-            }).then(res=>res.json()).
-            then(data=>{
-              window.sessionStorage.setItem("userdata", JSON.stringify(data));
-              history.push({
-                pathname: "/home"
-              });
-            }).
-            catch(error=>{
-              alert("User login failed")
-              console.log(error)
             })
-
-       
+              .then((res) => res.json())
+              .then((data) => {
+                window.sessionStorage.setItem("userdata", JSON.stringify(data));
+                history.push({
+                  pathname: "/home",
+                });
+              })
+              .catch((error) => {
+                alert("User login failed");
+                console.log(error);
+              });
           }
         },
         function (error) {
