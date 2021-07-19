@@ -2023,8 +2023,8 @@ const Subcategory = ({ subcategory, categorytype }) => {
             >
               <svg
                 width="31"
-                height="44"
-                viewBox="0 0 31 44"
+                height="43"
+                viewBox="0 0 31 43"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >

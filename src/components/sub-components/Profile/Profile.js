@@ -1,9 +1,9 @@
 import RecipeCard from "../RecipeCard";
-import maneesh from "../../../assets/team-members/maneesh.png";
 import editicon from "../../../assets/icons/editicon.svg";
 import favrecipe from "../../../assets/illustrations/homepage-features/favouriterecipe-not-found.svg";
-import favlist from "../../../assets/illustrations/shoppinglist-not-found.svg";
+import favlist from "../../../assets/illustrations/profile-page/shoppinglist-not-found.svg";
 import useFetch from "../../../custom_hooks/useFetch";
+import Checkbox from "../../composable-components/Checkbox";
 
 const ProfileCard = () => {
   const user = JSON.parse(window.sessionStorage.getItem("user"));
@@ -82,6 +82,19 @@ const ProfileCard = () => {
     document.querySelector(`#${id}`).classList.remove("active");
   };
 
+  const setActiveNavLink = () => {
+    let pageURL = window.location.pathname.substring(1);
+    let links = document.querySelectorAll(".app_header nav ul li a");
+    links.forEach((el) => {
+      if (pageURL === el.getAttribute("href").substring(1)) {
+        el.classList.add("active");
+      } else {
+        el.classList.remove("active");
+      }
+    });
+  };
+  setActiveNavLink();
+
   return (
     <div className="profile-cont">
       <div className="max-width-cont">
@@ -117,9 +130,14 @@ const ProfileCard = () => {
           <div className="heading">
             <h2>Favorite Recipes</h2>
             <div className="favorite-recipes-edit-cont">
-              <button className="favorite-recipes-edit-btn" type="button">
-                Edit
-              </button>
+              {!favRecipesData.loading &&
+                (typeof favRecipesData.response !== "undefined" ? (
+                  <button className="favorite-recipes-edit-btn" type="button">
+                    Edit
+                  </button>
+                ) : (
+                  ""
+                ))}
             </div>
           </div>
           {!favRecipesData.loading &&
@@ -190,10 +208,13 @@ const ProfileCard = () => {
                               className="ingredient-cont"
                             >
                               <div className="checkbox">
-                                <input
-                                  type="checkbox"
-                                  defaultChecked={dataInner.selected}
-                                />
+																<Checkbox
+																	role="checkbox"
+																	ariaLabel="Checkbox"
+																	type="checkbox"
+																	className={"ingredient-checkbox"}
+																	defaultChecked={dataInner.selected}
+																/>
                               </div>
                               <div className="text">{dataInner.text}</div>
                             </div>
