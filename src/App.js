@@ -4,12 +4,7 @@ import React from "react";
 import Page from "./pages/Page";
 import page_not_found from "./pages/page_not_found";
 
-
 function App() {
-
-
-
-
   return (
     <>
       <div className="App">
@@ -23,8 +18,8 @@ function App() {
             <Route path="/team" component={Page} />
             <Route path="/signup" component={Page} />
             <Route path="/profile" component={Page} />
-            <Route path='/recipecontent' component={Page}/>
-            <Route path='/searchresults' component={Page}/>
+            <Route path="/recipecontent" component={Page} />
+            <Route path="/searchresults" component={Page} />
             <Route path="*" component={page_not_found} />
           </Switch>
         </Router>
