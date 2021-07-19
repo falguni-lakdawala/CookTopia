@@ -162,7 +162,6 @@ const Team = ({ team }) => {
 				el.classList.remove('active');
 			}
 		});
-  };
 	setActiveNavLink();
 
 	return (

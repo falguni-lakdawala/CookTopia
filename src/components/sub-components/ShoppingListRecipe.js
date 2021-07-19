@@ -17,146 +17,12 @@ const ShoppingListRecipe = () => {
       {}
     );
 
+const shopping=useFetch(``)
+
     if (!selectedRecipes.loading) {
       recipes = selectedRecipes.response;
+      console.log(recipes)
     }
-
-
-
-    const shoppingListData = [
-      {
-        src: "https://picsum.photos/250/250?random=4",
-        title: "pasta",
-        cooking_time: "45 minutes",
-        category: "vegetables",
-        alt: "image",
-        ingredients: [
-          {
-            text: "4 medium portobello mushrooms, stems removed",
-            selected: true,
-          },
-          {
-            text: "4 medium portobello mushrooms, stems removed",
-            selected: false,
-          },
-          {
-            text: "4 medium portobello mushrooms, stems removed",
-            selected: true,
-          },
-          {
-            text: "4 medium portobello mushrooms, stems removed",
-            selected: false,
-          },
-          {
-            text: "4 medium portobello mushrooms, stems removed",
-            selected: false,
-          },
-          {
-            text: "4 medium portobello mushrooms, stems removed",
-            selected: false,
-          },
-          {
-            text: "4 medium portobello mushrooms, stems removed",
-            selected: true,
-          },
-        ],
-      },
-      {
-        src: "https://picsum.photos/250/250?random=6",
-        title: "chicken Pizza",
-        cooking_time: "120 minutes",
-        category: "Non-veg",
-        alt: "image",
-        ingredients: [
-          {
-            text: "2 cups dried gigantes or large lime beans",
-            selected: false,
-          },
-          {
-            text: "2 cups dried gigantes or large lime beans",
-            selected: false,
-          },
-          {
-            text: "2 cups dried gigantes or large lime beans",
-            selected: true,
-          },
-          {
-            text: "2 cups dried gigantes or large lime beans",
-            selected: false,
-          },
-          {
-            text: "2 cups dried gigantes or large lime beans",
-            selected: true,
-          },
-        ],
-      },
-      {
-        src: "https://picsum.photos/250/250?random=8",
-        title: "chicken Biryani",
-        cooking_time: "100 minutes",
-        category: "veg",
-        alt: "image",
-        ingredients: [
-          {
-            text: "4 medium portobello mushrooms, stems removed",
-            selected: true,
-          },
-          {
-            text: "4 medium portobello mushrooms, stems removed",
-            selected: false,
-          },
-          {
-            text: "4 medium portobello mushrooms, stems removed",
-            selected: true,
-          },
-          {
-            text: "4 medium portobello mushrooms, stems removed",
-            selected: false,
-          },
-          {
-            text: "4 medium portobello mushrooms, stems removed",
-            selected: false,
-          },
-          {
-            text: "4 medium portobello mushrooms, stems removed",
-            selected: false,
-          },
-          {
-            text: "4 medium portobello mushrooms, stems removed",
-            selected: true,
-          },
-        ],
-      },
-      {
-        src: "https://picsum.photos/250/250?random=5",
-        title: "Italian Pasta",
-        cooking_time: "45 minutes",
-        category: "vegetables",
-        alt: "image",
-        ingredients: [
-          {
-            text: "2 cups dried gigantes or large lime beans",
-            selected: false,
-          },
-          {
-            text: "2 cups dried gigantes or large lime beans",
-            selected: false,
-          },
-          {
-            text: "2 cups dried gigantes or large lime beans",
-            selected: true,
-          },
-          {
-            text: "2 cups dried gigantes or large lime beans",
-            selected: false,
-          },
-          {
-            text: "2 cups dried gigantes or large lime beans",
-            selected: true,
-          },
-        ],
-      },
-    ];
 
     const setActiveNavLink = () => {
       let pageURL = window.location.pathname.substring(1);
@@ -198,28 +64,13 @@ const ShoppingListRecipe = () => {
                   </div>
 
                   <Button text="Clear All" />
-
-                  {shoppingListData.length > 0 ? (
-                    <button>Clear All</button>
-                  ) : (
-                    ""
-                  )}
-
-                </div>
-                <div className="shopping-list-listing-cont">
-                  <ShoppingCard
-                    recipeClassName="shopping_cardlist"
-                    recipes={recipes}
-                  ></ShoppingCard>
                 </div>
 
-                {/* <Button text="Record the List" /> */}
-
-                {shoppingListData.length > 0 ? (
+                {recipes.length > 0 ? (
                   <div className="shopping-list-listing-cont">
                     <ShoppingCard
                       recipeClassName="shopping_cardlist"
-                      recipes={shoppingListData}
+                      recipes={recipes}
                     ></ShoppingCard>
                   </div>
                 ) : (
@@ -255,7 +106,6 @@ const ShoppingListRecipe = () => {
     );
   } else {
     return (
-      // U
       <p>Not logged in</p>
     );
   }
