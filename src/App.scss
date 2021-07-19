@@ -22,39 +22,40 @@
 .shopping-list-page-cont > * .grocery-shop-cont .search-container button,
 .favorite-recipes-edit-btn,
 .profile-cont > * .shopping-list-cont .no-shopping-list-cont button,
-.no-favorite-recipes-cont button {
+.no-favorite-recipes-cont button,
+.modal-backdrop .modal .dismiss-btn-cont button {
 	transition: all 0.1s ease;
 }
 
-.home_page .app_body {
-	.blindbox-hero-btn:hover,
-	.recipes-otd-load-more-btn:hover,
-	.features-listing-text-cont .btn-cont button:hover,
-	.homepage-contact-form .form form button[type="submit"]:hover,
-	.add-to-shopping-list-btn:hover,
-	.shopping-list-page-cont > * .shopping-list-cont .heading-cont button:hover,
-	.shopping-list-page-cont > * .grocery-shop-cont .search-container button:hover,
-	.favorite-recipes-edit-btn:hover,
-	.profile-cont > * .shopping-list-cont .no-shopping-list-cont button:hover,
-	.no-favorite-recipes-cont button:hover {
-		background: rgba(251, 148, 0, 0.7) !important;
-		border-color: rgba(251, 148, 0, 0) !important;
-		color: #fff;
-	}
-	
-	.blindbox-hero-btn:active,
-	.recipes-otd-load-more-btn:active,
-	.features-listing-text-cont .btn-cont button:active,
-	.homepage-contact-form .form form button[type="submit"]:active,
-	.add-to-shopping-list-btn:active,
-	.shopping-list-page-cont > * .shopping-list-cont .heading-cont button:active,
-	.shopping-list-page-cont > * .grocery-shop-cont .search-container button:active,
-	.favorite-recipes-edit-btn:active,
-	.profile-cont > * .shopping-list-cont .no-shopping-list-cont button:active,
-	.no-favorite-recipes-cont button:active {
-		background: #FB9400 !important;
-		color: #fff;
-	}
+.blindbox-hero-btn:hover,
+.recipes-otd-load-more-btn:hover,
+.features-listing-text-cont .btn-cont button:hover,
+.homepage-contact-form .form form button[type="submit"]:hover,
+.add-to-shopping-list-btn:hover,
+.shopping-list-page-cont > * .shopping-list-cont .heading-cont button:hover,
+.shopping-list-page-cont > * .grocery-shop-cont .search-container button:hover,
+.favorite-recipes-edit-btn:hover,
+.profile-cont > * .shopping-list-cont .no-shopping-list-cont button:hover,
+.no-favorite-recipes-cont button:hover,
+.modal-backdrop .modal .dismiss-btn-cont button:hover {
+	background: rgba(251, 148, 0, 0.7) !important;
+	border-color: rgba(251, 148, 0, 0) !important;
+	color: #fff;
+}
+
+.blindbox-hero-btn:active,
+.recipes-otd-load-more-btn:active,
+.features-listing-text-cont .btn-cont button:active,
+.homepage-contact-form .form form button[type="submit"]:active,
+.add-to-shopping-list-btn:active,
+.shopping-list-page-cont > * .shopping-list-cont .heading-cont button:active,
+.shopping-list-page-cont > * .grocery-shop-cont .search-container button:active,
+.favorite-recipes-edit-btn:active,
+.profile-cont > * .shopping-list-cont .no-shopping-list-cont button:active,
+.no-favorite-recipes-cont button:active,
+.modal-backdrop .modal .dismiss-btn-cont button:active {
+	background: #FB9400 !important;
+	color: #fff;
 }
 
 .custom-checkbox {
@@ -91,4 +92,75 @@
 			}
 		}
 	}
+}
+
+.modal-backdrop {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(4px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	z-index: -9;
+	transition: opacity .3s ease;
+
+	@media screen and (max-width: 700px) {
+		padding: 1rem;
+	}
+
+	.modal {
+		max-width: 500px;
+    width: calc(100% - 1rem);
+    padding: 3rem;
+    background: #FFF8EF;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+
+		@media screen and (max-width: 700px) {
+			max-width: calc(100% - 1rem);
+			padding: 2rem 1rem;
+		}
+
+		.message {
+			font-family: "Avenir", sans-serif;
+			font-weight: 800;
+			font-size: 2rem;
+			line-height: 62px;
+			text-align: center;
+			color: #000000;
+		}
+
+		.success-img-cont {
+		}
+
+		.dismiss-btn-cont {
+			width: 100%;
+			text-align: center;
+			margin-top: 1rem;
+
+			button {
+				font-family: "Avenir", sans-serif;
+				font-size: 1.25rem;
+				padding: 0.5rem 1rem;
+				background: #fff8ef;
+				border: 4px solid #fb9400;
+				box-sizing: border-box;
+				border-radius: 50px;
+				width: 80%;
+			}
+		}
+	}
+}
+
+.modal-backdrop.active {
+	z-index: 9;
+	opacity: 1;
 }

@@ -18,17 +18,20 @@ const Body = () => {
   const props1 = {
     placeholder: "Subject",
     title: "Subject",
-    name:'subject'
+    name: "subject",
+    type: "text",
   };
   const props2 = {
     placeholder: "Name",
     title: "Name",
-    name:'name'
+    name: "name",
+    type: "text",
   };
   const props3 = {
     placeholder: "Email",
     title: "Email",
-    name:'email'
+    name: "email",
+    type: "email",
   };
 
   return (
@@ -69,12 +72,12 @@ const Body = () => {
             <Team />
           </>
         )}
-        {location.pathname==='/recipecontent'&&<RecipeContent/>}
+        {location.pathname === "/recipecontent" && <RecipeContent />}
         {location.pathname === "/signup" && <Signup />}
 
         {location.pathname === "/profile" && <Profile />}
 
-        {location.pathname==='/searchresults' && <SearchResults/>}
+        {location.pathname === "/searchresults" && <SearchResults />}
       </main>
     </>
   );

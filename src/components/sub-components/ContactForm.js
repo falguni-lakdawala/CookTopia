@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { sendForm } from "emailjs-com";
+import Modal from "../composable-components/Modal";
 
 const ContactForm = ({ input_number }) => {
   const [data, setData] = useState({});
@@ -19,11 +20,11 @@ const ContactForm = ({ input_number }) => {
     e.preventDefault();
     sendForm([serviceid], [templateid], ref.current, [userid]).then(
       function (response) {
-        //    console.log("SUCCESS!", response.status, response.text);
-        alert("Email Sent");
+        document
+          .querySelector("#contact-form-success-modal")
+          .classList.add("active");
       },
       function (error) {
-        //    console.log("FAILED...", error);
         alert("Failed to send email");
       }
     );
@@ -37,28 +38,23 @@ const ContactForm = ({ input_number }) => {
         </div>
         <div className="subheading">
           <p>
-						Feel free to contact us any time.
-						<br />
-						We will get back to you as soon as we can!
-					</p>
+            Feel free to contact us any time.
+            <br />
+            We will get back to you as soon as we can!
+          </p>
         </div>
         <div className="form">
           <form ref={ref} onSubmit={(e) => handleSubmit(e)}>
             <div className="input-group">
               {input_number.map((input, i) => (
-                // <Input
-                // //  onClick={}
-                // // 	key={input.toString()}
-                // // 	style={input[1].style}
-                // // 	title={input[1].title}
-                // // 	placeholder={input[1].placeholder}
-                // // />
                 <input
                   name={input[1].name}
                   key={input.toString + i}
                   onChange={(e) => handleData(e)}
                   title={input[1].title}
                   placeholder={input[1].placeholder}
+                  required
+                  type={input[1].type}
                 />
               ))}
               <textarea
@@ -67,7 +63,8 @@ const ContactForm = ({ input_number }) => {
                 role="textbox"
                 aria-label="Enter your feedback"
                 placeholder="Share your feedback"
-								rows="5"
+                rows="5"
+                required
               ></textarea>
             </div>
             <button
@@ -81,6 +78,10 @@ const ContactForm = ({ input_number }) => {
           </form>
         </div>
       </div>
+      <Modal
+        id={"contact-form-success-modal"}
+        message={"Thank you for the feedback!"}
+      />
     </div>
   );
 };
