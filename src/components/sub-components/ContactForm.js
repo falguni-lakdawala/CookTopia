@@ -37,10 +37,10 @@ const ContactForm = ({ input_number }) => {
         </div>
         <div className="subheading">
           <p>
-						Feel free to contact us any time.
-						<br />
-						We will get back to you as soon as we can!
-					</p>
+            Feel free to contact us any time.
+            <br />
+            We will get back to you as soon as we can!
+          </p>
         </div>
         <div className="form">
           <form ref={ref} onSubmit={(e) => handleSubmit(e)}>
@@ -67,7 +67,7 @@ const ContactForm = ({ input_number }) => {
                 role="textbox"
                 aria-label="Enter your feedback"
                 placeholder="Share your feedback"
-								rows="5"
+                rows="5"
               ></textarea>
             </div>
             <button

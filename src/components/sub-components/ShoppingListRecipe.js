@@ -21,6 +21,8 @@ const ShoppingListRecipe = () => {
       recipes = selectedRecipes.response;
     }
 
+
+
     const shoppingListData = [
       {
         src: "https://picsum.photos/250/250?random=4",
@@ -194,11 +196,15 @@ const ShoppingListRecipe = () => {
                   <div className="heading">
                     <h3>Your Shopping List</h3>
                   </div>
+
+                  <Button text="Clear All" />
+
                   {shoppingListData.length > 0 ? (
                     <button>Clear All</button>
                   ) : (
                     ""
                   )}
+
                 </div>
                 <div className="shopping-list-listing-cont">
                   <ShoppingCard
@@ -206,6 +212,9 @@ const ShoppingListRecipe = () => {
                     recipes={recipes}
                   ></ShoppingCard>
                 </div>
+
+                {/* <Button text="Record the List" /> */}
+
                 {shoppingListData.length > 0 ? (
                   <div className="shopping-list-listing-cont">
                     <ShoppingCard
@@ -221,6 +230,7 @@ const ShoppingListRecipe = () => {
                     />
                   </div>
                 )}
+
               </div>
               <div className="grocery-shop-cont">
                 <div className="heading">

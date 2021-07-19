@@ -1,10 +1,10 @@
-import {useState,useEffect} from 'react'
+import { useState, useEffect } from "react";
 
 const useFetch = (url, options) => {
   const abortController = new AbortController();
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(false);
-  const [loading,setLoading]=useState(true)
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,22 +14,18 @@ const useFetch = (url, options) => {
         });
         const json = await res.json();
         setResponse(json);
-        setLoading(false)
-
+        setLoading(false);
       } catch (error) {
         setError(error);
       }
     };
     fetchData();
 
-
- return () => {
-   abortController.abort();
- };
-
-
+    return () => {
+      abortController.abort();
+    };
   }, [url]);
-  return { response, error,loading };
+  return { response, error, loading };
 };
 
 export default useFetch;
