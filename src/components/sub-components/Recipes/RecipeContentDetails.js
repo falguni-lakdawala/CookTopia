@@ -1,7 +1,7 @@
 import Checkbox from "../../composable-components/Checkbox";
 
 const RecipeContentDetails = ({ recipeData }) => {
-  
+
    const user = JSON.parse(window.sessionStorage.getItem("user"));
   const addtoCart = (data) => {
    
@@ -38,7 +38,7 @@ const RecipeContentDetails = ({ recipeData }) => {
 
   return (
     <>
-      {user && (
+      {recipeData&& (
         <div className="recipe-details">
           <div className="cook-time-cont">
             <div className="label">Cook Time:</div>
