@@ -14,14 +14,14 @@ const FeatureCard = ({ featuresData }) => {
 						</div>
 					</div>
 					<div className="features-listing-image">
-						<img src={featuresData.src} alt={featuresData.title} aria-label ="Feature image" role="img"/>
+						<img src={featuresData.src} alt={featuresData.title} aria-label ="Feature image" role="img" loading='lazy'/>
 					</div>
 				</div>
 				:
 				(
 					<div>
 						<div className="features-listing-image">
-							<img src={featuresData.src} alt={featuresData.title} />
+							<img src={featuresData.src} alt={featuresData.title} loading='lazy'/>
 						</div>
 						<div className="features-listing-text-cont">
 							<div className="title" aria-label="Feature Title">{featuresData.title}</div>

@@ -18,8 +18,8 @@ const Navbar = ({ navElements }) => {
     <>
       <div className="logo">
         <Link to="/home">
-          <img className="desktop-header-logo" src={logoLarge} alt="logo" />
-          <img className="mobile-header-logo" src={logoSmall} alt="logo" />
+          <img className="desktop-header-logo" src={logoLarge} alt="logo" loading='lazy'/>
+          <img className="mobile-header-logo" src={logoSmall} alt="logo" loading='lazy'/>
         </Link>
       </div>
       <div className="desktop-nav-cont">
@@ -34,7 +34,7 @@ const Navbar = ({ navElements }) => {
             ))}
             <li>
               <Link to={{pathname:'/profile'}}>
-                <img src={account} alt={"userimage"} />
+                <img src={account} alt={"userimage"} loading='lazy'/>
               </Link>
             </li>
           </ul>
@@ -62,7 +62,7 @@ const Navbar = ({ navElements }) => {
               }
             >
               <Link to="/profile">
-                <img src={account} alt={"userimage"} />
+                <img src={account} alt={"userimage"} loading='lazy'/>
               </Link>
             </li>
             {navElements.map((li) => (
@@ -97,6 +97,7 @@ const Navbar = ({ navElements }) => {
               aria-label="mobile toggle icon"
               src={mobileMenuToggleIcon}
               alt="mobile menu toggle"
+              loading='lazy'
             />
           </button>
         </div>

@@ -4,44 +4,43 @@ import useFetch from "../../../custom_hooks/useFetch";
 
 const RecipeContentDetails = ({ recipeData }) => {
 
-	//   const recipeContentDetailsData = {
-	//     cookTime: "1 hr 40 mins",
-	//     servings: 6,
-	//     ingredientsData: [
-	//       {
-	//         id: 1,
-	//         text: "2 cups dried gigantes or large lima beans",
-	//       },
-	//       {
-	//         id: 2,
-	//         text: "2 tablespoons olive oil",
-	//       },
-	//       {
-	//         id: 3,
-	//         text: "1 medium onion chopped",
-	//       },
-	//       {
-	//         id: 4,
-	//         text: "2 large cloves garlic minced",
-	//       },
-	//       {
-	//         id: 5,
-	//         text: "1 large jalapeno, seeded and chopped or 1.14 oz (400 mL) can chopped tomatoes",
-	//       },
-	//       {
-	//         id: 6,
-	//         text: "5 to 6 cups of water",
-	//       },
-	//       {
-	//         id: 7,
-	//         text: "5 1/2 oz (156 mL) canned tomato paste",
-	//       },
-	//       {
-	//         id: 8,
-	//         text: "2 teaspoons dried Greek oregano",
-	//       },
-	//     ],
-	//   };
+const addtoCart=(data)=>{
+		
+const user=JSON.parse(window.sessionStorage.getItem('user'))
+if(user){
+
+	const ingredients=[]
+	data.extendedIngredients.forEach(i=>ingredients.push({
+		id:i.id,
+		ingredientName:i.name,
+		quantity:i.amount,
+		unitofMeasure:i.unit
+	}))
+  	const addrecipedata = {
+      userID: user.uid,
+      recipeID: data.id,
+      recipeName: data.title,
+      imageURL: data.image,
+      'ingredients':ingredients
+    };
+	
+	console.log(data)
+
+const res = fetch("http://44.238.74.165:3000/recipecart/addrecipecart",{
+	method:'POST',
+	headers:{
+		'Content-type':'application/json'
+	},
+	body:JSON.stringify(addrecipedata)
+}).then(r=>r.json()).then(d=>alert("Added to your shopping list")).catch(e=>alert("Failed to add to shopping list"))
+}
+else{
+	console.log('Usser does not')
+}		
+
+
+
+	}
 
 	return (
 		<>
@@ -71,7 +70,7 @@ const RecipeContentDetails = ({ recipeData }) => {
 						))}
 					</div>
 					<div className="add-to-shopping-list-btn-cont">
-						<button role="button" aria-label="shopping list" title="add" type="button" className="add-to-shopping-list-btn">
+						<button role="button" aria-label="shopping list" title="add" type="button" className="add-to-shopping-list-btn" onClick={()=>addtoCart(recipeData)}>
 							Add to Shopping List
 						</button>
 					</div>

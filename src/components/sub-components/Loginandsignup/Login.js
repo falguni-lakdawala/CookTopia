@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import getFirebase from "./firebase";
 import firebase from "firebase/app";
 import "firebase/auth";
+import useFetch from "../../../custom_hooks/useFetch";
 
 const Login = () => {
   const firebaseInstance = getFirebase();
@@ -24,16 +25,34 @@ const Login = () => {
           if (token) {
             const user = firebaseInstance.auth().currentUser;
             window.sessionStorage.setItem('user',JSON.stringify(user))
-            history.push({
-              pathname: "/home",
-              state: {
-                displayName: user.displayName,
-                email: user.email,
-                photo: user.photoURL,
-                id: user.uid,
-                token: token,
+            const userData = {
+              userID: user.uid,
+              displayName: user.displayName,
+              firstName: '',
+              lastName: '',
+              email: user.email,
+              image: user.photoURL,
+            };
+
+            const uploadData = fetch("http://44.238.74.165:3000/createuser", {
+              method: "POST",
+              headers: {
+                "Content-type": "application/json",
               },
-            });
+              body: JSON.stringify(userData),
+            }).then(res=>res.json()).
+            then(data=>{
+              window.sessionStorage.setItem("userdata", JSON.stringify(data));
+              history.push({
+                pathname: "/home"
+              });
+            }).
+            catch(error=>{
+              alert("User login failed")
+              console.log(error)
+            })
+
+       
           }
         },
         function (error) {
