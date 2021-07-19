@@ -6,7 +6,45 @@ import MyResponsivePie from '../Visualization/MyResponsiveChart';
 const RecipeContentMainInstructions = ({ recipeData }) => {
 	console.log(recipeData)
 	const nutritionData = recipeData.nutrition.nutrients
-	console.log(nutritionData)
+
+// Functions for handling dislike and like
+
+const user=JSON.parse(window.sessionStorage.getItem('user'))
+
+const handlelike=()=>{
+  if(user){
+    const res = fetch("http://44.238.74.165:3000/recipe/updaterecipelike", {
+      method:'PUT',
+      headers:{
+        'Content-type':'application/json'
+      },
+      body:JSON.stringify({
+recipeID:recipeData.id,
+userID:user.uid
+      })
+    }).then(r=>r.json()).then(d=>alert("Added to your favorites")).catch(e=>console.log(e))
+  }else{
+    console.log("Not logged in")
+  }
+}
+
+
+const handledislike=()=>{
+   if (user) {
+     const res = fetch("http://44.238.74.165:3000/recipe/updaterecipedislike", {
+       method: "PUT",
+       headers: {
+         "Content-type": "application/json",
+       },
+       body: JSON.stringify({recipeID:recipeData.id,
+      userID:user.uid}),
+     }).then(r=>r.json()).then(d=>alert("Added to your dislike list")).catch(e=>console.log(e))
+
+
+   } else {
+     console.log("Not logged in");
+   }
+}
 
 	const filterednutritionData=nutritionData.filter(data=>data.name==='Carbohydrates'||data.name==='Sugar'||data.name==='Calcium'||data.name==='Folate'||data.name==='Vitamin C')
 	const data = {
@@ -55,10 +93,8 @@ const RecipeContentMainInstructions = ({ recipeData }) => {
         <div className="instructions-graph-cont">
           <div className="instructions-cont-graph">
             <div className="dummy">
-
-<MyResponsivePie data={data.data}/>
-
-			</div>
+              <MyResponsivePie data={data.data} />
+            </div>
           </div>
         </div>
         <div className="instructions-total-calories-cont">
@@ -72,7 +108,7 @@ const RecipeContentMainInstructions = ({ recipeData }) => {
         <div className="recipe-instructions-text-cont">
           <ol>
             {recipeData.analyzedInstructions[0].steps.map((data, index) => (
-              <li key={data.toString()+index}>
+              <li key={data.toString() + index}>
                 {/* <div className="instructions-text-heading">{data.heading}</div> */}
                 <div className="instructions-text-text">{data.step}</div>
               </li>
@@ -83,6 +119,7 @@ const RecipeContentMainInstructions = ({ recipeData }) => {
       <div className="recipe-like-dislike-cont">
         <div className="like-cont">
           <button
+            onClick={() => handlelike()}
             role="button"
             aria-label="like"
             title="like"
@@ -100,6 +137,7 @@ const RecipeContentMainInstructions = ({ recipeData }) => {
             title="dislike"
             type="button"
             className="recipe-dislike"
+            onClick={() => handledislike()}
           >
             <img src={recipeDislikeIcon} alt="recipe like button" />
           </button>

@@ -1,16 +1,16 @@
-const ShoppingCard = ({ recipes, recipeClassName, ingredientList }) => {
+const ShoppingCard = ({ recipes }) => {
 	return (
-		<div className={recipeClassName}>
-			{recipes.map((data, index) => {
+		<div className="recipeClassName">
+			{ recipes.map((data, index) => {
 				return (
 					<div
-						key={index + data.title}
+						key={index + data.recipeName}
 						className="shopping-list-listing"
 					>
 						<div className="img-and-remove-list-cont">
 							<div className="img-title-cont">
-								<img src={data.src} alt={data.alt} />
-								<div className="title">{data.title}</div>
+								<img src={data.imageURL} alt='RecipeImage'  loading='lazy'/>
+								<div className="title">{data.recipeName}</div>
 							</div>
 							<div className="remove-list-cont">
 								<button type="button" className="remove-list-btn">
@@ -19,26 +19,27 @@ const ShoppingCard = ({ recipes, recipeClassName, ingredientList }) => {
 							</div>
 						</div>
 						<div className="ingredients-cont">
-							{data.ingredients.map((dataInner, index) => {
+					
+							{(data.ingredients).map((dataInner, index) => {
 								return (
 									<div
-										key={index + dataInner.text}
+										key={index + dataInner.ingredientName}
 										className="ingredient-cont"
 									>
 										<div className="checkbox">
 											<input
 												type="checkbox"
-												defaultChecked={dataInner.selected}
+												// defaultChecked={dataInner.selected}
 											/>
 										</div>
-										<div className="text">{dataInner.text}</div>
+										<div className="text">{dataInner.ingredientName}</div>
 									</div>
 								);
 							})}
 						</div>
 					</div>
 				);
-			})}
+			})} 
 		</div>
 	);
 };
