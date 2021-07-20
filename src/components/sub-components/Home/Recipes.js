@@ -1,6 +1,6 @@
 import RecipeCard from "../RecipeCard";
 import useFetch from "../../../custom_hooks/useFetch";
-import { useState } from "react";
+import { useState} from "react";
 
 const Recipes = ({ recipeClassName }) => {
   const [more, setmore] = useState(true);

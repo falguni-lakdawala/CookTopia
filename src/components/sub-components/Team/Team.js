@@ -6,12 +6,28 @@ import miaProfilePicture from "../../../assets/team-members/mia.png";
 import falguniProfilePicture from "../../../assets/team-members/falguni.png";
 import linkedInIconBlack from "../../../assets/icons/linkedin-icon-black.png";
 
-function shuffle(array) {
-  array.sort(() => Math.random() - 0.5);
+let shuffledArray = [];
+function shuffleArray() {
+  shuffledArray = [];
+  let odd = [teamData[0], teamData[2], teamData[4]];
+  let even = [teamData[1], teamData[3], teamData[5]];
+
+  const oddshuffle = odd
+    .map((x) => [Math.random(), x])
+    .sort(([a], [b]) => a - b)
+    .map(([_, x]) => x);
+
+  const evenshuffle = even
+    .map((x) => [Math.random(), x])
+    .sort(([a], [b]) => a - b)
+    .map(([_, x]) => x);
+
+  for (let i = 0; i < (oddshuffle.length + evenshuffle.length) / 2; i++) {
+    shuffledArray.push(oddshuffle[i], evenshuffle[i]);
+  }
 }
 
 const Team = ({ team }) => {
-
   const teamData = [
     {
       name: "Sinae",
@@ -62,7 +78,115 @@ const Team = ({ team }) => {
       linkedInURL: "https://www.linkedin.com/in/falguni-lakdawala/",
     },
   ];
-  shuffle(teamData);
+
+  shuffleArray();
+  return (
+    <div className="team-page-cont">
+      <div className="max-width-cont">
+        <div className="heading">
+          <h1 role="heading">Meet the Team</h1>
+        </div>
+        <div className="subheading">
+          CookTopia is a recipe platforms that helps young cooking novices by
+          providing a variety of recipes, nutrition data, and nearby grocery
+          shops, so home cooks could enjoy well-being life based on
+          well-balanced diet. This service is created by 3 developers and 3
+          designers.
+        </div>
+        <div className="team-members-cont">
+          {shuffledArray.map((data, index) => {
+            return (
+              <div className="member-cont" key={index + data.name}>
+                <div className="image-cont">
+                  <img role="img" src={data.src} alt={`${data.name} picture`} />
+                </div>
+                <div className="text-details-cont">
+                  <div className="name">{data.name}</div>
+                  <div className="role">{data.role}</div>
+                  <div className="description">{data.description}</div>
+                  <div className="linkedin-link">
+                    <a role="link" href={data.linkedInURL}>
+                      <img
+                        role="img"
+                        src={linkedInIconBlack}
+                        alt="linkedin for the profile"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const teamData = [
+  {
+    name: "Sinae",
+    src: sinaeProfilePicture,
+    role: "UI/UX Designer",
+    description:
+      "She has an excellent UX research ability, which helps her to visually communicate with users and coworkers.",
+    linkedInURL: "https://www.linkedin.com/in/sinae-bak/",
+  },
+  {
+    name: "Maneesh",
+    src: maneeshProfilePicture,
+    role: "Full Stack Developer",
+    description:
+      "He is a software developer who loves to work on Android and Kotlin But these days also into weaving web.",
+    linkedInURL: "https://www.linkedin.com/in/maneesh43/",
+  },
+  {
+    name: "Rohit",
+    src: rohitProfilePicture,
+    role: "UI Designer",
+    description:
+      "He has ability of thinking out of the box. And can work excellent in both UI and UX.",
+    linkedInURL: "https://www.linkedin.com/in/rohit-lathwal/",
+  },
+  {
+    name: "Abhijeet",
+    src: abhijeetProfilePicture,
+    role: "Frontend Developer",
+    description:
+      "He builds engaging experiences for audiences and believes in creating pixel-perfect and performant products.",
+    linkedInURL: "https://www.linkedin.com/in/abjt14/",
+  },
+  {
+    name: "Mia",
+    src: miaProfilePicture,
+    role: "UI/UX Designer",
+    description:
+      "She has empathy ability to understand what users' frustrations and pain points are and create solutions to improve users' lives.",
+    linkedInURL: "https://www.linkedin.com/in/chun-mei-lin/",
+  },
+  {
+    name: "Falguni",
+    src: falguniProfilePicture,
+    role: "Backend Developer",
+    description:
+      "She is passionate about creating truly beautiful, efficient digital product to make memorable experience with technology.",
+    linkedInURL: "https://www.linkedin.com/in/falguni-lakdawala/",
+  },
+];
+// shuffle(teamData);
+
+const setActiveNavLink = () => {
+  let pageURL = window.location.pathname.substring(1);
+  let links = document.querySelectorAll(".app_header nav ul li a");
+  links.forEach((el) => {
+    if (pageURL === el.getAttribute("href").substring(1)) {
+      el.classList.add("active");
+    } else {
+      el.classList.remove("active");
+    }
+  });
+  setActiveNavLink();
+
   return (
     <div className="team-page-cont">
       <div className="max-width-cont">
@@ -105,103 +229,5 @@ const Team = ({ team }) => {
     </div>
   );
 };
-
-	const teamData = [
-		{
-			name: 'Sinae',
-			src: sinaeProfilePicture,
-			role: 'UI/UX Designer',
-			description: 'She has an excellent UX research ability, which helps her to visually communicate with users and coworkers.',
-			linkedInURL: 'https://www.linkedin.com/in/sinae-bak/'
-		},
-		{
-			name: 'Maneesh',
-			src: maneeshProfilePicture,
-			role: 'Full Stack Developer',
-			description: 'He is a software developer who loves to work on Android and Kotlin But these days also into weaving web.',
-			linkedInURL: 'https://www.linkedin.com/in/maneesh43/'
-		},
-		{
-			name: 'Rohit',
-			src: rohitProfilePicture,
-			role: 'UI Designer',
-			description: 'He has ability of thinking out of the box. And can work excellent in both UI and UX.',
-			linkedInURL: 'https://www.linkedin.com/in/rohit-lathwal/'
-		},
-		{
-			name: 'Abhijeet',
-			src: abhijeetProfilePicture,
-			role: 'Frontend Developer',
-			description: 'He builds engaging experiences for audiences and believes in creating pixel-perfect and performant products.',
-			linkedInURL: 'https://www.linkedin.com/in/abjt14/'
-		},
-		{
-			name: 'Mia',
-			src: miaProfilePicture,
-			role: 'UI/UX Designer',
-			description: 'She has empathy ability to understand what users\' frustrations and pain points are and create solutions to improve users\' lives.',
-			linkedInURL: 'https://www.linkedin.com/in/chun-mei-lin/'
-		},
-		{
-			name: 'Falguni',
-			src: falguniProfilePicture,
-			role: 'Backend Developer',
-			description: 'She is passionate about creating truly beautiful, efficient digital product to make memorable experience with technology.',
-			linkedInURL: 'https://www.linkedin.com/in/falguni-lakdawala/'
-		}
-	];
-	shuffle(teamData);
-
-	const setActiveNavLink = () => {
-    let pageURL = window.location.pathname.substring(1);
-		let links = document.querySelectorAll('.app_header nav ul li a');
-		links.forEach(el => {
-			if (pageURL === el.getAttribute('href').substring(1)) {
-				el.classList.add('active');
-			} else {
-				el.classList.remove('active');
-			}
-		});
-	setActiveNavLink();
-
-	return (
-		<div className="team-page-cont">
-			<div className="max-width-cont">
-				<div className="heading">
-					<h1 role="heading" >Meet the Team</h1>
-				</div>
-				<div className="subheading">
-					CookTopia is a recipe platforms that helps young cooking novices by providing a variety of recipes, nutrition data, and nearby grocery shops, so home cooks could enjoy well-being life based on well-balanced diet. This service is created by 3 developers and 3 designers.
-				</div>
-				<div className="team-members-cont">
-					{
-						teamData.map((data, index) => {
-							return (
-								<div className="member-cont" key={index + data.name}>
-									<div className="image-cont">
-										<img role="img" src={ data.src } alt={ `${data.name} picture` } />
-									</div>
-									<div className="text-details-cont">
-										<div className="name">{ data.name }</div>
-										<div className="role">{ data.role }</div>
-										<div className="description">
-											{ data.description }
-										</div>
-										<div className="linkedin-link">
-											<a role="link" href={ data.linkedInURL }>
-												<img role="img" src={ linkedInIconBlack } alt="linkedin for the profile" />
-											</a>
-										</div>
-									</div>
-								</div>
-							)
-						})
-					}
-				</div>
-			</div>
-		</div>
-	)
-}
-
 
 export default Team;
