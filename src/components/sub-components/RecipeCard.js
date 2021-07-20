@@ -3,7 +3,7 @@ import { useHistory } from "react-router";
 const RecipeCard = ({ recipeData }) => {
   const history = useHistory();
   return (
-    <div key={recipeData.title}>
+    <div key={recipeData.title} title={recipeData.title}>
       <div className="recipes-otd-img-cont">
         <img
           onClick={() => {
@@ -18,7 +18,14 @@ const RecipeCard = ({ recipeData }) => {
         />
       </div>
       <div className="recipes-otd-name-cont">
-        <h4 role="heading">{recipeData.title}</h4>
+        <h4 role="heading">
+					{/* {
+						recipeData.title.length <= 22 ?
+						recipeData.title :
+						(recipeData.title.substring(0, 19) + '...')
+					} */}
+					{recipeData.title}
+				</h4>
       </div>
       <div className="recipes-otd-details-cont">
         <div className="recipes-otd-category-cooking-time-cont">

@@ -1990,6 +1990,7 @@ const Subcategory = ({ subcategory, categorytype }) => {
               key={data + index}
               className="subcategory-listing"
               type="button"
+							title={data}
               onClick={() => {
                 selected.current.push(data);
                 setSelectedS(selected.current);
