@@ -238,6 +238,7 @@ const RecipesFilterSearch = () => {
                       key={index + data.name}
                       className="category-listing"
                       type="button"
+											title={data.name}
                     >
                       <div className="img-cont">
                         <img src={data.imgURL} alt="" />

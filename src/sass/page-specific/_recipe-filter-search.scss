@@ -81,6 +81,7 @@
 
       button.category-listing:active, button.category-listing.active {
         background: #fff8ef;
+				border: 10px solid #fb9400;
 
         @media screen and (max-width: 700px) {
 					border: 5px solid #fb9400;
@@ -215,9 +216,19 @@
             gap: 0;
             position: relative;
             padding: 0;
+						cursor: pointer;
 
-            svg {
+            svg:nth-of-type(1) {
+							height: 43px;
               transform: scale(0.85) translateX(5px);
+            }
+
+            svg:nth-of-type(2) {
+							background-color: #fb9400;
+							padding: 0.75rem;
+							height: 43px;
+							width: 44px;
+							transform: scale(0.85) translateX(-4px);
             }
 
             .text-cont {

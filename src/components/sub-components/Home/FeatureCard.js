@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
 const FeatureCard = ({ featuresData }) => {
   return (
@@ -13,14 +13,16 @@ const FeatureCard = ({ featuresData }) => {
               {featuresData.description}
             </div>
             <div className="btn-cont">
-              <button
-                title="feature"
-                type="button"
-                role="button"
-                aria-label="Feature button"
-              >
-                {featuresData.buttonText}
-              </button>
+							<Link to={featuresData.buttonLink}>
+								<button
+									title={featuresData.buttonText}
+									type="button"
+									role="button"
+									aria-label="Feature button"
+								>
+									{featuresData.buttonText}
+								</button>
+							</Link>
             </div>
           </div>
           <div className="features-listing-image">
@@ -50,14 +52,16 @@ const FeatureCard = ({ featuresData }) => {
               {featuresData.description}
             </div>
             <div className="btn-cont">
-              <button
-                title="features"
-                type="button"
-                role="button"
-                aria-label="features button"
-              >
-                {featuresData.buttonText}
-              </button>
+							<Link to={featuresData.buttonLink}>
+								<button
+									title={featuresData.buttonText}
+									type="button"
+									role="button"
+									aria-label="Feature button"
+								>
+									{featuresData.buttonText}
+								</button>
+							</Link>
             </div>
           </div>
         </div>

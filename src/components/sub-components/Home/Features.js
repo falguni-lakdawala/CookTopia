@@ -12,6 +12,7 @@ const Features = ({ features }) => {
         "Dive into CookTopia’s overflowing recipes by selecting multiple keywords. Be ready to choose your favorite-to-be dishes. Bon Appétit!",
       buttonText: "Search Recipes",
       type: 1,
+			buttonLink: "/recipes",
     },
     {
       src: nutritionInformationImage,
@@ -20,6 +21,7 @@ const Features = ({ features }) => {
         "User can get the detailed analysis of the nutrition value they are consuming after selecting the recipe from Cooktopia.",
       buttonText: "Nutrition Information",
       type: 2,
+			buttonLink: "/recipes",
     },
     {
       src: featuresShoppingListImage,
@@ -28,6 +30,7 @@ const Features = ({ features }) => {
         "Once you picked the recipe you like, you can check the ingredients as well. After checking what ingredients you need, you can use our shopping list function to record your personal list in your profile. ",
       buttonText: "Shopping List",
       type: 1,
+			buttonLink: "/shoppinglist",
     },
   ];
   return (
