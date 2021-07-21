@@ -7,28 +7,17 @@ import falguniProfilePicture from "../../../assets/team-members/falguni.png";
 import linkedInIconBlack from "../../../assets/icons/linkedin-icon-black.png";
 
 let shuffledArray = [];
+
+const shufflearrayelements = (array) => {
+  return array
+    .map((x) => [Math.random(), x])
+    .sort(([a], [b]) => a - b)
+    .map(([_, x]) => x);
+};
+
 function shuffleArray() {
   shuffledArray = [];
-  let odd = [teamData[0], teamData[2], teamData[4]];
-  let even = [teamData[1], teamData[3], teamData[5]];
-
-  const oddshuffle = odd
-    .map((x) => [Math.random(), x])
-    .sort(([a], [b]) => a - b)
-    .map(([_, x]) => x);
-
-  const evenshuffle = even
-    .map((x) => [Math.random(), x])
-    .sort(([a], [b]) => a - b)
-    .map(([_, x]) => x);
-
-  for (let i = 0; i < (oddshuffle.length + evenshuffle.length) / 2; i++) {
-    shuffledArray.push(oddshuffle[i], evenshuffle[i]);
-  }
-}
-
-const Team = ({ team }) => {
-  const teamData = [
+  let odd = [
     {
       name: "Sinae",
       src: sinaeProfilePicture,
@@ -36,14 +25,6 @@ const Team = ({ team }) => {
       description:
         "She has an excellent UX research ability, which helps her to visually communicate with users and coworkers.",
       linkedInURL: "https://www.linkedin.com/in/sinae-bak/",
-    },
-    {
-      name: "Maneesh",
-      src: maneeshProfilePicture,
-      role: "Developer",
-      description:
-        "He is a software developer who loves to work on Android and Kotlin But these days also into weaving web.",
-      linkedInURL: "https://www.linkedin.com/in/maneesh43/",
     },
     {
       name: "Rohit",
@@ -54,14 +35,6 @@ const Team = ({ team }) => {
       linkedInURL: "https://www.linkedin.com/in/rohit-lathwal/",
     },
     {
-      name: "Abhijeet",
-      src: abhijeetProfilePicture,
-      role: "Developer",
-      description:
-        "He builds engaging experiences for audiences and believes in creating pixel-perfect and performant products.",
-      linkedInURL: "https://www.linkedin.com/in/abjt14/",
-    },
-    {
       name: "Mia",
       src: miaProfilePicture,
       role: "Designer",
@@ -69,6 +42,26 @@ const Team = ({ team }) => {
         "She has empathy ability to understand what users' frustrations and pain points are and create solutions to improve users' lives.",
       linkedInURL: "https://www.linkedin.com/in/chun-mei-lin/",
     },
+  ];
+  let even = [
+    {
+      name: "Maneesh",
+      src: maneeshProfilePicture,
+      role: "Developer",
+      description:
+        "He is a software developer who loves to work on Android and Kotlin But these days also into weaving web.",
+      linkedInURL: "https://www.linkedin.com/in/maneesh43/",
+    },
+
+    {
+      name: "Abhijeet",
+      src: abhijeetProfilePicture,
+      role: "Developer",
+      description:
+        "He builds engaging experiences for audiences and believes in creating pixel-perfect and performant products.",
+      linkedInURL: "https://www.linkedin.com/in/abjt14/",
+    },
+    ,
     {
       name: "Falguni",
       src: falguniProfilePicture,
@@ -79,6 +72,16 @@ const Team = ({ team }) => {
     },
   ];
 
+  const oddshuffle = shufflearrayelements(odd);
+
+  const evenshuffle = shufflearrayelements(even);
+
+  for (let i = 0; i < (oddshuffle.length + evenshuffle.length) / 2; i++) {
+    shuffledArray.push(oddshuffle[i], evenshuffle[i]);
+  }
+}
+
+const Team = ({ team }) => {
   shuffleArray();
   return (
     <div className="team-page-cont">
