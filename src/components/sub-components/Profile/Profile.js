@@ -55,7 +55,7 @@ const ProfileCard = () => {
           <div className="profile-card">
             <div className="profile-image-cont">
               <img src={user.photoURL} alt="profile image" />
-              <button
+              {/* <button
                 role="button"
                 aria-label="profile image"
                 title="edit image"
@@ -63,7 +63,7 @@ const ProfileCard = () => {
                 className="edit-profile-image-btn"
               >
                 Edit Image
-              </button>
+              </button> */}
             </div>
             <div className="profile-data-cont">
               <div className="profile-data">
