@@ -21,7 +21,7 @@ const ProfileCard = () => {
     document.querySelector(`#${id}`).classList.remove("active");
   };
 
-	const setActiveNavLink = () => {
+  const setActiveNavLink = () => {
     let pageURL = window.location.pathname.substring(1);
     let links = document.querySelectorAll(".app_header nav ul li a");
     links.forEach((el) => {
@@ -148,13 +148,13 @@ const ProfileCard = () => {
                           return (
                             <div key={index} className="ingredient-cont">
                               <div className="checkbox">
-																<Checkbox
-																	role="checkbox"
-																	ariaLabel="Checkbox"
-																	type="checkbox"
-																	className={"ingredient-checkbox"}
-																	defaultChecked={dataInner.selected}
-																/>
+                                <Checkbox
+                                  role="checkbox"
+                                  ariaLabel="Checkbox"
+                                  type="checkbox"
+                                  className={"ingredient-checkbox"}
+                                  defaultChecked={dataInner.selected}
+                                />
                               </div>
                               <div className="text">
                                 {dataInner.ingredientName}
@@ -177,21 +177,21 @@ const ProfileCard = () => {
         </div>
       </div>
     );
-  }
-  else if(results.loading){
-    return(
+  } 
+  if (user && results.loading) {
+    return (
       <div className="loading">
         <p>Loading... </p>
       </div>
-    )
+    );
   }
-  if(!user&& !results.loading){
-return(
-  <div className="no-user">
-    <p>User not logged in !!!! </p>
-  </div>
-)
-  } 
+  if (!user) {
+    return (
+      <div className="no-user">
+        <p>User not logged in !!!! </p>
+      </div>
+    );
+  }
 };
 
 export default ProfileCard;
