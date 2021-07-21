@@ -1,54 +1,69 @@
-import recipeLikeIcon from '../../../assets/icons/recipe-like.svg';
-import recipeDislikeIcon from '../../../assets/icons/recipe-dislike.svg';
-import MyResponsivePie from '../Visualization/MyResponsiveChart';
+import recipeLikeIcon from "../../../assets/icons/recipe-like.svg";
+import recipeDislikeIcon from "../../../assets/icons/recipe-dislike.svg";
+import MyResponsivePie from "../Visualization/MyResponsiveChart";
+import { useEffect } from "react";
 
+const RecipeContentMainInstructions = ({ recipeData, scrollstat }) => {
+  const nutritionData = recipeData.nutrition.nutrients;
 
-const RecipeContentMainInstructions = ({ recipeData }) => {
-	console.log(recipeData)
-	const nutritionData = recipeData.nutrition.nutrients
-
-// Functions for handling dislike and like
-
-const user=JSON.parse(window.sessionStorage.getItem('user'))
-
-const handlelike=()=>{
-  if(user){
-    const res = fetch("http://44.238.74.165:3000/recipe/updaterecipelike", {
-      method:'PUT',
-      headers:{
-        'Content-type':'application/json'
-      },
-      body:JSON.stringify({
-recipeID:recipeData.id,
-userID:user.uid
-      })
-    }).then(r=>r.json()).then(d=>alert("Added to your favorites")).catch(e=>console.log(e))
-  }else{
-    console.log("Not logged in")
-    alert("Not logged in")
+  // Functions for handling dislike and like
+useEffect(()=>{
+  if(scrollstat){
+document.querySelector('.dummy').scrollIntoView({behavior:"smooth",block:"start",inline:"nearest"})
   }
-}
+},[document.querySelector('.dummy')])
+  const user = JSON.parse(window.sessionStorage.getItem("user"));
 
+  const handlelike = () => {
+    if (user) {
+      const res = fetch("http://44.238.74.165:3000/recipe/updaterecipelike", {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          recipeID: recipeData.id,
+          userID: user.uid,
+        }),
+      })
+        .then((r) => r.json())
+        .then((d) => alert("Added to your favorites"))
+        .catch((e) => console.log(e));
+    } else {
+      console.log("Not logged in");
+      alert("Not logged in");
+    }
+  };
 
-const handledislike=()=>{
-   if (user) {
-     const res = fetch("http://44.238.74.165:3000/recipe/updaterecipedislike", {
-       method: "PUT",
-       headers: {
-         "Content-type": "application/json",
-       },
-       body: JSON.stringify({recipeID:recipeData.id,
-      userID:user.uid}),
-     }).then(r=>r.json()).then(d=>alert("Added to your dislike list")).catch(e=>console.log(e))
+  const handledislike = () => {
+    if (user) {
+      const res = fetch(
+        "http://44.238.74.165:3000/recipe/updaterecipedislike",
+        {
+          method: "PUT",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({ recipeID: recipeData.id, userID: user.uid }),
+        }
+      )
+        .then((r) => r.json())
+        .then((d) => alert("Added to your dislike list"))
+        .catch((e) => console.log(e));
+    } else {
+      console.log("Not logged in");
+    }
+  };
 
-
-   } else {
-     console.log("Not logged in");
-   }
-}
-
-	const filterednutritionData=nutritionData.filter(data=>data.name==='Carbohydrates'||data.name==='Sugar'||data.name==='Calcium'||data.name==='Folate'||data.name==='Vitamin C')
-	const data = {
+  const filterednutritionData = nutritionData.filter(
+    (data) =>
+      data.name === "Carbohydrates" ||
+      data.name === "Sugar" ||
+      data.name === "Calcium" ||
+      data.name === "Folate" ||
+      data.name === "Vitamin C"
+  );
+  const data = {
     data: [
       {
         id: "Carbohydrates",
@@ -88,7 +103,9 @@ const handledislike=()=>{
     ],
   };
 
-	return (
+
+
+  return (
     <>
       <div className="recipe-instructions-cont">
         <div className="instructions-graph-cont">
@@ -98,6 +115,7 @@ const handledislike=()=>{
             </div>
           </div>
         </div>
+
         <div className="instructions-total-calories-cont">
           <div className="instructions-total-calories-box">
             <div className="label">Total Calories</div>
@@ -108,7 +126,7 @@ const handledislike=()=>{
         </div>
         <div className="recipe-instructions-text-cont">
           <ol>
-            {recipeData.analyzedInstructions[0].steps ? (
+            {recipeData.analyzedInstructions[0].steps!=undefined ? (
               recipeData.analyzedInstructions[0].steps.map((data, index) => (
                 <li key={data.toString() + index}>
                   {/* <div className="instructions-text-heading">{data.heading}</div> */}
@@ -155,6 +173,6 @@ const handledislike=()=>{
       </div>
     </>
   );
-}
+};
 
-export default RecipeContentMainInstructions
+export default RecipeContentMainInstructions;

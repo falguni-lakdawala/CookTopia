@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link,useHistory} from "react-router-dom";
 
 const FeatureCard = ({ featuresData }) => {
+  const history = useHistory();
   return (
     <div>
       {featuresData.type == 1 ? (
@@ -52,16 +53,20 @@ const FeatureCard = ({ featuresData }) => {
               {featuresData.description}
             </div>
             <div className="btn-cont">
-							<Link to={featuresData.buttonLink}>
+							{/* <Link to={featuresData.buttonLink}> */}
 								<button
 									title={featuresData.buttonText}
 									type="button"
 									role="button"
 									aria-label="Feature button"
+                  onClick={()=>{
+                    const random=Math.floor(Math.random()*500)
+                    history.push({pathname:'/recipecontent',state:{id:random,scrollstat:true}})
+                  }}
 								>
 									{featuresData.buttonText}
 								</button>
-							</Link>
+							{/* </Link> */}
             </div>
           </div>
         </div>
