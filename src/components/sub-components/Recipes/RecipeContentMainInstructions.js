@@ -16,6 +16,7 @@ const RecipeContentMainInstructions = ({ recipeData, scrollstat }) => {
       });
     }
   }, [document.querySelector(".dummy")]);
+
   const user = JSON.parse(window.sessionStorage.getItem("user"));
 
   const handlelike = () => {
@@ -128,7 +129,7 @@ const RecipeContentMainInstructions = ({ recipeData, scrollstat }) => {
         </div>
         <div className="recipe-instructions-text-cont">
           <ol>
-            {"steps" in recipeData.analyzedInstructions[0] ? (
+            {recipeData.analyzedInstructions.length >= 1 ? (
               recipeData.analyzedInstructions[0].steps.map((data, index) => (
                 <li key={data.toString() + index}>
                   {/* <div className="instructions-text-heading">{data.heading}</div> */}

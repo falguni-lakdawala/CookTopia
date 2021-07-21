@@ -1,8 +1,8 @@
 import Checkbox from "../../composable-components/Checkbox";
 import Modal from "../../composable-components/Modal";
-
+import { useRef } from "react";
 const RecipeContentDetails = ({ recipeData }) => {
-	const user = JSON.parse(window.sessionStorage.getItem("user"));
+  const user = JSON.parse(window.sessionStorage.getItem("user"));
   const addtoCart = (data) => {
     if (user) {
       const ingredients = [];
@@ -30,16 +30,60 @@ const RecipeContentDetails = ({ recipeData }) => {
         body: JSON.stringify(addrecipedata),
       })
         .then((r) => r.json())
-        .then((d) => document.querySelector('#add-to-shopping-list-success-modal').classList.add('active'))
+        .then((d) =>
+          document
+            .querySelector("#add-to-shopping-list-success-modal")
+            .classList.add("active")
+        )
         .catch((e) => alert("Failed to add to shopping list"));
-    }else{
-      alert("Please login to continue")
+    } else {
+      const dataexist = window.sessionStorage.getItem("guestshoppingdata");
+      const ingredient = [];
+      data.extendedIngredients.forEach((a) =>
+        ingredient.push({
+          ingredientName: a.originalString,
+          quantity: a.amount,
+          unitofMeasure: a.unit,
+        })
+      );
+      if (dataexist) {
+        const newData = JSON.parse(dataexist);
+        const res = newData.some((m) => m.id === data.id);
+        if (!res) {
+          newData.push({
+            recipeName: data.title,
+            imageURL: data.image,
+            ingredients: ingredient,
+          });
+          window.sessionStorage.setItem(
+            "guestshoppingdata",
+            JSON.stringify(newData)
+          );
+            document
+              .querySelector("#add-to-shopping-list-success-modal")
+              .classList.add("active");
+        }
+      } else {
+        window.sessionStorage.setItem(
+          "guestshoppingdata",
+          JSON.stringify([
+            {
+              recipeName: data.title,
+              imageURL: data.image,
+              ingredients: ingredient,
+            },
+          ])
+        );
+          document
+            .querySelector("#add-to-shopping-list-success-modal")
+            .classList.add("active");
+      }
     }
   };
 
   return (
     <>
-      {recipeData&& (
+      {recipeData && (
         <div className="recipe-details">
           <div className="cook-time-cont">
             <div className="label">Cook Time:</div>
@@ -79,10 +123,10 @@ const RecipeContentDetails = ({ recipeData }) => {
               </button>
             </div>
           </div>
-					<Modal
-						id={"add-to-shopping-list-success-modal"}
-						message={"Your Ingredients have been saved successfully."}
-					/>
+          <Modal
+            id={"add-to-shopping-list-success-modal"}
+            message={"Your Ingredients have been saved successfully."}
+          />
         </div>
       )}
     </>
