@@ -1,6 +1,6 @@
 import Checkbox from "../composable-components/Checkbox";
 
-const ShoppingCard = ({ recipes }) => {
+const ShoppingCard = ({ recipes,onclick }) => {
   return (
     <div className="recipeClassName">
       {recipes.map((data, index) => {
@@ -12,7 +12,7 @@ const ShoppingCard = ({ recipes }) => {
                 <div className="title">{data.recipeName}</div>
               </div>
               <div className="remove-list-cont">
-                <button type="button" className="remove-list-btn">
+                <button type="button" className="remove-list-btn" onClick={(e)=>onclick(e,data)}>
                   remove list
                 </button>
               </div>

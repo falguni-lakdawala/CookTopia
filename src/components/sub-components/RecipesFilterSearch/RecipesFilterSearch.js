@@ -26,13 +26,19 @@ const RecipesFilterSearch = () => {
       name: "Cuisine",
       imgURL: categoryCuisineImage,
       actionClick: () => {
-				if (subcategory === subcategories.current[0].cuisine) {
-					if (document.querySelectorAll(".rfs-filters-cont .categories-cont .category-listing")[0].classList.contains('active')) {
-						setSubcategory([]);
-					}
-				} else {
-					setSubcategory(subcategories.current[0].cuisine);
-				}
+        if (subcategory === subcategories.current[0].cuisine) {
+          if (
+            document
+              .querySelectorAll(
+                ".rfs-filters-cont .categories-cont .category-listing"
+              )[0]
+              .classList.contains("active")
+          ) {
+            setSubcategory([]);
+          }
+        } else {
+          setSubcategory(subcategories.current[0].cuisine);
+        }
         setSubcategoryStyle(0);
       },
       actionMouseEnter: () => {
@@ -46,13 +52,19 @@ const RecipesFilterSearch = () => {
       name: "Diet Types",
       imgURL: categoryDietTypesImage,
       actionClick: () => {
-				if (subcategory === subcategories.current[1].diet) {
-					if (document.querySelectorAll(".rfs-filters-cont .categories-cont .category-listing")[1].classList.contains('active')) {
-						setSubcategory([]);
-					}
-				} else {
-					setSubcategory(subcategories.current[1].diet);
-				}
+        if (subcategory === subcategories.current[1].diet) {
+          if (
+            document
+              .querySelectorAll(
+                ".rfs-filters-cont .categories-cont .category-listing"
+              )[1]
+              .classList.contains("active")
+          ) {
+            setSubcategory([]);
+          }
+        } else {
+          setSubcategory(subcategories.current[1].diet);
+        }
         setSubcategoryStyle(1);
       },
       actionMouseEnter: () => {
@@ -66,14 +78,20 @@ const RecipesFilterSearch = () => {
       name: "Ingredients",
       imgURL: categoryIngredientsImage,
       actionClick: () => {
-				if (subcategory === subcategories.current[2].ingredient) {
-					if (document.querySelectorAll(".rfs-filters-cont .categories-cont .category-listing")[2].classList.contains('active')) {
-						setSubcategory([]);
-					}
-					setSubcategory([]);
-				} else {
-					setSubcategory(subcategories.current[2].ingredient);
-				}
+        if (subcategory === subcategories.current[2].ingredient) {
+          if (
+            document
+              .querySelectorAll(
+                ".rfs-filters-cont .categories-cont .category-listing"
+              )[2]
+              .classList.contains("active")
+          ) {
+            setSubcategory([]);
+          }
+          setSubcategory([]);
+        } else {
+          setSubcategory(subcategories.current[2].ingredient);
+        }
         setSubcategoryStyle(2);
       },
       actionMouseEnter: () => {
@@ -87,13 +105,19 @@ const RecipesFilterSearch = () => {
       name: "Allergy",
       imgURL: categoryAllergyImage,
       actionClick: () => {
-				if (subcategory === subcategories.current[3].intolerances) {
-					if (document.querySelectorAll(".rfs-filters-cont .categories-cont .category-listing")[3].classList.contains('active')) {
-						setSubcategory([]);
-					}
-				} else {
-					setSubcategory(subcategories.current[3].intolerances);
-				}
+        if (subcategory === subcategories.current[3].intolerances) {
+          if (
+            document
+              .querySelectorAll(
+                ".rfs-filters-cont .categories-cont .category-listing"
+              )[3]
+              .classList.contains("active")
+          ) {
+            setSubcategory([]);
+          }
+        } else {
+          setSubcategory(subcategories.current[3].intolerances);
+        }
         setSubcategoryStyle(3);
       },
       actionMouseEnter: () => {
@@ -107,13 +131,19 @@ const RecipesFilterSearch = () => {
       name: "Meal Type",
       imgURL: categoryMealTypeImage,
       actionClick: () => {
-				if (subcategory === subcategories.current[4].mealtype) {
-					if (document.querySelectorAll(".rfs-filters-cont .categories-cont .category-listing")[4].classList.contains('active')) {
-						setSubcategory([]);
-					}
-				} else {
-					setSubcategory(subcategories.current[4].mealtype);
-				}
+        if (subcategory === subcategories.current[4].mealtype) {
+          if (
+            document
+              .querySelectorAll(
+                ".rfs-filters-cont .categories-cont .category-listing"
+              )[4]
+              .classList.contains("active")
+          ) {
+            setSubcategory([]);
+          }
+        } else {
+          setSubcategory(subcategories.current[4].mealtype);
+        }
         setSubcategoryStyle(4);
       },
       actionMouseEnter: () => {
@@ -186,27 +216,29 @@ const RecipesFilterSearch = () => {
   ]);
 
   const setSubcategoryStyle = (id) => {
-    document.querySelectorAll(".rfs-filters-cont .categories-cont .category-listing").forEach((el, index) => {
-			if (id === index) {
-				el.classList.toggle("active");
-			} else {
-				el.classList.remove("active");
-			}
-		});
+    document
+      .querySelectorAll(".rfs-filters-cont .categories-cont .category-listing")
+      .forEach((el, index) => {
+        if (id === index) {
+          el.classList.toggle("active");
+        } else {
+          el.classList.remove("active");
+        }
+      });
   };
 
-	const setActiveNavLink = () => {
+  const setActiveNavLink = () => {
     let pageURL = window.location.pathname.substring(1);
-		let links = document.querySelectorAll('.app_header nav ul li a');
-		links.forEach(el => {
-			if (pageURL === el.getAttribute('href').substring(1)) {
-				el.classList.add('active');
-			} else {
-				el.classList.remove('active');
-			}
-		});
+    let links = document.querySelectorAll(".app_header nav ul li a");
+    links.forEach((el) => {
+      if (pageURL === el.getAttribute("href").substring(1)) {
+        el.classList.add("active");
+      } else {
+        el.classList.remove("active");
+      }
+    });
   };
-	setActiveNavLink();
+  setActiveNavLink();
 
   return (
     <>
@@ -224,21 +256,25 @@ const RecipesFilterSearch = () => {
                         Setselectedcategory(data.name);
                       }}
                       onMouseEnter={() => {
-												let selectedCategory = document.querySelectorAll('.rfs-filters-cont .categories-cont .category-listing.active');
-												if (selectedCategory.length === 0) {
-													data.actionMouseEnter();
-												}
+                        let selectedCategory = document.querySelectorAll(
+                          ".rfs-filters-cont .categories-cont .category-listing.active"
+                        );
+                        if (selectedCategory.length === 0) {
+                          data.actionMouseEnter();
+                        }
                       }}
                       onMouseLeave={() => {
-												let selectedCategory = document.querySelectorAll('.rfs-filters-cont .categories-cont .category-listing.active');
-												if (selectedCategory.length === 0) {
-													data.actionMouseLeave();
-												}
+                        let selectedCategory = document.querySelectorAll(
+                          ".rfs-filters-cont .categories-cont .category-listing.active"
+                        );
+                        if (selectedCategory.length === 0) {
+                          data.actionMouseLeave();
+                        }
                       }}
                       key={index + data.name}
                       className="category-listing"
                       type="button"
-											title={data.name}
+                      title={data.name}
                     >
                       <div className="img-cont">
                         <img src={data.imgURL} alt="" />
