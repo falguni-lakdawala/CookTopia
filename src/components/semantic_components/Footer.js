@@ -7,7 +7,7 @@ const Footer = () => {
 	return (
 		<>
 			<footer className="app_footer">
-				<p>Copyright© 2021 cooktopia all rights reserved. </p>
+				<p>Copyright© 2021 CookTopia all rights reserved. </p>
 			</footer>
 		</>
 	)
