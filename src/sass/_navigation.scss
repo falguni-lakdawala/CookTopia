@@ -8,6 +8,10 @@
   align-items: center;
   justify-content: space-between;
   z-index: 2;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
 
   @media screen and (max-width: 700px) {
     padding: 0.25rem 0.5rem 0.25rem 0.5rem;
@@ -167,10 +171,11 @@
       ul {
         align-items: center;
         border-right: 3px solid black;
-        padding: 0.5rem 1.5rem 0.5rem 0;
         opacity: 0;
 				z-index: -10;
-        transition: all 0.3s ease;
+        // transition: all 0.3s ease;
+				width: 0;
+				padding: 0;
 
         li {
 					a.active {
@@ -186,6 +191,8 @@
       ul.active {
         opacity: 1;
 				z-index: 0;
+				width: 100%;
+        padding: 0.5rem 1.5rem 0.5rem 0 !important;
       }
     }
   }
