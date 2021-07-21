@@ -66,6 +66,16 @@ console.log(e)
     };
     setActiveNavLink();
 
+		const selectActiveRecipe = (index) => {
+			document.querySelectorAll('.selected-recipes-cont .selected-recipes-listing-cont .selected-recipes-listing').forEach((el, i) => {
+				if (i === index) {
+					document.getElementById('selected-recipes-listing-' + i).classList.toggle('active');
+				} else {
+					document.getElementById('selected-recipes-listing-' + i).classList.remove('active');
+				}
+			});
+		}
+
     return (
       <>
         {(recipes)&& (
@@ -78,10 +88,17 @@ console.log(e)
                 <div className="selected-recipes-listing-cont">
                   {recipes.length>0?recipes.map((data, index) => {
                     return (
-                      <Images
-                        key={data.imageURL.toString() + index}
-                        src={data.imageURL}
-                      />
+                      <div
+												id={'selected-recipes-listing-' + index}
+												className="selected-recipes-listing"
+												key={data.imageURL.toString() + index + 'div'}
+												onClick={() => selectActiveRecipe(index)}
+											>
+                        <Images
+                          key={data.imageURL.toString() + index}
+                          src={data.imageURL}
+                        />
+                      </div>
                     );
                   }):
                   <>
@@ -118,7 +135,6 @@ console.log(e)
                     />
                   </div>
                 )}
-
               </div>
               <div className="grocery-shop-cont">
                 <div className="heading">
@@ -141,6 +157,12 @@ console.log(e)
         )}
       </>
     );
+<<<<<<< HEAD
+=======
+  } else {
+    return <p>Not logged in</p>;
+  }
+>>>>>>> 28107663d7b6c5b2582d601786148eb21db906f8
 };
 
 export default ShoppingListRecipe;

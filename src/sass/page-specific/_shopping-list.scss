@@ -18,26 +18,38 @@
 				display: flex;
 				gap: 2rem;
 				overflow: auto;
-				padding: 0 0 1rem 0;
+				padding: 1rem 5px;
+				cursor: pointer;
 
-				> div {
-					min-width: 250px;
+				.selected-recipes-listing {
+					max-width: 250px;
+					box-shadow: 0px 0px 0px 5px #CFCDCD;
 					cursor: pointer;
+					transition: all .3s ease;
 
-					.recipes-otd-img-cont {
-						border: 5px solid #CFCDCD;
-						cursor: pointer;
-
-						img {
-							width: 100%;
-							display: block;
-						}
+					img {
+						width: 100%;
+						display: block;
 					}
 
 					.recipes-otd-name-cont, .recipes-otd-details-cont {
 						display: none;
 					}
 				}
+
+				.selected-recipes-listing.active {
+					box-shadow: 0px 0px 0px 10px #fb9400;
+					transform: scale(1.1);
+					margin: 0 0.5rem;
+				}
+
+				.selected-recipes-listing:nth-of-type(1).active {
+					margin-left: 18px;
+				}
+			}
+
+			.selected-recipes-listing-cont.active {
+				padding: 1rem 10px;
 			}
 		}
 
@@ -80,6 +92,7 @@
 					.img-and-remove-list-cont {
 						display: flex;
 						flex-direction: column;
+						flex: 1;
 
 						.img-title-cont {
 							display: flex;
@@ -127,8 +140,10 @@
 						font-size: 1.25rem;
 						line-height: 40px;
 						color: #000000;
-						flex: 1;
+						flex: 2;
 						padding: 1rem 2rem;
+						overflow: hidden;
+						transition: height 0.3s ease;
 
 						@media screen and (max-width: 700px) {
 							padding: 0.5rem 1rem;
@@ -146,6 +161,10 @@
 								justify-content: center;
 							}
 						}
+					}
+
+					.ingredients-cont.active {
+						height: 100%;
 					}
 				}
 

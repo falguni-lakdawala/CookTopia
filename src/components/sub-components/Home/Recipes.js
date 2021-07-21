@@ -24,8 +24,7 @@ const Recipes = ({ recipeClassName }) => {
               </div>
               <div className="subheading">
                 <p>
-                  <b aria-label="Cooktopia recommended ">Try CookTopia's</b>{" "}
-                  daily <b>recommended dishes.</b>
+									Try CookTopia's daily recommended dishes.
                 </p>
               </div>
               <div className="recipes-otd-listing">
