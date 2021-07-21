@@ -21,7 +21,7 @@ function shuffleArray() {
     {
       name: "Sinae",
       src: sinaeProfilePicture,
-      role: "Designer",
+      role: "UI/UX Designer",
       description:
         "She has an excellent UX research ability, which helps her to visually communicate with users and coworkers.",
       linkedInURL: "https://www.linkedin.com/in/sinae-bak/",
@@ -29,7 +29,7 @@ function shuffleArray() {
     {
       name: "Rohit",
       src: rohitProfilePicture,
-      role: "Designer",
+      role: "UI/UX Designer",
       description:
         "He has ability of thinking out of the box. And can work excellent in both UI and UX.",
       linkedInURL: "https://www.linkedin.com/in/rohit-lathwal/",
@@ -37,7 +37,7 @@ function shuffleArray() {
     {
       name: "Mia",
       src: miaProfilePicture,
-      role: "Designer",
+      role: "UI/UX Designer",
       description:
         "She has empathy ability to understand what users' frustrations and pain points are and create solutions to improve users' lives.",
       linkedInURL: "https://www.linkedin.com/in/chun-mei-lin/",
@@ -47,7 +47,7 @@ function shuffleArray() {
     {
       name: "Maneesh",
       src: maneeshProfilePicture,
-      role: "Developer",
+      role: "Full Stack Developer",
       description:
         "A software developer who loves to work on Android and Kotlin But these days also into weaving web.",
       linkedInURL: "https://www.linkedin.com/in/maneesh43/",
@@ -56,7 +56,7 @@ function shuffleArray() {
     {
       name: "Abhijeet",
       src: abhijeetProfilePicture,
-      role: "Developer",
+      role: "Frontend Developer",
       description:
         "He builds engaging experiences for audiences and believes in creating pixel-perfect and performant products.",
       linkedInURL: "https://www.linkedin.com/in/abjt14/",
@@ -64,7 +64,7 @@ function shuffleArray() {
     {
       name: "Falguni",
       src: falguniProfilePicture,
-      role: "Developer",
+      role: "Backend Developer",
       description:
         "She is passionate about creating truly beautiful, efficient digital product to make memorable experience with technology.",
       linkedInURL: "https://www.linkedin.com/in/falguni-lakdawala/",

@@ -5,17 +5,15 @@ import { useEffect } from "react";
 
 const RecipeContentMainInstructions = ({ recipeData, scrollstat }) => {
   const nutritionData = recipeData.nutrition.nutrients;
-console.log(recipeData)
+  console.log(recipeData);
   // Functions for handling dislike and like
   useEffect(() => {
     if (scrollstat) {
-      document
-        .querySelector(".dummy")
-        .scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-          inline: "nearest",
-        });
+      document.querySelector(".dummy").scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+        inline: "nearest",
+      });
     }
   }, [document.querySelector(".dummy")]);
   const user = JSON.parse(window.sessionStorage.getItem("user"));
