@@ -129,7 +129,7 @@ const ProfileCard = () => {
               <h2>Your Shopping List</h2>
             </div>
             <div className="shopping-list-listing-cont">
-              {!shopping.loading ? (
+              {(!shopping.loading &&shoppingListData.length>0)? 
                 shoppingListData.map((data, index) => {
                   return (
                     <div key={index} className="shopping-list-listing">
@@ -165,7 +165,7 @@ const ProfileCard = () => {
                       </div>
                     </div>
                   );
-                })
+                }
               ) : (
                 <div className="no-shopping-list-cont">
                   <img src={favlist} alt="Favorite shopping list" />
