@@ -108,12 +108,18 @@ const handledislike=()=>{
         </div>
         <div className="recipe-instructions-text-cont">
           <ol>
-            {recipeData.analyzedInstructions[0].steps.map((data, index) => (
-              <li key={data.toString() + index}>
-                {/* <div className="instructions-text-heading">{data.heading}</div> */}
-                <div className="instructions-text-text">{data.step}</div>
-              </li>
-            ))}
+            {recipeData.analyzedInstructions[0].steps ? (
+              recipeData.analyzedInstructions[0].steps.map((data, index) => (
+                <li key={data.toString() + index}>
+                  {/* <div className="instructions-text-heading">{data.heading}</div> */}
+                  <div className="instructions-text-text">{data.step}</div>
+                </li>
+              ))
+            ) : (
+              <div className="instructions-text-text">
+                <p>No instructions found for this recipe.</p>
+              </div>
+            )}
           </ol>
         </div>
       </div>
