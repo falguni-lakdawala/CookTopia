@@ -39,7 +39,7 @@ const shopping=useFetch(``)
 
     return (
       <>
-        {recipes && (
+        {recipes.length>0 && (
           <div className="shopping-list-page-cont">
             <div className="max-width-cont">
               <div className="selected-recipes-cont">

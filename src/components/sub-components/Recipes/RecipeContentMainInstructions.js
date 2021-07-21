@@ -5,13 +5,19 @@ import { useEffect } from "react";
 
 const RecipeContentMainInstructions = ({ recipeData, scrollstat }) => {
   const nutritionData = recipeData.nutrition.nutrients;
-
+console.log(recipeData)
   // Functions for handling dislike and like
-useEffect(()=>{
-  if(scrollstat){
-document.querySelector('.dummy').scrollIntoView({behavior:"smooth",block:"start",inline:"nearest"})
-  }
-},[document.querySelector('.dummy')])
+  useEffect(() => {
+    if (scrollstat) {
+      document
+        .querySelector(".dummy")
+        .scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest",
+        });
+    }
+  }, [document.querySelector(".dummy")]);
   const user = JSON.parse(window.sessionStorage.getItem("user"));
 
   const handlelike = () => {
@@ -103,8 +109,6 @@ document.querySelector('.dummy').scrollIntoView({behavior:"smooth",block:"start"
     ],
   };
 
-
-
   return (
     <>
       <div className="recipe-instructions-cont">
@@ -126,7 +130,7 @@ document.querySelector('.dummy').scrollIntoView({behavior:"smooth",block:"start"
         </div>
         <div className="recipe-instructions-text-cont">
           <ol>
-            {recipeData.analyzedInstructions[0].steps!=undefined ? (
+            {"steps" in recipeData.analyzedInstructions[0] ? (
               recipeData.analyzedInstructions[0].steps.map((data, index) => (
                 <li key={data.toString() + index}>
                   {/* <div className="instructions-text-heading">{data.heading}</div> */}
