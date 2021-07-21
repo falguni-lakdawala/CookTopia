@@ -48,7 +48,7 @@ const ProfileCard = () => {
     }
   }
 
-  if (user && !results.loading && !shopping.loading) {
+  if (user && !results.loading) {
     return (
       <div className="profile-cont">
         <div className="max-width-cont">
@@ -177,18 +177,21 @@ const ProfileCard = () => {
         </div>
       </div>
     );
-  } else {
-    return (
-      <>
-        <div className="notloggedin">
-          <h1>You are not logged in.</h1>
-          <p>
-            Please login to Continue <Link to="/">Log in</Link>
-          </p>
-        </div>
-      </>
-    );
   }
+  else if(results.loading){
+    return(
+      <div className="loading">
+        <p>Loading... </p>
+      </div>
+    )
+  }
+  if(!user&& !results.loading){
+return(
+  <div className="no-user">
+    <p>User not logged in !!!! </p>
+  </div>
+)
+  } 
 };
 
 export default ProfileCard;
