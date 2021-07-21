@@ -60,8 +60,8 @@ const FeatureCard = ({ featuresData }) => {
 									role="button"
 									aria-label="Feature button"
                   onClick={()=>{
-                    const random=Math.floor(Math.random()*500)
-                    history.push({pathname:'/recipecontent',state:{id:random,scrollstat:true}})
+                    const random=Math.floor(Math.random()*3000)
+                    history.push({pathname:'/recipecontent',state:{id:1000,scrollstat:true}})
                   }}
 								>
 									{featuresData.buttonText}
