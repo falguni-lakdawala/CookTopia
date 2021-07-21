@@ -4,7 +4,7 @@ import { useState} from "react";
 
 const Recipes = ({ recipeClassName }) => {
   const [more, setmore] = useState(true);
-  const url = "http://44.238.74.165:3000/recipes/random?number=20";
+  const url = "http://44.238.74.165:3000/recipes/random?number=6";
   let recipesData = useFetch(url, {});
   let recipearray;
 
@@ -29,7 +29,7 @@ const Recipes = ({ recipeClassName }) => {
                 </p>
               </div>
               <div className="recipes-otd-listing">
-                {(more ? recipearray.slice(0, 3) : recipearray).map(
+                {(more ? recipearray.slice(0, 6) : recipearray).map(
                   (data, index) => {
                     return <RecipeCard key={index} recipeData={data} />;
                   }
