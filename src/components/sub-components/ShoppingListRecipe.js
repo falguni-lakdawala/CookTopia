@@ -37,10 +37,20 @@ console.log(e)
       {}
     );
 
-
     if (!selectedRecipes.loading) {
       recipes = selectedRecipes.response;
-      console.log(recipes)
+      console.log(recipes);
+    }
+    }
+
+    if(!user){
+      const guestshoppinglist=JSON.parse(window.sessionStorage.getItem('guestshoppingdata'))
+      if(guestshoppinglist){
+        recipes=guestshoppinglist
+      }else{
+        recipes=[]
+               
+      }
     }
 
     const setActiveNavLink = () => {
@@ -131,11 +141,6 @@ console.log(e)
         )}
       </>
     );
-  } else {
-    return (
-      <p>Not logged in</p>
-    );
-  }
 };
 
 export default ShoppingListRecipe;
