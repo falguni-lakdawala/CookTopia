@@ -38,9 +38,10 @@ console.log(e)
     );
 
 
+
     if (!selectedRecipes.loading) {
       recipes = selectedRecipes.response;
-      console.log(recipes)
+      console.log(recipes);
     }
 
     const setActiveNavLink = () => {
@@ -56,6 +57,16 @@ console.log(e)
     };
     setActiveNavLink();
 
+		const selectActiveRecipe = (index) => {
+			document.querySelectorAll('.selected-recipes-cont .selected-recipes-listing-cont .selected-recipes-listing').forEach((el, i) => {
+				if (i === index) {
+					document.getElementById('selected-recipes-listing-' + i).classList.toggle('active');
+				} else {
+					document.getElementById('selected-recipes-listing-' + i).classList.remove('active');
+				}
+			});
+		}
+
     return (
       <>
         {(recipes)&& (
@@ -68,10 +79,17 @@ console.log(e)
                 <div className="selected-recipes-listing-cont">
                   {recipes.length>0?recipes.map((data, index) => {
                     return (
-                      <Images
-                        key={data.imageURL.toString() + index}
-                        src={data.imageURL}
-                      />
+                      <div
+												id={'selected-recipes-listing-' + index}
+												className="selected-recipes-listing"
+												key={data.imageURL.toString() + index + 'div'}
+												onClick={() => selectActiveRecipe(index)}
+											>
+                        <Images
+                          key={data.imageURL.toString() + index}
+                          src={data.imageURL}
+                        />
+                      </div>
                     );
                   }):
                   <>
@@ -108,7 +126,6 @@ console.log(e)
                     />
                   </div>
                 )}
-
               </div>
               <div className="grocery-shop-cont">
                 <div className="heading">
@@ -132,9 +149,7 @@ console.log(e)
       </>
     );
   } else {
-    return (
-      <p>Not logged in</p>
-    );
+    return <p>Not logged in</p>;
   }
 };
 
