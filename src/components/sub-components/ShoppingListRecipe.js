@@ -157,12 +157,6 @@ console.log(e)
         )}
       </>
     );
-<<<<<<< HEAD
-=======
-  } else {
-    return <p>Not logged in</p>;
-  }
->>>>>>> 28107663d7b6c5b2582d601786148eb21db906f8
 };
 
 export default ShoppingListRecipe;
