@@ -5,6 +5,7 @@ import findStoreImage from "../../assets/illustrations/shopping-list/find-store.
 import emptyShoppingListImage from "../../assets/illustrations/shopping-list/empty-shopping-list.svg";
 import useFetch from "../../custom_hooks/useFetch";
 import Images from "../composable-components/Images";
+import { Link, useHistory} from "react-router-dom";
 
 const ShoppingListRecipe = () => {
   let recipes;
@@ -137,11 +138,13 @@ const ShoppingListRecipe = () => {
               ) : (
 								<div className="no-shopping-list-cont">
 									<img src={emptyShoppingListImage} alt="Favorite shopping list" />
-									<button type="button">Search your shopping list</button>
+									<Link to="/recipes">
+										<button type="button">Browse Recipes</button>
+									</Link>
 								</div>
               )}
             </div>
-            <div className="grocery-shop-cont">
+            <div className="grocery-shop-cont display-none">
               <div className="heading">
                 <h3>Find the nearby grocery shop</h3>
               </div>

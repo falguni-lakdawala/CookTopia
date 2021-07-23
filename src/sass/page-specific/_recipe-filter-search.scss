@@ -101,6 +101,7 @@
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
+      padding-bottom: 2rem;
 
       @media screen and (max-width: 700px) {
         gap: 0.25rem;
@@ -136,6 +137,7 @@
       padding: 3rem 0;
       display: grid;
       gap: 1.25rem;
+			border-top: 2px solid #00000030;
 
       .heading {
         font-family: "Fontastique", cursive;

@@ -1,4 +1,4 @@
-import { Link,useHistory} from "react-router-dom";
+import { Link, useHistory} from "react-router-dom";
 
 const FeatureCard = ({ featuresData }) => {
   const history = useHistory();
