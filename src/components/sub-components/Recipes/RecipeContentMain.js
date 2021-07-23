@@ -9,7 +9,7 @@ const RecipeContentMain = ({ recipeData }) => {
     let fav = document.querySelector(".recipe-fav-btn > svg");
     fav.classList.toggle("active");
     const handlelike = () => {
-      if (user && (fav.classList.contains("active"))) {
+      if (user && fav.classList.contains("active")) {
         const res = fetch("http://44.238.74.165:3000/recipe/updaterecipelike", {
           method: "PUT",
           headers: {
@@ -23,8 +23,8 @@ const RecipeContentMain = ({ recipeData }) => {
           .then((r) => r.json())
           .then((d) => alert("Succesfully added to your favorites!"))
           .catch((e) => console.log(e));
-      } 
-      if(!user){
+      }
+      if (!user) {
         // console.log("Not logged in");
         alert("Not logged in");
       }
