@@ -6,7 +6,7 @@ import icon from "../../assets/logo/logo-large.svg";
 import { useLocation } from "react-router-dom";
 import account from "../../assets/icons/account.svg";
 import logoLarge from "../../assets/logo/logo-large.svg";
-import logoSmall from "../../assets/logo/favicon.svg";
+import logoSmall from "../../assets/logo/logo-small.svg";
 import mobileMenuToggleIcon from "../../assets/icons/mobile-toggle.svg";
 import Images from "../composable-components/Images";
 // Header Component takes in array property and renders them accordingly.

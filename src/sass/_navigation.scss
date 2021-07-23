@@ -1,16 +1,19 @@
 .app_header {
   padding: 0.25rem 0.5rem 0rem 0.5rem;
   background: #fff;
-  border-bottom: 2px solid #fb9400;
-  box-shadow: 0px 2px 2px #fb9400;
+  box-shadow: 0px 4px 2px #fb9400;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
   z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 
   @media screen and (max-width: 700px) {
-    padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+    padding: 0.5rem 0.25rem;
   }
 
   nav ul {
@@ -35,12 +38,12 @@
         font-size: 1.25rem;
         color: #000000;
         text-decoration: none;
-				transition: 0.1s all ease;
+        transition: 0.1s all ease;
       }
 
-			a.active {
-				color: #FB9400;
-			}
+      a.active {
+        color: #fb9400;
+      }
     }
   }
 
@@ -62,7 +65,7 @@
       }
       img.mobile-header-logo {
         display: none;
-        width: 2.5rem;
+        width: 10rem;
       }
 
       @media screen and (max-width: 700px) {
@@ -78,8 +81,8 @@
 
   .search {
     display: flex;
-    margin-right: 0.75rem;
     transition: all 0.3s ease;
+    margin: 0.75rem 0.75rem 0.75rem 0;
 
     .search-btn {
       background-color: transparent;
@@ -119,18 +122,25 @@
       border: none;
       width: 0;
       transition: all 0.3s ease;
-			font-size: 1.25rem;
-			padding: 0;
-			font-family: "Avenir", sans-serif;
+      font-size: 1.25rem;
+      padding: 0;
+      font-family: "Avenir", sans-serif;
     }
   }
 
   .search.active {
     background-color: #fff8ef;
-    border-radius: 20px;
+    border-radius: 26px;
+    box-shadow: 0px 0px 0px 1px #fb9400;
+    margin: 0;
+
+    @media screen and (max-width: 700px) {
+      transform: translateX(-1.2rem);
+      margin: 0;
+    }
 
     .search-btn {
-      padding: 0.5rem 0.95rem;
+      padding: 0.9rem 0.95rem;
       background: #fb9400;
       border-radius: 50%;
       color: #fff;
@@ -144,11 +154,23 @@
           fill: #fff;
         }
       }
+
+      .svg-2 {
+        path {
+          stroke: #fff;
+        }
+      }
     }
 
     input {
       width: 20rem;
-			padding: 0.75rem;
+      padding: 0.75rem;
+
+      @media screen and (max-width: 700px) {
+        width: 100vw;
+        padding: 0.75rem;
+        max-width: calc(100vw - 4rem);
+      }
     }
   }
 
@@ -167,15 +189,15 @@
       ul {
         align-items: center;
         border-right: 3px solid black;
-        padding: 0.5rem 1.5rem 0.5rem 0;
         opacity: 0;
-				z-index: -10;
-        transition: all 0.3s ease;
+        z-index: -10;
+        // transition: all 0.3s ease;
+        width: 0;
+        padding: 0;
 
         li {
-					a.active {
-
-					}
+          a.active {
+          }
           img {
             width: 1.8rem;
             vertical-align: middle;
@@ -185,7 +207,9 @@
 
       ul.active {
         opacity: 1;
-				z-index: 0;
+        z-index: 0;
+        width: 100%;
+        padding: 0.5rem 1.5rem 0.5rem 0 !important;
       }
     }
   }

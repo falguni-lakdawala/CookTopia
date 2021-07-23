@@ -19,6 +19,7 @@
 			}
 
       .profile-image-cont {
+				display: flex;
         position: relative;
         overflow: hidden;
         border-radius: 50%;
@@ -287,12 +288,37 @@
 					display: flex;
 					gap: 2rem;
 
-					.img-and-remove-list-cont {
-						display: grid;
+					@media screen and (max-width: 700px) {
+						gap: 0.5rem;
+						flex-direction: column;
+					}
 
-						.img-cont {
+					.img-and-remove-list-cont {
+						display: flex;
+						flex-direction: column;
+						flex: 1;
+
+						.img-title-cont {
 							display: flex;
 							border: 2px solid #8C8C8C;
+							position: relative;
+
+							img {
+								width: 100%;
+							}
+
+							.title {
+								position: absolute;
+								bottom: -1px;
+								left: 0;
+								right: 0;
+								background-color: rgba(0, 0, 0, 0.7);
+								padding: 0.75rem 0.75rem 2rem 0.75rem;
+								color: #ffffff;
+								font-family: "Fontastique", sans-serif;
+								font-size: 1.25rem;
+								line-height: 24px;
+							}
 						}
 
 						.remove-list-cont {
@@ -318,14 +344,20 @@
 						font-size: 1.25rem;
 						line-height: 40px;
 						color: #000000;
-						flex: 1;
-						padding: 2rem;
+						flex: 2;
+						padding: 1rem 2rem;
+						overflow: hidden;
+						transition: height 0.3s ease;
+
+						@media screen and (max-width: 700px) {
+							padding: 0.5rem 1rem;
+						}
 
 						.ingredient-cont {
 							display: flex;
 							gap: 1rem;
 							justify-content: flex-start;
-							padding: 0.25rem 0;
+							padding: 0.125rem 0;
 
 							.checkbox {
 								display: flex;
@@ -333,6 +365,10 @@
 								justify-content: center;
 							}
 						}
+					}
+
+					.ingredients-cont.active {
+						height: 100%;
 					}
 				}
 

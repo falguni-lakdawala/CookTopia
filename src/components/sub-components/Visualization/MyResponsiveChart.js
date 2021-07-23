@@ -11,19 +11,19 @@ const MyResponsivePie = ({ data /* see data tab */ }) => (
         const data=input.datum.data
       return <div>{data.value+" "+data.unit}</div>;
     }}
-    margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
-    innerRadius={0.5}
-    padAngle={0.7}
-    cornerRadius={3}
+    margin={{ top: 60, right: 120, bottom: 60, left: 120 }}
+    innerRadius={0.4}
+    padAngle={2}
+    cornerRadius={4}
     activeOuterRadiusOffset={8}
     borderWidth={1}
-    borderColor={{ from: "color", modifiers: [["darker", 0.2]] }}
-    arcLinkLabelsSkipAngle={10}
-    arcLinkLabelsTextColor="#333333"
+    borderColor={{ from: "color", modifiers: [["darker", 0]] }}
+    arcLinkLabelsSkipAngle={0}
+    arcLinkLabelsTextColor="#000000"
     arcLinkLabelsThickness={2}
     arcLinkLabelsColor={{ from: "color" }}
-    arcLabelsSkipAngle={10}
-    arcLabelsTextColor={{ from: "color", modifiers: [["darker", 2]] }}
+    arcLabelsSkipAngle={0}
+    arcLabelsTextColor={{ from: "color", modifiers: [["darker", 10]] }}
     defs={[
       {
         id: "dots",
@@ -122,38 +122,37 @@ const MyResponsivePie = ({ data /* see data tab */ }) => (
   />
 );
 
-
 MyResponsivePie.defaultProps = {
   data: [
     {
       id: "Carbohydrates",
       label:"Carbohydrates",
       value: 26.35,
-      color: "hsl(129, 70%, 50%)",
+      color: "hsl(138, 45%, 90%)",
     },
     {
       id: "Sugar",
       label: "Sugar",
       value: 9.6,
-      color: "hsl(221, 70%, 50%)",
+      color: "hsl(205, 100%, 83%)",
     },
     {
       id: "Calcium",
       label: "Calcium",
       value: 21.87,
-      color: "hsl(1, 70%, 50%)",
+      color: "hsl(0, 100%, 90%)",
     },
     {
       id: "Folate",
       label: "Folate",
       value: 15.21,
-      color: "hsl(251, 70%, 50%)",
+      color: "hsl(35, 100%, 72%)",
     },
     {
       id: "Vitamin C",
       label: "Vitamin C",
       value: 71.05,
-      color: "hsl(299, 70%, 50%)",
+      color: "hsl(43, 100%, 80%)",
     },
   ],
 };

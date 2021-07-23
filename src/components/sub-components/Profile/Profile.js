@@ -1,7 +1,7 @@
 import RecipeCard from "../RecipeCard";
 import editicon from "../../../assets/icons/editicon.svg";
 import favrecipe from "../../../assets/illustrations/homepage-features/favouriterecipe-not-found.svg";
-import favlist from "../../../assets/illustrations/profile-page/shoppinglist-not-found.svg";
+import emptyShoppingListImage from "../../../assets/illustrations/profile-page/shoppinglist-not-found.svg";
 import useFetch from "../../../custom_hooks/useFetch";
 import Checkbox from "../../composable-components/Checkbox";
 
@@ -56,7 +56,7 @@ const ProfileCard = () => {
           <div className="profile-card">
             <div className="profile-image-cont">
               <img src={user.photoURL} alt="profile image" />
-              <button
+              {/* <button
                 role="button"
                 aria-label="profile image"
                 title="edit image"
@@ -64,7 +64,7 @@ const ProfileCard = () => {
                 className="edit-profile-image-btn"
               >
                 Edit Image
-              </button>
+              </button> */}
             </div>
             <div className="profile-data-cont">
               <div className="profile-data">
@@ -169,7 +169,7 @@ const ProfileCard = () => {
                 }
               ) : (
                 <div className="no-shopping-list-cont">
-                  <img src={favlist} alt="Favorite shopping list" />
+                  <img src={emptyShoppingListImage} alt="Favorite shopping list" />
                   <button type="button">Search your shopping list</button>
                 </div>
               )}
