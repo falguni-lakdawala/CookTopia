@@ -50,7 +50,6 @@ const ShoppingListRecipe = () => {
       recipes = [];
     }
   }
-	recipes = [];
 
   const setActiveNavLink = () => {
     let pageURL = window.location.pathname.substring(1);
