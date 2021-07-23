@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "../composable-components/Button";
 import ShoppingCard from "./ShoppingCard";
 import findStoreImage from "../../assets/illustrations/shopping-list/find-store.svg";
@@ -8,48 +8,25 @@ import Images from "../composable-components/Images";
 
 const ShoppingListRecipe = () => {
   let recipes;
-  const [recipe, setRecipe] = useState()
 
   const user = JSON.parse(window.sessionStorage.getItem("user"));
 
-// Deleting shopping list recipe
-const handledelete = async (e,data)=>{
+  // Deleting shopping list recipe
+  const handledelete = (e, data) => {
+    console.log(data);
+    console.log(e);
 
-  setRecipe(recipes);
-  console.log(recipes);
-  console.log(recipe);
-
-  if (user) {
-    const res = await fetch("http://44.238.74.165:3000/recipecart/deleterecipecart", {
-      method: "DELETE",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({ recipeID: data.recipeID, userID: user.uid}),
-    })
-      .then((r) => r.json())
-      .then((d) =>
-        {
-          //Approach 1
-          // let shopping = useFetch(`http://44.238.74.165:3000/recipecartlist/${user.uid}`)
-          // .then((rs) => { rs.json() })
-          // .then((dt => {
-          //   recipes = dt.response;
-          // }));
-
-          //Approach 2 - remove from recipe list
-          //recipes = recipes.map(x => x.recipeID != data.recipeID);
-          //setRecipe(recipes);
-        }
-      )
-      .catch((e) => alert("Failed to remove item from shopping list"));
-
-      if(res == true){
-        
-      }
-      
-  }
-}
+    // Delete from
+    // const deleterecipe = fetch(
+    //   `http://44.238.74.165:3000/recipecart/deleterecipecart`,{
+    //     method:'DELETE',
+    //     headers:{
+    //       'Content-Type':'application/json'
+    //     },
+    //     body:JSON.stringify({recipeID:data.recipeID,userID:data.userID})
+    //   }
+    // );
+  };
 
   if (user) {
     const selectedRecipes = useFetch(
