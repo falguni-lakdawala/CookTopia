@@ -1,6 +1,6 @@
 import Checkbox from "../../composable-components/Checkbox";
 import Modal from "../../composable-components/Modal";
-import { useRef } from "react";
+
 const RecipeContentDetails = ({ recipeData }) => {
   const user = JSON.parse(window.sessionStorage.getItem("user"));
   const addtoCart = (data) => {

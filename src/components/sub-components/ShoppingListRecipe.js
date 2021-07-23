@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import Button from "../composable-components/Button";
 import ShoppingCard from "./ShoppingCard";
 import findStoreImage from "../../assets/illustrations/shopping-list/find-store.svg";
@@ -9,7 +9,7 @@ import { Link, useHistory} from "react-router-dom";
 
 const ShoppingListRecipe = () => {
   let recipes;
-
+const[recipe,setRecipe]=useState([]);
   const user = JSON.parse(window.sessionStorage.getItem("user"));
 
   // Deleting shopping list recipe
@@ -17,17 +17,24 @@ const ShoppingListRecipe = () => {
     console.log(data);
     console.log(e);
 
-    // Delete from
-    // const deleterecipe = fetch(
-    //   `http://44.238.74.165:3000/recipecart/deleterecipecart`,{
-    //     method:'DELETE',
-    //     headers:{
-    //       'Content-Type':'application/json'
-    //     },
-    //     body:JSON.stringify({recipeID:data.recipeID,userID:data.userID})
-    //   }
-    // );
-  };
+
+// Deleting shopping list recipe
+const handledelete=(e,data)=>{
+
+
+// Delete from
+// const deleterecipe = fetch(
+//   `http://44.238.74.165:3000/recipecart/deleterecipecart`,{
+//     method:'DELETE',
+//     headers:{
+//       'Content-Type':'application/json'
+//     },
+//     body:JSON.stringify({recipeID:data.recipeID,userID:data.userID})
+//   }
+// );
+
+}
+
 
   if (user) {
     const selectedRecipes = useFetch(

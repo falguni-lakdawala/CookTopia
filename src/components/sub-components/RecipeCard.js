@@ -3,29 +3,28 @@ import { useHistory } from "react-router";
 const RecipeCard = ({ recipeData }) => {
   const history = useHistory();
   return (
-    <div key={recipeData.title} title={recipeData.title}>
+    <div
+      key={recipeData.title}
+      onClick={() => {
+        history.push({
+          pathname: "/recipecontent",
+          state: { id: recipeData.id },
+        });
+      }}
+      title={recipeData.title}
+    >
       <div className="recipes-otd-img-cont">
-        <img
-          onClick={() => {
-            history.push({
-              pathname: "/recipecontent",
-              state: { id: recipeData.id },
-            });
-          }}
-          src={recipeData.image}
-          alt={recipeData.alt}
-          loading="lazy"
-        />
+        <img src={recipeData.image} alt={recipeData.alt} loading="lazy" />
       </div>
       <div className="recipes-otd-name-cont">
         <h4 role="heading">
-					{/* {
+          {/* {
 						recipeData.title.length <= 22 ?
 						recipeData.title :
 						(recipeData.title.substring(0, 19) + '...')
 					} */}
-					{recipeData.title}
-				</h4>
+          {recipeData.title}
+        </h4>
       </div>
       <div className="recipes-otd-details-cont">
         <div className="recipes-otd-category-cooking-time-cont">

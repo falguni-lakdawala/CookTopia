@@ -1,24 +1,14 @@
-import firebase from 'firebase/app';
+import firebase from "firebase/app";
+import React from "react";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDZMQTshUKvJhewu6ElLU-X5YOGSwJf7aM",
-    authDomain: "done-ninja.firebaseapp.com",
-    databaseURL: "https://done-ninja-default-rtdb.firebaseio.com",
-    projectId: "done-ninja",
-    storageBucket: "done-ninja.appspot.com",
-    messagingSenderId: "361469444727",
-    appId: "1:361469444727:web:9ffa642d9916e347f93c72",
-    measurementId: "G-LLDCSBDFNF"
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectID,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderID,
+  appId: process.env.REACT_APP_appID,
 };
 
-let instance;
-
-export default function getFirebase() {
-    if (typeof window !== "undefined") {
-        if (instance) return instance
-        instance = firebase.initializeApp(firebaseConfig);
-        return instance
-    }
-
-    return null
-}
+const app=firebase.initializeApp(firebaseConfig)
+export const auth=app.auth()

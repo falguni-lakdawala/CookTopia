@@ -4,7 +4,7 @@ import favrecipe from "../../../assets/illustrations/homepage-features/favourite
 import emptyShoppingListImage from "../../../assets/illustrations/profile-page/shoppinglist-not-found.svg";
 import useFetch from "../../../custom_hooks/useFetch";
 import Checkbox from "../../composable-components/Checkbox";
-import { Link } from "react-router-dom";
+
 
 const ProfileCard = () => {
   const user = JSON.parse(window.sessionStorage.getItem("user"));
@@ -44,6 +44,7 @@ const ProfileCard = () => {
       shoppingListData = shopping.response;
     }
     if (!results.loading) {
+      console.log(results)
       favRecipesData = results.response;
     }
   }
