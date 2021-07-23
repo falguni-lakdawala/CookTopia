@@ -191,7 +191,7 @@
           .recipe-image-main-cont {
             img {
               background: #eeeeee;
-              border: 2px solid #cfcdcd;
+							box-shadow: 0px 0px 0px 2px #cfcdcd;
               width: 100%;
             }
           }
@@ -242,9 +242,40 @@
       .instructions-graph-cont {
         .instructions-cont-graph {
           .dummy {
-            width: 100%;
-            height: 300px;
-            // background-color: steelblue;
+            width: 50vw;
+            height: 50vw;
+						max-width: 520px;
+						max-height: 520px;
+						min-width: 320px;
+						min-height: 320px;
+						font-family: 'Avenir' !important;
+						margin: auto;
+
+						@media screen and (max-width: 700px) {
+							width: 80vw;
+							height: 80vw;
+						}
+
+						@media screen and (max-width: 500px) {
+							width: 80vw;
+							height: 80vw;
+							min-width: 280px;
+							min-height: 280px;
+							max-width: auto;
+							max-height: auto;
+						}
+
+						text {
+							font-size: 1rem !important;
+
+							@media screen and (max-width: 1000px) {
+								font-size: 0.75rem !important;
+							}
+
+							@media screen and (max-width: 500px) {
+								font-size: 0.5rem !important;
+							}
+						}
           }
         }
       }
@@ -256,7 +287,7 @@
           width: fit-content;
           float: right;
           background: #fff8ef;
-          border: 3px solid #fb9400;
+          border: 3px solid #fff8ef;
           padding: 0.5rem 1rem;
           font-family: "Avenir", sans-serif;
           font-weight: 500;
