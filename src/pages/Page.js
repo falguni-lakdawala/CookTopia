@@ -13,6 +13,7 @@ const HomePage = () => {
     <contextapp.Provider value={values}>
         {/* Whatever the value you pass here will be available in child components and also causes re-renders */}
      <Header/>
+		 <div className="heading-spacing"></div>
      <Body/>
      <Footer/>
      </contextapp.Provider>

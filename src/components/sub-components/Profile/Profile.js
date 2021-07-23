@@ -1,7 +1,7 @@
 import RecipeCard from "../RecipeCard";
 import editicon from "../../../assets/icons/editicon.svg";
 import favrecipe from "../../../assets/illustrations/homepage-features/favouriterecipe-not-found.svg";
-import favlist from "../../../assets/illustrations/profile-page/shoppinglist-not-found.svg";
+import emptyShoppingListImage from "../../../assets/illustrations/profile-page/shoppinglist-not-found.svg";
 import useFetch from "../../../custom_hooks/useFetch";
 import Checkbox from "../../composable-components/Checkbox";
 import { Link } from "react-router-dom";
@@ -168,7 +168,7 @@ const ProfileCard = () => {
                 }
               ) : (
                 <div className="no-shopping-list-cont">
-                  <img src={favlist} alt="Favorite shopping list" />
+                  <img src={emptyShoppingListImage} alt="Favorite shopping list" />
                   <button type="button">Search your shopping list</button>
                 </div>
               )}
