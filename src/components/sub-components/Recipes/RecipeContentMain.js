@@ -1,10 +1,35 @@
 import React from "react";
 import reactDom from "react-dom";
 import favoriteIcon from "../../../assets/icons/favorite.svg";
+import RecipeContentMainInstructions from "./RecipeContentMainInstructions";
 
 const RecipeContentMain = ({ recipeData }) => {
   const favRecipe = () => {
-    document.querySelector(".recipe-fav-btn > svg").classList.toggle("active");
+    const user = JSON.parse(window.sessionStorage.getItem("user"));
+    let fav = document.querySelector(".recipe-fav-btn > svg");
+    fav.classList.toggle("active");
+    const handlelike = () => {
+      if (user && (fav.classList.contains("active"))) {
+        const res = fetch("http://44.238.74.165:3000/recipe/updaterecipelike", {
+          method: "PUT",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({
+            recipeID: recipeData.id,
+            userID: user.uid,
+          }),
+        })
+          .then((r) => r.json())
+          .then((d) => alert("Succesfully added to your favorites!"))
+          .catch((e) => console.log(e));
+      } 
+      if(!user){
+        // console.log("Not logged in");
+        alert("Not logged in");
+      }
+    };
+    handlelike();
   };
 
   return (

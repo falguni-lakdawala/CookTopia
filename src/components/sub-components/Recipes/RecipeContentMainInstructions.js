@@ -2,10 +2,10 @@ import recipeLikeIcon from "../../../assets/icons/recipe-like.svg";
 import recipeDislikeIcon from "../../../assets/icons/recipe-dislike.svg";
 import MyResponsivePie from "../Visualization/MyResponsiveChart";
 import { useEffect } from "react";
+import RecipeContentMain from "./RecipeContentMain";
 
 const RecipeContentMainInstructions = ({ recipeData, scrollstat }) => {
   const nutritionData = recipeData.nutrition.nutrients;
-  console.log(recipeData);
   // Functions for handling dislike and like
   useEffect(() => {
     if (scrollstat) {
@@ -31,8 +31,7 @@ const RecipeContentMainInstructions = ({ recipeData, scrollstat }) => {
           userID: user.uid,
         }),
       })
-        .then((r) => r.json())
-        .then((d) => alert("Added to your favorites"))
+        .then((r) => r.json()).then(d=>alert("Succesfully added to your favorites!"))
         .catch((e) => console.log(e));
     } else {
       console.log("Not logged in");
@@ -179,3 +178,4 @@ const RecipeContentMainInstructions = ({ recipeData, scrollstat }) => {
 };
 
 export default RecipeContentMainInstructions;
+

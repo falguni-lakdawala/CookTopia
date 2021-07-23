@@ -1,64 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Input from "../../composable-components/Input";
 import { useHistory } from "react-router-dom";
-import getFirebase from "./firebase";
 import firebase from "firebase/app";
-import "firebase/auth";
-import useFetch from "../../../custom_hooks/useFetch";
+import 'firebase/auth';
+import { auth } from "./firebase";
 
 const Login = () => {
-  const firebaseInstance = getFirebase();
   const history = useHistory();
 
-  const googleLogin = async () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    //2 - create the popup signIn
-    await firebaseInstance
-      .auth()
-      .signInWithPopup(provider)
-      .then(
-        (result) => {
-          //3 - pick the result and store the token
-          const token = result.credential.accessToken;
-          //4 - check if have token in the current user
-          if (token) {
-            const user = firebaseInstance.auth().currentUser;
-            window.sessionStorage.setItem("user", JSON.stringify(user));
-            const userData = {
-              userID: user.uid,
-              displayName: user.displayName,
-              firstName: "",
-              lastName: "",
-              email: user.email,
-              image: user.photoURL,
-            };
+  const [login, setLogin] = useState({});
 
-            const uploadData = fetch("http://44.238.74.165:3000/createuser", {
-              method: "POST",
-              headers: {
-                "Content-type": "application/json",
-              },
-              body: JSON.stringify(userData),
-            })
-              .then((res) => res.json())
-              .then((data) => {
-                window.sessionStorage.setItem("userdata", JSON.stringify(data));
-                history.push({
-                  pathname: "/home",
-                });
-              })
-              .catch((error) => {
-                alert("User login failed");
-                console.log(error);
-              });
-          }
+  const googleLogin = () => {
+    // Craeting  google provider
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider).then(res=>{
+      window.sessionStorage.setItem('user',JSON.stringify(res.user))
+const user=res.user;
+      const userData = {
+        userID: user.uid,
+        displayName: user.displayName,
+        firstName: "",
+        lastName: "",
+        email: user.email,
+        image: user.photoURL,
+      };
+
+      const uploadData = fetch("http://44.238.74.165:3000/createuser", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
         },
-        function (error) {
+        body: JSON.stringify(userData),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          window.sessionStorage.setItem("userdata", JSON.stringify(data));
+          history.push({
+            pathname: "/home",
+          });
+        })
+        .catch((error) => {
+          alert("User login failed");
           console.log(error);
-        }
-      );
+        });
+
+      
+  }).catch(e=>console.log(e))
   };
+
+  const handlesignin = (e) => {
+    const value = e.target.value;
+    setLogin({ ...login, [e.target.name]: value });
+    console.log(login);
+  };
+
 
   return (
     <div className="login">
@@ -67,8 +62,18 @@ const Login = () => {
       </h1>
       <div className="login-inputs-cont">
         <div className="login-inputs-1">
-          <Input type={"email"} placeholder={"Email"} />
-          <Input type={"password"} placeholder={"Password"} />
+          <input
+            type="email"
+            placeholder="Email"
+            name="email"
+            onChange={(e) => handlesignin(e)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            onChange={(e) => handlesignin(e)}
+          />
           <Link to={{ pathname: "/forgot" }}>Forgot your password?</Link>
         </div>
         <div className="login-inputs-2">

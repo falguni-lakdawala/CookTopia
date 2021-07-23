@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import Button from "../composable-components/Button";
 import ShoppingCard from "./ShoppingCard";
 import findStoreImage from "../../assets/illustrations/shopping-list/find-store.svg";
@@ -8,14 +8,12 @@ import Images from "../composable-components/Images";
 
 const ShoppingListRecipe = () => {
   let recipes;
-
+const[recipe,setRecipe]=useState([]);
   const user = JSON.parse(window.sessionStorage.getItem("user"));
 
 
 // Deleting shopping list recipe
 const handledelete=(e,data)=>{
-console.log(data)
-console.log(e)
 
 
 // Delete from
