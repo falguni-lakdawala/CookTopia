@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import firebase from "firebase/app";
-import 'firebase/auth';
+import "firebase/auth";
 import { auth } from "./firebase";
 
 const Login = () => {
@@ -13,39 +13,40 @@ const Login = () => {
   const googleLogin = () => {
     // Craeting  google provider
     const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider).then(res=>{
-      window.sessionStorage.setItem('user',JSON.stringify(res.user))
-const user=res.user;
-      const userData = {
-        userID: user.uid,
-        displayName: user.displayName,
-        firstName: "",
-        lastName: "",
-        email: user.email,
-        image: user.photoURL,
-      };
+    auth
+      .signInWithPopup(provider)
+      .then((res) => {
+        window.sessionStorage.setItem("user", JSON.stringify(res.user));
+        const user = res.user;
+        const userData = {
+          userID: user.uid,
+          displayName: user.displayName,
+          firstName: "",
+          lastName: "",
+          email: user.email,
+          image: user.photoURL,
+        };
 
-      const uploadData = fetch("http://44.238.74.165:3000/createuser", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(userData),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          window.sessionStorage.setItem("userdata", JSON.stringify(data));
-          history.push({
-            pathname: "/home",
-          });
+        const uploadData = fetch("http://44.238.74.165:3000/createuser", {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify(userData),
         })
-        .catch((error) => {
-          alert("User login failed");
-          console.log(error);
-        });
-
-      
-  }).catch(e=>console.log(e))
+          .then((res) => res.json())
+          .then((data) => {
+            window.sessionStorage.setItem("userdata", JSON.stringify(data));
+            history.push({
+              pathname: "/home",
+            });
+          })
+          .catch((error) => {
+            alert("User login failed");
+            console.log(error);
+          });
+      })
+      .catch((e) => console.log(e));
   };
 
   const handlesignin = (e) => {
@@ -53,7 +54,6 @@ const user=res.user;
     setLogin({ ...login, [e.target.name]: value });
     console.log(login);
   };
-
 
   return (
     <div className="login">

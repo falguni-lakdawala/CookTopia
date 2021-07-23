@@ -59,9 +59,9 @@ const RecipeContentDetails = ({ recipeData }) => {
             "guestshoppingdata",
             JSON.stringify(newData)
           );
-            document
-              .querySelector("#add-to-shopping-list-success-modal")
-              .classList.add("active");
+          document
+            .querySelector("#add-to-shopping-list-success-modal")
+            .classList.add("active");
         }
       } else {
         window.sessionStorage.setItem(
@@ -74,9 +74,9 @@ const RecipeContentDetails = ({ recipeData }) => {
             },
           ])
         );
-          document
-            .querySelector("#add-to-shopping-list-success-modal")
-            .classList.add("active");
+        document
+          .querySelector("#add-to-shopping-list-success-modal")
+          .classList.add("active");
       }
     }
   };

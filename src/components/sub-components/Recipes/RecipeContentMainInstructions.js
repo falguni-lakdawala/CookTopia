@@ -31,7 +31,8 @@ const RecipeContentMainInstructions = ({ recipeData, scrollstat }) => {
           userID: user.uid,
         }),
       })
-        .then((r) => r.json()).then(d=>alert("Succesfully added to your favorites!"))
+        .then((r) => r.json())
+        .then((d) => alert("Succesfully added to your favorites!"))
         .catch((e) => console.log(e));
     } else {
       console.log("Not logged in");
@@ -178,4 +179,3 @@ const RecipeContentMainInstructions = ({ recipeData, scrollstat }) => {
 };
 
 export default RecipeContentMainInstructions;
-
