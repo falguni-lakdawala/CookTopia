@@ -13,11 +13,6 @@ const[recipe,setRecipe]=useState([]);
   const user = JSON.parse(window.sessionStorage.getItem("user"));
 
   // Deleting shopping list recipe
-  const handledelete = (e, data) => {
-    console.log(data);
-    console.log(e);
-
-
 // Deleting shopping list recipe
 const handledelete=(e,data)=>{
 
