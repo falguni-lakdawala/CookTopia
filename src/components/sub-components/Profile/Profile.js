@@ -48,28 +48,6 @@ const ProfileCard = () => {
     }
   }
 
-  const removeFromCart = (data) =>{
-    if (user) {
-      const res = fetch("http://44.238.74.165:3000/recipecart/deleterecipecart", {
-        method: "DELETE",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({ recipeID: data.recipeID, userID: user.uid}),
-      })
-        .then((r) => r.json())
-        .then((d) =>
-          {
-            shopping = useFetch(`http://44.238.74.165:3000/recipecartlist/${user.uid}`);
-            if (!shopping.loading) {
-              shoppingListData = shopping.response;
-            }
-          }
-        )
-        .catch((e) => alert("Failed to add to shopping list"));
-    }
-  }
-
   if (user && !results.loading) {
     return (
       <div className="profile-cont">
@@ -111,8 +89,7 @@ const ProfileCard = () => {
                 </button>
               </div>
             </div>
-            { 
-             favRecipesData != undefined && favRecipesData.length > 0  ? (
+            {favRecipesData ? (
               <div className="favorite-recipes-listing-cont">
                 {favRecipesData.map((data, index) => (
                   <div key={data.id}>
@@ -161,7 +138,7 @@ const ProfileCard = () => {
                           <img src={data.imageURL} alt={data.name} />
                         </div>
                         <div className="remove-list-cont">
-                          <button type="button" className="remove-list-btn" onClick={() => removeFromCart(data) }>
+                          <button type="button" className="remove-list-btn">
                             remove list
                           </button>
                         </div>
