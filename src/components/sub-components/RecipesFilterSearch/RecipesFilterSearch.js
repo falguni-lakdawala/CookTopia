@@ -9,7 +9,7 @@ import Subcategory from "./Subcategory";
 import { useRef, useState } from "react";
 
 const RecipesFilterSearch = () => {
-  const url = "http://44.238.74.165:3000/recipes/random?number=20";
+  const url = "http://44.238.74.165:3000/recipes/random?number=30";
   let recipesData = useFetch(url, {});
 
   const recipes = useRef([]);

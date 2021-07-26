@@ -54,6 +54,7 @@ const RecipeContentDetails = ({ recipeData }) => {
             recipeName: data.title,
             imageURL: data.image,
             ingredients: ingredient,
+            uniqueID:data.id
           });
           window.sessionStorage.setItem(
             "guestshoppingdata",
@@ -71,6 +72,7 @@ const RecipeContentDetails = ({ recipeData }) => {
               recipeName: data.title,
               imageURL: data.image,
               ingredients: ingredient,
+              uniqueID:data.id
             },
           ])
         );

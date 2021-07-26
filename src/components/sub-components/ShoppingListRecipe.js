@@ -1,35 +1,52 @@
-import React,{useState} from "react";
+import React, { useState,useEffect} from "react";
 import Button from "../composable-components/Button";
 import ShoppingCard from "./ShoppingCard";
 import findStoreImage from "../../assets/illustrations/shopping-list/find-store.svg";
 import emptyShoppingListImage from "../../assets/illustrations/shopping-list/empty-shopping-list.svg";
 import useFetch from "../../custom_hooks/useFetch";
-import Images from "../composable-components/Images";
-import { Link, useHistory} from "react-router-dom";
+import { Link} from "react-router-dom";
 
 const ShoppingListRecipe = () => {
   let recipes;
-const[recipe,setRecipe]=useState([]);
+  const [recipe, setRecipe] = useState([]);
+  const [shoppinglist,setShoppinglist]=useState([])
+  let init = false;
+
   const user = JSON.parse(window.sessionStorage.getItem("user"));
 
   // Deleting shopping list recipe
-// Deleting shopping list recipe
-const handledelete=(e,data)=>{
+  // Deleting shopping list recipe
 
 
-// Delete from
-// const deleterecipe = fetch(
-//   `http://44.238.74.165:3000/recipecart/deleterecipecart`,{
-//     method:'DELETE',
-//     headers:{
-//       'Content-Type':'application/json'
-//     },
-//     body:JSON.stringify({recipeID:data.recipeID,userID:data.userID})
-//   }
-// );
 
-}
 
+  const handledelete = (e, data) => {
+    init = true;
+
+
+    setRecipe(recipe=>{
+      return recipe.filter(r=>r.uniqueID!==data.uniqueID)
+    })
+
+      setShoppinglist((shoppinglist) => {
+        return shoppinglist.filter((r) => r.uniqueID !== data.uniqueID);
+      });
+    // Delete from database.
+
+      // const deleterecipe = fetch(
+      //   `http://44.238.74.165:3000/recipecart/deleterecipecart`,
+      //   {
+      //     method: "DELETE",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify({
+      //       recipeID: data.recipeID,
+      //       userID: data.userID,
+      //     }),
+      //   }
+      // );
+  };
 
   if (user) {
     const selectedRecipes = useFetch(
@@ -39,7 +56,10 @@ const handledelete=(e,data)=>{
 
     if (!selectedRecipes.loading) {
       recipes = selectedRecipes.response;
-      console.log(recipes);
+      if (recipe.length === 0 && !init && recipes.length > 0) {
+        setRecipe(recipes);
+        setShoppinglist(recipes)
+      }
     }
   }
 
@@ -49,10 +69,23 @@ const handledelete=(e,data)=>{
     );
     if (guestshoppinglist) {
       recipes = guestshoppinglist;
+      if (recipe.length === 0) {
+        setRecipe(recipes);
+        setShoppinglist(recipes)
+      }
     } else {
       recipes = [];
     }
   }
+
+// Function to update order of shopping list
+
+const updateOrder=(data,index)=>{
+if(shoppinglist.length>0){
+  const updatearray=[data,...shoppinglist.filter(f=>f.uniqueID!==data.uniqueID)]
+  setShoppinglist(updatearray)
+}
+}
 
   const setActiveNavLink = () => {
     let pageURL = window.location.pathname.substring(1);
@@ -87,7 +120,7 @@ const handledelete=(e,data)=>{
 
   return (
     <>
-      {recipes && (
+      {(recipe.length > 0)||(shoppinglist.length>0) ? (
         <div className="shopping-list-page-cont">
           <div className="max-width-cont">
             <div className="selected-recipes-cont">
@@ -95,8 +128,8 @@ const handledelete=(e,data)=>{
                 <h3>Recipes you selected</h3>
               </div>
               <div className="selected-recipes-listing-cont">
-                {recipes.length > 0 ? (
-                  recipes.map((data, index) => {
+                {recipe.length > 0 ? (
+                  recipe.map((data, index) => {
                     return (
                       <div
                         id={"selected-recipes-listing-" + index}
@@ -104,9 +137,11 @@ const handledelete=(e,data)=>{
                         key={data.imageURL.toString() + index + "div"}
                         onClick={() => selectActiveRecipe(index)}
                       >
-                        <Images
+                        <img
+                        loading="lazy"
                           key={data.imageURL.toString() + index}
                           src={data.imageURL}
+                          onClick={()=>updateOrder(data,index)}
                         />
                       </div>
                     );
@@ -126,24 +161,17 @@ const handledelete=(e,data)=>{
                 <div className="heading">
                   <h3>Your Shopping List</h3>
                 </div>
-                {recipes.length > 0 && <Button text="Clear All" />}
+                {recipe.length > 0 && <Button text="Clear All" />}
               </div>
 
-              {recipes.length > 0 ? (
+              {shoppinglist.length > 0 && (
                 <div className="shopping-list-listing-cont">
                   <ShoppingCard
                     recipeClassName="shopping_cardlist"
-                    recipes={recipes}
+                    recipes={shoppinglist}
                     onclick={handledelete}
                   ></ShoppingCard>
                 </div>
-              ) : (
-								<div className="no-shopping-list-cont">
-									<img src={emptyShoppingListImage} alt="Favorite shopping list" />
-									<Link to="/recipes">
-										<button type="button">Browse Recipes</button>
-									</Link>
-								</div>
               )}
             </div>
             <div className="grocery-shop-cont display-none">
@@ -163,6 +191,13 @@ const handledelete=(e,data)=>{
               </div>
             </div>
           </div>
+        </div>
+      ) : (
+        <div className="no-shopping-list-cont">
+          <img src={emptyShoppingListImage} alt="Favorite shopping list" />
+          <Link to="/recipes">
+            <button type="button">Browse Recipes</button>
+          </Link>
         </div>
       )}
     </>
