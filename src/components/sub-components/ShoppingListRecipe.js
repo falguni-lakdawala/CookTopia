@@ -16,17 +16,19 @@ const[recipe,setRecipe]=useState([]);
 // Deleting shopping list recipe
 const handledelete=(e,data)=>{
 
+console.log(recipe)
+setRecipe(recipe=>recipe.filter(f=>f.uniqueID!==data.uniqueID))
 
-// Delete from
-// const deleterecipe = fetch(
-//   `http://44.238.74.165:3000/recipecart/deleterecipecart`,{
-//     method:'DELETE',
-//     headers:{
-//       'Content-Type':'application/json'
-//     },
-//     body:JSON.stringify({recipeID:data.recipeID,userID:data.userID})
-//   }
-// );
+// Delete from database.
+const deleterecipe = fetch(
+  `http://44.238.74.165:3000/recipecart/deleterecipecart`,{
+    method:'DELETE',
+    headers:{
+      'Content-Type':'application/json'
+    },
+    body:JSON.stringify({recipeID:data.recipeID,userID:data.userID})
+  }
+);
 
 }
 
@@ -39,7 +41,9 @@ const handledelete=(e,data)=>{
 
     if (!selectedRecipes.loading) {
       recipes = selectedRecipes.response;
-      console.log(recipes);
+      if(recipe.length===0){
+        setRecipe(recipes)
+      }
     }
   }
 
@@ -87,7 +91,7 @@ const handledelete=(e,data)=>{
 
   return (
     <>
-      {recipes && (
+      {recipe.length>0 && (
         <div className="shopping-list-page-cont">
           <div className="max-width-cont">
             <div className="selected-recipes-cont">
@@ -95,8 +99,8 @@ const handledelete=(e,data)=>{
                 <h3>Recipes you selected</h3>
               </div>
               <div className="selected-recipes-listing-cont">
-                {recipes.length > 0 ? (
-                  recipes.map((data, index) => {
+                {recipe.length > 0 ? (
+                  recipe.map((data, index) => {
                     return (
                       <div
                         id={"selected-recipes-listing-" + index}
@@ -126,14 +130,14 @@ const handledelete=(e,data)=>{
                 <div className="heading">
                   <h3>Your Shopping List</h3>
                 </div>
-                {recipes.length > 0 && <Button text="Clear All" />}
+                {recipe.length > 0 && <Button text="Clear All" />}
               </div>
 
-              {recipes.length > 0 ? (
+              {recipe.length > 0 ? (
                 <div className="shopping-list-listing-cont">
                   <ShoppingCard
                     recipeClassName="shopping_cardlist"
-                    recipes={recipes}
+                    recipes={recipe}
                     onclick={handledelete}
                   ></ShoppingCard>
                 </div>

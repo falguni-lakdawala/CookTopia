@@ -50,7 +50,7 @@ function shuffleArray() {
       role: "Full Stack Developer",
       description:
         "A software developer who loves to work on Android and Kotlin But these days also into weaving web.",
-      linkedInURL: "https://www.linkedin.com/in/maneesh43/",
+      linkedInURL: "https://www.linkedin.com/in/maneesh-thouti/",
     },
 
     {
@@ -76,7 +76,7 @@ function shuffleArray() {
   const evenshuffle = shufflearrayelements(even);
 
   for (let i = 0; i < (oddshuffle.length + evenshuffle.length) / 2; i++) {
-    shuffledArray.push( evenshuffle[i],oddshuffle[i]);
+    shuffledArray.push(evenshuffle[i], oddshuffle[i]);
   }
 }
 
@@ -124,8 +124,6 @@ const Team = ({ team }) => {
     </div>
   );
 };
-
-
 
 const setActiveNavLink = () => {
   let pageURL = window.location.pathname.substring(1);
