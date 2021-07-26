@@ -1,4 +1,4 @@
-import React, { useState,useEffect} from "react";
+import React, { useState,useRef} from "react";
 import Button from "../composable-components/Button";
 import ShoppingCard from "./ShoppingCard";
 import findStoreImage from "../../assets/illustrations/shopping-list/find-store.svg";
@@ -11,6 +11,9 @@ const ShoppingListRecipe = () => {
   const [recipe, setRecipe] = useState([]);
   const [shoppinglist,setShoppinglist]=useState([])
   let init = false;
+  let selectedRecipes=true
+
+
 
   const user = JSON.parse(window.sessionStorage.getItem("user"));
 
@@ -22,40 +25,40 @@ const ShoppingListRecipe = () => {
 
   const handledelete = (e, data) => {
     init = true;
-
-
-    setRecipe(recipe=>{
-      return recipe.filter(r=>r.uniqueID!==data.uniqueID)
-    })
-
-      setShoppinglist((shoppinglist) => {
-        return shoppinglist.filter((r) => r.uniqueID !== data.uniqueID);
-      });
     // Delete from database.
 
-      // const deleterecipe = fetch(
-      //   `http://44.238.74.165:3000/recipecart/deleterecipecart`,
-      //   {
-      //     method: "DELETE",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify({
-      //       recipeID: data.recipeID,
-      //       userID: data.userID,
-      //     }),
-      //   }
-      // );
+const deletefromDB=()=>{
+ 
+
+fetch(
+  `http://44.238.74.165:3000/recipecart/deleterecipecart`,{
+    method:'DELETE',
+    headers:{
+      'Content-type':'application/json'
+    },
+    body:JSON.stringify({recipeID:data.recipeID,'userID':data.userID})
+  }
+
+).then(r=>r.json()).then(d=>{
+  setRecipe(recipe.filter(f=>f.uniqueID!==data.uniqueID))
+  setShoppinglist(shoppinglist.filter(f=>f.uniqueID!==data.uniqueID))
+})
+
+
+}
+deletefromDB();
   };
 
   if (user) {
-    const selectedRecipes = useFetch(
+    selectedRecipes = useFetch(
       `http://44.238.74.165:3000/recipecartlist/${user.uid}`,
       {}
     );
 
     if (!selectedRecipes.loading) {
+      console.log("Loading")
       recipes = selectedRecipes.response;
+      console.log(recipes)
       if (recipe.length === 0 && !init && recipes.length > 0) {
         setRecipe(recipes);
         setShoppinglist(recipes)
@@ -118,9 +121,11 @@ if(shoppinglist.length>0){
       });
   };
 
+
+
   return (
     <>
-      {(recipe.length > 0)||(shoppinglist.length>0) ? (
+      {(recipe.length >= 1) && (shoppinglist.length>=1)? (
         <div className="shopping-list-page-cont">
           <div className="max-width-cont">
             <div className="selected-recipes-cont">
@@ -134,15 +139,18 @@ if(shoppinglist.length>0){
                       <div
                         id={"selected-recipes-listing-" + index}
                         className="selected-recipes-listing"
-                        key={data.imageURL.toString() + index + "div"}
+                        key={data.uniqueID + index + "div"}
                         onClick={() => selectActiveRecipe(index)}
                       >
+                        {data.imageURL?
                         <img
                         loading="lazy"
                           key={data.imageURL.toString() + index}
                           src={data.imageURL}
                           onClick={()=>updateOrder(data,index)}
-                        />
+                        />:<>
+                        <img alt='No image found' />
+                        </> }
                       </div>
                     );
                   })
