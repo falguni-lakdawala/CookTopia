@@ -10,6 +10,7 @@ import { Link, useHistory } from "react-router-dom";
 const ShoppingListRecipe = () => {
   let recipes;
   const [recipe, setRecipe] = useState([]);
+  const [shoppinglist,setShoppinglist]=useState([])
   let init = false;
   const user = JSON.parse(window.sessionStorage.getItem("user"));
 
@@ -52,6 +53,7 @@ const ShoppingListRecipe = () => {
       recipes = selectedRecipes.response;
       if (recipe.length === 0 && !init && recipes.length > 0) {
         setRecipe(recipes);
+        setShoppinglist(recipes)
       }
     }
   }
@@ -64,11 +66,21 @@ const ShoppingListRecipe = () => {
       recipes = guestshoppinglist;
       if (recipe.length === 0) {
         setRecipe(recipes);
+        setShoppinglist(recipes)
       }
     } else {
       recipes = [];
     }
   }
+
+// Function to update order of shopping list
+
+const updateOrder=(data,index)=>{
+if(shoppinglist.length>0){
+  const updatearray=[data,...shoppinglist.filter(f=>f.uniqueID!==data.uniqueID)]
+  setShoppinglist(updatearray)
+}
+}
 
   const setActiveNavLink = () => {
     let pageURL = window.location.pathname.substring(1);
@@ -120,9 +132,11 @@ const ShoppingListRecipe = () => {
                         key={data.imageURL.toString() + index + "div"}
                         onClick={() => selectActiveRecipe(index)}
                       >
-                        <Images
+                        <img
+                        loading="lazy"
                           key={data.imageURL.toString() + index}
                           src={data.imageURL}
+                          onClick={()=>updateOrder(data,index)}
                         />
                       </div>
                     );
@@ -149,7 +163,7 @@ const ShoppingListRecipe = () => {
                 <div className="shopping-list-listing-cont">
                   <ShoppingCard
                     recipeClassName="shopping_cardlist"
-                    recipes={recipe}
+                    recipes={shoppinglist}
                     onclick={handledelete}
                   ></ShoppingCard>
                 </div>
