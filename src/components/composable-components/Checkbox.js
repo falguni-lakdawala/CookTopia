@@ -1,6 +1,6 @@
 import React from "react";
 
-const Checkbox = ({ className, defaultChecked }) => {
+const Checkbox = ({ className, defaultChecked,name}) => {
 	const toggleCheckbox = (e) => {
 		const target = e.target.parentElement.previousSibling.children[0].children[0];
 		target.classList.toggle("active");

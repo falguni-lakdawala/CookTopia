@@ -3445,7 +3445,7 @@ const Subcategory = ({ subcategory, categorytype }) => {
     }
     const urlfilter = `http://44.238.74.165:3000/recipeclassification?${
       refurl.current
-    }=${filtered.join()}&number=20`;
+    }=${filtered.join()}&number=50`;
     const res = fetch(urlfilter)
       .then((res) => res.json())
       .then((data) => setfilteredRecipes(data.results));
@@ -3496,8 +3496,11 @@ const Subcategory = ({ subcategory, categorytype }) => {
               type="button"
               title={data}
               onClick={() => {
+                const exists=selected.current.includes(data)
+                if(!exists){
                 selected.current.push(data);
                 setSelectedS(selected.current);
+                }
                 switch (categorytype) {
                   case "Cuisine":
                     formattedcategory = "cuisine";

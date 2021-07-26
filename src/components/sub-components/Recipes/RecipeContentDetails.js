@@ -82,7 +82,7 @@ const RecipeContentDetails = ({ recipeData }) => {
       }
     }
   };
-
+console.log(recipeData)
   return (
     <>
       {recipeData && (

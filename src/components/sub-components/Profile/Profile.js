@@ -4,7 +4,7 @@ import favrecipe from "../../../assets/illustrations/homepage-features/favourite
 import emptyShoppingListImage from "../../../assets/illustrations/profile-page/shoppinglist-not-found.svg";
 import useFetch from "../../../custom_hooks/useFetch";
 import Checkbox from "../../composable-components/Checkbox";
-
+import { useState } from "react";
 
 const ProfileCard = () => {
   const user = JSON.parse(window.sessionStorage.getItem("user"));
@@ -12,6 +12,24 @@ const ProfileCard = () => {
   let shoppingListData;
   let favRecipesData;
   let shopping;
+  const [favorites, setFavorites] = useState([]);
+
+  const handledislike = (data) => {
+    const url = `http://44.238.74.165:3000/recipe/updaterecipedislike`;
+
+    const updateDisLike = async () => {
+      const updatedislike = await fetch(url, {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({ recipeID: data.id, userID: user.id }),
+      });
+
+      const data = await updateDisLike.json();
+      console.log(data);
+    };
+  };
 
   const addRecipeDeleteOverlay = (id) => {
     document.querySelector(`#${id}`).classList.add("active");
@@ -44,12 +62,15 @@ const ProfileCard = () => {
       shoppingListData = shopping.response;
     }
     if (!results.loading) {
-      console.log(results)
+      console.log(results);
       favRecipesData = results.response;
+      if (favorites.length === 0) {
+        setFavorites(favRecipesData);
+      }
     }
   }
 
-  if (user && !results.loading) {
+  if (user && favorites.length > 0) {
     return (
       <div className="profile-cont">
         <div className="max-width-cont">
@@ -90,9 +111,9 @@ const ProfileCard = () => {
                 </button>
               </div>
             </div>
-            {favRecipesData ? (
+            {favorites.length > 0 ? (
               <div className="favorite-recipes-listing-cont">
-                {favRecipesData.map((data, index) => (
+                {favorites.map((data, index) => (
                   <div key={data.id}>
                     <div
                       className="recipe-card-cont"
@@ -130,7 +151,7 @@ const ProfileCard = () => {
               <h2>Your Shopping List</h2>
             </div>
             <div className="shopping-list-listing-cont">
-              {(!shopping.loading &&shoppingListData.length>0)? 
+              {!shopping.loading && shoppingListData.length > 0 ? (
                 shoppingListData.map((data, index) => {
                   return (
                     <div key={index} className="shopping-list-listing">
@@ -166,10 +187,13 @@ const ProfileCard = () => {
                       </div>
                     </div>
                   );
-                }
+                })
               ) : (
                 <div className="no-shopping-list-cont">
-                  <img src={emptyShoppingListImage} alt="Favorite shopping list" />
+                  <img
+                    src={emptyShoppingListImage}
+                    alt="Favorite shopping list"
+                  />
                   <button type="button">Search your shopping list</button>
                 </div>
               )}
@@ -178,7 +202,7 @@ const ProfileCard = () => {
         </div>
       </div>
     );
-  } 
+  }
   if (user && results.loading) {
     return (
       <div className="loading">
