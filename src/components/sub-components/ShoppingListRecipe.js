@@ -1,46 +1,51 @@
-import React, { useState } from "react";
+import React, { useState,useEffect} from "react";
 import Button from "../composable-components/Button";
 import ShoppingCard from "./ShoppingCard";
 import findStoreImage from "../../assets/illustrations/shopping-list/find-store.svg";
 import emptyShoppingListImage from "../../assets/illustrations/shopping-list/empty-shopping-list.svg";
 import useFetch from "../../custom_hooks/useFetch";
-import Images from "../composable-components/Images";
-import { Link, useHistory } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 const ShoppingListRecipe = () => {
   let recipes;
   const [recipe, setRecipe] = useState([]);
   const [shoppinglist,setShoppinglist]=useState([])
   let init = false;
+
   const user = JSON.parse(window.sessionStorage.getItem("user"));
 
   // Deleting shopping list recipe
   // Deleting shopping list recipe
+
+
+
+
   const handledelete = (e, data) => {
     init = true;
-    const res = recipe.filter((r) => r.uniqueID !== data.uniqueID);
-    if (res.length === 0) {
-      setRecipe([]);
-    } else {
-      setRecipe(res);
-    }
+
+
+    setRecipe(recipe=>{
+      return recipe.filter(r=>r.uniqueID!==data.uniqueID)
+    })
+
+      setShoppinglist((shoppinglist) => {
+        return shoppinglist.filter((r) => r.uniqueID !== data.uniqueID);
+      });
     // Delete from database.
 
-    if (!user) {
-      const deleterecipe = fetch(
-        `http://44.238.74.165:3000/recipecart/deleterecipecart`,
-        {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            recipeID: data.recipeID,
-            userID: data.userID,
-          }),
-        }
-      );
-    }
+      // const deleterecipe = fetch(
+      //   `http://44.238.74.165:3000/recipecart/deleterecipecart`,
+      //   {
+      //     method: "DELETE",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify({
+      //       recipeID: data.recipeID,
+      //       userID: data.userID,
+      //     }),
+      //   }
+      // );
   };
 
   if (user) {
@@ -115,7 +120,7 @@ if(shoppinglist.length>0){
 
   return (
     <>
-      {recipe.length > 0 ? (
+      {(recipe.length > 0)||(shoppinglist.length>0) ? (
         <div className="shopping-list-page-cont">
           <div className="max-width-cont">
             <div className="selected-recipes-cont">
@@ -159,7 +164,7 @@ if(shoppinglist.length>0){
                 {recipe.length > 0 && <Button text="Clear All" />}
               </div>
 
-              {recipe.length > 0 && (
+              {shoppinglist.length > 0 && (
                 <div className="shopping-list-listing-cont">
                   <ShoppingCard
                     recipeClassName="shopping_cardlist"
