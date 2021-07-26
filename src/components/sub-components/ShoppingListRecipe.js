@@ -1,37 +1,46 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import Button from "../composable-components/Button";
 import ShoppingCard from "./ShoppingCard";
 import findStoreImage from "../../assets/illustrations/shopping-list/find-store.svg";
 import emptyShoppingListImage from "../../assets/illustrations/shopping-list/empty-shopping-list.svg";
 import useFetch from "../../custom_hooks/useFetch";
 import Images from "../composable-components/Images";
-import { Link, useHistory} from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const ShoppingListRecipe = () => {
   let recipes;
-const[recipe,setRecipe]=useState([]);
+  const [recipe, setRecipe] = useState([]);
+  let init = false;
   const user = JSON.parse(window.sessionStorage.getItem("user"));
 
   // Deleting shopping list recipe
-// Deleting shopping list recipe
-const handledelete=(e,data)=>{
+  // Deleting shopping list recipe
+  const handledelete = (e, data) => {
+    init = true;
+    const res = recipe.filter((r) => r.uniqueID !== data.uniqueID);
+    if (res.length === 0) {
+      setRecipe([]);
+    } else {
+      setRecipe(res);
+    }
+    // Delete from database.
 
-console.log(recipe)
-setRecipe(recipe=>recipe.filter(f=>f.uniqueID!==data.uniqueID))
-
-// Delete from database.
-const deleterecipe = fetch(
-  `http://44.238.74.165:3000/recipecart/deleterecipecart`,{
-    method:'DELETE',
-    headers:{
-      'Content-Type':'application/json'
-    },
-    body:JSON.stringify({recipeID:data.recipeID,userID:data.userID})
-  }
-);
-
-}
-
+    if (!user) {
+      const deleterecipe = fetch(
+        `http://44.238.74.165:3000/recipecart/deleterecipecart`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            recipeID: data.recipeID,
+            userID: data.userID,
+          }),
+        }
+      );
+    }
+  };
 
   if (user) {
     const selectedRecipes = useFetch(
@@ -41,8 +50,8 @@ const deleterecipe = fetch(
 
     if (!selectedRecipes.loading) {
       recipes = selectedRecipes.response;
-      if(recipe.length===0){
-        setRecipe(recipes)
+      if (recipe.length === 0 && !init && recipes.length > 0) {
+        setRecipe(recipes);
       }
     }
   }
@@ -53,6 +62,9 @@ const deleterecipe = fetch(
     );
     if (guestshoppinglist) {
       recipes = guestshoppinglist;
+      if (recipe.length === 0) {
+        setRecipe(recipes);
+      }
     } else {
       recipes = [];
     }
@@ -91,7 +103,7 @@ const deleterecipe = fetch(
 
   return (
     <>
-      {recipe.length>0 && (
+      {recipe.length > 0 ? (
         <div className="shopping-list-page-cont">
           <div className="max-width-cont">
             <div className="selected-recipes-cont">
@@ -133,7 +145,7 @@ const deleterecipe = fetch(
                 {recipe.length > 0 && <Button text="Clear All" />}
               </div>
 
-              {recipe.length > 0 ? (
+              {recipe.length > 0 && (
                 <div className="shopping-list-listing-cont">
                   <ShoppingCard
                     recipeClassName="shopping_cardlist"
@@ -141,13 +153,6 @@ const deleterecipe = fetch(
                     onclick={handledelete}
                   ></ShoppingCard>
                 </div>
-              ) : (
-								<div className="no-shopping-list-cont">
-									<img src={emptyShoppingListImage} alt="Favorite shopping list" />
-									<Link to="/recipes">
-										<button type="button">Browse Recipes</button>
-									</Link>
-								</div>
               )}
             </div>
             <div className="grocery-shop-cont display-none">
@@ -167,6 +172,13 @@ const deleterecipe = fetch(
               </div>
             </div>
           </div>
+        </div>
+      ) : (
+        <div className="no-shopping-list-cont">
+          <img src={emptyShoppingListImage} alt="Favorite shopping list" />
+          <Link to="/recipes">
+            <button type="button">Browse Recipes</button>
+          </Link>
         </div>
       )}
     </>
