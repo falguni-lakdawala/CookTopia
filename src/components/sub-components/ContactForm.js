@@ -55,6 +55,7 @@ const ContactForm = ({ input_number }) => {
                   placeholder={input[1].placeholder}
                   required
                   type={input[1].type}
+                  required
                 />
               ))}
               <textarea

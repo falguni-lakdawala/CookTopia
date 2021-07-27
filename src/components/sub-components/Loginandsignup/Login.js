@@ -52,7 +52,7 @@ const Login = () => {
   const handlesignin = (e) => {
     const value = e.target.value;
     setLogin({ ...login, [e.target.name]: value });
-    console.log(login);
+
   };
 
   return (
