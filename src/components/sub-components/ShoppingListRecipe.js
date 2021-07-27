@@ -1,52 +1,44 @@
-import React, { useState,useRef} from "react";
+import React, { useState, useRef } from "react";
 import Button from "../composable-components/Button";
 import ShoppingCard from "./ShoppingCard";
 import findStoreImage from "../../assets/illustrations/shopping-list/find-store.svg";
 import emptyShoppingListImage from "../../assets/illustrations/shopping-list/empty-shopping-list.svg";
 import useFetch from "../../custom_hooks/useFetch";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ShoppingListRecipe = () => {
   let recipes;
   const [recipe, setRecipe] = useState([]);
-  const [shoppinglist,setShoppinglist]=useState([])
+  const [shoppinglist, setShoppinglist] = useState([]);
   let init = false;
-  let selectedRecipes=true
-
-
+  let selectedRecipes = true;
 
   const user = JSON.parse(window.sessionStorage.getItem("user"));
 
   // Deleting shopping list recipe
   // Deleting shopping list recipe
 
-
-
-
   const handledelete = (e, data) => {
     init = true;
     // Delete from database.
 
-const deletefromDB=()=>{
- 
-
-fetch(
-  `http://44.238.74.165:3000/recipecart/deleterecipecart`,{
-    method:'DELETE',
-    headers:{
-      'Content-type':'application/json'
-    },
-    body:JSON.stringify({recipeID:data.recipeID,'userID':data.userID})
-  }
-
-).then(r=>r.json()).then(d=>{
-  setRecipe(recipe.filter(f=>f.uniqueID!==data.uniqueID))
-  setShoppinglist(shoppinglist.filter(f=>f.uniqueID!==data.uniqueID))
-})
-
-
-}
-deletefromDB();
+    const deletefromDB = () => {
+      fetch(`http://44.238.74.165:3000/recipecart/deleterecipecart`, {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({ recipeID: data.recipeID, userID: data.userID }),
+      })
+        .then((r) => r.json())
+        .then((d) => {
+          setRecipe(recipe.filter((f) => f.uniqueID !== data.uniqueID));
+          setShoppinglist(
+            shoppinglist.filter((f) => f.uniqueID !== data.uniqueID)
+          );
+        });
+    };
+    deletefromDB();
   };
 
   if (user) {
@@ -57,10 +49,10 @@ deletefromDB();
 
     if (!selectedRecipes.loading) {
       recipes = selectedRecipes.response;
-      console.log(recipes)
+      console.log(recipes);
       if (recipe.length === 0 && !init && recipes.length > 0) {
         setRecipe(recipes);
-        setShoppinglist(recipes)
+        setShoppinglist(recipes);
       }
     }
   }
@@ -73,21 +65,24 @@ deletefromDB();
       recipes = guestshoppinglist;
       if (recipe.length === 0) {
         setRecipe(recipes);
-        setShoppinglist(recipes)
+        setShoppinglist(recipes);
       }
     } else {
       recipes = [];
     }
   }
 
-// Function to update order of shopping list
+  // Function to update order of shopping list
 
-const updateOrder=(data,index)=>{
-if(shoppinglist.length>0){
-  const updatearray=[data,...shoppinglist.filter(f=>f.uniqueID!==data.uniqueID)]
-  setShoppinglist(updatearray)
-}
-}
+  const updateOrder = (data, index) => {
+    if (shoppinglist.length > 0) {
+      const updatearray = [
+        data,
+        ...shoppinglist.filter((f) => f.uniqueID !== data.uniqueID),
+      ];
+      setShoppinglist(updatearray);
+    }
+  };
 
   const setActiveNavLink = () => {
     let pageURL = window.location.pathname.substring(1);
@@ -120,11 +115,9 @@ if(shoppinglist.length>0){
       });
   };
 
-
-
   return (
     <>
-      {(recipe.length >= 1) && (shoppinglist.length>=1)? (
+      {recipe.length >= 1 && shoppinglist.length >= 1 ? (
         <div className="shopping-list-page-cont">
           <div className="max-width-cont">
             <div className="selected-recipes-cont">
@@ -141,15 +134,18 @@ if(shoppinglist.length>0){
                         key={data.uniqueID + index + "div"}
                         onClick={() => selectActiveRecipe(index)}
                       >
-                        {data.imageURL?
-                        <img
-                        loading="lazy"
-                          key={data.imageURL.toString() + index}
-                          src={data.imageURL}
-                          onClick={()=>updateOrder(data,index)}
-                        />:<>
-                        <img alt='No image found' />
-                        </> }
+                        {data.imageURL ? (
+                          <img
+                            loading="lazy"
+                            key={data.imageURL.toString() + index}
+                            src={data.imageURL}
+                            onClick={() => updateOrder(data, index)}
+                          />
+                        ) : (
+                          <>
+                            <img alt="No image found" />
+                          </>
+                        )}
                       </div>
                     );
                   })
@@ -168,25 +164,30 @@ if(shoppinglist.length>0){
                 <div className="heading">
                   <h3>Your Shopping List</h3>
                 </div>
-                {recipe.length > 0 && 
-                
-                <>
-<button type="button" onClick={()=>{
-const url=`http://44.238.74.165:3000/recipecart/deleteallrecipes`
-const deleteAll=fetch(url,{
-  method:'DELETE',
-  headers:{
-    'Content-type':'application/json'
-  },
-  body:JSON.stringify({userID:user.uid})
-}).then(r=>r.json()).then(d=>{
-  setRecipe([])
-  setShoppinglist([])
-})
-}}>Clear all</button>
-                </>
-                
-                }
+                {recipe.length > 0 && (
+                  <>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const url = `http://44.238.74.165:3000/recipecart/deleteallrecipes`;
+                        const deleteAll = fetch(url, {
+                          method: "DELETE",
+                          headers: {
+                            "Content-type": "application/json",
+                          },
+                          body: JSON.stringify({ userID: user.uid }),
+                        })
+                          .then((r) => r.json())
+                          .then((d) => {
+                            setRecipe([]);
+                            setShoppinglist([]);
+                          });
+                      }}
+                    >
+                      Clear all
+                    </button>
+                  </>
+                )}
               </div>
 
               {shoppinglist.length > 0 && (
@@ -218,12 +219,16 @@ const deleteAll=fetch(url,{
           </div>
         </div>
       ) : (
-        <div className="no-shopping-list-cont">
-          <img src={emptyShoppingListImage} alt="Favorite shopping list" />
-          <Link to="/recipes">
-            <button type="button">Browse Recipes</button>
-          </Link>
-        </div>
+        <div className="shopping-list-page-cont">
+          <div className="max-width-cont">
+						<div className="no-shopping-list-cont">
+							<img src={emptyShoppingListImage} alt="Favorite shopping list" />
+							<Link to="/recipes">
+								<button type="button">Browse Recipes</button>
+							</Link>
+						</div>
+					</div>
+				</div>
       )}
     </>
   );
