@@ -11,8 +11,11 @@ const ProfileCard = () => {
   let results;
   let shoppingListData;
   let favRecipesData;
-  let shopping;
+  let shopping=false;
   const [favorites, setFavorites] = useState([]);
+  const [shoppinglist,setShoppinglist]=useState([])
+  let init=false
+
 
   const handledislike = (data) => {
     const url = `http://44.238.74.165:3000/recipe/updaterecipedislike`;
@@ -30,6 +33,29 @@ const ProfileCard = () => {
       console.log(data);
     };
   };
+
+
+const updateShoppingList=(data)=>{
+init=true
+
+const deletefromDB = () => {
+  fetch(`http://44.238.74.165:3000/recipecart/deleterecipecart`, {
+    method: "DELETE",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify({ recipeID: data.recipeID, userID: data.userID }),
+  })
+    .then((r) => r.json())
+    .then((d) => {
+     setShoppinglist(shoppinglist=>shoppinglist.filter(f=>f._id!==data._id))
+    });
+};
+deletefromDB();
+
+
+
+}
 
   const addRecipeDeleteOverlay = (id) => {
     document.querySelector(`#${id}`).classList.add("active");
@@ -60,9 +86,11 @@ const ProfileCard = () => {
     shopping = useFetch(`http://44.238.74.165:3000/recipecartlist/${user.uid}`);
     if (!shopping.loading) {
       shoppingListData = shopping.response;
+      if(shoppinglist.length===0&&!init&&shoppingListData.length>0){
+        setShoppinglist(shoppingListData)
+      }
     }
     if (!results.loading) {
-      console.log(results);
       favRecipesData = results.response;
       if (favorites.length === 0) {
         setFavorites(favRecipesData);
@@ -151,11 +179,11 @@ const ProfileCard = () => {
               <h2>Your Shopping List</h2>
             </div>
             <div className="shopping-list-listing-cont">
-              {!shopping.loading && shoppingListData.length > 0 ? (
-                shoppingListData.map((data, index) => {
+              {!shopping.loading && shoppinglist.length > 0 ? (
+                shoppinglist.map((data, index) => {
                   return (
                     <div key={index} className="shopping-list-listing">
-                      <div className="img-and-remove-list-cont">
+                      <div className="img-and-remove-list-cont" onClick={()=>updateShoppingList(data)}>
                         <div className="img-cont">
                           <img src={data.imageURL} alt={data.name} />
                         </div>

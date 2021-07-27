@@ -78,7 +78,7 @@ const Search = ({ screenType }) => {
         aria-label="input search text"
         ref={ref}
         onKeyPress={(e) => {
-          if (e.code === "Enter") {
+          if (e.code === "Enter"||e.keyCode===13) {
             toggleView();
             searchRecipe(e);
           }

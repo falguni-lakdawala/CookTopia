@@ -56,7 +56,6 @@ deletefromDB();
     );
 
     if (!selectedRecipes.loading) {
-      console.log("Loading")
       recipes = selectedRecipes.response;
       console.log(recipes)
       if (recipe.length === 0 && !init && recipes.length > 0) {
@@ -169,7 +168,25 @@ if(shoppinglist.length>0){
                 <div className="heading">
                   <h3>Your Shopping List</h3>
                 </div>
-                {recipe.length > 0 && <Button text="Clear All" />}
+                {recipe.length > 0 && 
+                
+                <>
+<button type="button" onClick={()=>{
+const url=`http://44.238.74.165:3000/recipecart/deleteallrecipes`
+const deleteAll=fetch(url,{
+  method:'DELETE',
+  headers:{
+    'Content-type':'application/json'
+  },
+  body:JSON.stringify({userID:user.uid})
+}).then(r=>r.json()).then(d=>{
+  setRecipe([])
+  setShoppinglist([])
+})
+}}>Clear all</button>
+                </>
+                
+                }
               </div>
 
               {shoppinglist.length > 0 && (
