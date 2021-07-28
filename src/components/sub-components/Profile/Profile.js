@@ -12,11 +12,10 @@ const ProfileCard = () => {
   let results;
   let shoppingListData;
   let favRecipesData;
-  let shopping=false;
+  let shopping = false;
   const [favorites, setFavorites] = useState([]);
-  const [shoppinglist,setShoppinglist]=useState([])
-  let init=false
-
+  const [shoppinglist, setShoppinglist] = useState([]);
+  let init = false;
 
   const handledislike = (data) => {
     const url = `http://44.238.74.165:3000/recipe/updaterecipedislike`;
@@ -35,35 +34,25 @@ const ProfileCard = () => {
     };
   };
 
+  const updateShoppingList = (data) => {
+    init = true;
 
-const updateShoppingList=(data)=>{
-init=true
-
-const deletefromDB = () => {
-  fetch(`http://44.238.74.165:3000/recipecart/deleterecipecart`, {
-    method: "DELETE",
-    headers: {
-      "Content-type": "application/json",
-    },
-    body: JSON.stringify({ recipeID: data.recipeID, userID: data.userID }),
-  })
-    .then((r) => r.json())
-    .then((d) => {
-     setShoppinglist(shoppinglist=>shoppinglist.filter(f=>f._id!==data._id))
-    });
-};
-deletefromDB();
-
-
-
-}
-
-  const addRecipeDeleteOverlay = (id) => {
-    document.querySelector(`#${id}`).classList.add("active");
-  };
-
-  const removeRecipeDeleteOverlay = (id) => {
-    document.querySelector(`#${id}`).classList.remove("active");
+    const deletefromDB = () => {
+      fetch(`http://44.238.74.165:3000/recipecart/deleterecipecart`, {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({ recipeID: data.recipeID, userID: data.userID }),
+      })
+        .then((r) => r.json())
+        .then((d) => {
+          setShoppinglist((shoppinglist) =>
+            shoppinglist.filter((f) => f._id !== data._id)
+          );
+        });
+    };
+    deletefromDB();
   };
 
   const setActiveNavLink = () => {
@@ -87,8 +76,8 @@ deletefromDB();
     shopping = useFetch(`http://44.238.74.165:3000/recipecartlist/${user.uid}`);
     if (!shopping.loading) {
       shoppingListData = shopping.response;
-      if(shoppinglist.length===0&&!init&&shoppingListData.length>0){
-        setShoppinglist(shoppingListData)
+      if (shoppinglist.length === 0 && !init && shoppingListData.length > 0) {
+        setShoppinglist(shoppingListData);
       }
     }
     if (!results.loading) {
@@ -99,7 +88,16 @@ deletefromDB();
     }
   }
 
+
   if(user){
+
+	const toggleFavRecipesEdit = () => {
+		document.querySelectorAll('.recipe-card-overlay').forEach(el => {
+			el.classList.toggle('active');
+		});
+	}
+
+  if (user && favorites.length > 0) {
     return (
       <div className="profile-cont">
         <div className="max-width-cont">
@@ -135,7 +133,7 @@ deletefromDB();
             <div className="heading">
               <h2>Favorite Recipes</h2>
               <div className="favorite-recipes-edit-cont">
-                <button className="favorite-recipes-edit-btn" type="button">
+                <button className="favorite-recipes-edit-btn" type="button" onClick={() => toggleFavRecipesEdit()}>
                   Edit
                 </button>
               </div>
@@ -146,16 +144,6 @@ deletefromDB();
                   <div key={data.id}>
                     <div
                       className="recipe-card-cont"
-                      onMouseEnter={() =>
-                        addRecipeDeleteOverlay(
-                          `remove-favorite-recipe-${index}`
-                        )
-                      }
-                      onMouseLeave={() =>
-                        removeRecipeDeleteOverlay(
-                          `remove-favorite-recipe-${index}`
-                        )
-                      }
                     >
                       <RecipeCard recipeData={data} />
                       <div
@@ -184,7 +172,10 @@ deletefromDB();
                 shoppinglist.map((data, index) => {
                   return (
                     <div key={index} className="shopping-list-listing">
-                      <div className="img-and-remove-list-cont" onClick={()=>updateShoppingList(data)}>
+                      <div
+                        className="img-and-remove-list-cont"
+                        onClick={() => updateShoppingList(data)}
+                      >
                         <div className="img-cont">
                           <img src={data.imageURL} alt={data.name} />
                         </div>
@@ -223,7 +214,9 @@ deletefromDB();
                     src={emptyShoppingListImage}
                     alt="Favorite shopping list"
                   />
-                  <button type="button">Search your shopping list</button>
+									<Link to="/recipes">
+										<button type="button">Browse Recipes</button>
+									</Link>
                 </div>
               )}
             </div>
