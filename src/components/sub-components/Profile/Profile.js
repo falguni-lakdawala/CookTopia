@@ -82,19 +82,19 @@ const ProfileCard = () => {
     }
     if (!results.loading) {
       favRecipesData = results.response;
-      if (favorites.length === 0) {
+      if (favorites.length === 0 && favRecipesData.length > 0) {
         setFavorites(favRecipesData);
       }
     }
   }
 
-	const toggleFavRecipesEdit = () => {
-		document.querySelectorAll('.recipe-card-overlay').forEach(el => {
-			el.classList.toggle('active');
-		});
-	}
+  const toggleFavRecipesEdit = () => {
+    document.querySelectorAll(".recipe-card-overlay").forEach((el) => {
+      el.classList.toggle("active");
+    });
+  };
 
-  if (user && favorites.length > 0) {
+  if (user) {
     return (
       <div className="profile-cont">
         <div className="max-width-cont">
@@ -130,7 +130,11 @@ const ProfileCard = () => {
             <div className="heading">
               <h2>Favorite Recipes</h2>
               <div className="favorite-recipes-edit-cont">
-                <button className="favorite-recipes-edit-btn" type="button" onClick={() => toggleFavRecipesEdit()}>
+                <button
+                  className="favorite-recipes-edit-btn"
+                  type="button"
+                  onClick={() => toggleFavRecipesEdit()}
+                >
                   Edit
                 </button>
               </div>
@@ -139,9 +143,7 @@ const ProfileCard = () => {
               <div className="favorite-recipes-listing-cont">
                 {favorites.map((data, index) => (
                   <div key={data.id}>
-                    <div
-                      className="recipe-card-cont"
-                    >
+                    <div className="recipe-card-cont">
                       <RecipeCard recipeData={data} />
                       <div
                         id={`remove-favorite-recipe-${index}`}
@@ -211,9 +213,9 @@ const ProfileCard = () => {
                     src={emptyShoppingListImage}
                     alt="Favorite shopping list"
                   />
-									<Link to="/recipes">
-										<button type="button">Browse Recipes</button>
-									</Link>
+                  <Link to="/recipes">
+                    <button type="button">Browse Recipes</button>
+                  </Link>
                 </div>
               )}
             </div>
