@@ -76,13 +76,14 @@ const ProfileCard = () => {
     shopping = useFetch(`http://44.238.74.165:3000/recipecartlist/${user.uid}`);
     if (!shopping.loading) {
       shoppingListData = shopping.response;
-      if (shoppinglist.length === 0 && !init && shoppingListData.length > 0) {
+      if (shoppinglist.length === 0 && !init && shoppingListData.length > 0) {.
+        
         setShoppinglist(shoppingListData);
       }
     }
     if (!results.loading) {
       favRecipesData = results.response;
-      if (favorites.length === 0) {
+      if (favorites.length === 0&&favRecipesData.length>0) {
         setFavorites(favRecipesData);
       }
     }
