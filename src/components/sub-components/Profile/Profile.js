@@ -94,7 +94,7 @@ const toggleFavRecipesEdit = () => {
   });
 };
 
-  if (user && favorites.length > 0) {
+  if (user) {
     return (
       <div className="profile-cont">
         <div className="max-width-cont">
