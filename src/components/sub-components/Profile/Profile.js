@@ -5,7 +5,6 @@ import emptyShoppingListImage from "../../../assets/illustrations/profile-page/s
 import useFetch from "../../../custom_hooks/useFetch";
 import Checkbox from "../../composable-components/Checkbox";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 const ProfileCard = () => {
   const user = JSON.parse(window.sessionStorage.getItem("user"));
@@ -93,13 +92,13 @@ deletefromDB();
     }
     if (!results.loading) {
       favRecipesData = results.response;
-      if (favorites.length === 0&&favRecipesData.length>0) {
+      if (favorites.length === 0) {
         setFavorites(favRecipesData);
       }
     }
   }
 
-  if(user){
+  if (user && favorites.length > 0) {
     return (
       <div className="profile-cont">
         <div className="max-width-cont">
@@ -231,7 +230,7 @@ deletefromDB();
         </div>
       </div>
     );
-              }
+  }
   if (user && results.loading) {
     return (
       <div className="loading">
@@ -242,7 +241,7 @@ deletefromDB();
   if (!user) {
     return (
       <div className="no-user">
-        <p>User not logged in <Link to='/'>Log in</Link> here </p>
+        <p>User not logged in !!!! </p>
       </div>
     );
   }
