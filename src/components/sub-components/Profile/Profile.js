@@ -5,7 +5,7 @@ import emptyShoppingListImage from "../../../assets/illustrations/profile-page/s
 import useFetch from "../../../custom_hooks/useFetch";
 import Checkbox from "../../composable-components/Checkbox";
 import { useState } from "react";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const ProfileCard = () => {
   const user = JSON.parse(window.sessionStorage.getItem("user"));
@@ -76,24 +76,23 @@ const ProfileCard = () => {
     shopping = useFetch(`http://44.238.74.165:3000/recipecartlist/${user.uid}`);
     if (!shopping.loading) {
       shoppingListData = shopping.response;
-      if (shoppinglist.length === 0 && !init && shoppingListData.length > 0) {.
-        
+      if (shoppinglist.length === 0 && !init && shoppingListData.length > 0) {
         setShoppinglist(shoppingListData);
       }
     }
     if (!results.loading) {
       favRecipesData = results.response;
-      if (favorites.length === 0&&favRecipesData.length>0) {
+      if (favorites.length === 0 && favRecipesData.length > 0) {
         setFavorites(favRecipesData);
       }
     }
   }
 
-const toggleFavRecipesEdit = () => {
-  document.querySelectorAll(".recipe-card-overlay").forEach((el) => {
-    el.classList.toggle("active");
-  });
-};
+  const toggleFavRecipesEdit = () => {
+    document.querySelectorAll(".recipe-card-overlay").forEach((el) => {
+      el.classList.toggle("active");
+    });
+  };
 
   if (user) {
     return (
@@ -131,7 +130,11 @@ const toggleFavRecipesEdit = () => {
             <div className="heading">
               <h2>Favorite Recipes</h2>
               <div className="favorite-recipes-edit-cont">
-                <button className="favorite-recipes-edit-btn" type="button" onClick={() => toggleFavRecipesEdit()}>
+                <button
+                  className="favorite-recipes-edit-btn"
+                  type="button"
+                  onClick={() => toggleFavRecipesEdit()}
+                >
                   Edit
                 </button>
               </div>
@@ -140,9 +143,7 @@ const toggleFavRecipesEdit = () => {
               <div className="favorite-recipes-listing-cont">
                 {favorites.map((data, index) => (
                   <div key={data.id}>
-                    <div
-                      className="recipe-card-cont"
-                    >
+                    <div className="recipe-card-cont">
                       <RecipeCard recipeData={data} />
                       <div
                         id={`remove-favorite-recipe-${index}`}
@@ -212,9 +213,9 @@ const toggleFavRecipesEdit = () => {
                     src={emptyShoppingListImage}
                     alt="Favorite shopping list"
                   />
-									<Link to="/recipes">
-										<button type="button">Browse Recipes</button>
-									</Link>
+                  <Link to="/recipes">
+                    <button type="button">Browse Recipes</button>
+                  </Link>
                 </div>
               )}
             </div>
