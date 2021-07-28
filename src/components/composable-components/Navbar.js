@@ -15,18 +15,30 @@ const Navbar = ({ navElements }) => {
   const ref = useRef();
   const location = useLocation();
 
-	const setActiveNavLink = () => {
+  const setActiveNavLink = () => {
     let pageURL = window.location.pathname.substring(1);
-		let links = document.querySelectorAll('.app_header nav ul li a');
-		links.forEach(el => {
-			if (pageURL === el.getAttribute('href').substring(1)) {
-				el.classList.add('active');
-			} else {
-				el.classList.remove('active');
-			}
-		});
+    let links = document.querySelectorAll(".app_header nav ul li a");
+    let linksMobile = document.querySelectorAll(".mobile-nav ul li a");
+    links.forEach((el) => {
+      if (pageURL == el.getAttribute("href").substring(1)) {
+        el.classList.add("active");
+      } else {
+        el.classList.remove("active");
+      }
+    });
+    linksMobile.forEach((el) => {
+      if (pageURL == el.getAttribute("href").substring(1)) {
+        el.classList.add("active");
+      } else {
+        el.classList.remove("active");
+      }
+    });
   };
-	setActiveNavLink();
+  setActiveNavLink();
+
+	window.addEventListener('DOMContentLoaded', (e) => {
+		setActiveNavLink();
+	});
 
   return (
     <>
@@ -66,63 +78,22 @@ const Navbar = ({ navElements }) => {
         </nav>
       </div>
       <div className="mobile-nav-cont">
-        <nav className="mobile-nav">
-          <div className="mobile-nav-close-btn-cont">
-            <button
-              title="toggle"
-              type="button"
-              className="mobile-nav-close-btn"
-              onClick={(e) =>
-                document.querySelector(".mobile-nav").classList.remove("active")
-              }
-            >
-              <i className="fas fa-times"></i>
-            </button>
-          </div>
-          <ul>
-            <li
-              onClick={(e) =>
-                document.querySelector(".mobile-nav").classList.remove("active")
-              }
-            >
-              <Link to="/profile">
-                <img src={account} alt={"userimage"} loading="lazy" />
-              </Link>
-            </li>
-            {navElements.map((li) => (
-              <li
-                onClick={(e) =>
-                  document
-                    .querySelector(".mobile-nav")
-                    .classList.remove("active")
-                }
-                key={li.text.toString()}
-              >
-                <Link to={{ pathname: li.link, state: li.state }}>
-                  {li.text}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
         <div className="mobile-nav-toggle-btn-cont">
           <button
             role="button"
             aria-label="toggle mobile nav"
-            title="toggle"
+            title="toggle mobile nav"
             type="button"
             className="mobile-nav-toggle-btn"
             onClick={(e) =>
               document.querySelector(".mobile-nav").classList.toggle("active")
             }
           >
-            <img
-              role="img"
-              aria-label="mobile toggle icon"
-              src={mobileMenuToggleIcon}
-              alt="mobile menu toggle"
-              loading="lazy"
-            />
+						<svg id="mobile-nav-toggle-btn-svg" width="33" height="25" viewBox="0 0 33 25" fill="none" xmlns="http://www.w3.org/2000/svg" alt="mobile menu toggle" aria-label="mobile toggle icon">
+							<path d="M1.71875 12.5H31.2812" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+							<path d="M1.71875 1.75H31.2812" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+							<path d="M1.71875 23.25H31.2812" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+						</svg>
           </button>
         </div>
         <Search screenType={2} />

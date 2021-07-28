@@ -117,119 +117,112 @@ const ShoppingListRecipe = () => {
 
   return (
     <>
-      {recipe.length >= 1 && shoppinglist.length >= 1 ? (
-        <div className="shopping-list-page-cont">
-          <div className="max-width-cont">
-            <div className="selected-recipes-cont">
-              <div className="heading">
-                <h3>Recipes you selected</h3>
-              </div>
-              <div className="selected-recipes-listing-cont">
-                {recipe.length > 0 ? (
-                  recipe.map((data, index) => {
-                    return (
-                      <div
-                        id={"selected-recipes-listing-" + index}
-                        className="selected-recipes-listing"
-                        key={data.uniqueID + index + "div"}
-                        onClick={() => selectActiveRecipe(index)}
-                      >
-                        {data.imageURL ? (
-                          <img
-                            loading="lazy"
-                            key={data.imageURL.toString() + index}
-                            src={data.imageURL}
-                            onClick={() => updateOrder(data, index)}
-                          />
-                        ) : (
-                          <>
-                            <img alt="No image found" />
-                          </>
-                        )}
-                      </div>
-                    );
-                  })
-                ) : (
-                  <>
-                    <div className="no-recipes-found">
-                      {/* Add whatever to be shown when no recipes selected! */}
-                      <p>No recipes in your shopping list!!!</p>
-                    </div>
-                  </>
-                )}
-              </div>
+      <div className="shopping-list-page-cont">
+        <div className="max-width-cont">
+          <div className="selected-recipes-cont">
+            <div className="heading">
+              <h3>Recipes you selected</h3>
             </div>
-            <div className="shopping-list-cont">
-              <div className="heading-cont">
-                <div className="heading">
-                  <h3>Your Shopping List</h3>
-                </div>
-                {recipe.length > 0 && (
-                  <>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        const url = `http://44.238.74.165:3000/recipecart/deleteallrecipes`;
-                        const deleteAll = fetch(url, {
-                          method: "DELETE",
-                          headers: {
-                            "Content-type": "application/json",
-                          },
-                          body: JSON.stringify({ userID: user.uid }),
-                        })
-                          .then((r) => r.json())
-                          .then((d) => {
-                            setRecipe([]);
-                            setShoppinglist([]);
-                          });
-                      }}
+            <div className="selected-recipes-listing-cont">
+              {recipe.length > 0 ? (
+                recipe.map((data, index) => {
+                  return (
+                    <div
+                      id={"selected-recipes-listing-" + index}
+                      className="selected-recipes-listing"
+                      key={data.uniqueID + index + "div"}
+                      onClick={() => selectActiveRecipe(index)}
                     >
-                      Clear all
-                    </button>
-                  </>
-                )}
-              </div>
-
-              {shoppinglist.length > 0 && (
-                <div className="shopping-list-listing-cont">
-                  <ShoppingCard
-                    recipeClassName="shopping_cardlist"
-                    recipes={shoppinglist}
-                    onclick={handledelete}
-                  ></ShoppingCard>
-                </div>
+                      {data.imageURL ? (
+                        <img
+                          loading="lazy"
+                          key={data.imageURL.toString() + index}
+                          src={data.imageURL}
+                          onClick={() => updateOrder(data, index)}
+                        />
+                      ) : (
+                        <>
+                          <img alt="No image found" />
+                        </>
+                      )}
+                    </div>
+                  );
+                })
+              ) : (
+                <>
+                  <div className="no-recipes-found">
+                    {/* Add whatever to be shown when no recipes selected! */}
+                    <p>No recipes in your shopping list!!!</p>
+                  </div>
+                </>
               )}
             </div>
-            <div className="grocery-shop-cont display-none">
+          </div>
+          <div className="shopping-list-cont">
+            <div className="heading-cont">
               <div className="heading">
-                <h3>Find the nearby grocery shop</h3>
+                <h3>Your Shopping List</h3>
               </div>
-              <div className="search-container">
-                <input type="text" placeholder="Enter postal code here" />
-                {<Button text="Search nearby shop" />}
+              {recipe.length > 0 && (
+                <>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const url = `http://44.238.74.165:3000/recipecart/deleteallrecipes`;
+                      const deleteAll = fetch(url, {
+                        method: "DELETE",
+                        headers: {
+                          "Content-type": "application/json",
+                        },
+                        body: JSON.stringify({ userID: user.uid }),
+                      })
+                        .then((r) => r.json())
+                        .then((d) => {
+                          setRecipe([]);
+                          setShoppinglist([]);
+                        });
+                    }}
+                  >
+                    Clear all
+                  </button>
+                </>
+              )}
+            </div>
+
+            {shoppinglist.length > 0 ? (
+              <div className="shopping-list-listing-cont">
+                <ShoppingCard
+                  recipeClassName="shopping_cardlist"
+                  recipes={shoppinglist}
+                  onclick={handledelete}
+                ></ShoppingCard>
               </div>
-              <div className="map-cont">
-                <img
-                  src={findStoreImage}
-                  alt="find store image"
-                  loading="lazy"
-                />
-              </div>
+            ) : (
+							<div className="no-shopping-list-cont">
+								<img
+									src={emptyShoppingListImage}
+									alt="Favorite shopping list"
+								/>
+								<Link to="/recipes">
+									<button type="button">Browse Recipes</button>
+								</Link>
+							</div>
+            )}
+          </div>
+          <div className="grocery-shop-cont display-none">
+            <div className="heading">
+              <h3>Find the nearby grocery shop</h3>
+            </div>
+            <div className="search-container">
+              <input type="text" placeholder="Enter postal code here" />
+              {<Button text="Search nearby shop" />}
+            </div>
+            <div className="map-cont">
+              <img src={findStoreImage} alt="find store image" loading="lazy" />
             </div>
           </div>
         </div>
-      ) : (
-        <div className="shopping-list-page-cont">
-          <div className="max-width-cont">
-						<div className="no-shopping-list-cont">
-							<img src={emptyShoppingListImage} alt="Favorite shopping list" />
-							<Link to="/recipes">
-								<button type="button">Browse Recipes</button>
-							</Link>
-						</div>
-					</div>
-				</div>
-      )}
+      </div>
     </>
   );
 };
