@@ -7,10 +7,8 @@ import Modal from "../../composable-components/Modal";
 const RecipeContentMain = ({ recipeData }) => {
   const favRecipe = () => {
     const user = JSON.parse(window.sessionStorage.getItem("user"));
-    let fav = document.querySelector(".recipe-fav-btn > svg");
-    fav.classList.toggle("active");
     const handlelike = () => {
-      if (user && fav.classList.contains("active")) {
+      if (user) {
         const res = fetch("http://44.238.74.165:3000/recipe/updaterecipelike", {
           method: "PUT",
           headers: {
@@ -22,16 +20,27 @@ const RecipeContentMain = ({ recipeData }) => {
           }),
         })
           .then((r) => r.json())
-          .then((d) => document.querySelector("#recipe-favourited-modal").classList.add("active"))
+          .then((d) => document.querySelector(".recipe-fav-btn > svg").classList.toggle("active"), document.querySelector("#recipe-favourited-modal").classList.add("active"))
           .catch((e) => console.log(e));
       }
       if (!user) {
-        // console.log("Not logged in");
         alert("Not logged in");
       }
     };
     handlelike();
   };
+
+	// check if recipe is in favorites
+	const userLoggedIn = JSON.parse(window.sessionStorage.getItem("user"));
+	let recipeFavorited = false;
+	if (userLoggedIn) {
+		if (JSON.parse(sessionStorage.userdata).likes.includes(recipeData.id)) {
+			recipeFavorited = true;
+		} else {
+			recipeFavorited = false;
+		}
+	}
+	// check if recipe is in favorites end
 
   return (
     <div className="recipe-main">
@@ -57,6 +66,9 @@ const RecipeContentMain = ({ recipeData }) => {
                 viewBox="0 0 49 45"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+								className={
+									recipeFavorited ? 'active' : ''
+								}
               >
                 <path
                   d="M46.8243 18.071L35.7795 27.7974L38.5966 42.2289L24.6987 34.9412L10.9738 41.1786L13.4306 26.9485L2.12646 16.3803L17.5445 14.8696L24.2809 2.09277L31.3559 15.3947L46.8243 18.071Z"

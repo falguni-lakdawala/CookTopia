@@ -11,6 +11,7 @@ const Recipes = ({ recipeClassName }) => {
   if (!recipesData.loading) {
     recipearray = recipesData.response.recipes;
   }
+
   return (
     <>
       {!recipesData.loading && (
