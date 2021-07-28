@@ -2,6 +2,7 @@ import React from "react";
 import reactDom from "react-dom";
 import favoriteIcon from "../../../assets/icons/favorite.svg";
 import RecipeContentMainInstructions from "./RecipeContentMainInstructions";
+import Modal from "../../composable-components/Modal";
 
 const RecipeContentMain = ({ recipeData }) => {
   const favRecipe = () => {
@@ -21,7 +22,7 @@ const RecipeContentMain = ({ recipeData }) => {
           }),
         })
           .then((r) => r.json())
-          .then((d) => alert("Succesfully added to your favorites!"))
+          .then((d) => document.querySelector("#recipe-favourited-modal").classList.add("active"))
           .catch((e) => console.log(e));
       }
       if (!user) {
@@ -88,6 +89,14 @@ const RecipeContentMain = ({ recipeData }) => {
           </div>
         </div>
       </div>
+      <Modal
+        id={"recipe-favourited-modal"}
+        message={"Recipe added to your favorites!"}
+      />
+      <Modal
+        id={"recipe-unfavourited-modal"}
+        message={"Recipe removed from your favorites!"}
+      />
     </div>
   );
 };
