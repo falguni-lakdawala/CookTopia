@@ -5,7 +5,7 @@ import emptyShoppingListImage from "../../../assets/illustrations/profile-page/s
 import useFetch from "../../../custom_hooks/useFetch";
 import Checkbox from "../../composable-components/Checkbox";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import {Link} from 'react-router-dom'
 
 const ProfileCard = () => {
   const user = JSON.parse(window.sessionStorage.getItem("user"));
@@ -88,11 +88,11 @@ const ProfileCard = () => {
     }
   }
 
-	const toggleFavRecipesEdit = () => {
-		document.querySelectorAll('.recipe-card-overlay').forEach(el => {
-			el.classList.toggle('active');
-		});
-	}
+const toggleFavRecipesEdit = () => {
+  document.querySelectorAll(".recipe-card-overlay").forEach((el) => {
+    el.classList.toggle("active");
+  });
+};
 
   if (user && favorites.length > 0) {
     return (
