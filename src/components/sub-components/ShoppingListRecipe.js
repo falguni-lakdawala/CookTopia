@@ -13,6 +13,8 @@ const ShoppingListRecipe = () => {
   let init = false;
   let selectedRecipes = true;
 
+  const deleted=useRef({deleted:false})
+
   const user = JSON.parse(window.sessionStorage.getItem("user"));
 
   // Deleting shopping list recipe
@@ -20,8 +22,13 @@ const ShoppingListRecipe = () => {
 
   const handledelete = (e, data) => {
     init = true;
+    deleted.current={deleted:true}
+  setRecipe(recipe.filter((f) => f.uniqueID !== data.uniqueID));
+  setShoppinglist(shoppinglist.filter((f) => f.uniqueID !== data.uniqueID));
+
     // Delete from database.
 
+    if(user){
     const deletefromDB = () => {
       fetch(`http://44.238.74.165:3000/recipecart/deleterecipecart`, {
         method: "DELETE",
@@ -32,13 +39,11 @@ const ShoppingListRecipe = () => {
       })
         .then((r) => r.json())
         .then((d) => {
-          setRecipe(recipe.filter((f) => f.uniqueID !== data.uniqueID));
-          setShoppinglist(
-            shoppinglist.filter((f) => f.uniqueID !== data.uniqueID)
-          );
+        // console.log("Deleted")
         });
     };
     deletefromDB();
+  }
   };
 
   if (user) {
@@ -49,8 +54,8 @@ const ShoppingListRecipe = () => {
 
     if (!selectedRecipes.loading) {
       recipes = selectedRecipes.response;
-      console.log(recipes);
-      if (recipe.length === 0 && !init && recipes.length > 0) {
+      // console.log(recipes);
+      if (recipe.length === 0 && !init && recipes.length > 0&&(!(deleted.current.deleted))) {
         setRecipe(recipes);
         setShoppinglist(recipes);
       }
