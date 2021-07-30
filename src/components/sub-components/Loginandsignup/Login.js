@@ -37,9 +37,14 @@ const Login = () => {
           .then((res) => res.json())
           .then((data) => {
             window.sessionStorage.setItem("userdata", JSON.stringify(data));
+            const visited=window.sessionStorage.getItem('visited')
+            if(visited){
+              history.push('/profile')
+            }else{
             history.push({
               pathname: "/",
             });
+          }
           })
           .catch((error) => {
             alert("User login failed");

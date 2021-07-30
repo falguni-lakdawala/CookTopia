@@ -95,6 +95,7 @@ const ProfileCard = () => {
   };
 
   if (user) {
+    document.title=user.displayName.split(' ')[0]
     return (
       <div className="profile-cont">
         <div className="max-width-cont">
@@ -232,7 +233,7 @@ const ProfileCard = () => {
     );
   }
   if (!user) {
-
+window.sessionStorage.setItem('visited',true)
     return <Redirect to='/login' />
   }
 };

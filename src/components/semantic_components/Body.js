@@ -15,7 +15,6 @@ import SearchResults from "../sub-components/Search/SearchResults";
 
 const Body = () => {
   const location = useLocation();
-  console.log(location)
   const props1 = {
     placeholder: "Subject",
     title: "Subject",
