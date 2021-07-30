@@ -25,7 +25,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "aws-deploy": "npm run build && aws s3 sync build/ s3://cooktopia"
+    "aws-deploy": "npm run build && aws s3 sync build/ s3://www.cooktopia.ca"
   },
   "browserslist": {
     "production": [

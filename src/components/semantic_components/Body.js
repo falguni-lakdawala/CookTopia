@@ -38,7 +38,8 @@ const Body = () => {
     // Routes will be defined here
     <>
       <main role="main" className="app_body">
-        {location.pathname === "/home" && (
+        {location.pathname === "/login" && <Login />}
+        {location.pathname === "/" && (
           <>
             <Blindbox />
             <Recipes />
@@ -52,11 +53,7 @@ const Body = () => {
             />
           </>
         )}
-        {location.pathname === "/" && (
-          <>
-            <Login />
-          </>
-        )}
+
         {location.pathname === "/shoppinglist" && (
           <>
             <ShoppingListRecipe />
