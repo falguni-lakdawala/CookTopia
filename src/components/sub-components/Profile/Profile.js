@@ -16,30 +16,29 @@ const ProfileCard = () => {
   const [favorites, setFavorites] = useState([]);
   const [shoppinglist, setShoppinglist] = useState([]);
   let init = false;
-  let deleted=useRef({fav:false,shopping:false});
+  let deleted = useRef({ fav: false, shopping: false });
 
+  const removeFavorite = (data) => {
+    deleted.current = { ...deleted, fav: true };
+    const fav = favorites.filter((f) => f.id !== data.id);
 
-const removeFavorite=(data)=>{
-  deleted.current={...deleted,fav:true}
-  const fav=favorites.filter(f=>f.id!==data.id)
-
-  fetch(`http://44.238.74.165:3000/recipe/updaterecipedislike`, {
-    method: "PUT",
-    headers: {
-      "Content-type": "application/json",
-    },
-    body: JSON.stringify({ recipeID: data.id, userID: user.uid }),
-  })
-    .then((r) => r.json())
-    .then((d) =>{
-    setFavorites(f=>f.filter(f=>f.id!==data.id))
+    fetch(`http://44.238.74.165:3000/recipe/updaterecipedislike`, {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ recipeID: data.id, userID: user.uid }),
     })
-    .catch((e) => console.log(e));
-}
+      .then((r) => r.json())
+      .then((d) => {
+        setFavorites((f) => f.filter((f) => f.id !== data.id));
+      })
+      .catch((e) => console.log(e));
+  };
 
   const updateShoppingList = (data) => {
     init = true;
-    deleted.current={...deleted,shopping:true}
+    deleted.current = { ...deleted, shopping: true };
 
     const deletefromDB = () => {
       fetch(`http://44.238.74.165:3000/recipecart/deleterecipecart`, {
@@ -80,14 +79,23 @@ const removeFavorite=(data)=>{
     shopping = useFetch(`http://44.238.74.165:3000/recipecartlist/${user.uid}`);
     if (!shopping.loading) {
       shoppingListData = shopping.response;
-      if (shoppinglist.length === 0 && !init && shoppingListData.length > 0&&!(deleted.current.shopping)) {
+      if (
+        shoppinglist.length === 0 &&
+        !init &&
+        shoppingListData.length > 0 &&
+        !deleted.current.shopping
+      ) {
         setShoppinglist(shoppingListData);
       }
     }
     if (!results.loading) {
       favRecipesData = results.response;
-      if (favorites.length === 0 && favRecipesData.length > 0&&!(deleted.current.fav)) {
-        console.log("Data loaded")
+      if (
+        favorites.length === 0 &&
+        favRecipesData.length > 0 &&
+        !deleted.current.fav
+      ) {
+        console.log("Data loaded");
         setFavorites(favRecipesData);
       }
     }
@@ -100,7 +108,7 @@ const removeFavorite=(data)=>{
   };
 
   if (user) {
-    document.title=user.displayName.split(' ')[0]
+    document.title = user.displayName.split(" ")[0];
     return (
       <div className="profile-cont">
         <div className="max-width-cont">
@@ -135,15 +143,17 @@ const removeFavorite=(data)=>{
           <div className="favorite-recipes-cont">
             <div className="heading">
               <h2>Favorite Recipes</h2>
-             {favorites.length>0&& <div className="favorite-recipes-edit-cont">
-                <button
-                  className="favorite-recipes-edit-btn"
-                  type="button"
-                  onClick={() => toggleFavRecipesEdit()}
-                >
-                  Edit
-                </button>
-              </div>}
+              {favorites.length > 0 && (
+                <div className="favorite-recipes-edit-cont">
+                  <button
+                    className="favorite-recipes-edit-btn"
+                    type="button"
+                    onClick={() => toggleFavRecipesEdit()}
+                  >
+                    Edit
+                  </button>
+                </div>
+              )}
             </div>
             {favorites.length > 0 ? (
               <div className="favorite-recipes-listing-cont">
@@ -154,7 +164,7 @@ const removeFavorite=(data)=>{
                       <div
                         id={`remove-favorite-recipe-${index}`}
                         className="recipe-card-overlay"
-                        onClick={()=>removeFavorite(data)}
+                        onClick={() => removeFavorite(data)}
                       >
                         <div
                           className="text"
@@ -169,12 +179,12 @@ const removeFavorite=(data)=>{
               </div>
             ) : (
               <>
-              {!results.loading&&
-              <div className="no-favorite-recipes-cont">
-                <img src={favrecipe} alt="Favorite recipe illustration" />
-                <button type="button">Search more recipes</button>
-              </div>
-  }
+                {!results.loading && (
+                  <div className="no-favorite-recipes-cont">
+                    <img src={favrecipe} alt="Favorite recipe illustration" />
+                    <button type="button">Search more recipes</button>
+                  </div>
+                )}
               </>
             )}
           </div>
@@ -248,8 +258,8 @@ const removeFavorite=(data)=>{
     );
   }
   if (!user) {
-window.sessionStorage.setItem('visited',true)
-    return <Redirect to='/login' />
+    window.sessionStorage.setItem("visited", true);
+    return <Redirect to="/login" />;
   }
 };
 
