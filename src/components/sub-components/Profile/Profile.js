@@ -232,6 +232,7 @@ const ProfileCard = () => {
     );
   }
   if (!user) {
+
     return <Redirect to='/' />
   }
 };
