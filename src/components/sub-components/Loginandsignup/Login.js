@@ -38,7 +38,7 @@ const Login = () => {
           .then((data) => {
             window.sessionStorage.setItem("userdata", JSON.stringify(data));
             history.push({
-              pathname: "/home",
+              pathname: "/",
             });
           })
           .catch((error) => {

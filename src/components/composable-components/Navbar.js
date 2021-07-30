@@ -43,7 +43,7 @@ const Navbar = ({ navElements }) => {
   return (
     <>
       <div className="logo">
-        <Link to="/home">
+        <Link to="/">
           <img
             className="desktop-header-logo"
             src={logoLarge}

@@ -15,6 +15,7 @@ import SearchResults from "../sub-components/Search/SearchResults";
 
 const Body = () => {
   const location = useLocation();
+  console.log(location)
   const props1 = {
     placeholder: "Subject",
     title: "Subject",
@@ -38,6 +39,7 @@ const Body = () => {
     // Routes will be defined here
     <>
       <main role="main" className="app_body">
+        {location.pathname === "/login" && <Login />}
         {location.pathname === "/" && (
           <>
             <Blindbox />
@@ -52,11 +54,7 @@ const Body = () => {
             />
           </>
         )}
-        {location.pathname === "/login" && (
-          <>
-            <Login />
-          </>
-        )}
+
         {location.pathname === "/shoppinglist" && (
           <>
             <ShoppingListRecipe />

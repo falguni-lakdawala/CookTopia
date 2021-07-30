@@ -233,7 +233,7 @@ const ProfileCard = () => {
   }
   if (!user) {
 
-    return <Redirect to='/' />
+    return <Redirect to='/login' />
   }
 };
 
