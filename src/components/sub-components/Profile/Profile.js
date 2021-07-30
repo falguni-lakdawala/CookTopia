@@ -4,7 +4,7 @@ import favrecipe from "../../../assets/illustrations/homepage-features/favourite
 import emptyShoppingListImage from "../../../assets/illustrations/profile-page/shoppinglist-not-found.svg";
 import useFetch from "../../../custom_hooks/useFetch";
 import Checkbox from "../../composable-components/Checkbox";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 
 const ProfileCard = () => {
@@ -16,26 +16,30 @@ const ProfileCard = () => {
   const [favorites, setFavorites] = useState([]);
   const [shoppinglist, setShoppinglist] = useState([]);
   let init = false;
+  let deleted=useRef({fav:false,shopping:false});
 
-  const handledislike = (data) => {
-    const url = `http://44.238.74.165:3000/recipe/updaterecipedislike`;
 
-    const updateDisLike = async () => {
-      const updatedislike = await fetch(url, {
-        method: "PUT",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({ recipeID: data.id, userID: user.id }),
-      });
+const removeFavorite=(data)=>{
+  deleted.current={...deleted,fav:true}
+  const fav=favorites.filter(f=>f.id!==data.id)
 
-      const data = await updateDisLike.json();
-      console.log(data);
-    };
-  };
+  fetch(`http://44.238.74.165:3000/recipe/updaterecipedislike`, {
+    method: "PUT",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify({ recipeID: data.id, userID: user.uid }),
+  })
+    .then((r) => r.json())
+    .then((d) =>{
+    setFavorites(f=>f.filter(f=>f.id!==data.id))
+    })
+    .catch((e) => console.log(e));
+}
 
   const updateShoppingList = (data) => {
     init = true;
+    deleted.current={...deleted,shopping:true}
 
     const deletefromDB = () => {
       fetch(`http://44.238.74.165:3000/recipecart/deleterecipecart`, {
@@ -76,13 +80,14 @@ const ProfileCard = () => {
     shopping = useFetch(`http://44.238.74.165:3000/recipecartlist/${user.uid}`);
     if (!shopping.loading) {
       shoppingListData = shopping.response;
-      if (shoppinglist.length === 0 && !init && shoppingListData.length > 0) {
+      if (shoppinglist.length === 0 && !init && shoppingListData.length > 0&&!(deleted.current.shopping)) {
         setShoppinglist(shoppingListData);
       }
     }
     if (!results.loading) {
       favRecipesData = results.response;
-      if (favorites.length === 0 && favRecipesData.length > 0) {
+      if (favorites.length === 0 && favRecipesData.length > 0&&!(deleted.current.fav)) {
+        console.log("Data loaded")
         setFavorites(favRecipesData);
       }
     }
@@ -130,7 +135,7 @@ const ProfileCard = () => {
           <div className="favorite-recipes-cont">
             <div className="heading">
               <h2>Favorite Recipes</h2>
-              <div className="favorite-recipes-edit-cont">
+             {favorites.length>0&& <div className="favorite-recipes-edit-cont">
                 <button
                   className="favorite-recipes-edit-btn"
                   type="button"
@@ -138,7 +143,7 @@ const ProfileCard = () => {
                 >
                   Edit
                 </button>
-              </div>
+              </div>}
             </div>
             {favorites.length > 0 ? (
               <div className="favorite-recipes-listing-cont">
@@ -149,18 +154,28 @@ const ProfileCard = () => {
                       <div
                         id={`remove-favorite-recipe-${index}`}
                         className="recipe-card-overlay"
+                        onClick={()=>removeFavorite(data)}
                       >
-                        <div className="text">Remove</div>
+                        <div
+                          className="text"
+                          onClick={() => removeFavorite(data)}
+                        >
+                          Remove
+                        </div>
                       </div>
                     </div>
                   </div>
                 ))}
               </div>
             ) : (
+              <>
+              {!results.loading&&
               <div className="no-favorite-recipes-cont">
                 <img src={favrecipe} alt="Favorite recipe illustration" />
                 <button type="button">Search more recipes</button>
               </div>
+  }
+              </>
             )}
           </div>
           <div className="shopping-list-cont">
