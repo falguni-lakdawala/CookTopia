@@ -12,6 +12,7 @@ const Search = ({ screenType }) => {
       document.querySelectorAll(".search")[0].classList.toggle("active");
     } else if (screenType === 2) {
       document.querySelectorAll(".search")[1].classList.toggle("active");
+			document.querySelector(".mobile-nav-toggle-btn").classList.toggle("display-none");
     }
   };
 
