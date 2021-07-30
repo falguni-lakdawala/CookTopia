@@ -11,7 +11,7 @@ const MyResponsivePie = ({ data /* see data tab */ }) => (
         const data=input.datum.data
       return <div>{data.value+" "+data.unit}</div>;
     }}
-    margin={{ top: 40, right: 80, bottom: 40, left: 80 }}
+    margin={{ top: 40, right: 100, bottom: 40, left: 100 }}
     innerRadius={0.4}
     padAngle={2}
     cornerRadius={4}
