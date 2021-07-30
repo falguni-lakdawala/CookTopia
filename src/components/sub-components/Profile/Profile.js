@@ -234,7 +234,9 @@ const ProfileCard = () => {
   if (!user) {
     return (
       <div className="no-user">
-        <p>User not logged in !!!! </p>
+        <p>
+          Please <Link to="/">login</Link> to continue
+        </p>
       </div>
     );
   }
