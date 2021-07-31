@@ -1,7 +1,7 @@
 
 # Access project here
 
-[Cooktopia](http://cooktopia.s3-website-us-west-2.amazonaws.com/)
+[Cooktopia](http://www.cooktopia.ca)
 
 
 # Navigating through the project code
