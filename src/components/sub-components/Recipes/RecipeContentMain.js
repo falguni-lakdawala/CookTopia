@@ -9,10 +9,7 @@ const RecipeContentMain = ({ recipeData }) => {
   const userdata = JSON.parse(window.sessionStorage.getItem("userdata"));
 
   useEffect(() => {
-    if (userdata) {
-      const isfav=(userdata.likes).includes(recipeData.id)
-      if(isfav) document.querySelector(".recipe-fav-btn > svg").setAttribute('class','active')
-    }
+   
     return()=>{
 
     }
