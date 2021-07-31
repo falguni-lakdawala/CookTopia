@@ -260,20 +260,35 @@
 							width: 80vw;
 							height: 80vw;
 							min-width: 280px;
-							min-height: 280px;
+							min-height: 500px;
 							max-width: auto;
 							max-height: auto;
 						}
 
-						text {
-							font-size: 1rem !important;
+						> div:nth-of-type(1) {
+							display: block;
 
-							@media screen and (max-width: 1000px) {
-								font-size: 0.75rem !important;
+							@media screen and (max-width: 700px) {
+								display: none !important;
+							}
+						}
+
+						> div:nth-of-type(2) {
+							display: none;
+
+							@media screen and (max-width: 700px) {
+								display: block !important;
+							}
+						}
+
+						svg {
+							text, rect, circle {
+								transform: scale(1);
+								transition: 0.3s all ease;
 							}
 
-							@media screen and (max-width: 500px) {
-								font-size: 0.5rem !important;
+							text {
+								font-size: 1rem !important;
 							}
 						}
           }
@@ -281,6 +296,10 @@
       }
 
       .instructions-total-calories-cont {
+				@media screen and (max-width: 700px) {
+					display: flex;
+				}
+
         .instructions-total-calories-box {
           display: flex;
           gap: 1rem;
@@ -293,12 +312,19 @@
           font-weight: 500;
           font-size: 1.15rem;
           color: #000000;
+
+					@media screen and (max-width: 700px) {
+						flex: 1;
+						justify-content: space-between;
+						padding: 1rem;
+					}
         }
       }
 
       .recipe-instructions-text-cont {
         ol {
 					padding: 0 0 0 1rem;
+					margin: 0 0 0 .25rem;
 
           li {
             margin: 1rem 0;

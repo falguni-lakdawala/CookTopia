@@ -4,26 +4,52 @@ import { ResponsivePie } from "@nivo/pie";
 // no chart will be rendered.
 // website examples showcase many properties,
 // you'll often use just a few of them.
-const MyResponsivePie = ({ data /* see data tab */ }) => (
+const MyResponsiveChartMobile = ({ data /* see data tab */ }) => (
   <ResponsivePie
     data={data}
     tooltip={(input) => {
         const data=input.datum.data
       return <div>{data.value+" "+data.unit}</div>;
     }}
-    margin={{ top: 40, right: 110, bottom: 40, left: 110 }}
+    margin={{ top: 20, right: 10, bottom: 250, left: 10 }}
     innerRadius={0.4}
     padAngle={2}
     cornerRadius={4}
-    activeOuterRadiusOffset={8}
+    activeOuterRadiusOffset={16}
     borderWidth={1}
     borderColor={{ from: "color", modifiers: [["darker", 0]] }}
+		enableArcLinkLabels={false}
     arcLinkLabelsSkipAngle={0}
     arcLinkLabelsTextColor="#000000"
     arcLinkLabelsThickness={2}
     arcLinkLabelsColor={{ from: "color" }}
-    arcLabelsSkipAngle={0}
+    arcLabelsSkipAngle={10}
     arcLabelsTextColor={{ from: "color", modifiers: [["darker", 10]] }}
+		colors={{ datum: 'data.color' }}
+		onMouseEnter={(_data, event) => {
+			const parentElement = event.target.parentElement;
+			let childNumber = 0;
+			parentElement.childNodes.forEach((el, index) => {
+				if (el == event.target) {
+					childNumber = index + 1;
+					parentElement.parentElement.lastChild.childNodes.forEach((el, index) => {
+						if ((index + 1) == childNumber) {
+							el.childNodes.forEach(el => {
+								el.style.transform = 'scale(1.2)';
+							});
+						}
+					})
+				}
+			});
+		}}
+		onMouseLeave={(_data, event) => {
+			const parentElement = event.target.parentElement;
+			parentElement.parentElement.lastChild.childNodes.forEach((el) => {
+				el.childNodes.forEach(el => {
+					el.style.transform = 'scale(1)';
+				});
+			})
+		}}
     defs={[
       {
         id: "dots",
@@ -94,68 +120,68 @@ const MyResponsivePie = ({ data /* see data tab */ }) => (
         id: "lines",
       },
     ]}
-    // legends={[
-    //   {
-    //     anchor: "bottom",
-    //     direction: "row",
-    //     justify: false,
-    //     translateX: 0,
-    //     translateY: 56,
-    //     itemsSpacing: 0,
-    //     itemWidth: 100,
-    //     itemHeight: 18,
-    //     itemTextColor: "#999",
-    //     itemDirection: "left-to-right",
-    //     itemOpacity: 1,
-    //     symbolSize: 18,
-    //     symbolShape: "circle",
-    //     effects: [
-    //       {
-    //         on: "hover",
-    //         style: {
-    //           itemTextColor: "#000",
-    //         },
-    //       },
-    //     ],
-    //   },
-    // ]}
+    legends={[
+      {
+        anchor: "bottom",
+        direction: "column",
+        justify: false,
+        translateX: -10,
+        translateY: 210,
+        itemsSpacing: 20,
+        itemWidth: 100,
+        itemHeight: 18,
+        itemTextColor: "#000",
+        itemDirection: "left-to-right",
+        itemOpacity: 1,
+        symbolSize: 18,
+        symbolShape: "circle",
+        effects: [
+          {
+            on: "hover",
+            style: {
+              itemTextColor: "#000",
+            },
+          },
+        ],
+      },
+    ]}
   />
 );
 
-MyResponsivePie.defaultProps = {
+MyResponsiveChartMobile.defaultProps = {
   data: [
     {
       id: "Carbohydrates",
       label:"Carbohydrates",
       value: 26.35,
-      color: "hsl(138, 45%, 90%)",
-    },
-    {
-      id: "Sugar",
-      label: "Sugar",
-      value: 9.6,
-      color: "hsl(205, 100%, 83%)",
-    },
-    {
-      id: "Calcium",
-      label: "Calcium",
-      value: 21.87,
-      color: "hsl(0, 100%, 90%)",
-    },
-    {
-      id: "Folate",
-      label: "Folate",
-      value: 15.21,
-      color: "hsl(35, 100%, 72%)",
+      color: "#DAF1E1",
     },
     {
       id: "Vitamin C",
       label: "Vitamin C",
       value: 71.05,
-      color: "hsl(43, 100%, 80%)",
+      color: "#FFE297",
+    },
+    {
+      id: "Folate",
+      label: "Folate",
+      value: 15.21,
+      color: "#FFC470",
+    },
+    {
+      id: "Calcium",
+      label: "Calcium",
+      value: 21.87,
+      color: "#FFCECE",
+    },
+    {
+      id: "Sugar",
+      label: "Sugar",
+      value: 9.6,
+      color: "#AADBFF",
     },
   ],
 };
 
 
-export default MyResponsivePie;
+export default MyResponsiveChartMobile;

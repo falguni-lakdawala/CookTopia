@@ -901,25 +901,48 @@ input, button {
     width: 80vw;
     height: 80vw;
     min-width: 280px;
-    min-height: 280px;
+    min-height: 500px;
     max-width: auto;
     max-height: auto;
   }
 }
 
-.recipe_content > * .recipe-instructions-cont .instructions-graph-cont .instructions-cont-graph .dummy text {
-  font-size: 1rem !important;
+.recipe_content > * .recipe-instructions-cont .instructions-graph-cont .instructions-cont-graph .dummy > div:nth-of-type(1) {
+  display: block;
 }
 
-@media screen and (max-width: 1000px) {
-  .recipe_content > * .recipe-instructions-cont .instructions-graph-cont .instructions-cont-graph .dummy text {
-    font-size: 0.75rem !important;
+@media screen and (max-width: 700px) {
+  .recipe_content > * .recipe-instructions-cont .instructions-graph-cont .instructions-cont-graph .dummy > div:nth-of-type(1) {
+    display: none !important;
   }
 }
 
-@media screen and (max-width: 500px) {
-  .recipe_content > * .recipe-instructions-cont .instructions-graph-cont .instructions-cont-graph .dummy text {
-    font-size: 0.5rem !important;
+.recipe_content > * .recipe-instructions-cont .instructions-graph-cont .instructions-cont-graph .dummy > div:nth-of-type(2) {
+  display: none;
+}
+
+@media screen and (max-width: 700px) {
+  .recipe_content > * .recipe-instructions-cont .instructions-graph-cont .instructions-cont-graph .dummy > div:nth-of-type(2) {
+    display: block !important;
+  }
+}
+
+.recipe_content > * .recipe-instructions-cont .instructions-graph-cont .instructions-cont-graph .dummy svg text, .recipe_content > * .recipe-instructions-cont .instructions-graph-cont .instructions-cont-graph .dummy svg rect, .recipe_content > * .recipe-instructions-cont .instructions-graph-cont .instructions-cont-graph .dummy svg circle {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+
+.recipe_content > * .recipe-instructions-cont .instructions-graph-cont .instructions-cont-graph .dummy svg text {
+  font-size: 1rem !important;
+}
+
+@media screen and (max-width: 700px) {
+  .recipe_content > * .recipe-instructions-cont .instructions-total-calories-cont {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 
@@ -941,8 +964,21 @@ input, button {
   color: #000000;
 }
 
+@media screen and (max-width: 700px) {
+  .recipe_content > * .recipe-instructions-cont .instructions-total-calories-cont .instructions-total-calories-box {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 1rem;
+  }
+}
+
 .recipe_content > * .recipe-instructions-cont .recipe-instructions-text-cont ol {
   padding: 0 0 0 1rem;
+  margin: 0 0 0 .25rem;
 }
 
 .recipe_content > * .recipe-instructions-cont .recipe-instructions-text-cont ol li {
@@ -1673,9 +1709,9 @@ input, button {
   display: -ms-flexbox;
   display: flex;
   gap: 3rem;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1769,6 +1805,7 @@ input, button {
 
 .profile-cont > * .profile-card .profile-data-cont .profile-edit-btn-cont .profile-edit-btn img {
   width: 3rem;
+  display: none;
 }
 
 .profile-cont > * .favorite-recipes-cont {
@@ -3558,8 +3595,45 @@ img {
   transition: 0.1s all ease;
 }
 
+.app_header nav ul li a svg {
+  max-width: 2rem;
+  vertical-align: bottom;
+  -webkit-transition: 0.1s all ease;
+  transition: 0.1s all ease;
+}
+
+.app_header nav ul li a svg path {
+  fill: #000;
+  stroke: #000;
+  -webkit-transition: 0.1s all ease;
+  transition: 0.1s all ease;
+}
+
+.app_header nav ul li a:hover {
+  color: #fb9400;
+}
+
+.app_header nav ul li a:hover svg path {
+  fill: #fb9400;
+  stroke: #fb9400;
+}
+
+.app_header nav ul li a:active {
+  color: #fb9400;
+}
+
+.app_header nav ul li a:active svg path {
+  fill: #fb9400;
+  stroke: #fb9400;
+}
+
 .app_header nav ul li a.active {
   color: #fb9400;
+}
+
+.app_header nav ul li a.active svg path {
+  fill: #fb9400;
+  stroke: #fb9400;
 }
 
 .app_header svg {
@@ -3787,6 +3861,13 @@ img {
   z-index: 1;
   width: 100vw;
   overflow: auto;
+  border-bottom: 2px solid #fb9400;
+}
+
+@media screen and (min-width: 700px) {
+  .mobile-nav {
+    display: none;
+  }
 }
 
 .mobile-nav ul {
