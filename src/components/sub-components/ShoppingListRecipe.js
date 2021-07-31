@@ -13,7 +13,7 @@ const ShoppingListRecipe = () => {
   let init = false;
   let selectedRecipes = true;
 
-  const deleted=useRef({deleted:false})
+  const deleted = useRef({ deleted: false });
 
   const user = JSON.parse(window.sessionStorage.getItem("user"));
 
@@ -22,28 +22,31 @@ const ShoppingListRecipe = () => {
 
   const handledelete = (e, data) => {
     init = true;
-    deleted.current={deleted:true}
-  setRecipe(recipe.filter((f) => f.uniqueID !== data.uniqueID));
-  setShoppinglist(shoppinglist.filter((f) => f.uniqueID !== data.uniqueID));
+    deleted.current = { deleted: true };
+    setRecipe(recipe.filter((f) => f.uniqueID !== data.uniqueID));
+    setShoppinglist(shoppinglist.filter((f) => f.uniqueID !== data.uniqueID));
 
     // Delete from database.
 
-    if(user){
-    const deletefromDB = () => {
-      fetch(`http://44.238.74.165:3000/recipecart/deleterecipecart`, {
-        method: "DELETE",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({ recipeID: data.recipeID, userID: data.userID }),
-      })
-        .then((r) => r.json())
-        .then((d) => {
-        // console.log("Deleted")
-        });
-    };
-    deletefromDB();
-  }
+    if (user) {
+      const deletefromDB = () => {
+        fetch(`http://44.238.74.165:3000/recipecart/deleterecipecart`, {
+          method: "DELETE",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({
+            recipeID: data.recipeID,
+            userID: data.userID,
+          }),
+        })
+          .then((r) => r.json())
+          .then((d) => {
+            // console.log("Deleted")
+          });
+      };
+      deletefromDB();
+    }
   };
 
   if (user) {
@@ -55,7 +58,12 @@ const ShoppingListRecipe = () => {
     if (!selectedRecipes.loading) {
       recipes = selectedRecipes.response;
       // console.log(recipes);
-      if (recipe.length === 0 && !init && recipes.length > 0&&(!(deleted.current.deleted))) {
+      if (
+        recipe.length === 0 &&
+        !init &&
+        recipes.length > 0 &&
+        !deleted.current.deleted
+      ) {
         setRecipe(recipes);
         setShoppinglist(recipes);
       }
@@ -183,6 +191,7 @@ const ShoppingListRecipe = () => {
                       })
                         .then((r) => r.json())
                         .then((d) => {
+                          deleted.current = { deleted: true };
                           setRecipe([]);
                           setShoppinglist([]);
                         });
@@ -203,15 +212,15 @@ const ShoppingListRecipe = () => {
                 ></ShoppingCard>
               </div>
             ) : (
-							<div className="no-shopping-list-cont">
-								<img
-									src={emptyShoppingListImage}
-									alt="Favorite shopping list"
-								/>
-								<Link to="/recipes">
-									<button type="button">Browse Recipes</button>
-								</Link>
-							</div>
+              <div className="no-shopping-list-cont">
+                <img
+                  src={emptyShoppingListImage}
+                  alt="Favorite shopping list"
+                />
+                <Link to="/recipes">
+                  <button type="button">Browse Recipes</button>
+                </Link>
+              </div>
             )}
           </div>
           <div className="grocery-shop-cont display-none">
