@@ -38,7 +38,11 @@ const MyResponsiveChartMobile = ({ data /* see data tab */ }) => (
 					parentElement.parentElement.lastChild.childNodes.forEach((el, index) => {
 						if ((index + 1) == childNumber) {
 							el.childNodes.forEach(el => {
-								el.style.transform = 'scale(1.2) translatex(-1.5px)';
+								if (el.tagName == 'text') {
+									el.style.fontSize = '1.25rem';
+								} else {
+									el.style.transform = 'scale(1.2) translatex(-1.5px)';
+								}
 							});
 						}
 					})
@@ -49,7 +53,11 @@ const MyResponsiveChartMobile = ({ data /* see data tab */ }) => (
 			const parentElement = event.target.parentElement;
 			parentElement.parentElement.lastChild.childNodes.forEach((el) => {
 				el.childNodes.forEach(el => {
-					el.style.transform = 'scale(1) translatex(0)';
+					if (el.tagName == 'text') {
+						el.style.fontSize = '1rem';
+					} else {
+						el.style.transform = 'scale(1) translatex(0)';
+					}
 				});
 			})
 		}}
