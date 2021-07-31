@@ -95,7 +95,6 @@ const ProfileCard = () => {
         favRecipesData.length > 0 &&
         !deleted.current.fav
       ) {
-        console.log("Data loaded");
         setFavorites(favRecipesData);
       }
     }
