@@ -39,10 +39,51 @@
         color: #000000;
         text-decoration: none;
         transition: 0.1s all ease;
+
+				svg {
+					max-width: 2rem;
+					vertical-align: bottom;
+					transition: 0.1s all ease;
+
+					path {
+						fill: #000;
+						stroke: #000;
+						transition: 0.1s all ease;
+					}
+				}
+      }
+
+      a:hover {
+        color: #fb9400;
+
+				svg {
+					path {
+						fill: #fb9400;
+						stroke: #fb9400;
+					}
+				}
+      }
+
+      a:active {
+        color: #fb9400;
+
+				svg {
+					path {
+						fill: #fb9400;
+						stroke: #fb9400;
+					}
+				}
       }
 
       a.active {
         color: #fb9400;
+
+				svg {
+					path {
+						fill: #fb9400;
+						stroke: #fb9400;
+					}
+				}
       }
     }
   }
@@ -252,6 +293,11 @@
 	// height: 100vh;
 	width: 100vw;
 	overflow: auto;
+	border-bottom: 2px solid #fb9400;
+
+	@media screen and (min-width: 700px) {
+		display: none;
+	}
 
 	ul {
 		display: grid;

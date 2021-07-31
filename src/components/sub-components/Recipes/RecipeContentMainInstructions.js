@@ -1,6 +1,7 @@
 import recipeLikeIcon from "../../../assets/icons/recipe-like.svg";
 import recipeDislikeIcon from "../../../assets/icons/recipe-dislike.svg";
-import MyResponsivePie from "../Visualization/MyResponsiveChart";
+import MyResponsiveChartDesktop from "../Visualization/MyResponsiveChartDesktop";
+import MyResponsiveChartMobile from "../Visualization/MyResponsiveChartMobile";
 import { useEffect } from "react";
 import RecipeContentMain from "./RecipeContentMain";
 
@@ -74,36 +75,36 @@ const RecipeContentMainInstructions = ({ recipeData, scrollstat }) => {
         id: "Carbohydrates",
         label: "Carbohydrates",
         value: nutritionData[0].amount,
-        color: "hsl(129, 70%, 50%)",
+        color: "#DAF1E1",
         unit: nutritionData[0].unit,
-      },
-      {
-        id: "Sugar",
-        label: "Sugar",
-        value: nutritionData[1].amount,
-        color: "hsl(221, 70%, 50%)",
-        unit: nutritionData[1].unit,
-      },
-      {
-        id: "Calcium",
-        label: "Calcium",
-        value: nutritionData[2].amount,
-        color: "hsl(1, 70%, 50%)",
-        unit: nutritionData[2].unit,
-      },
-      {
-        id: "Folate",
-        label: "Folate",
-        value: nutritionData[3].amount,
-        color: "hsl(251, 70%, 50%)",
-        unit: nutritionData[3].unit,
       },
       {
         id: "Vitamin C",
         label: "Vitamin C",
         value: nutritionData[4].amount,
-        color: "hsl(299, 70%, 50%)",
+        color: "#FFE297",
         unit: nutritionData[4].unit,
+      },
+      {
+        id: "Folate",
+        label: "Folate",
+        value: nutritionData[3].amount,
+        color: "#FFC470",
+        unit: nutritionData[3].unit,
+      },
+      {
+        id: "Calcium",
+        label: "Calcium",
+        value: nutritionData[2].amount,
+        color: "#FFCECE",
+        unit: nutritionData[2].unit,
+      },
+      {
+        id: "Sugar",
+        label: "Sugar",
+        value: nutritionData[1].amount,
+        color: "#AADBFF",
+        unit: nutritionData[1].unit,
       },
     ],
   };
@@ -114,7 +115,8 @@ const RecipeContentMainInstructions = ({ recipeData, scrollstat }) => {
         <div className="instructions-graph-cont">
           <div className="instructions-cont-graph">
             <div className="dummy">
-              <MyResponsivePie data={data.data} />
+              <MyResponsiveChartDesktop data={data.data} />
+              <MyResponsiveChartMobile data={data.data} />
             </div>
           </div>
         </div>
