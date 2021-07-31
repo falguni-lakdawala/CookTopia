@@ -3,7 +3,6 @@ import recipeDislikeIcon from "../../../assets/icons/recipe-dislike.svg";
 import MyResponsiveChartDesktop from "../Visualization/MyResponsiveChartDesktop";
 import MyResponsiveChartMobile from "../Visualization/MyResponsiveChartMobile";
 import { useEffect } from "react";
-import RecipeContentMain from "./RecipeContentMain";
 
 const RecipeContentMainInstructions = ({ recipeData, scrollstat }) => {
   const nutritionData = recipeData.nutrition.nutrients;

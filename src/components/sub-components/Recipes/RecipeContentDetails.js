@@ -6,6 +6,7 @@ const RecipeContentDetails = ({ recipeData }) => {
   const addtoCart = (data) => {
     if (user) {
       const ingredients = [];
+
       data.extendedIngredients.forEach((i) =>
         ingredients.push({
           id: i.id,
@@ -13,6 +14,7 @@ const RecipeContentDetails = ({ recipeData }) => {
           quantity: i.amount,
           unitofMeasure: i.unit,
         })
+
       );
       const addrecipedata = {
         userID: user.uid,
@@ -22,7 +24,7 @@ const RecipeContentDetails = ({ recipeData }) => {
         ingredients: ingredients,
       };
 
-      const res = fetch("http://44.238.74.165:3000/recipecart/addrecipecart", {
+      fetch("http://44.238.74.165:3000/recipecart/addrecipecart", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -30,12 +32,12 @@ const RecipeContentDetails = ({ recipeData }) => {
         body: JSON.stringify(addrecipedata),
       })
         .then((r) => r.json())
-        .then((d) =>
+        .then(() =>
           document
             .querySelector("#add-to-shopping-list-success-modal")
             .classList.add("active")
         )
-        .catch((e) => alert("Failed to add to shopping list"));
+        .catch(() => alert("Failed to add to shopping list"));
     } else {
       const dataexist = window.sessionStorage.getItem("guestshoppingdata");
       const ingredient = [];
