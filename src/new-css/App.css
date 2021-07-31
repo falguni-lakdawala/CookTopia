@@ -882,7 +882,7 @@ input, button {
   width: 50vw;
   height: 50vw;
   max-width: 520px;
-  max-height: 520px;
+  max-height: 340px;
   min-width: 320px;
   min-height: 320px;
   font-family: 'Avenir' !important;
@@ -935,7 +935,11 @@ input, button {
 }
 
 .recipe_content > * .recipe-instructions-cont .instructions-graph-cont .instructions-cont-graph .dummy svg text {
-  font-size: 1rem !important;
+  font-size: 1rem;
+}
+
+.recipe_content > * .recipe-instructions-cont .instructions-total-calories-cont {
+  padding-bottom: 4rem;
 }
 
 @media screen and (max-width: 700px) {
@@ -943,6 +947,7 @@ input, button {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    padding-bottom: 0;
   }
 }
 

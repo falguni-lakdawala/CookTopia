@@ -7,6 +7,9 @@ import { ResponsivePie } from "@nivo/pie";
 const MyResponsiveChartDesktop = ({ data /* see data tab */ }) => (
   <ResponsivePie
     data={data}
+		theme={{
+			fontSize: 16,
+		}}
     tooltip={(input) => {
         const data=input.datum.data
       return <div>{data.value+" "+data.unit}</div>;
@@ -35,7 +38,7 @@ const MyResponsiveChartDesktop = ({ data /* see data tab */ }) => (
 					parentElement.parentElement.lastChild.childNodes.forEach((el, index) => {
 						if ((index + 1) == childNumber) {
 							el.childNodes.forEach(el => {
-								el.style.transform = 'scale(1.125)';
+								el.style.transform = 'scale(1.125) translatex(-1.5px)';
 							});
 						}
 					})
@@ -46,7 +49,7 @@ const MyResponsiveChartDesktop = ({ data /* see data tab */ }) => (
 			const parentElement = event.target.parentElement;
 			parentElement.parentElement.lastChild.childNodes.forEach((el) => {
 				el.childNodes.forEach(el => {
-					el.style.transform = 'scale(1)';
+					el.style.transform = 'scale(1) translatex(0)';
 				});
 			})
 		}}
