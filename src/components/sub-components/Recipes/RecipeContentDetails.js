@@ -14,7 +14,6 @@ const RecipeContentDetails = ({ recipeData }) => {
           quantity: i.amount,
           unitofMeasure: i.unit,
         })
-
       );
       const addrecipedata = {
         userID: user.uid,
@@ -56,7 +55,7 @@ const RecipeContentDetails = ({ recipeData }) => {
             recipeName: data.title,
             imageURL: data.image,
             ingredients: ingredient,
-            uniqueID:data.id
+            uniqueID: data.id,
           });
           window.sessionStorage.setItem(
             "guestshoppingdata",
@@ -74,7 +73,7 @@ const RecipeContentDetails = ({ recipeData }) => {
               recipeName: data.title,
               imageURL: data.image,
               ingredients: ingredient,
-              uniqueID:data.id
+              uniqueID: data.id,
             },
           ])
         );
@@ -84,7 +83,7 @@ const RecipeContentDetails = ({ recipeData }) => {
       }
     }
   };
-// console.log(recipeData)
+  // console.log(recipeData)
   return (
     <>
       {recipeData && (

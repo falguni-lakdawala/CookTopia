@@ -35,7 +35,7 @@ const RecipeContentMainInstructions = ({ recipeData, scrollstat }) => {
         .then((d) => alert("Succesfully added to your favorites!"))
         .catch((e) => console.log(e));
     } else {
-      console.log("Not logged in");
+      // console.log("Not logged in");
       alert("Not logged in");
     }
   };

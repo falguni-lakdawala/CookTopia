@@ -27,7 +27,7 @@ const ShoppingListRecipe = () => {
     setShoppinglist(shoppinglist.filter((f) => f.uniqueID !== data.uniqueID));
 
     if (!user) {
-      console.log(recipe);
+      // console.log(recipe);
       const prevshop = JSON.parse(
         window.sessionStorage.getItem("guestshoppingdata")
       );
