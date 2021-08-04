@@ -26,6 +26,16 @@ const ShoppingListRecipe = () => {
     setRecipe(recipe.filter((f) => f.uniqueID !== data.uniqueID));
     setShoppinglist(shoppinglist.filter((f) => f.uniqueID !== data.uniqueID));
 
+    if (!user) {
+      // console.log(recipe);
+      const prevshop = JSON.parse(
+        window.sessionStorage.getItem("guestshoppingdata")
+      );
+      window.sessionStorage.setItem(
+        "guestshoppingdata",
+        JSON.stringify(shoppinglist)
+      );
+    }
     // Delete from database.
 
     if (user) {
@@ -76,7 +86,7 @@ const ShoppingListRecipe = () => {
     );
     if (guestshoppinglist) {
       recipes = guestshoppinglist;
-      if (recipe.length === 0) {
+      if (recipe.length === 0 && !deleted.current.deleted) {
         setRecipe(recipes);
         setShoppinglist(recipes);
       }

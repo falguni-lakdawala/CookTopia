@@ -5,9 +5,10 @@ import emptyShoppingListImage from "../../../assets/illustrations/profile-page/s
 import useFetch from "../../../custom_hooks/useFetch";
 import Checkbox from "../../composable-components/Checkbox";
 import { useRef, useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 
 const ProfileCard = () => {
+  const history = useHistory();
   const user = JSON.parse(window.sessionStorage.getItem("user"));
   let results;
   let shoppingListData;
@@ -20,7 +21,6 @@ const ProfileCard = () => {
 
   const removeFavorite = (data) => {
     deleted.current = { ...deleted, fav: true };
-    const fav = favorites.filter((f) => f.id !== data.id);
 
     fetch(`http://44.238.74.165:3000/recipe/updaterecipedislike`, {
       method: "PUT",
@@ -30,7 +30,7 @@ const ProfileCard = () => {
       body: JSON.stringify({ recipeID: data.id, userID: user.uid }),
     })
       .then((r) => r.json())
-      .then((d) => {
+      .then(() => {
         setFavorites((f) => f.filter((f) => f.id !== data.id));
       })
       .catch((e) => console.log(e));
@@ -49,7 +49,7 @@ const ProfileCard = () => {
         body: JSON.stringify({ recipeID: data.recipeID, userID: data.userID }),
       })
         .then((r) => r.json())
-        .then((d) => {
+        .then(() => {
           setShoppinglist((shoppinglist) =>
             shoppinglist.filter((f) => f._id !== data._id)
           );
@@ -181,7 +181,7 @@ const ProfileCard = () => {
                 {!results.loading && (
                   <div className="no-favorite-recipes-cont">
                     <img src={favrecipe} alt="Favorite recipe illustration" />
-                    <button type="button">Search more recipes</button>
+                    <button type="button" onClick={() => history.push("/recipes")}>Search more recipes</button>
                   </div>
                 )}
               </>
@@ -239,7 +239,12 @@ const ProfileCard = () => {
                     alt="Favorite shopping list"
                   />
                   <Link to="/recipes">
-                    <button type="button">Browse Recipes</button>
+                    <button
+                      type="button"
+                      onClick={() => history.push("/recipes")}
+                    >
+                      Browse Recipes
+                    </button>
                   </Link>
                 </div>
               )}
