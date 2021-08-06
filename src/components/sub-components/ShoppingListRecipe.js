@@ -5,6 +5,7 @@ import findStoreImage from "../../assets/illustrations/shopping-list/find-store.
 import emptyShoppingListImage from "../../assets/illustrations/shopping-list/empty-shopping-list.svg";
 import useFetch from "../../custom_hooks/useFetch";
 import { Link } from "react-router-dom";
+import noRecipeSelected from "../../assets/illustrations/shopping-list/no-recipes-selected.jpg";
 
 const ShoppingListRecipe = () => {
   let recipes;
@@ -173,10 +174,18 @@ const ShoppingListRecipe = () => {
                 })
               ) : (
                 <>
-                  <div className="no-recipes-found">
-                    {/* Add whatever to be shown when no recipes selected! */}
-                    <p>No recipes in your shopping list!!!</p>
-                  </div>
+									<div id="selected-recipes-listing-1" className="selected-recipes-listing" >
+										<img src={noRecipeSelected} alt="no recipe selected" />
+									</div>
+									<div id="selected-recipes-listing-1" className="selected-recipes-listing" >
+										<img src={noRecipeSelected} alt="no recipe selected" />
+									</div>
+									<div id="selected-recipes-listing-1" className="selected-recipes-listing" >
+										<img src={noRecipeSelected} alt="no recipe selected" />
+									</div>
+									<div id="selected-recipes-listing-1" className="selected-recipes-listing" >
+										<img src={noRecipeSelected} alt="no recipe selected" />
+									</div>
                 </>
               )}
             </div>
