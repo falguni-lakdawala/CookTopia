@@ -11,8 +11,18 @@ const MyResponsiveChartDesktop = ({ data /* see data tab */ }) => (
 			fontSize: 16,
 		}}
     tooltip={(input) => {
-        const data=input.datum.data
-      return <div>{data.value+" "+data.unit}</div>;
+      const data=input.datum.data
+      return (
+				<div className="graph-tooltip">
+					<div className="color-cont">
+						<div className="color" style={{backgroundColor: data.color}}></div>
+					</div>
+					<div className="text-cont">
+						<div className="label">{`${data.label} :`}</div>
+						<div className="value">{data.value + ' ' + data.unit}</div>
+					</div>
+				</div>
+			);
     }}
     margin={{ top: 10, right: 200, bottom: 10, left: 20 }}
     innerRadius={0.4}

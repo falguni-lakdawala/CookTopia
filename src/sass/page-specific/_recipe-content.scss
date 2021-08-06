@@ -291,6 +291,35 @@
 								font-size: 1rem;
 							}
 						}
+
+						.graph-tooltip {
+							display: flex;
+							gap: 0.5rem;
+							background-color: #fff;
+							border-radius: 4px;
+							padding: 0.5rem;
+							justify-content: center;
+							align-items: center;
+							box-shadow: 0px 0px 3px 1px rgb(212, 212, 212);
+
+							.color-cont {
+								.color {
+									height: 1rem;
+									width: 1rem;
+								}
+							}
+
+							.text-cont {
+								display: flex;
+								gap: 0.25rem;
+								justify-content: center;
+								align-items: center;
+
+								.value {
+									font-weight: 600;
+								}
+							}
+						}
           }
         }
       }
