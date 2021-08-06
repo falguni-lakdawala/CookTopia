@@ -114,6 +114,7 @@ const RecipeContentMainInstructions = ({ recipeData, scrollstat }) => {
         <div className="instructions-graph-cont">
           <div className="instructions-cont-graph">
             <div className="dummy">
+							{console.log('data.data', data.data)}
               <MyResponsiveChartDesktop data={data.data} />
               <MyResponsiveChartMobile data={data.data} />
             </div>
