@@ -16,16 +16,25 @@
 
 			.selected-recipes-listing-cont {
 				display: flex;
+				flex-wrap: nowrap;
+				justify-content: start;
 				gap: 2rem;
+				padding: 1rem 5px 2rem 5px;
 				overflow: auto;
-				padding: 1rem 5px;
 				cursor: pointer;
 
 				.selected-recipes-listing {
+					flex: 1;
 					max-width: 250px;
+					min-width: 250px;
 					box-shadow: 0px 0px 0px 5px #CFCDCD;
 					cursor: pointer;
 					transition: all .3s ease;
+
+					@media screen and (max-width: 700px) {
+						max-width: 200px;
+						min-width: 200px;
+					}
 
 					img {
 						width: 100%;
