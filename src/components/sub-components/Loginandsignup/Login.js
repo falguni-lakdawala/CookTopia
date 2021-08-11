@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import firebase from "firebase/app";
 import "firebase/auth";
 import { auth } from "./firebase";
+import googleSignIn from "../../../assets/icons/google-signin.png";
 
 const Login = () => {
   const history = useHistory();
@@ -105,6 +106,19 @@ const Login = () => {
             className="login-inputs-register-btn"
           >
             Register
+          </button>
+					<p>OR</p>
+          <button
+            title="login"
+            role="button"
+            aria-label="login"
+            className="login-inputs-login-btn google-signin"
+            type="button"
+            onClick={() => {
+              googleLogin();
+            }}
+          >
+            <img src={googleSignIn} alt="" />
           </button>
         </div>
       </div>
