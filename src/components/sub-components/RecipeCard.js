@@ -1,4 +1,4 @@
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 
 const RecipeCard = ({ recipeData }) => {
   const history = useHistory();

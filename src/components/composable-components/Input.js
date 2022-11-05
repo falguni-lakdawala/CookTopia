@@ -1,29 +1,41 @@
+import React from "react";
+// import PropTypes from 'prop-types';
 
-import React from 'react'
-import PropTypes from 'prop-types';
+const Input = ({
+  title,
+  type,
+  style,
+  size,
+  autocomplete,
+  placeholder,
+  required,
+}) => {
+  return (
+    <input
+      title={title}
+      type={type}
+      style={style}
+      size={size}
+      autoComplete={autocomplete}
+      placeholder={placeholder}
+      required={required}
+    ></input>
+  );
+};
 
-const Input = ({title,type,style,size,autocomplete,placeholder,required}) => {
-    return (
+// Input.propTypes={
+//     tiltle:PropTypes.string,
+//     type:PropTypes.string,
+// }
 
-            <input  title={title} type={type} style={style} size={size} autoComplete={autocomplete} placeholder={placeholder} required={required}></input>
-            
-    )
-}
+Input.defaultProps = {
+  title: "Input",
+  type: "text",
+  style: {},
+  size: "15",
+  autoComplete: "on",
+  placeholder: "Type your text",
+  required: "",
+};
 
-
-Input.propTypes={
-    tiltle:PropTypes.string,
-    type:PropTypes.string,
-}
-
-Input.defaultProps={
-    title:"Input",
-    type:"text",
-    style:{},
-    size:"15",
-    autoComplete:"on",
-    placeholder:"Type your text",
-    required:""
-}
-
-export default Input
+export default Input;

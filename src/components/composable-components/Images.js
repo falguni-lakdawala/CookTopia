@@ -1,4 +1,4 @@
-import propTypes from "prop-types";
+// import propTypes from "prop-types";
 import React from "react";
 
 const Images = ({ src, alt }) => {
