@@ -1,4 +1,4 @@
-import propTypes from "prop-types";
+// import propTypes from "prop-types";
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import Search from "./Search";
@@ -106,12 +106,12 @@ const Navbar = ({ navElements }) => {
   );
 };
 
-Navbar.propTypes = {
-  navElements: propTypes.array,
-};
+// Navbar.propTypes = {
+//   navElements: propTypes.array,
+// };
 
-Navbar.defaultProps = {
-  navElements: ["Home", "About"],
-};
+// Navbar.defaultProps = {
+//   navElements: ["Home", "About"],
+// };
 
 export default Navbar;

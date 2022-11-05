@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import RecipeContentDetails from "./RecipeContentDetails";
 import RecipeContentMain from "./RecipeContentMain";
 import RecipeContentMainInstructions from "./RecipeContentMainInstructions";
-import { useLocation } from "react-router";
+import { useLocation } from "react-router-dom";
 import useFetch from "../../../custom_hooks/useFetch";
 
 const RecipeContent = ({ randomdata }) => {
